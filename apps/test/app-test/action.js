@@ -8,6 +8,7 @@ class action {
         this.config = config.current
     }
 
+    
     onInit = ({ component, injections }) => {
         this.component = component
         this.injections = injections
