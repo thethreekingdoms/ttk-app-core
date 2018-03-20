@@ -1,0 +1,121 @@
+.mk-btn{
+	font-size: 12px;
+	&.ant-btn-primary:hover{
+		color: #fff;
+		background-color: @button-hover-color;
+		border-color: @button-hover-color
+	}
+	&.ant-btn{
+		height: 30px;
+		padding: 0 8px;
+	}
+	&.ant-btn-sm{
+		height: 26px;
+	}
+	&.ant-btn-lg{
+		height: 40px;
+	}
+	&-showy{
+		.button-variant-primary(#fff; @showy-color);
+		.mk-btn-group &:not(:first-child):not(:last-child) {
+      		border-right-color: @showy-7;
+      		border-left-color: @showy-7;
+
+      		&:disabled {
+        		border-color: @btn-default-border;
+      		}
+    	}
+
+
+	    .mk-btn-group &:first-child {
+	      	&:not(:last-child) {
+	        	border-right-color: @showy-7;
+		        &[disabled] {
+		          	border-right-color: @btn-default-border;
+		        }
+	     	}	
+	    }
+
+	    .mk-btn-group &:last-child:not(:first-child),
+		    .mk-btn-group & + & {
+		      	border-left-color: @showy-7;
+		      	&[disabled] {
+			        border-left-color: @btn-default-border;
+		      	}
+		    }
+	}
+
+	&-softly{
+		.button-variant-primary(#fff; @softly-color);
+
+		.mk-btn-group &:not(:first-child):not(:last-child) {
+      		border-right-color: @softly-7;
+      		border-left-color: @softly-7;
+
+      		&:disabled {
+        		border-color: @btn-default-border;
+      		}
+    	}
+
+
+	    .mk-btn-group &:first-child {
+	      	&:not(:last-child) {
+	        	border-right-color: @softly-7;
+		        &[disabled] {
+		          	border-right-color: @btn-default-border;
+		        }
+	     	}	
+	    }
+
+	    .mk-btn-group &:last-child:not(:first-child),
+		    .mk-btn-group & + & {
+		      	border-left-color: @softly-7;
+		      	&[disabled] {
+			        border-left-color: @btn-default-border;
+		      	}
+		    }
+	}
+
+	&-bluesky{
+		.button-variant-primary(#fff; @bluesky-color);
+
+		.mk-btn-group &:not(:first-child):not(:last-child) {
+      		border-right-color: @bluesky-7;
+      		border-left-color: @bluesky-7;
+
+      		&:disabled {
+        		border-color: @btn-default-border;
+      		}
+    	}
+
+
+	    .mk-btn-group &:first-child {
+	      	&:not(:last-child) {
+	        	border-right-color: @bluesky-7;
+		        &[disabled] {
+		          	border-right-color: @btn-default-border;
+		        }
+	     	}	
+	    }
+
+	    .mk-btn-group &:last-child:not(:first-child),
+		    .mk-btn-group & + & {
+		      	border-left-color: @bluesky-7;
+		      	&[disabled] {
+			        border-left-color: @btn-default-border;
+		      	}
+		    }
+	}
+	
+	
+	&-group {
+	}
+}
+.ant-modal-body .ant-confirm-body-wrapper .ant-btn{
+	&.ant-btn-primary:hover{
+		color: #fff;
+		background-color: @button-hover-color;
+		border-color: @button-hover-color
+	}
+}
+

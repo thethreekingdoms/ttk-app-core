@@ -1,0 +1,43 @@
+.mk-table-sort{
+    display: inline-block;
+    line-height: 36px;
+    div{
+        display: inline-block;
+    }
+    .icon{
+        display: inline-block;
+        width: 15px;
+        height: 20px;
+        vertical-align: middle;
+        text-align: center;
+        span{
+            line-height: 10px;
+            display: block;
+            width: 15px;
+            height: 8px;
+            position: relative;
+            .edficon{
+                position: absolute;
+                font-size: 15px;
+                cursor: pointer;
+                color: #333;
+                display: inline-block;
+                height: 8px;
+            }
+            .edficon-shang:before, .edficon-xia:before{
+                height: 10px;
+            }
+            .edficon-xia,.edficon-shang{
+                right: 0;
+                top: -3px;
+            }
+          
+        }
+        
+        .active{
+            .edficon{
+                color:@primary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "enterprise develop framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8081 --host 0.0.0.0",
+    "release": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
+    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
+    "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
+    "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
+    "lint": "eslint apps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "flux",
+    "redux",
+    "react-redux",
+    "antd",
+    "immutable"
+  ],
+  "author": "edf team",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "babel-plugin-transform-decorators-legacy",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "antd": "^3.3.0",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.5",
+    "console-polyfill": "^0.3.0",
+    "echarts-for-react": "^2.0.8",
+    "es3ify-webpack-plugin-v2": "0.0.2",
+    "es5-shim": "^4.5.10",
+    "es6-promise": "^4.2.4",
+    "fastclick": "^1.0.6",
+    "fixed-data-table-2": "^0.8.11",
+    "history": "^4.7.2",
+    "html5shiv": "^3.7.3",
+    "immutable": "^3.8.2",
+    "lodash.debounce": "^4.0.8",
+    "lodash.isequal": "^4.5.0",
+    "md5": "^2.2.1",
+    "mk-rc-select": "^1.0.4",
+    "moment": "^2.21.0",
+    "omit.js": "^1.0.0",
+    "prop-types": "^15.6.0",
+    "raf": "^3.4.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-json-tree": "^0.11.0",
+    "react-keydown": "^1.9.7",
+    "react-redux": "^5.0.7",
+    "react-resizable": "^1.7.5",
+    "react-viewer": "^2.3.5",
+    "redux": "^3.7.2",
+    "url-polyfill": "^1.0.11",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-import": "^1.6.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.18",
+    "copy-webpack-plugin": "^4.5.0",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.10",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-markdown": "^1.0.0-beta.7",
+    "eslint-plugin-react": "7.5.1",
+    "eslint-tinker": "^0.4.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.0.6",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "lodash-webpack-plugin": "^0.11.4",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "sinamfe-marauder-debug": "^1.0.0",
+    "style-loader": "^0.20.3",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.2",
+    "webpack-parallel-uglify-plugin": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thethreekingdoms/ttk-app-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thethreekingdoms/ttk-app-core/issues"
+  },
+  "homepage": "https://github.com/thethreekingdoms/ttk-app-core#readme"
+}

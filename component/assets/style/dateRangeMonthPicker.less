@@ -1,0 +1,22 @@
+.mk-dateRangeMonthPicker{
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    min-width:  162px;
+    .ant-calendar-picker{
+        width: 80px;
+        input{
+            font-size: 12px;
+            height: 30px;
+        }
+    }
+    .ant-calendar-picker-icon{
+        right: 8px;
+    }
+    
+}
+.ant-calendar-picker:hover{
+    .ant-calendar-picker-input:not(.ant-input-disabled)+.ant-calendar-picker-icon:after{
+        color: @primary-color;
+    }
+}

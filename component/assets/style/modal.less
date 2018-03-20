@@ -1,0 +1,37 @@
+.mk-modal,.ant-modal {
+    .ant-btn-primary:hover, .ant-btn-primary:focus{
+        color: #fff;
+        background-color: @button-hover-color;
+        border-color: @button-hover-color;
+    }
+    &-footer {
+        text-align: center;
+    }
+    .ant-modal-footer {
+        text-align: center !important;
+    }
+    .ant-modal-header {
+        .ant-modal-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 20px;
+        }
+    }
+}
+
+.mk-confirm {
+    .ant-confirm-body-wrapper {
+        .ant-confirm-title {
+            display: none;
+        }
+        .ant-confirm-btns {
+            float: none;
+            text-align: center;
+            padding-top: 5px;
+            .ant-btn {
+                height: 30px;
+            }
+        }
+    }
+}

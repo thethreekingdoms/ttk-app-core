@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-object-assign",
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-es3-member-expression-literals",
+    "transform-es3-property-literals"
+  ],
+  "ignore": [
+    "jquery.js",
+    "jquery.min.js",
+    "bootstrap.js",
+    "bootstrap.min.js"
+  ]
+}

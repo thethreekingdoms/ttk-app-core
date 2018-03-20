@@ -1,0 +1,272 @@
+@iconBorder: 1px solid #D9D9D9;
+@iconDayin: #45ACF7;
+@iconDaochu: #00B38A;
+@iconDaoru: #FFC000;
+.mk-search{
+    width: 100%;
+    padding-top: 11px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-bottom: none;
+    .mk-normal-search{
+        padding-bottom: 9px;
+        padding-left: 11px;
+        padding-right: 11px;
+        .mk-input{
+            width: 225px;
+            height: 30px;
+            margin-right: 8px;
+            input{
+                font-size: 12px;
+                height: 30px;
+            }
+            
+        }
+        .mk-span{
+            height: 30px;
+        }
+        h2{
+            font-size: 14px;
+            padding: 8px 0;
+        }
+        .mk-span{
+            width: 50px;
+            margin-right: 8px;
+            line-height: 1.1;
+            height: 30px;
+        }
+        .searchBtn{
+            width: 50px;
+            font-size: 12px;
+            line-height: 1.1;
+        }
+        .mk-title-otherBtn{
+            line-height: 30px;
+        }
+        .mk-rangePicker{
+            width: 119px;
+            margin-right: 6px;
+            .ant-input{
+                padding: 4px 2px;
+                height: 30px;
+                line-height: 1.1;
+                input{
+                    font-size: 12px;
+                }
+            }
+        }
+        .mk-rangePicker:hover{
+            .ant-calendar-picker-input:not(.ant-input-disabled)+.ant-calendar-picker-icon:after{
+                color: @primary-color;
+            }
+        }
+    }
+    
+    .edficon{
+        width: 30px;
+        height: 30px;
+        font-size: 28px;
+        border-radius: 5px;
+        border: @iconBorder;
+        cursor: pointer;
+    }
+
+    .edficon-shuaxin, .edficon-dayin{
+        color: @iconDayin;
+    }
+
+    .edficon-shuaxin:hover{
+        border-color: @iconDayin
+    }
+
+    .edficon-dayin:hover{
+        border-color: @iconDayin
+    }
+
+    .edficon-daochu{
+        color: @iconDaochu;
+    }
+
+    .edficon-daochu:hover{
+        border-color: @iconDaochu
+    }
+    
+    .edficon-daoru:hover{
+        border-color: @iconDaoru
+    }
+
+    .ant-select{
+        width: 100%;
+    }
+    .mk-search-high-search{
+        padding: 5px;
+        // position: absolute;
+        // // display: flex;
+        // flex-direction: column;
+        top: -800px;
+        left: 0;
+        /*transition: 0.3s;*/
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #D9D9D9;
+        h2{
+            width: 100%;
+            float: left;
+            font-size: 14px;
+            height: 30px;
+            color: #454545;
+            margin: 0;
+            div{
+                width: 9%;
+                text-indent: 9px;
+            }
+        }
+        .search-form-contaienr{
+            width: 100%;
+            float: left;
+            overflow: auto;
+        }
+        form{
+            // flex: 1;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            float: left;
+        }
+
+        /*
+        .ant-input{
+            border: 1px solid #949393;
+        }
+        .ant-select-selection--single{
+            border: 1px solid #949393;
+        }
+        .ant-input-number{
+            border: 1px solid #949393;
+        }*/
+        .ant-form-item{
+            display: flex;
+            margin: 0 0 10px 0;
+            .ant-select-selection__clear{
+                right: 22px;
+            }
+            .ant-form-item-label{
+                width: 15%;
+                text-align: right;
+                color: rgba(0, 0, 0, 0.65);
+                label{
+                    padding-right: 8px;
+                }
+                label:after{
+                    display: none;
+                    color: #454545;
+                }
+            }
+            .ant-form-item-control-wrapper{
+                width: 85%;
+            }
+            .ant-select-selection-selected-value{
+                padding-right: 0px !important;
+                margin-right: 20px;
+            }
+        }
+        .select_range{
+            width: 50%;
+            float: left;
+            display: flex;
+            line-height: 38px;
+            .select_range_label{
+                width: 18%;
+                text-align: right;
+                color: #454545;
+                padding-right: 8px;
+                box-sizing: border-box;
+            }
+            .ant-form-item-control-wrapper{
+                width: 100%;
+                .ant-calendar-picker{
+                    width: 100%;
+                }
+                .ant-input-number{
+                    width: 100%;
+                }
+            }
+            .select_range_content{
+                padding: 0 4px;
+            }
+        }
+        .mk-search-high-search-bottomBtn{
+            width: 100%;
+            float: left;
+            padding: 10px 0 10px 0;
+            text-align: center;
+            height: 53px;
+            .mk-btn{
+                padding: 0 18px;
+                height: 33px;
+                line-height: 31px;
+                font-size: 14px;
+            }
+        }    
+        .mk_search_row{
+            display: flex;
+            margin-bottom: 6px;
+        }
+        .ant-row{
+            width: 50%;
+        }
+    }
+    .ant-btn{
+        margin-left: 8px;
+    }
+    .FormList{
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 6px 8px;
+        overflow: hidden;
+        .item-list{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin-bottom: 10px;
+            .item-list-top{
+                width: 100%;
+                height: 20px;
+                line-height: 20px;
+                display: flex;
+                .item-list-top-title{
+                    padding-right: 20px;
+                }
+                .item-list-top-line-container{
+                    flex: 1;
+                    cursor: pointer;
+                    .item-list-top-line{
+                        width: 100%;
+                        border-top: 1px dashed #aaa;
+                        position: relative;
+                        top: 10px;
+                    }
+                }
+                .item-list-top-line-action{
+                    padding-left: 20px;
+                    &>span{
+                        margin: 0 5px;
+                        cursor: pointer;
+                        &:hover{
+                            color: @link-color;
+                        }
+                    }
+                }
+            }
+            .item-list-bottom{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                margin: 15px 0 0 0;
+                padding-left: 25px;
+                padding-right: 90px;
+            }
+        }
+    }
+}

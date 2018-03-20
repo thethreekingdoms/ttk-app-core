@@ -1,0 +1,259 @@
+@hoverTdColor: #e6f7f3;
+.mk-table {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .ant-table-thead > tr > th:last-child{
+        border-radius: 0;
+    }
+    .ant-table-thead > tr > th:first-child{
+        border-radius: 0;
+    }
+    table{
+
+        // 凭证管理 强制设置表格的宽度根据设定宽度，不做自适应，如果影响到请这个下面的这个属性放到凭证管理的style.less
+        table-layout:fixed;
+        border-radius: 0px;
+        th{
+            position: relative;
+            &>span:first-child{
+              line-height: 36px;
+            }
+        }
+        td>div{
+          display: inline;
+        }
+        .react-resizable-handle{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            cursor: e-resize;
+        }
+        .table-center-item{
+            text-align: center;
+        }
+    }
+    .ant-table{
+        border-radius: 0;
+    }
+    .ant-table-bordered .ant-table-fixed-right table{
+        border-left-color: #d9d9d9;
+    }
+    .ant-table-fixed-right, .ant-table-fixed-right table{
+        border-radius: 0;
+    }
+
+
+
+    .ant-table .ant-table-fixed tr{
+        background: rgba(0,0,0,0);
+        td{
+            height: 35px;
+            text-overflow: ellipsis;
+            border-right: 1px solid #d9d9d9;
+        }
+        &:hover{
+            // background: #fff !important;
+            td{
+                background: @item-hover-bg;
+            }
+        }
+    }
+    .ant-table .mk-active{
+        background: #fff !important;
+        td{
+            background: @item-hover-bg !important;
+        }
+    }
+    .ant-table .ant-table-fixed .mk-active{
+        background: #fff !important;
+        td{
+            background: @item-hover-bg !important;
+        }
+    }
+    .ant-table .ant-table-fixed tr.mk-active:hover{
+        td{
+            background: @item-hover-bg2 !important;
+        }
+    }
+    .ant-table-fixed-right .ant-table-tbody tr:hover{
+        // background: #fff !important;
+        &>td{
+            background: @item-hover-bg;
+        }
+    }
+    .ant-table-fixed-right .ant-table-tbody .mk-active{
+        // background: @antSelect-selected-color !important;
+        td{
+            background: @item-hover-bg !important;
+        }
+    }
+    .ant-table-tbody{
+        tr:nth-child(odd) {
+            background: rgba(255,255,255,1);
+        }
+        tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        tr:hover {
+            // background: #fff !important;
+            td {
+                background:@item-hover-bg;
+            }
+        }
+    }
+
+
+
+    .ant-table-header{
+        //edge
+        // -ms-scroll-chaining: chained;
+        // -ms-overflow-style: none;
+        // -ms-content-zooming: zoom;
+        // -ms-scroll-rails: none;
+        // -ms-content-zoom-limit-min: 100%;
+        // -ms-content-zoom-limit-max: 500%;
+        // -ms-scroll-snap-type: proximity;
+        // -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+        // -ms-overflow-style: -ms-autohiding-scrollbar;
+      
+
+        //IE11 滚动条对应的颜色
+        scrollbar-base-color: #eaeaea;
+        scrollbar-base-color: #eaeaea;
+        scrollbar-3dlight-color: #eaeaea; 
+        scrollbar-highlight-color: #eaeaea; 
+        scrollbar-track-color: #eaeaea;
+        scrollbar-arrow-color: #eaeaea;
+        scrollbar-shadow-color: #eaeaea;       
+        &::-webkit-scrollbar/*整体部分*/
+        {
+            width: 6px;
+            height:6px;
+            margin-left: 5px;
+            // padding: 0px 2px;
+            // margin: 0px 2px;
+        }
+
+        &::-webkit-scrollbar-track/*滑动轨道*/
+        {
+            -webkit-box-shadow: none;
+            border-radius: 0;
+            background: #eaeaea;
+            margin-left: 5px;
+            padding: 0px 5px;
+            width: 6px;
+            border-left: 1px solid #d9d9d9;
+            border-right: 1px solid #d9d9d9;
+        }
+
+        &::-webkit-scrollbar-thumb/*滑块*/
+        {
+            border-radius: 0;
+            background-color: #eaeaea;
+            padding-top: 4px;
+            width: 6px;
+            -webkit-box-shadow: none;
+            background: #c2c2c2;
+            border-left: 1px solid #d9d9d9;
+            border-right: 1px solid #d9d9d9;
+        }
+
+        &::-webkit-scrollbar-thumb:hover/*滑块效果*/
+        {
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            border-left: 1px solid #d9d9d9;
+            border-right: 1px solid #d9d9d9;
+            background: rgba(114,114,114,0.8);
+        }
+    }
+    .ant-table-body{
+        &::-webkit-scrollbar-track/*滑动轨道*/
+        {
+            -webkit-box-shadow: none;
+            border-radius: 0;
+            background: #eaeaea;
+            margin-left: 5px;
+            padding: 0px 5px;
+            width: 6px;
+            // border-left: 1px solid #d9d9d9;
+            border-right: 1px solid #d9d9d9;
+        }
+    }
+    .ant-table-thead > tr {
+        // height: 36px !important;
+        th {
+            background-color: #eaeaea;
+            color: #333333;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            padding: 0 8px;
+            white-space:nowrap;
+            overflow:hidden;
+            border-color: #d9d9d9;
+            text-overflow:ellipsis;
+            height: 100%;
+        }
+    }
+
+    .ant-table-tbody{
+        background: #cacaca;
+        .table_center{
+            text-align: center;
+        }
+
+        tr{
+            height: 35px !important;
+            box-sizing: border-box;
+        }
+        td {
+            height: 35px !important;
+            font-size: 10px;
+            padding: 0 8px;
+            border-top: 0;
+            border-bottom: 1px solid #d9d9d9;
+            border-left: 0;
+            border-color: #d9d9d9;
+            box-sizing: border-box;
+            color: #333333;
+            font-size: 12px;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        tr:last-child{
+        	td{
+        		border-bottom: 1px solid #d9d9d9;
+        	}
+        }
+    }
+    .mk-table-checkbox{
+        text-align: center;
+        vertical-align: middle;
+        width: 60px !important;
+    }
+    //暂无数据显示的下边框
+    .ant-table-placeholder{
+        border-bottom: none;
+        overflow: hidden;
+    }
+}
+.mk-table.mk-table-loading{
+    position: relative;
+    .ant-spin-nested-loading{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // flex: 1;
+        // position: initial;
+    }
+    .ant-spin-nested-loading > div > .ant-spin{
+        max-height: 100%;
+        // left: 0;
+        // top: 0;
+    }
+}

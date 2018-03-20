@@ -1,0 +1,51 @@
+.mk-pagination{
+    float: right;
+    display: flex;
+    .ant-btn{
+        height: 30px;
+        margin-left: 8px;
+        padding: 0 5px;
+        font-size: 14px;
+    }
+    .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next{
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+        a{
+            height: 30px;
+        }
+    }
+    .ant-pagination-item{
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+        &:hover{
+            a{
+                color: #fff;
+            }
+            background: @primary-color;
+        }
+    }
+    .ant-pagination-options{
+        .ant-pagination-options-size-changer.ant-select{
+            .ant-select-selection--single{
+                height: 30px;
+            }
+        }
+        .ant-pagination-options-quick-jumper{
+            height: 30px;
+            line-height: 30px;
+            input{
+                height: 30px;
+            }
+        }
+    }
+    .ant-select-dropdown{
+        .ant-select-dropdown-menu{
+            width: 100%;
+        }
+        .ant-select-dropdown-menu-item:hover{
+            background: @antSelect-selected-color;
+        }
+    }
+}
