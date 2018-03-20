@@ -37,6 +37,31 @@
 </body>
 
 <script type="text/javascript">
+	window._hmt = window._hmt || [];
+	window._vds = window._vds || [];
+	(function () {
+		//百度统计
+		if (location.hostname.indexOf("debug.aierp.cn") != -1) {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?48e71ccf5b9f3f41587afbca14be2632";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		} else if (location.hostname.indexOf("test.aitaxer.com") != -1) {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?74d33743fbd4baf01e8c5b511545c952";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		} else {
+			window._hmt = {
+				data: [], push: function (a) {
+					this.data.push(a);
+					if (this.data.length > 100) {
+						this.data = [];
+					}
+				}
+			}
+		}
+	})();
     function downloadJSAtOnload() {
         var j = document.createElement("script");
         j.src = "./vendor/jquery.min.js";
