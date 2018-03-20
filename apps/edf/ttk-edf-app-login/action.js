@@ -87,7 +87,7 @@ class action {
         if (!basicInfo) return
         if(other.userInput) {
             if (form.password) {
-                // form.password = md5(form.password + '*the3Kingdom*')
+            	//暂时不加密，密码 md5签名取消
             }
         }
 
@@ -210,8 +210,8 @@ class action {
             else if (mobile.length != 11)
                 message = '请输入正确的手机号'
             else {
-                // let flag = await this.webapi.user.existsMobile(mobile)
-                // !flag && (message = '该手机号未注册，请重新输入')
+                let flag = await this.webapi.user.existsMobile(mobile)
+                !flag && (message = '该手机号未注册，请重新输入')
             }
         } else {
             if (!mobile)
@@ -223,8 +223,8 @@ class action {
             else if(mobile.length > 11) {
                 message = '请输入正确的手机号'
             }else if(mobile.length == 11){
-                // let flag = await this.webapi.user.existsMobile(mobile)
-                // !flag && (message = '该手机号未注册，请重新输入')
+                let flag = await this.webapi.user.existsMobile(mobile)
+                !flag && (message = '该手机号未注册，请重新输入')
             }
         }
         return { errorPath: 'data.other.error.mobile', message }
