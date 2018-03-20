@@ -21,7 +21,7 @@ export function getMeta() {
 					name: 'sitename',
 					component: '::span',
 					className: 'ttk-edf-app-login-header-left-sitename',
-					children: '云ERP'
+					children: 'ERP'
 				}, {
 					name: 'split',
 					component: '::div',
@@ -67,7 +67,7 @@ export function getMeta() {
 							children: [{
 								name: 'item',
 								component: '::p',
-								children: '金财智能管家平台'
+								children: '智能平台'
 							}, {
 								name: 'item',
 								component: '::p',
@@ -183,16 +183,16 @@ export function getMeta() {
 				children: [{
 					name: 'item1',
 					component: '::span',
-					children: '版权所有 © 2017 金财互联数据服务有限公司 粤ICP备'
+					children: 'https://github.com/thethreekingdoms/'
 				}, {
 					name: 'item2',
 					component: '::a',
-					href: 'http://www.miitbeian.gov.cn',
-					children: '14007298'
+					href: 'https://github.com/thethreekingdoms/ttk-app-core',
+					children: 'ttk-app-core'
 				}, {
 					name: 'item3',
 					component: '::span',
-					children: '号'
+					children: ''
 				}]
 			}]
 		}]
