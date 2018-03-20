@@ -20,3 +20,4 @@ stats.json
 .vscode
 jsconfig.json
 package-lock.json
+.idea
