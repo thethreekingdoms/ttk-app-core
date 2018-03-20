@@ -30,7 +30,7 @@ function loadApp(state, {
 }) {
     if (appInfo) {
         //埋点记录所有的打开页面
-        if (appInfo.name != 'edfx-app-root' && appInfo.name != null) {
+        if (appInfo.name != 'ttk-edf-app-root' && appInfo.name != null) {
             _hmt.push(['_trackEvent', appInfo.moduleName || '', appInfo.description || '', appInfo.name])
         }
     }

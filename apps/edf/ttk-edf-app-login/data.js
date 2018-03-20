@@ -3,49 +3,49 @@ export function getMeta() {
 	return {
 		name: 'root',
 		component: 'Layout',
-		className: 'edfx-app-login',
+		className: 'ttk-edf-app-login',
 		children: [{
 			name: 'header',
-			className: 'edfx-app-login-header',
+			className: 'ttk-edf-app-login-header',
 			component: 'Layout',
 			children: [{
 				name: 'header-left',
 				component: 'Layout',
-				className: 'edfx-app-login-header-left',
+				className: 'ttk-edf-app-login-header-left',
 				children: [{
 					name: 'logo',
 					component: '::img',
-					className: 'edfx-app-login-header-left-logo',
+					className: 'ttk-edf-app-login-header-left-logo',
 					src: '{{$getLogo()}}'
 				},{
 					name: 'sitename',
 					component: '::span',
-					className: 'edfx-app-login-header-left-sitename',
+					className: 'ttk-edf-app-login-header-left-sitename',
 					children: '云ERP'
 				}, {
 					name: 'split',
 					component: '::div',
-					className: 'edfx-app-login-header-left-split',
+					className: 'ttk-edf-app-login-header-left-split',
 				}, {
 					name: 'item',
-					className: 'edfx-app-login-header-left-login',
+					className: 'ttk-edf-app-login-header-left-login',
 					component: '::span',
 					children: '企业登录'
 				}]
 			}, {
 				name: 'header-right',
-				className: 'edfx-app-login-header-right',
+				className: 'ttk-edf-app-login-header-right',
 				component: '::a',
 				onClick: '{{$goRegisterA}}',
 				children: ['立即注册']
 			}]
 		}, {
 			name: 'content',
-			className: 'edfx-app-login-content',
+			className: 'ttk-edf-app-login-content',
 			component: 'Layout',
 			children: [{
 				name: 'bgs',
-				className: 'edfx-app-login-content-bgs',
+				className: 'ttk-edf-app-login-content-bgs',
 				component: '::div',
 				children: {
 					name: 'carousel',
@@ -63,7 +63,7 @@ export function getMeta() {
 						}, {
 							name: 'title',
 							component: '::div',
-							className: 'edfx-app-login-content-ad',
+							className: 'ttk-edf-app-login-content-ad',
 							children: [{
 								name: 'item',
 								component: '::p',
@@ -71,7 +71,7 @@ export function getMeta() {
 							}, {
 								name: 'item',
 								component: '::p',
-								children: '广告词预留区域广告词预留区域'	
+								children: '广告词预留区域广告词预留区域'
 							}]
 						}],
 						_power: 'for in data.other.imgs'
@@ -80,24 +80,24 @@ export function getMeta() {
 			}, {
 				name: 'form',
 				component: 'Form',
-				className: 'edfx-app-login-content-form',
+				className: 'ttk-edf-app-login-content-form',
 				onSubmit: '{{$login}}',
 				children: [{
 					name: 'item1',
 					component: 'Form.Item',
-					className: 'edfx-app-login-content-form-title',
+					className: 'ttk-edf-app-login-content-form-title',
 					children: '登录'
 				}, {
 					name: 'item2',
 					component: 'Form.Item',
 					validateStatus: "{{data.other.error.mobile?'error':'success'}}",
 					help: '{{data.other.error.mobile}}',
-					className: 'edfx-app-login-content-form-mobile',
+					className: 'ttk-edf-app-login-content-form-mobile',
 					children: [{
 						name: 'mobile',
 						component: 'Input',
 						placeholder: '请输入手机号',
-						onFocus: "{{function(e){$fieldChange('data.form.mobile', e.target.value)}}}",						
+						onFocus: "{{function(e){$fieldChange('data.form.mobile', e.target.value)}}}",
 						onChange: "{{function(e){$fieldChange('data.form.mobile', e.target.value)}}}",
 						value: '{{data.form.mobile}}',
 						prefix: {
@@ -112,7 +112,7 @@ export function getMeta() {
 					component: 'Form.Item',
 					validateStatus: "{{data.other.error.password?'error':'success'}}",
 					help: '{{data.other.error.password}}',
-					className: 'edfx-app-login-content-form-password',
+					className: 'ttk-edf-app-login-content-form-password',
 					children: [{
 						name: 'password',
 						component: 'Input',
@@ -131,7 +131,7 @@ export function getMeta() {
 				}, {
 					name: 'item4',
 					component: 'Form.Item',
-					className: 'edfx-app-login-content-form-login',
+					className: 'ttk-edf-app-login-content-form-login',
 					children: [{
 						name: 'loginBtn',
 						component: 'Button',
@@ -143,17 +143,17 @@ export function getMeta() {
 				}, {
 					name: 'item5',
 					component: 'Form.Item',
-					className: 'edfx-app-login-content-form-more',
+					className: 'ttk-edf-app-login-content-form-more',
 					children: [{
 						name: 'remember',
 						component: 'Checkbox',
-						className: 'edfx-app-login-content-form-more-remember',
+						className: 'ttk-edf-app-login-content-form-more-remember',
 						checked: '{{data.form.remember}}',
 						onChange: `{{function(e){$fieldChange('data.form.remember', e.target.checked)}}}`,
 						children: '一周内自动登录'
 					}, {
 						name: 'register',
-						className: 'edfx-app-login-content-form-more-register',
+						className: 'ttk-edf-app-login-content-form-more-register',
 						component: '::a',
 						style: { float: 'right' },
 						onClick: '{{$goRegisterB}}',
@@ -165,7 +165,7 @@ export function getMeta() {
 						children: '|'
 					},{
 						name: 'forgot',
-						className: 'edfx-app-login-content-form-more-forget',
+						className: 'ttk-edf-app-login-content-form-more-forget',
 						component: '::a',
 						style: { float: 'right' },
 						onClick: '{{$goForgot}}',
@@ -175,7 +175,7 @@ export function getMeta() {
 			}]
 		}, {
 			name: 'footer',
-			className: 'edfx-app-login-footer',
+			className: 'ttk-edf-app-login-footer',
 			component: 'Layout',
 			children: [{
 				name: 'item1',

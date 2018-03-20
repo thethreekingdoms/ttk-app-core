@@ -2,7 +2,7 @@ import webapi from './webapi'
 
 var _options = {
 	webapi,
-	startAppName: 'edfx-app-root-about'
+	startAppName: 'ttk-edf-app-root-about'
 }
 
 function config(options) {

@@ -17,7 +17,7 @@ class action {
             if (location.href.indexOf('?pro') == -1) {
                 return
             }
-        }*/      
+        }*/
         this.component = component
         let info = {mobile: '', password: '', remember: false}
         let currentTimestamp = (new Date()).getTime()
@@ -25,12 +25,12 @@ class action {
         function getCookie(c_name) {
             if (document.cookie.length>0) {
                 let c_start=document.cookie.indexOf(c_name + "=")
-                if (c_start!=-1) { 
-                    c_start=c_start + c_name.length+1 
+                if (c_start!=-1) {
+                    c_start=c_start + c_name.length+1
                     let c_end=document.cookie.indexOf(";",c_start)
                     if (c_end==-1) c_end=document.cookie.length
                     return unescape(document.cookie.substring(c_start,c_end))
-                } 
+                }
             }
             return ""
         }
@@ -130,7 +130,7 @@ class action {
         if (this.component.props.onRedirect && this.config.goAfterLogin) {
             this.component.props.onRedirect(this.config.goAfterLogin)
         }
-    } 
+    }
 
     goRegisterA = () => {
         this.goRegister()
@@ -147,7 +147,7 @@ class action {
     goRegister = () => {
         document.onkeydown = null
         if (!this.config.apps['edfx-app-register']) {
-            throw '请将这个应用加入到带edfx-app-root和edfx-app-register的网站中，跳转功能才能正常使用'
+            throw '请将这个应用加入到带ttk-edf-app-root和edfx-app-register的网站中，跳转功能才能正常使用'
         }
         if (this.component.props.onRedirect && this.config.goRegister) {
             this.component.props.onRedirect(this.config.goRegister)
@@ -156,7 +156,7 @@ class action {
 
     goForgot = () => {
         if (!this.config.apps['edfx-app-forgot-password']) {
-            throw '请将这个应用加入到带edfx-app-root和edfx-app-forgot-password的网站中，跳转功能才能正常使用'
+            throw '请将这个应用加入到带ttk-edf-app-root和edfx-app-forgot-password的网站中，跳转功能才能正常使用'
         }
         if (this.component.props.onRedirect && this.config.goForgot) {
             this.component.props.onRedirect(this.config.goForgot)
@@ -245,7 +245,7 @@ class action {
     checkLogin = () => {
         let data = this.metaAction.gf('data').toJS()
         return !((data.form.mobile && !data.other.error.mobile) && (data.form.password && !data.other.error.password))
-       
+
     }
 }
 

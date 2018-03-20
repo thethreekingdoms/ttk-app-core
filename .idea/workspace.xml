@@ -2,28 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc4e8b40-c5fa-41fc-885e-c35845fd8ab3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/action.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/config.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/data.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/img/form-bg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/img/login-bg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/mock.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/reducer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/style.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/webapi.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/action.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/config.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/data.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/reducer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/style.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/webapi.js" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/green/login-bg-1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/green/login-bg-2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/green/login-bg-3.jpg" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app-loader/reducer.js" afterPath="$PROJECT_DIR$/app-loader/reducer.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/action.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/action.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/component.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/component.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/config.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/config.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/data.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/data.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/img/form-bg.png" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/img/form-bg.png" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/img/login-bg.png" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/img/login-bg.png" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/index.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/index.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/mock.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/mock.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/reducer.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/reducer.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/style.less" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/style.less" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/edfx-app-login/webapi.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/webapi.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/action.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/action.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/config.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/config.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/data.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/data.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/index.js" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/index.js" />
+      <change beforePath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/style.less" afterPath="$PROJECT_DIR$/apps/edf/ttk-edf-app-root/style.less" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/apps.less" afterPath="$PROJECT_DIR$/assets/styles/apps.less" />
       <change beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,21 +43,41 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="62">
+              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="406">
+              <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
               <folding>
                 <element signature="e#0#92#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.dll.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack.dll.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,11 +107,34 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            <state relative-caret-position="226">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#26#47#0" expanded="true" />
+                <element signature="e#279#344#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/edf/ttk-edf-app-login/action.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="606">
+              <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,6 +145,7 @@
     <findStrings>
       <find>edfx-app-login</find>
       <find>edfx-app-root</find>
+      <find>edf-app-login</find>
     </findStrings>
     <replaceStrings>
       <replace>ttk-edf-app-login</replace>
@@ -113,9 +159,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/apps/edf/ttk-edf-app-login/style.less" />
         <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -248,22 +295,20 @@
             <path>
               <item name="ttk-app-core" type="b2602c69:ProjectViewProjectNode" />
               <item name="ttk-app-core" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="edf" type="462c0819:PsiDirectoryNode" />
-              <item name="ttk-edf-app-login" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttk-app-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttk-app-core" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ttk-app-core" type="b2602c69:ProjectViewProjectNode" />
               <item name="ttk-app-core" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="edf" type="462c0819:PsiDirectoryNode" />
-              <item name="ttk-edf-app-root" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttk-app-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttk-app-core" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="green" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -290,6 +335,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$/apps/edf" />
     </key>
   </component>
@@ -406,27 +452,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521527266590</updated>
-      <workItem from="1521527268203" duration="2420000" />
+      <workItem from="1521527268203" duration="4274000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2420000" />
+    <option name="totallyTimeSpent" value="4274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="326" y="22" width="1347" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19306184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13725491" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5023072" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22246696" sideWeight="0.49769282" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23568282" sideWeight="0.49769282" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -450,8 +496,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="62">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -477,16 +523,6 @@
         <state relative-caret-position="445">
           <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding>
-            <element signature="e#26#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,13 +570,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.dll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/edf/edfx-app-root/apps/edfx-app-root-about/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/edf/ttk-edf-app-login/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.four.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+        <state relative-caret-position="406">
+          <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
           <folding>
             <element signature="e#0#92#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#26#47#0" expanded="true" />
+            <element signature="e#279#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/edf/ttk-edf-app-login/action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -8,11 +8,13 @@ import promise from 'es6-promise'
 
 //#region app导入
 
-import edf_app_login from './apps/edf/edf-app-login/index.js'
+import edf_app_login from './apps/edf/ttk-edf-app-login/index.js'
+import edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 
 //#endregion
-const apps = {  
-    [edf_app_login.name]: edf_app_login    
+const apps = {
+    [edf_app_login.name]: edf_app_login,
+    [edf_app_root.name]: edf_app_root
 }
 
 apps.config = (options) => {

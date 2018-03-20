@@ -4,7 +4,7 @@ export function getMeta() {
     return {
         name: 'root',
         component: '::div',
-        className: 'edfx-app-root',
+        className: 'ttk-edf-app-root',
         children: {
             name: 'currentApp',
             component: 'AppLoader',

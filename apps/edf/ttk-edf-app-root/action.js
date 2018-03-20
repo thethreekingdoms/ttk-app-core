@@ -18,8 +18,8 @@ class action {
 
         injections.reduce('init', { initState })
 
-        history.listen('edfx-app-root', this.listen)
-        this.onRedirect({appName: history.getChildApp('edfx-app-root') || defaultAppName })
+        history.listen('ttk-edf-app-root', this.listen)
+        this.onRedirect({appName: history.getChildApp('ttk-edf-app-root') || defaultAppName })
     }
 
     listen = (childApp, location, action) => {
@@ -33,11 +33,11 @@ class action {
     }
 
     onRedirect = ({ appName }) => {
-        history.pushChildApp('edfx-app-root', appName)
+        history.pushChildApp('ttk-edf-app-root', appName)
     }
 
     componentWillUnmount = () => {
-        history.unlisten('edfx-app-root', this.listen)
+        history.unlisten('ttk-edf-app-root', this.listen)
     }
 }
 
