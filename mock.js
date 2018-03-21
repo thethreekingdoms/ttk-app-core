@@ -1,3 +1,1 @@
-/*
-
-*/
+import './apps/edf/ttk-edf-app-login/mock.js';

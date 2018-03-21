@@ -1,12 +1,12 @@
 import { Toast, Notification, Modal, Popconfirm, localeWrapper, Alert } from 'edf-component'
 import { fetch, environment } from 'edf-utils'
-// import './mock.js'
+import './mock.js'
 
 var _options = {}
 
 
 fetch.config({
-	mock: false,
+	mock: true,
 	after: (response, url, data, header) => {
 		if (response.result) {
 			if (response.token) {
@@ -53,7 +53,7 @@ function config(options) {
 		}
 	})
 
-	//require('./mock.js')
+	require('./mock.js')
 	_options.targetDomId = 'app' //react render到目标dom
 	_options.startAppName = 'ttk-edf-app-root' //启动app名，需要根据实际情况配置
 

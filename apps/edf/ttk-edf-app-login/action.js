@@ -87,7 +87,7 @@ class action {
         if (!basicInfo) return
         if(other.userInput) {
             if (form.password) {
-                form.password = md5(form.password + '*the3Kingdom*')
+            	//暂时不加密，密码 md5签名取消
             }
         }
 
