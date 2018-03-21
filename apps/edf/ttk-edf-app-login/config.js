@@ -3,7 +3,7 @@ import webapi from './webapi'
 var _options = {
 	webapi,
 	goAfterLogin: {
-		appName: 'edfx-app-portal',
+		appName: 'ttk-edf-app-portal',
 		appParams: {}
 	},
 	goRegister:{

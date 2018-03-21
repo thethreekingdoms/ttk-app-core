@@ -19,7 +19,7 @@ class action {
             }
         }*/
         this.component = component
-        let info = {mobile: '', password: '', remember: false}
+        let info = {mobile: '13333333333', password: '1', remember: false}
         let currentTimestamp = (new Date()).getTime()
         //从cookie中读取mobile
         function getCookie(c_name) {
@@ -34,7 +34,8 @@ class action {
             }
             return ""
         }
-        info.mobile = getCookie('THE_LAST_LOGIN')
+	    let mobileCookie = getCookie('THE_LAST_LOGIN')
+	    mobileCookie ? info.mobile = mobileCookie : ''
         if(currentTimestamp < localStorage.remember) {
             info.remember = true
             if(info.mobile == localStorage['mobile']) {
@@ -85,9 +86,13 @@ class action {
             path: 'data.form.password', value: form.password
         }], 'login')
         if (!basicInfo) return
+	    //预置密码生效
+	    if(!localStorage.remember){
+        	    other.userInput = true
+        }
         if(other.userInput) {
             if (form.password) {
-            	//暂时不加密，密码 md5签名取消
+	            form.password = md5(form.password + '*thethreekingdoms*')
             }
         }
 

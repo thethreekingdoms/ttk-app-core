@@ -4,7 +4,7 @@
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8081 --host 0.0.0.0",
+    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8082 --host 0.0.0.0",
     "release": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
     "build": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",

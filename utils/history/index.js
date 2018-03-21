@@ -30,7 +30,7 @@ function listen(selfApp, handler) {
 
         h = handler
         let unlisten = hashHistory.listen((location, action) => {
-            const childApp = getChildApp(selfApp) || 'edfx-app-home'
+            const childApp = getChildApp(selfApp) || 'ttk-edf-app-home'
             handler(childApp, location, action)
         })
 
@@ -81,11 +81,11 @@ function pullChildApp(closeAppName, currentTab) {
     if (historyArray) {
         let childApp = getRealName(historyArray.get('appName'))
         if (childApp) {
-            let selfApp = 'edfx-app-portal'
+            let selfApp = 'ttk-edf-app-portal'
             this.pushChildApp(selfApp, childApp)
             /*
             try {
-                
+
                 let newHistoryApp = selfApp + childApp
                 if (!childApp || childApp == '/' || childApp.indexOf(childApp) == -1) {
                     hashHistory.push(getAlias(`/${selfApp}/${childApp}`))

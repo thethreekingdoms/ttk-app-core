@@ -72,7 +72,7 @@ plugins.push(new CopyWebpackPlugin([{
 }]))
 
 module.exports = {
-    devtool: 'eval', //devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map', //devtool: 'cheap-module-eval-source-map',
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
