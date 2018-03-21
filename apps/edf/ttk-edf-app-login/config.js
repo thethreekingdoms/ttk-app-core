@@ -1,5 +1,4 @@
 import webapi from './webapi'
-import logo from '../../../assets/img/logo.png'
 
 var _options = {
 	webapi,
@@ -15,7 +14,7 @@ var _options = {
 		appName: 'edfx-app-forgot-password',
 		appParams: {}
 	},
-	logo: logo
+	logo: 'http://via.placeholder.com/392x392'
 }
 
 
