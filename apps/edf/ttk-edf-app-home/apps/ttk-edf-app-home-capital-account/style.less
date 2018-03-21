@@ -1,0 +1,110 @@
+.ttk-edf-app-home-capital-account{
+    &-header{
+        flex: 0 0 32px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        &-left{
+            display: flex;
+            &-title{
+                line-height: 32px;
+                padding-right: 8px;
+                color: #333;
+            }
+            &-select{
+                .ant-select-open .ant-select-selection,
+                .ant-select-focused .ant-select-selection,
+                .ant-select-selection:focus, .ant-select-selection:active{
+                    border-color: #fff;
+                    box-shadow: none;
+                }
+                .ant-select-selection, .ant-select-selection:hover{
+                    font-size: 12px;
+                    border: none;
+                    color: #999;
+                }
+                .ant-select-selection-selected-value{
+                    padding-right: 14px;
+                }
+            }
+        }
+        &-right{
+            display: flex;
+            .edficon{
+                border: 1px solid #d9d9d9;
+                border-radius: 5px;
+                margin-left: 8px;
+                font-size: 30px;
+            }
+            .edficon-shuaxin{
+                color: #45ACF7;
+                &:hover{
+                    border: 1px solid #45ACF7;
+                }
+            }
+        }
+    }
+    &-main{
+        &-total{
+            text-align: left;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 0;
+            margin-top: 6px;
+        }
+        &>div{
+            text-align: left;
+            line-height: 50px;
+            margin-top: 6px;
+            cursor: pointer;
+            .edficon{
+                font-size: 28px;
+                vertical-align: middle;
+                margin: 0 10px;
+            }
+            &.bankdeposit{
+                background: rgba(253, 242, 226, 0.4);
+                color: #FF690D;
+                a{
+                    color: #FF690D;
+                }
+                &:hover{
+                    background: #FDF2E2;
+                }
+            }
+            &.cash{
+                background: rgba(250, 225, 237, 0.4);
+                color: #E14792;
+                a{
+                    color: #E14792;
+                }
+                &:hover{
+                    background: #FAE1ED;
+                }
+            }
+            &.alipay{
+                background: rgba(224, 241, 251, 0.4);
+                color: #10A5F2;
+                a{
+                    color: #10A5F2;
+                }
+                &:hover{
+                    background: #E0F1FB;
+                }
+            }
+            &.wechat{
+                background: rgba(225, 242, 238, 0.4);
+                color: #00B38A;
+                a{
+                    color: #00B38A;
+                }
+                &:hover{
+                    background: #ddf5f0;
+                }
+            }
+        }
+    }
+}
+.selectDate{
+    width: 84px !important;
+}

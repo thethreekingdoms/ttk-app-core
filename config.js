@@ -12,7 +12,10 @@ fetch.config({
 			if (response.token) {
 				fetch.config({ token: response.token })
 			}
-			return response
+			if (url === '/v1/edf/user/login' || url === '/v1/edf/user/create' || url === 'v1/edf/org/checkCanUpdatePeriod') {
+				return response
+			}
+			return response.value
 		}
 		else {
 			if (data && data.isReturnValue) {

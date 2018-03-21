@@ -44,17 +44,17 @@ class AntTable extends Component {
             sumWidth: 1090
         }
         if (this.props.allowColResize ){
-            
+
             const { newCol, sumWidth } = this.initStateWidth(props.columns, [], memoryWidthLocalSotrage)
             this.state.columns = newCol
             this.state.sumWidth = sumWidth
         }
-        
-        
+
+
     }
 
     componentWillMount = () =>{
-        
+
     }
 
     memoryWidth = (props) => {
@@ -142,7 +142,7 @@ class AntTable extends Component {
                 sumWidth
             })
         }
-        
+
     }
 
     components = {
@@ -158,7 +158,7 @@ class AntTable extends Component {
             return
         }
         let preWidth = columns[Index].width
-        columns[Index].width = size.width 
+        columns[Index].width = size.width
         let sumWidth = 0
         columns.forEach(item => {
             sumWidth = sumWidth + item.width
@@ -220,7 +220,7 @@ class AntTable extends Component {
         }
         let appContainerWidth = null
         try{
-            const dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
+            const dom = document.getElementsByClassName('ttk-edf-app-portal-content-main')[0]
             if( dom ){
                 appContainerWidth = dom.offsetWidth - 130 + 80
             }else{
@@ -246,14 +246,14 @@ class AntTable extends Component {
             } else if (!item.width) {
                 item.width = avrWidth
             }
-            
-            
+
+
             item.title = this.showTheadTitle(item.title)
             // item.onHeaderCell = () => {
             //     return { type: item.dataIndex }
             // }
             sumWidth= sumWidth + item.width
-            
+
             return item
         })
         this.state.appContainerWidth = appContainerWidth
@@ -347,7 +347,7 @@ class AntTable extends Component {
     // }
 
     getColumns = () => {
-        let columns 
+        let columns
         if( this.state.allowColResize ){
             columns = this.state.columns
         }else{
@@ -607,7 +607,7 @@ class AntTable extends Component {
     }
 
     decorateHeaderTitle = (column) => {
-       
+
         if( !column ){
             return undefined
         }
@@ -671,9 +671,9 @@ class AntTable extends Component {
             let scrollX = this.props.dataSource&&this.props.dataSource.length > 0 ? sumWidth : null
             if( this.state.resizeColumn ){
                 return <Table {...this.props }
-                    scroll={{...this.props.scroll, x: scrollX}} 
-                    components={this.components} 
-                    columns={this.decorateHeaderTitle(columns3)} 
+                    scroll={{...this.props.scroll, x: scrollX}}
+                    components={this.components}
+                    columns={this.decorateHeaderTitle(columns3)}
                     locale={{'emptyText': emptyText}}
                     loading={loading}
                 />

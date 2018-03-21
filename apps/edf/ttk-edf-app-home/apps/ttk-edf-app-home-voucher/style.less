@@ -1,0 +1,59 @@
+.ttk-edf-app-home-voucher{
+    &-header{
+        flex: 0 0 32px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        &-left{
+            display: flex;
+            &-title{
+                line-height: 32px;
+                color: #333;
+            }
+            &-select{
+                .ant-select-open .ant-select-selection,
+                .ant-select-focused .ant-select-selection,
+                .ant-select-selection:focus, .ant-select-selection:active{
+                    border-color: #fff;
+                    box-shadow: none;
+                }
+                .ant-select-selection, .ant-select-selection:hover{
+                    font-size: 12px;
+                    border: none;
+                    color: #999;
+                }
+                .ant-select-selection-selected-value{
+                    padding-right: 14px;
+                }
+            }
+        }
+        &-right{
+            display: flex;
+            .edficon{
+                border: 1px solid #d9d9d9;
+                border-radius: 5px;
+                margin-left: 8px;
+                font-size: 30px;
+            }
+            .edficon-shuaxin{
+                color: #45ACF7;
+                &:hover{
+                    border: 1px solid #45ACF7;
+                }
+            }
+        }
+    }
+    &-main{
+        padding-top: 55px;
+        p{
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+        .mk-btn{
+            width: 320px;
+            height: 40px;
+            border-radius: 55px;
+            margin-bottom: 10px;
+        }
+    }
+}
