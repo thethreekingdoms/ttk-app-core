@@ -12,6 +12,7 @@ export function config(options) {
 }
 
 export function mock(url, handler) {
+	console.log(`注册了${url}`)
 	if (url && typeof url == "object") {
 		Object.keys(url).forEach(u => {
 			mock(u, url[u])
