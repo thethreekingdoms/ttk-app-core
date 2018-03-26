@@ -74,34 +74,42 @@
         /* background-color: #f6f7f8; */
         /* background-image: -webkit-linear-gradient(#fff,#efefef); */
         //background-image: linear-gradient(#e6e6e7,#e6e6e7);
-        background-image: linear-gradient(#3EABE8, #3EABE8);
-        color: #fff;
+        background-image: linear-gradient(#eaeaea, #eaeaea);
+        color: #333;
         font-size: 12px;
         font-weight: normal;
         border-bottom-width: 0px;
     }
 
     .fixedDataTableRowLayout_rowWrapper:hover{
-        .public_fixedDataTableRow_highlighted, 
-        .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main{
-            background: #fff;
-        }
-        .fixedDataTableCellGroupLayout_cellGroup{
+        .public_fixedDataTableRow_highlighted{
             background: #fff;
         }
         .public_fixedDataTableCell_main {
-            background: @item-hover-bg !important;
-        }
-        .public_fixedDataTableRow_main.public_fixedDataTable_footer {
-            .fixedDataTableCellGroupLayout_cellGroup{
-                background-color: #fff6ea !important;
-            }
-            .public_fixedDataTableCell_main{
-                background-color: #fff6ea !important;
-            }
-            background-color: #fff6ea !important;
+            background-color: @item-hover-bg;
         }
     } 
+    // .fixedDataTableRowLayout_rowWrapper:hover{
+    //     .public_fixedDataTableRow_highlighted, 
+    //     .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main{
+    //         background: #fff;
+    //     }
+    //     .fixedDataTableCellGroupLayout_cellGroup{
+    //         background: #fff;
+    //     }
+    //     .public_fixedDataTableCell_main {
+    //         background: @item-hover-bg !important;
+    //     }
+    //     .public_fixedDataTableRow_main.public_fixedDataTable_footer {
+    //         .fixedDataTableCellGroupLayout_cellGroup{
+    //             background-color: #fff6ea !important;
+    //         }
+    //         .public_fixedDataTableCell_main{
+    //             background-color: #fff6ea !important;
+    //         }
+    //         background-color: #fff6ea !important;
+    //     }
+    // } 
     // .public_fixedDataTableRow_highlighted,
     // .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
     //     background-color: #f8f8f8;
