@@ -3,6 +3,10 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+    ::selection {
+        color:#333;
+    }
+    
     .ant-table-thead > tr > th:last-child{
         border-radius: 0;
     }
@@ -29,7 +33,7 @@
             top: 0;
             width: 10px;
             height: 100%;
-            cursor: e-resize;
+            cursor: col-resize;
         }
         .table-center-item{
             text-align: center;
@@ -145,8 +149,10 @@
             margin-left: 5px;
             padding: 0px 5px;
             width: 6px;
-            border-left: 1px solid #d9d9d9;
-            border-right: 1px solid #d9d9d9;
+            border-left: none;
+            border-right: none;
+            // border-left: 1px solid #d9d9d9;
+            // border-right: 1px solid #d9d9d9;
         }
 
         &::-webkit-scrollbar-thumb/*滑块*/
@@ -157,20 +163,25 @@
             width: 6px;
             -webkit-box-shadow: none;
             background: #c2c2c2;
-            border-left: 1px solid #d9d9d9;
-            border-right: 1px solid #d9d9d9;
+            border-left: none;
+            border-right: none;
+            // border-left: 1px solid #d9d9d9;
+            // border-right: 1px solid #d9d9d9;
         }
 
         &::-webkit-scrollbar-thumb:hover/*滑块效果*/
         {
             border-radius: 0;
             -webkit-box-shadow: none;
-            border-left: 1px solid #d9d9d9;
-            border-right: 1px solid #d9d9d9;
+            // border-left: 1px solid #d9d9d9;
+            border-left: none;
+            border-right: none;
+            // border-right: 1px solid #d9d9d9;
             background: rgba(114,114,114,0.8);
         }
     }
     .ant-table-body{
+        -webkit-overflow-scrolling: auto;
         &::-webkit-scrollbar-track/*滑动轨道*/
         {
             -webkit-box-shadow: none;
@@ -180,7 +191,8 @@
             padding: 0px 5px;
             width: 6px;
             // border-left: 1px solid #d9d9d9;
-            border-right: 1px solid #d9d9d9;
+            // border-right: 1px solid #d9d9d9;
+            border-right: none;
         }
     }
     .ant-table-thead > tr {

@@ -244,7 +244,6 @@ export default class InputNumberComponent extends Component {
     }
 
     onBlur() {
-        // debugger
         let value = this.state.value
 
         //最后一个字符是.或者-那么去掉

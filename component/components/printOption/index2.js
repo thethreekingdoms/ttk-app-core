@@ -45,7 +45,7 @@ class PrintOptionComponent2 extends React.Component{
         const optionArr = arr.map(item => {
             return <Option value={item.value} title={item.label} >{item.label}</Option>
         })
-        return <Select dropdownClassName='printOption2-select-dropDown' className="printOption2-select" style={{ width: '200px' }}  value={currencyId} onChange={this.selectChange}>{optionArr}</Select>
+        return <Select dropdownClassName='printOption2-select-dropDown' className="printOption2-select" style={{ width: '378px' }}  value={currencyId} onChange={this.selectChange}>{optionArr}</Select>
     }
     
     render(){
@@ -53,14 +53,16 @@ class PrintOptionComponent2 extends React.Component{
         return (
             <div className="printOption2">
                 <div className="printOption2-contaienr">
-                    <div style={{padding: '5px 0'}} className="printOption2-title">请选择是否显示外币或数量</div>
+                    <div style={{padding: '5px 0', marginBottom: '9px'}} className="printOption2-title">请选择是否显示外币或数量</div>
                     <div style={{padding: '5px 20px'}} className="printOption2-checkbox">
-                        <span style={{paddingRight: '20px'}} className="printOption2-label">币别</span>
-                        {this.renderSelect()}
-                        <br/>
-                        <br/>
-                        <span style={{paddingRight: '20px'}} className="printOption2-label">数量</span>
-                        <Checkbox checked={num} onChange={(e) => this.onChange(e, 'num')}></Checkbox>
+                        <div style={{marginBottom: '14px'}} clssName="printOption2-contaienr-item">
+                            <span style={{paddingRight: '8px'}} className="printOption2-label">币别</span>
+                            {this.renderSelect()}
+                        </div>
+                        <div clssName="printOption2-contaienr-item">
+                            <span style={{paddingRight: '8px', marginBottom: '9px'}} className="printOption2-label">数量</span>
+                            <Checkbox checked={num} onChange={(e) => this.onChange(e, 'num')}></Checkbox>
+                        </div>
                     </div>
                     <div className="printOption2-detail">
                         <span>

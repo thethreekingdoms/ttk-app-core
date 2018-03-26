@@ -2,7 +2,7 @@ import React from 'react'
 import { DatePicker } from 'antd'
 import classNames from 'classnames'
 import moment from 'moment'
-import utils from '../../../utils/date/index'
+import { transformMomentDate } from '../../../utils/date/index'
 
 const MonthPicker = DatePicker.MonthPicker
 
@@ -24,9 +24,17 @@ class DateRangeMonthPicker extends React.Component{
     }
 
     transformDateToNum=(date)=>{
+        if (!date) {
+            return 0
+        }
         let time = date
         if( typeof date == 'string' ){
-            time = utils.date.transformMomentDate(date)
+            try{
+                time = transformMomentDate(date)
+            }catch(err){
+                time = moment()
+            }
+            
         }
         return parseInt(`${time.year()}${time.month() < 10 ?  `0${time.month()}` : `${time.month()}`}`)
     }
@@ -81,13 +89,13 @@ class DateRangeMonthPicker extends React.Component{
         }
     }
 
-    transformDateToNum = (date) => {
-        let time = date
-        if (typeof date == 'string') {
-            time = moment(new Date(date))
-        }
-        return parseInt(`${time.year()}${time.month() < 10 ? `0${time.month()}` : `${time.month()}`}`)
-    }
+    // transformDateToNum = (date) => {
+    //     let time = date
+    //     if (typeof date == 'string') {
+    //         time = moment(new Date(date))
+    //     }
+    //     return parseInt(`${time.year()}${time.month() < 10 ? `0${time.month()}` : `${time.month()}`}`)
+    // }
 
     disabledStartDate = (currentValue) => {
         const { startEnableDate } = this.props

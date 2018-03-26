@@ -47,7 +47,7 @@ export default class attachmentComponent extends Component {
             [this.props.contentClassName]: !!this.props.contentClassName
         })
         const data = this.props.data || []
-       
+
         const status = this.props.status
         if (data && data.length == 0 && this.props.status != 1) {
             return (
@@ -55,8 +55,8 @@ export default class attachmentComponent extends Component {
                     <Spin spinning={this.props.loading != undefined ? this.props.loading : false} tip='加载中...'>
                         <NoData type='noDocoments' small>
                             <span>亲，还没有文件，赶快上传呦！</span>
-                            
-                           
+
+
                         </NoData>
                     </Spin>
                 </div>
@@ -157,7 +157,7 @@ export default class attachmentComponent extends Component {
             'mk-attachment': true,
             [this.props.className]: !!this.props.className
         })
-        console.log(this.props.data)
+
         return (
             <Popover
                 overlayClassName='mk-attachment-popover attachment'

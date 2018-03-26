@@ -132,6 +132,25 @@ class TableSettingCard extends React.Component {
         return [arrLeft, arrRight]
     }
 
+    renderItem2 = (data) => {
+        const arr = data.map((item) => {
+            return (
+                <div className="mk-tableSetting-item-style2">
+                    <Checkbox
+                        className={`${item.isVisible ? 'active' : ''}`}
+                        checked={item.isVisible}
+                        onChange={(value) => this.handleChange(value, item)}
+                        disabled={item.isMustSelect}
+                    >
+                        {item.caption}
+                    </Checkbox>
+                </div>
+            )
+        })
+        // console.log(arr)
+        return arr
+    }
+
     confirmClick = () => {
         this.setState({
             initData: JSON.parse(JSON.stringify(this.state.data))
@@ -148,6 +167,40 @@ class TableSettingCard extends React.Component {
         if (this.props.cancelClick) {
             this.props.cancelClick()
         }
+    }
+
+    renderStyle1 = () => {
+        const { data, height, top } = this.state
+        const [arrLeft, arrRight] = this.renderItem(data)
+        const arr = [
+            <div className="mk-tableSetting-header">
+                    <span>表头</span>
+                    <span>明细</span>
+            </div>,
+            <div className="mk-tableSetting-container">
+                <div className="mk-tableSetting-title">
+                    {arrLeft}
+                </div>
+                <div className="mk-tableSetting-detail">
+                    {arrRight}
+                </div>
+                <div className="mk-tableSetting-line">
+                </div>
+            </div>
+        ]
+        return arr
+    }
+
+    renderStyle2 = () => {
+        const { data, height, top } = this.state
+        const arr = this.renderItem2(data)
+        return (
+            <div className="mk-tableSetting-container">
+                {arr}
+                <div className="mk-tableSetting-line">
+                </div>
+            </div>
+        )
     }
 
     render() {
@@ -173,20 +226,7 @@ class TableSettingCard extends React.Component {
                 }}
             >
                 <h2>栏目设置</h2>
-                <div className="mk-tableSetting-header">
-                    <span>表头</span>
-                    <span>明细</span>
-                </div>
-                <div className="mk-tableSetting-container">
-                    <div className="mk-tableSetting-title">
-                        {arrLeft}
-                    </div>
-                    <div className="mk-tableSetting-detail">
-                        {arrRight}
-                    </div>
-                    <div className="mk-tableSetting-line">
-                    </div>
-                </div>
+                {  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}
                 <div className="mk-tableSetting-bottom">
                     <Button className="mk-tableSetting-bottom-btn" onClick={this.cancelClick}>取消</Button>
                     <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
