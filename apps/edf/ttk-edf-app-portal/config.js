@@ -3,7 +3,7 @@ import webapi from './webapi'
 var _options = {
 	webapi,
 	goAfterLogout: {
-		appName: 'edfx-app-login',
+		appName: 'ttk-edf-app-login',
 		appParams: {}
 	},
 	menu_del: [{
