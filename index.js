@@ -16,6 +16,10 @@ import ttk_edf_app_home_business_state from './apps/edf/ttk-edf-app-home/apps/tt
 import ttk_edf_app_home_receive_pay from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-receive-pay'
 import ttk_edf_app_home_voucher from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-voucher'
 import ttk_edf_app_home_capital_account from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-capital-account'
+import ttk_edf_app_portal_menu from './apps/edf/ttk-edf-app-portal-menu/index.js'
+import ttk_edf_app_portal_menu_detail from './apps/edf/ttk-edf-app-portal-menu/apps/ttk-edf-app-portal-menu-detail'
+import ttk_edf_app_operation from './apps/edf/ttk-edf-app-operation/index.js'
+
 
 //#endregion
 const apps = {
@@ -27,6 +31,9 @@ const apps = {
 	[ttk_edf_app_home_receive_pay.name]: ttk_edf_app_home_receive_pay,
 	[ttk_edf_app_home_voucher.name]: ttk_edf_app_home_voucher,
 	[ttk_edf_app_home_capital_account.name]: ttk_edf_app_home_capital_account,
+	[ttk_edf_app_portal_menu.name]: ttk_edf_app_portal_menu,
+	[ttk_edf_app_portal_menu_detail.name]: ttk_edf_app_portal_menu_detail,
+	[ttk_edf_app_operation.name]: ttk_edf_app_operation,
 }
 
 apps.config = (options) => {
