@@ -12,6 +12,8 @@ import ttk_edf_app_login from './apps/edf/ttk-edf-app-login/index.js'
 import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 import ttk_edf_app_portal from './apps/edf/ttk-edf-app-portal/index.js'
 import ttk_edf_app_home from './apps/edf/ttk-edf-app-home/index.js'
+import edfx_app_role_auth from './apps/edf/edfx-app-role-auth/index.js'
+import edfx_app_role from './apps/edf/edfx-app-role-auth/apps/edfx-app-role/index.js'
 import ttk_edf_app_home_business_state from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-business-state'
 import ttk_edf_app_home_receive_pay from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-receive-pay'
 import ttk_edf_app_home_voucher from './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-voucher'
@@ -34,6 +36,8 @@ const apps = {
 	[ttk_edf_app_portal_menu.name]: ttk_edf_app_portal_menu,
 	[ttk_edf_app_portal_menu_detail.name]: ttk_edf_app_portal_menu_detail,
 	[ttk_edf_app_operation.name]: ttk_edf_app_operation,
+    [edfx_app_role_auth.name]: edfx_app_role_auth,
+    [edfx_app_role.name]: edfx_app_role
 }
 
 apps.config = (options) => {
