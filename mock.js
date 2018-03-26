@@ -8,3 +8,4 @@ import './apps/edf/ttk-edf-app-home/apps/ttk-edf-app-home-voucher/mock.js';
 import './apps/edf/ttk-edf-app-portal-menu/mock.js';
 import './apps/edf/ttk-edf-app-portal-menu/apps/ttk-edf-app-portal-menu-detail/mock.js';
 import './apps/edf/ttk-edf-app-operation/mock.js';
+import './apps/edf/ttk-edf-app-my-setting/mock.js';

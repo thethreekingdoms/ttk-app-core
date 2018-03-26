@@ -8,7 +8,7 @@ const models = dbProvider && new dbProvider(
             { id: 20, name: '用户' },
         ],
         menu: [
-            { id: 20, name: '个人设置', code: '20', parentId: 0, appName: 'edfx-app-my-setting' },
+            { id: 20, name: '个人设置', code: '20', parentId: 0, appName: 'ttk-edf-app-my-setting' },
             { id: 21, name: '菜单预置', code: '21', parentId: 0, appName: 'edfx-app-portal-menu' },
             { id: 31, name: '用户管理', code: '31', parentId: 30 },
             { id: 30, name: '系统管理', code: '30', parentId: 0 },

@@ -21,6 +21,9 @@ import ttk_edf_app_home_capital_account from './apps/edf/ttk-edf-app-home/apps/t
 import ttk_edf_app_portal_menu from './apps/edf/ttk-edf-app-portal-menu/index.js'
 import ttk_edf_app_portal_menu_detail from './apps/edf/ttk-edf-app-portal-menu/apps/ttk-edf-app-portal-menu-detail'
 import ttk_edf_app_operation from './apps/edf/ttk-edf-app-operation/index.js'
+import ttk_edf_app_my_setting from './apps/edf/ttk-edf-app-my-setting/index.js'
+import ttk_edf_app_my_setting_change_mobile from './apps/edf/ttk-edf-app-my-setting/apps/ttk-edf-app-my-setting-change-mobile/index.js'
+import ttk_edf_app_my_setting_change_password from './apps/edf/ttk-edf-app-my-setting/apps/ttk-edf-app-my-setting-change-password/index.js'
 
 
 //#endregion
@@ -37,7 +40,10 @@ const apps = {
 	[ttk_edf_app_portal_menu_detail.name]: ttk_edf_app_portal_menu_detail,
 	[ttk_edf_app_operation.name]: ttk_edf_app_operation,
     [edfx_app_role_auth.name]: edfx_app_role_auth,
-    [edfx_app_role.name]: edfx_app_role
+    [edfx_app_role.name]: edfx_app_role,
+	[ttk_edf_app_my_setting.name]: ttk_edf_app_my_setting,
+	[ttk_edf_app_my_setting_change_mobile.name]: ttk_edf_app_my_setting_change_mobile,
+	[ttk_edf_app_my_setting_change_password.name]: ttk_edf_app_my_setting_change_password,
 }
 
 apps.config = (options) => {
