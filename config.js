@@ -23,7 +23,7 @@ fetch.config({
 			}
 			else {
 				let errorCode = ''
-				if(response.error && response.error.code){
+				if (response.error && response.error.code) {
 					errorCode = response.error.code
 				}
 				if (environment.isDevMode()) {
@@ -52,7 +52,7 @@ function config(options) {
 			},
 		},
 		'ttk-edf-app-root': {
-			startAppName: 'ttk-edf-app-login',
+			startAppName: _options.apps['ttk-edf-app-login'] ? 'ttk-edf-app-login' : 'app-test',
 		}
 	})
 

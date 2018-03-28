@@ -10,6 +10,7 @@ import promise from 'es6-promise'
 
 // import ttk_edf_app_login from './apps/edf/ttk-edf-app-login/index.js'
 import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
+import app_test from './apps/test/app-test/index.js'
 // import ttk_edf_app_portal from './apps/edf/ttk-edf-app-portal/index.js'
 // import ttk_edf_app_home from './apps/edf/ttk-edf-app-home/index.js'
 // import edfx_app_role_auth from './apps/edf/ttk-edf-app-role-auth/index.js'
@@ -28,8 +29,9 @@ import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 
 //#endregion
 const apps = {
-    // [ttk_edf_app_login.name]: ttk_edf_app_login,
-    [ttk_edf_app_root.name]: ttk_edf_app_root,
+	// [ttk_edf_app_login.name]: ttk_edf_app_login,
+	[ttk_edf_app_root.name]: ttk_edf_app_root,
+	[app_test.name]: app_test,
 	// [ttk_edf_app_portal.name]: ttk_edf_app_portal,
 	// [ttk_edf_app_home.name]: ttk_edf_app_home,
 	// [ttk_edf_app_home_business_state.name]: ttk_edf_app_home_business_state,
@@ -47,16 +49,16 @@ const apps = {
 }
 
 apps.config = (options) => {
-    Object.keys(options).forEach(key => {
-        const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)
-        Object.keys(apps).forEach(appName => {
-            if (appName != 'config') {
-                if (reg.test(appName)) {
-                    apps[appName].config(options[key])
-                }
-            }
-        })
-    })
+	Object.keys(options).forEach(key => {
+		const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)
+		Object.keys(apps).forEach(appName => {
+			if (appName != 'config') {
+				if (reg.test(appName)) {
+					apps[appName].config(options[key])
+				}
+			}
+		})
+	})
 }
 
 
@@ -67,7 +69,7 @@ apps.config({ '*': { apps } })
 config(myConfig({ apps }))
 
 Object.keys(edfComponents).forEach(key => {
-    componentFactory.registerComponent(key, edfComponents[key])
+	componentFactory.registerComponent(key, edfComponents[key])
 })
 
 
