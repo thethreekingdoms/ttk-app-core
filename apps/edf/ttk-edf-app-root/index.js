@@ -5,7 +5,6 @@ export default {
 	name: "ttk-edf-app-root",
 	version: "1.0.6",
 	description: "ttk-edf-app-root",
-	className: 'ttk-edf-app-root',
 	meta: data.getMeta(),
 	components: [],
 	config: config,
