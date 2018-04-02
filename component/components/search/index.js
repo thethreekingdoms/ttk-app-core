@@ -396,7 +396,7 @@ class SearchComponent extends Component {
                                 {
                                     confirmBtn && confirmBtn.hidden ? null : (
                                         <Button onClick={this.confirmClick} className='query' type="primary" style={{ marginLeft: '8px' }}>
-                                            {confirmBtn && confirmBtn.text ? confirmBtn.text : '确定'}
+                                            {confirmBtn && confirmBtn.text ? confirmBtn.text : '查询'}
                                         </Button>
                                     )
                                 }

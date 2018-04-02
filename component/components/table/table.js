@@ -262,7 +262,10 @@ class AntTable extends Component {
 
     setTableHeight = () => {
         try{
-            const { dataSource, className, scroll } = this.props
+            const { dataSource, className, scroll, noCalculate } = this.props
+            if( noCalculate ){
+                return
+            }
             if( !scroll ){
                 return
             }

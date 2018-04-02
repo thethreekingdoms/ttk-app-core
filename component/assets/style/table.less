@@ -3,6 +3,9 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 0;
     ::selection {
         color:#333;
     }
@@ -179,6 +182,14 @@
             // border-right: 1px solid #d9d9d9;
             background: rgba(114,114,114,0.8);
         }
+
+        .ant-table-fixed {
+            border-top: 1px solid #d9d9d9;
+            .ant-table-thead {
+                border-left: 1px solid #d9d9d9;
+            }
+        }
+        
     }
     .ant-table-body{
         -webkit-overflow-scrolling: auto;
@@ -193,6 +204,12 @@
             // border-left: 1px solid #d9d9d9;
             // border-right: 1px solid #d9d9d9;
             border-right: none;
+        }
+        &>table {
+            border-top: 1px solid #d9d9d9; 
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 0px;
         }
     }
     .ant-table-thead > tr {
@@ -209,6 +226,7 @@
             border-color: #d9d9d9;
             text-overflow:ellipsis;
             height: 100%;
+            // border-top: 1px solid #d9d9d9;
         }
     }
 
@@ -268,4 +286,7 @@
         // left: 0;
         // top: 0;
     }
+}
+.ant-table-fixed-header .ant-table-body table {
+    border-top: none;
 }

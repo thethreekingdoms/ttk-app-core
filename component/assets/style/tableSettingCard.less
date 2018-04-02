@@ -1,5 +1,4 @@
 .mk-tableSetting{
-    width: 341px;
     overflow: hidden;
     overflow-y: auto;
     box-sizing: border-box;
@@ -8,6 +7,9 @@
     background: #fff;
     z-index: 100;
     border: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    
     h2{
         margin-top: 17px;
         height: 16px;
@@ -72,26 +74,6 @@
             padding-left: 28px;
             box-sizing: border-box;
         }
-        .mk-tableSetting-item-style2{
-            width: 50%;
-            float: left;
-            height: auto;
-            line-height: 19px;
-            margin-bottom: 14px;
-            &:nth-child(even){
-                padding-left: 20px;
-            }
-            .ant-checkbox + span{
-                font-size: 12px;
-                color: #515151;
-                letter-spacing: 0.34px;
-            }
-            .active .ant-checkbox + span{
-                font-size: 12px;
-                color: #999999;
-                letter-spacing: 0.29px;
-            }
-        }
         .mk-tableSetting-item{
             height: auto;
             line-height: 19px;
@@ -115,20 +97,65 @@
         }
         
     }
-    .mk-tableSetting-bottom{
+    .mk-tableSetting-container2{
         width: 100%;
         height: auto;
-        overflow: hidden;
-        text-align: center;
+        margin-top: 0px;
         float: left;
-        margin-top: 23px;
-        margin-bottom: 16px;
-        .mk-tableSetting-bottom-btn{
-            width: 70px;
-            height: 30px;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        .mk-tableSetting-item-style2{
+            width: 100%;
+            float: left;
+            height: auto;
+            line-height: 19px;
+            margin-bottom: 14px;
+            margin-left: 20px;
+            .ant-checkbox + span{
+                font-size: 12px;
+                color: #515151;
+                letter-spacing: 0.34px;
+            }
+            .active .ant-checkbox + span{
+                font-size: 12px;
+                color: #999999;
+                letter-spacing: 0.29px;
+            }
         }
-        .ant-btn{
-            margin-right: 8px;
-        }
+    }
+}
+.mk-tableSetting1{
+    width: 341px;
+}
+.mk-tableSetting2{
+    width: 258px;
+    h2{
+        margin: 17px 0;
+    }
+}
+.mk-tableSetting-bottom1{
+    width: 341px;
+}
+.mk-tableSetting-bottom2{
+    width: 258px;
+}
+.mk-tableSetting-bottom{ 
+    height: 66px;
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    right: -1px;
+    bottom: 10px;
+    z-index: 100;
+    background-color: #fff;
+    box-shadow: -2px 5px 5px #999;
+    .mk-tableSetting-bottom-btn{
+        width: 70px;
+        height: 30px;
+    }
+    .ant-btn{
+        margin-right: 8px;
+        margin-top: 18px
     }
 }

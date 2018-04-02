@@ -185,7 +185,8 @@ export default class action {
 
     addPerson = async (field) => {
         const ret = await this.metaAction.modal('show', {
-            title: '新增业务员',
+            // title: '新增业务员',
+            title: '新增人员',
             width: 720,
             children: this.metaAction.loadApp(
                 'app-card-person', {

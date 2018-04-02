@@ -672,13 +672,17 @@ const shortCuts = [
         keyCode: [17, 186],
         className: 'show_style4',
         detail: '打印'
-    }, {
-        code: 5,
-        name: 'Del',
-        keyCode: [46],
-        className: 'show_style5',
-        detail: '删除'
-    }, {
+    }, 
+    
+    // {
+    //     code: 5,
+    //     name: 'Del',
+    //     keyCode: [46],
+    //     className: 'show_style5',
+    //     detail: '删除'
+    // },
+    
+    {
         code: 6,
         name: 'Ctrl + 【',
         keyCode: [17, 219],

@@ -162,7 +162,7 @@ export default class attachmentComponent extends Component {
             <Popover
                 overlayClassName='mk-attachment-popover attachment'
                 content={this.getContent()}
-                placement="bottomRight"
+                // placement="bottomRight"
                 onVisibleChange={this.contentVisibleChange}
                 visible={this.state.contentIsVisible || this.props.visible}
                 title={this.getTitle()}

@@ -31,7 +31,7 @@ class TableSettingCard extends React.Component {
         let table = document.getElementsByClassName(this.props.positionClass)[0]
         if (table) {
             const point = this.getAbsPoint(table)
-            let height = window.innerHeight - point.y
+            let height = window.innerHeight - point.y - 65
             this.setState({
                 height,
                 top: point.y
@@ -89,10 +89,10 @@ class TableSettingCard extends React.Component {
         let table = document.getElementsByClassName(this.props.positionClass)[0]
         if (table) {
             const point = this.getAbsPoint(table)
-            let height = window.innerHeight - point.y
+            let height = window.innerHeight - point.y - 65
             this.setState({
                 height,
-                top: point.y
+                top: point.y 
             })
         }
     }
@@ -195,10 +195,8 @@ class TableSettingCard extends React.Component {
         const { data, height, top } = this.state
         const arr = this.renderItem2(data)
         return (
-            <div className="mk-tableSetting-container">
+            <div className="mk-tableSetting-container2">
                 {arr}
-                <div className="mk-tableSetting-line">
-                </div>
             </div>
         )
     }
@@ -206,8 +204,19 @@ class TableSettingCard extends React.Component {
     render() {
         const props = this.props
         let className = classNames({
-            'mk-tableSetting': true,
+            'mk-tableSetting':true,
+            'mk-tableSetting1': props.showTitle?true:false,
+            'mk-tableSetting2': props.showTitle?false:true,
             [props.className]: !!props.className,
+            'animated': true,
+            'slideInRight': this.props.visible,
+            'slideOutRight': !this.props.visible
+        })
+        let className2 = classNames({
+            'mk-tableSetting-bottom': true,
+            'mk-tableSetting-bottom1': props.showTitle?true:false,
+            'mk-tableSetting-bottom2': props.showTitle?false:true,
+            // [props.className]: !!props.className,
             'animated': true,
             'slideInRight': this.props.visible,
             'slideOutRight': !this.props.visible
@@ -215,19 +224,21 @@ class TableSettingCard extends React.Component {
         const { data, height, top } = this.state
         const [arrLeft, arrRight] = this.renderItem(data)
         return (
-            <div
-                className={className}
-                style={{ 
-                    height: `${height}px`, 
-                    position: 'fixed',
-                    right: '0px',
-                    top: `${top}px`,
-                    display: `${this.state.firstVisible == false ?  'none' : 'block'}`
-                }}
-            >
-                <h2>栏目设置</h2>
-                {  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}
-                <div className="mk-tableSetting-bottom">
+            <div style={{display: `${this.state.firstVisible == false ?  'none' : 'block'}`}}>
+                <div
+                    className={className}
+                    style={{ 
+                        height: `${height}px`, 
+                        position: 'fixed',
+                        right: '0px',
+                        top: `${top}px`,
+                        bottom: 55,
+                    }}
+                >
+                    <h2>栏目设置</h2>
+                    <div style={{height: '100%', overflow: 'auto'}}>{  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
+                </div>
+                <div className={className2}>
                     <Button className="mk-tableSetting-bottom-btn" onClick={this.cancelClick}>取消</Button>
                     <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
                 </div>

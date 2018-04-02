@@ -16,6 +16,11 @@ function transformDate(str){
 }
 
 function transformMomentDate(str){
+    if( typeof(str) != 'string' ){
+        console.log(str)
+        console.log('不是一个字符串')
+        return str
+    }
     let splitStr = null
     if( str.includes('-') ){
         splitStr = '-'

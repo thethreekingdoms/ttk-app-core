@@ -25,7 +25,7 @@ export default function tableOperate({ status, disable, viewClick, editClick, de
                 onClick={()=>handleClick(1)} 
                 href="javascript:;"
             >
-                <Icon style={{fontSize: '22px'}} fontFamily='edficon' type="chakan" title="查看" />
+                <Icon  fontFamily='edficon' type="chakan" title="查看" />
             </a>
         )
     } else if(status == 2) {
