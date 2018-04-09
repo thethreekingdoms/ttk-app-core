@@ -581,7 +581,7 @@ class AntTable extends Component {
 
     decorateColumns = (columns) => {
         return columns.map((col, index)=>{
-            if( !(col.tip == false) && !col.render ){
+            if( !(col.tip == false) && !col.render && col.dataIndex ){
                 col.render = this.rnederTitle
             }
             if( this.state.resizeColumn ){
