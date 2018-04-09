@@ -31,7 +31,7 @@ class TableSettingCard extends React.Component {
         let table = document.getElementsByClassName(this.props.positionClass)[0]
         if (table) {
             const point = this.getAbsPoint(table)
-            let height = window.innerHeight - point.y - 65
+            let height = window.innerHeight - point.y - 10
             this.setState({
                 height,
                 top: point.y
@@ -89,7 +89,7 @@ class TableSettingCard extends React.Component {
         let table = document.getElementsByClassName(this.props.positionClass)[0]
         if (table) {
             const point = this.getAbsPoint(table)
-            let height = window.innerHeight - point.y - 65
+            let height = window.innerHeight - point.y - 10
             this.setState({
                 height,
                 top: point.y 
@@ -210,14 +210,19 @@ class TableSettingCard extends React.Component {
             [props.className]: !!props.className,
             'animated': true,
             'slideInRight': this.props.visible,
-            'slideOutRight': !this.props.visible
+            'slideOutRight': !this.props.visible,
         })
         let className2 = classNames({
             'mk-tableSetting-bottom': true,
-            'mk-tableSetting-bottom1': props.showTitle?true:false,
-            'mk-tableSetting-bottom2': props.showTitle?false:true,
-            // [props.className]: !!props.className,
-            'animated': true,
+            'animated': this.props.visible? true: false,
+            'animated1': this.props.visible? false: true,
+            'slideInRight': this.props.visible,
+            'slideOutRight': !this.props.visible
+        })
+        let className3 = classNames({
+            'mk-tableSetting-bottom-btn': true,
+            'animated': this.props.visible? true: false,
+            'animated1': this.props.visible? false: true,
             'slideInRight': this.props.visible,
             'slideOutRight': !this.props.visible
         })
@@ -232,16 +237,16 @@ class TableSettingCard extends React.Component {
                         position: 'fixed',
                         right: '0px',
                         top: `${top}px`,
-                        bottom: 55,
                     }}
                 >
                     <h2>栏目设置</h2>
                     <div style={{height: '100%', overflow: 'auto'}}>{  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
+                    <div className={className2}>
+                        <Button className={className3} onClick={this.cancelClick}>取消</Button>
+                        <Button className={className3} type="primary " onClick={this.confirmClick}>确定</Button>
+                    </div>
                 </div>
-                <div className={className2}>
-                    <Button className="mk-tableSetting-bottom-btn" onClick={this.cancelClick}>取消</Button>
-                    <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
-                </div>
+                
             </div>
         )
     }
