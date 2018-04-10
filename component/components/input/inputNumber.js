@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { Input } from 'antd'
 import utils from 'edf-utils'
@@ -269,7 +270,7 @@ export default class InputNumberComponent extends Component {
 
     onKeyDown = (e) => {
         // this.props.onKeyDown && this.props.onKeyDown(e) //期初余额 为了实现上下左右键切换input而加的onKeyDown
-        
+
         if (e.key === 'Enter' || e.keyCode == 13 || e.keyCode == 108 || e.keyCode == 9) {  //e.keyCode == 9  不支持tab键,因为如果阻止了事件外抛,select的选择项键盘选中无法生效
             if (this.props.onEndEdit) {
                 this.props.onEndEdit()
@@ -333,7 +334,7 @@ export default class InputNumberComponent extends Component {
 
                 let selectedText = window.getSelection().toString(),
                     checkText, keyCode
-               
+
                 //Chrome中小数点的ascii码是110（小键盘）、190（大键盘）
                 if (e.keyCode == 46 || e.keyCode == 110 || e.keyCode == 190) {
                     keyCode = 46
@@ -381,7 +382,7 @@ export default class InputNumberComponent extends Component {
                         this.stringFromCharCode(keyCode) +
                         stateValue.substring(cursorPosition)
                 }
-                
+
                 //去掉输入值中的逗号
                 if (checkText) {
                     if (checkText.indexOf(',') > -1) {
@@ -396,7 +397,7 @@ export default class InputNumberComponent extends Component {
                 //         e.stopPropagation()
                 //     return
                 // }
-                
+
                 if (regExp.test('-1')) {
                     // 为了解决 360浏览器和谷歌浏览器输入负号无法输入的情况
                     if (checkText != '-' && !regExp.test(checkText)) {
@@ -493,6 +494,18 @@ export default class InputNumberComponent extends Component {
         return ret
     }
 
+  	handleFocus(e){
+  			setTimeout(() => {
+            if (document.activeElement &&
+                typeof document.activeElement.select == 'function'){
+
+                document.activeElement.select()
+            }
+        }, 0)
+
+        this.props.onFocus && this.props.onFocus(e)
+  	}
+
     render() {
         let className = classNames({
             'mk-input-number': true,
@@ -501,10 +514,12 @@ export default class InputNumberComponent extends Component {
         return (
             <Input
                 {...this.props}
+                ref='internal'
                 className = { className }
                 onChange={:: this.onChange}
                 onKeyDown = {:: this.onKeyDown }
                 onKeyUp={::this.handleKeyUp}
+                onFocus={::this.handleFocus}
                 value = { this.state.value }
                 onBlur = {:: this.onBlur } />
         )

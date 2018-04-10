@@ -221,10 +221,8 @@ class TableSettingCard extends React.Component {
         })
         let className3 = classNames({
             'mk-tableSetting-bottom-btn': true,
-            'animated': this.props.visible? true: false,
-            'animated1': this.props.visible? false: true,
-            'slideInRight': this.props.visible,
-            'slideOutRight': !this.props.visible
+            'left-btn': props.showTitle? true: false,
+            'left-btn1': props.showTitle? false: true,
         })
         const { data, height, top } = this.state
         const [arrLeft, arrRight] = this.renderItem(data)
@@ -243,7 +241,7 @@ class TableSettingCard extends React.Component {
                     <div style={{height: '100%', overflow: 'auto'}}>{  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
                     <div className={className2}>
                         <Button className={className3} onClick={this.cancelClick}>取消</Button>
-                        <Button className={className3} type="primary " onClick={this.confirmClick}>确定</Button>
+                        <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
                     </div>
                 </div>
                 

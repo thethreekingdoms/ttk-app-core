@@ -79,24 +79,6 @@ export default class action {
         }
     }
 
-    addCustomer = async (field) => {
-        const ret = await this.metaAction.modal('show', {
-            title: '新增客户',
-            width: 700,
-            children: this.metaAction.loadApp(
-                'app-card-customer', {
-                    store: this.component.props.store
-                }
-            )
-        })
-        if (ret && ret.isEnable) {
-            this.metaAction.sfs({
-                [field]: fromJS(ret)
-            })
-
-        }
-    }
-
     getSupplier = async (option, field) => {
         const response = await this.webapi.supplier.queryList(option)
         if (response) {
@@ -126,7 +108,7 @@ export default class action {
         }
     }
 
-    getCustomer = async (params) => {
+    getCustomer = async (option, field) => {
         let list = {
             "isContentEmpty": false,
             "status": true,
@@ -136,13 +118,33 @@ export default class action {
                 "pageSize": 50
             }
         }
-        if (!params) {
-            list = Object.assign(list, params)
-
+        if (!option) {
+            list = Object.assign(list, option)
         }
         const response = await this.webapi.customer.queryList(list)
         if (response) {
-            this.metaAction.sf('data.other.customer', fromJS(response.dataList))
+            this.metaAction.sf(field || 'data.other.customer', fromJS(response.list))
+        }
+    }
+
+    addCustomer = async (field) => {
+        const ret = await this.metaAction.modal('show', {
+            title: '新增客户',
+            width: 700,
+            children: this.metaAction.loadApp(
+                'app-card-customer', {
+                    store: this.component.props.store
+                }
+            )
+        })
+        if (ret && ret.isEnable) {
+            if (typeof field === 'string') {
+                this.metaAction.sfs({ [field]: fromJS(ret) })
+            } else {
+                Object.keys(field).forEach(key => {
+                    this.metaAction.sf(field[key], ret[key])
+                })
+            }
         }
     }
 
