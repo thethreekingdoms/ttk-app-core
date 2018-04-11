@@ -7,7 +7,8 @@ import myConfig from './config'
 import promise from 'es6-promise'
 
 //#region app导入
-
+//note-start
+//note-start和note-end之间的内容用脚手架匹配，请不要再该区域书写内容，在执行ttk reset过程中会被删除
 // import ttk_edf_app_login from './apps/edf/ttk-edf-app-login/index.js'
 import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 import app_test from './apps/test/app-test/index.js'
@@ -47,7 +48,7 @@ const apps = {
 	// [ttk_edf_app_my_setting_change_mobile.name]: ttk_edf_app_my_setting_change_mobile,
 	// [ttk_edf_app_my_setting_change_password.name]: ttk_edf_app_my_setting_change_password,
 }
-
+//note-end
 apps.config = (options) => {
 	Object.keys(options).forEach(key => {
 		const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)
