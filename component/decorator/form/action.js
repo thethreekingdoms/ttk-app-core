@@ -2,6 +2,7 @@ import utils from 'edf-utils'
 import ReactDOM from 'react-dom'
 import config from './config'
 import Immutable, { fromJS, Map, List } from 'immutable'
+import { LoadingMask } from 'edf-component';
 
 let requiredFieldList = []
 export default class action {
@@ -78,24 +79,6 @@ export default class action {
         }
     }
 
-    addCustomer = async (field) => {
-        const ret = await this.metaAction.modal('show', {
-            title: '新增客户',
-            width: 700,
-            children: this.metaAction.loadApp(
-                'app-card-customer', {
-                    store: this.component.props.store
-                }
-            )
-        })
-        if (ret && ret.isEnable) {
-            this.metaAction.sfs({
-                [field]: fromJS(ret)
-            })
-
-        }
-    }
-
     getSupplier = async (option, field) => {
         const response = await this.webapi.supplier.queryList(option)
         if (response) {
@@ -125,7 +108,7 @@ export default class action {
         }
     }
 
-    getCustomer = async (params) => {
+    getCustomer = async (option, field) => {
         let list = {
             "isContentEmpty": false,
             "status": true,
@@ -135,13 +118,33 @@ export default class action {
                 "pageSize": 50
             }
         }
-        if (!params) {
-            list = Object.assign(list, params)
-
+        if (!option) {
+            list = Object.assign(list, option)
         }
-        const response = await this.webapi.basicFiles.consumerQuery.query(list)
+        const response = await this.webapi.customer.queryList(list)
         if (response) {
-            this.metaAction.sf('data.other.customer', fromJS(response.dataList))
+            this.metaAction.sf(field || 'data.other.customer', fromJS(response.list))
+        }
+    }
+
+    addCustomer = async (field) => {
+        const ret = await this.metaAction.modal('show', {
+            title: '新增客户',
+            width: 700,
+            children: this.metaAction.loadApp(
+                'app-card-customer', {
+                    store: this.component.props.store
+                }
+            )
+        })
+        if (ret && ret.isEnable) {
+            if (typeof field === 'string') {
+                this.metaAction.sfs({ [field]: fromJS(ret) })
+            } else {
+                Object.keys(field).forEach(key => {
+                    this.metaAction.sf(field[key], ret[key])
+                })
+            }
         }
     }
 
@@ -266,7 +269,7 @@ export default class action {
                 bankAccountTypeIds: params.bankAccountTypeIds
             }
         }
-        const response = await this.webapi.bankaccount.bankaccount.queryList(params)
+        const response = await this.webapi.bankaccount.queryList(params)
 
         if (response) {
             this.metaAction.sf(field || 'data.other.bankAccount', fromJS(response.list))
@@ -324,6 +327,18 @@ export default class action {
             })
         }
     }
+
+	beforeUpload = (file) => {
+		let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome')<0)
+		if(!isWin) return
+		let type = file.type ? file.type : ''
+		if(!(type == 'application/vnd.ms-excel'
+				|| type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
+			LoadingMask.hide()
+			this.metaAction.toast('error', '仅支持上传Excel格式的文件')
+			return false
+		}
+	}
 
     calc = (fieldName, rowIndex, rowData, params) => {
         let v = params.value
