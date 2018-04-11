@@ -221,8 +221,7 @@ class TableSettingCard extends React.Component {
         })
         let className3 = classNames({
             'mk-tableSetting-bottom-btn': true,
-            'left-btn': props.showTitle? true: false,
-            'left-btn1': props.showTitle? false: true,
+            'left-btn': true,
         })
         const { data, height, top } = this.state
         const [arrLeft, arrRight] = this.renderItem(data)

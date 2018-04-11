@@ -314,7 +314,8 @@ export default class InputNumberComponent extends Component {
                     e.keyCode == 108 ||
                     (e.ctrlKey)) {
 
-                    this.props.onEventKeyDown && this.props.onEventKeyDown(e)
+                    //this.props.onEventKeyDown && this.props.onEventKeyDown(e)
+                    //this.props.onKeyDown && this.props.onKeyDown(e)
                     return
                 }
 

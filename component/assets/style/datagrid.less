@@ -45,6 +45,10 @@
         border-right: 1px solid #d9d9d9;
         border-top: 1px solid #d9d9d9;
         //border-top-color: transparent;
+        z-index: 2;
+    }
+    .mk-nodata {
+        z-index: 1;
     }
     .public_fixedDataTableCell_main {
         border-bottom: 1px solid #d9d9d9;
@@ -219,9 +223,9 @@
             background-color: #fff6ea !important;
         }
     }
-    .fixedDataTableLayout_rowsContainer>div:nth-child(2), .fixedDataTableLayout_rowsContainer>div:nth-child(4) {
-        overflow: hidden;
-    }
+    // .fixedDataTableLayout_rowsContainer>div:nth-child(2), .fixedDataTableLayout_rowsContainer>div:nth-child(4) {
+    //     // overflow: hidden;
+    // }
     .fixedDataTableLayout_rowsContainer>div:nth-child(4) {
           .public_fixedDataTableCell_main:first-child {
               overflow: visible;

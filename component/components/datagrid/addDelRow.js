@@ -23,10 +23,10 @@ export default function AddDelrow(props) {
 			fixed={true}
 			cell={ps => getContent(ps)}
 			header={
-				<Cell></Cell>
+				<Cell style={{position: 'relative', left: '-25px', background: '#fff', width: '24px'}}></Cell>
 			}
 			footer={
-				<Cell></Cell>
+				<Cell style={{position: 'relative', left: '-25px', background: '#fff', width: '24px'}}></Cell>
 			}
 		/>
 	)

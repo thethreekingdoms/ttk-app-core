@@ -11,6 +11,9 @@
     }
     &-footer {
         text-align: center;
+        span {
+            font-size: 12px;
+        }
     }
     .ant-modal-footer {
         text-align: center !important;
@@ -21,6 +24,20 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             padding-right: 20px;
+        }
+    }
+    &-body{
+        .ant-form-item{
+            font-size: 12px;
+            .ant-form-item-control-wrapper{
+                .mk-select, .ant-input, .ant-calendar-picker {
+                    font-size: 12px;
+                }
+            }
+        }
+        .ant-select-dropdown-menu {
+            max-height: 300px;
+            font-size: 12px
         }
     }
 }

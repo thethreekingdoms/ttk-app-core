@@ -1,8 +1,9 @@
 import React from 'react'
 import Icon from '../icon/index'
 import classNames from 'classnames'
+import { Popover, Input,Message} from 'edf-component'
 
-export default function tableOperate({ status, disable, viewClick, editClick, deleteClick, className, style }){
+export default function tableOperate({ status, disable, viewClick, editClick, deleteClick, noteClick, className, style }){
 
     const handleClick = (type) => {
         switch (type){
@@ -15,9 +16,22 @@ export default function tableOperate({ status, disable, viewClick, editClick, de
             case 3:
                 !(disable&&disable.includes('delete'))&&deleteClick&&deleteClick()
                 break
+            case 4:
+                !(disable&&disable.includes('note'))&&noteClick&&noteClick()
+                break
         }
     }
     const showBtn = []
+    let noteLength = 0
+    const checkMaxInput = (e) => {
+        noteLength = e.target.value.length
+        
+        if(noteLength > 100){
+            Message.warning('最多输入100个字')
+        }else{
+            document.getElementById('statisticsNum').innerHTML = noteLength
+        }
+    }
     if( status == 1 ) {
         showBtn.push(
             <a 
@@ -46,6 +60,26 @@ export default function tableOperate({ status, disable, viewClick, editClick, de
             >
                 <Icon fontFamily='edficon' type="shanchu" title="删除" />
             </a>
+        )
+        showBtn.push(
+            <Popover content = {
+                <div>
+                    <Input.TextArea rows={7} placeholder={'请输入批注内容'} onChange={ (e) => checkMaxInput(e)}/>
+                    <span className="statistics"><span className="statisticsNum" id="statisticsNum">{noteLength}</span>/100</span>
+                </div>
+            }
+                placement="bottom"
+                overlayClassName = "noteContainer"
+                trigger="click">
+                <a 
+                    className={`${disable&&disable.includes('note') ? 'disabled' : '' }`} 
+                    onClick={()=>handleClick(4)} 
+                    href="javascript:;"
+                >
+                    <Icon fontFamily='edficon' type="bangzhushouye" title="批注" />
+                </a>
+                </Popover>
+            
         )
     }
 
