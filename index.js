@@ -54,7 +54,7 @@ apps.config = (options) => {
 		const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)
 		Object.keys(apps).forEach(appName => {
 			if (appName != 'config') {
-				if (reg.test(appName)) {
+				if (reg.test(appName) && apps[appName].config) {
 					apps[appName].config(options[key])
 				}
 			}
