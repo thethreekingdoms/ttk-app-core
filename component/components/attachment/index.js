@@ -67,6 +67,29 @@ export default class attachmentComponent extends Component {
                 columnKey='link'
                 flexGrow={1}
                 cell={(ps) => {
+                    let iconComponent
+                    switch (data[ps.rowIndex].type) {
+                        case 1000010001:
+                            iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon"/>)
+                            break;
+                        case 1000010002:
+                            iconComponent = (<Icon type="word" className="picture" fontFamily="edficon"/>)
+                            break;
+                        case 1000010003:
+                            iconComponent = (<Icon type="Excel" className="picture" fontFamily="edficon"/>)
+                            break;
+                        case 1000010004:
+                            iconComponent = (<Icon type="ppt" className="picture" fontFamily="edficon"/>)
+                            break;
+                        case 1000010005:
+                            iconComponent = (<Icon type="pdf" className="picture" fontFamily="edficon"/>)
+                            break;
+                        case 1000010006:
+                            iconComponent = (<Icon type="yasuobao" className="picture" fontFamily="edficon"/>)
+                            break;
+                        default:
+                            break;
+                    }
                     return (
                         <Popover
                             content={this.getThumbnail(data[ps.rowIndex])}
@@ -75,7 +98,7 @@ export default class attachmentComponent extends Component {
                         >
                             <Cell className='mk-attachment-content-link-cell'>
                                 <a>
-                                    {data[ps.rowIndex].type == 1000010001 ? <Icon type="picture" className="picture" /> : <Icon type="file" className="picture" />}
+                                    {iconComponent}
                                 </a>
                                 {data[ps.rowIndex].type == 1000010001 ? <a onClick={(e) => this.openViewer(ps.rowIndex, e)} title={data[ps.rowIndex].name || data[ps.rowIndex].alt}>{data[ps.rowIndex].name || data[ps.rowIndex].alt}</a> : <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt}>{data[ps.rowIndex].name || data[ps.rowIndex].alt}</span>}
                             </Cell>

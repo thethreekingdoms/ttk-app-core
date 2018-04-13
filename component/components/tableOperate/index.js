@@ -3,7 +3,7 @@ import Icon from '../icon/index'
 import classNames from 'classnames'
 import { Popover, Input,Message} from 'edf-component'
 
-export default function tableOperate({ status, disable, viewClick, editClick, deleteClick, noteClick, className, style }){
+export default function tableOperate({ status, disable,checkMaxInput, submitNote,viewClick, editClick, deleteClick, noteClick, className, style }){
 
     const handleClick = (type) => {
         switch (type){
@@ -23,15 +23,16 @@ export default function tableOperate({ status, disable, viewClick, editClick, de
     }
     const showBtn = []
     let noteLength = 0
-    const checkMaxInput = (e) => {
-        noteLength = e.target.value.length
+    // const checkMaxInput = (e) => {
+    //     noteLength = e.target.value.length
         
-        if(noteLength > 100){
-            Message.warning('最多输入100个字')
-        }else{
-            document.getElementById('statisticsNum').innerHTML = noteLength
-        }
-    }
+    //     if(noteLength > 100){
+    //         Message.warning('最多输入100个字')
+    //     }else{
+    //         document.getElementById('statisticsNum').innerHTML = noteLength
+    //     }
+    //     return e.target.value
+    // }
     if( status == 1 ) {
         showBtn.push(
             <a 
@@ -64,7 +65,7 @@ export default function tableOperate({ status, disable, viewClick, editClick, de
         showBtn.push(
             <Popover content = {
                 <div>
-                    <Input.TextArea rows={7} placeholder={'请输入批注内容'} onChange={ (e) => checkMaxInput(e)}/>
+                    <Input.TextArea rows={7} placeholder={'请输入批注内容'} onChange={ (e) => checkMaxInput(e)} onBlur={() => submitNote()} id="noteInput"/>
                     <span className="statistics"><span className="statisticsNum" id="statisticsNum">{noteLength}</span>/100</span>
                 </div>
             }

@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "ttk team",
   "main": "index.js",
   "scripts": {

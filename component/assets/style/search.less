@@ -125,9 +125,14 @@
         .search-form-contaienr{
             width: 100%;
             float: left;
+            font-size: 12px !important;
             overflow: auto;
+            .ant-select-selection-selected-value {
+                font-size: 12px !important;
+            }
         }
         form{
+            font-size: 12px;
             // flex: 1;
             width: 100%;
             height: auto;
@@ -154,9 +159,11 @@
             .ant-form-item-label{
                 width: 15%;
                 text-align: right;
+                line-height: 31px;
                 color: rgba(0, 0, 0, 0.65);
                 label{
                     padding-right: 8px;
+                    font-size: 12px;
                 }
                 label:after{
                     display: none;
@@ -165,6 +172,12 @@
             }
             .ant-form-item-control-wrapper{
                 width: 85%;
+                .ant-calendar-picker-input {
+                    font-size: 12px;
+                }
+                span {
+                    font-size: 12px !important;
+                }
             }
             .ant-select-selection-selected-value{
                 padding-right: 0px !important;
@@ -206,7 +219,7 @@
                 padding: 0 18px;
                 height: 33px;
                 line-height: 31px;
-                font-size: 14px;
+                font-size: 12px;
             }
         }    
         .mk_search_row{
