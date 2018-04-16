@@ -10,7 +10,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/ttk-app-core.svg?style=flat)](https://npmjs.org/package/ttk-app-core)
 
  
-
+[演示地址](https://thethreekingdoms.github.io/html/#/ttk-edf-app-root/ttk-edf-app-login)
   ### ttk-app-core是一套完整的前端工程化解决方案，涵盖项目的起始、开发、测试以及部署阶段。
   ### 
   ``` 提供可定制的脚手架、插件系统以及开发者API，可以根据业务需求搭建自己的前端工程体系。```
