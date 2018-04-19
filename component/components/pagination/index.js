@@ -25,7 +25,7 @@ class PaginationComponent extends React.Component{
 			
 			props.onChange && props.onChange(num, null)
 		}else {
-			Message.warn('输入的页面不存在！')
+			Message.warn('输入的页面不存在')
 		}
 	}
 
@@ -83,7 +83,7 @@ export default  PaginationComponent
 			
 // 			props.onChange && props.onChange(num, null)
 // 		}else {
-// 			Message.warn('输入的页面不存在！')
+// 			Message.warn('输入的页面不存在')
 // 		}
 // 	}
 // 	const calJumperInputValue = () => {

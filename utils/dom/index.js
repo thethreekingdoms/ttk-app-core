@@ -52,7 +52,7 @@ function gridCellAutoFocus(container, editCtrlClassName, position, path) {
     if (editorDOM.className.indexOf('select') != -1) {
         editorDOM.click()
         const input = editorDOM.querySelector('input')
-        input.select()
+        input && input.select()
         return
     }
 

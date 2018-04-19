@@ -66,7 +66,7 @@ class PrintOptionComponent2 extends React.Component{
                     </div>
                     <div className="printOption2-detail">
                         <span>
-                            说明: 选择外币或数量后，只{this.props.type}设置了外币或数量核算的科目。
+                            说明: 选择外币或数量后，只{this.props.type}设置了外币或数量核算的科目
                         </span>
                     </div>
                 </div>

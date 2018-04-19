@@ -17,8 +17,7 @@ class DataGridComponent extends React.Component {
         height: 0,
         width: 0,
         rowsCount: 0,
-        // scrollTop: 0,
-        // scrollLeft: 0
+        scrollLeft: 0
     }
     
     constructor(props) {
@@ -33,7 +32,6 @@ class DataGridComponent extends React.Component {
         //     })
         // }, 1)
         this.rowsCount = props.rowsCount
-        this.changetab = props.changetab
     }
 
 
@@ -62,7 +60,6 @@ class DataGridComponent extends React.Component {
     componentWillReceiveProps(prevProps, prevState){
         // console.log(prevProps)
         this.rowsCount = this.state.rowsCount;
-        this.changetab = this.props.changetab
         this.setState({
             rowsCount: prevProps.rowsCount,
             // scrollTop: prevProps.top
@@ -122,14 +119,9 @@ class DataGridComponent extends React.Component {
         }
     }
 
-    // onScrollEnd = (x, y) => {
-    //     console.log('scroll', x, y)
-    //     this.setState({
-    //         scrollTop: y,
-    //         scrollLeft: x
-    //     })
-    //     // this.props.callBack('onScrollEnd', { path: this.props.path, x, y })
-    // }
+    onScrollEnd = (x, y) => {
+        window[this.props.className] = y
+    }
 
     // update() {
     //     let dom = ReactDOM.findDOMNode(this),
@@ -153,11 +145,11 @@ class DataGridComponent extends React.Component {
         let height = this.state.height,
             width = this.state.width,
             oldRowsCount = this.rowsCount,
-            // onScrollEnd = this.onScrollEnd,
+            onScrollEnd = this.onScrollEnd,
             // scrollLeft = this.state.scrollLeft,
             // scrollTop = this.changetab == this.props.changetab ? this.state.scrollTop : 0,
-            changetab = this.changetab == this.props.changetab,
-            loading = this.props.loading
+            loading = this.props.loading,
+            scrollToRow
 
         if (this.props.enableAddDelrow || this.props.enableUpDownrow || this.props.showBtnWidth) {
             height = height
@@ -165,6 +157,10 @@ class DataGridComponent extends React.Component {
         }
         if (this.props.isFix) {
             if (height > this.props.height) height = this.props.height
+        }
+
+        if(this.props.rememberScrollTop && window[this.props.className]) {
+            scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight)
         }
 
         return (
@@ -176,10 +172,9 @@ class DataGridComponent extends React.Component {
                     width,
                     height,
                     oldRowsCount,
-                    // onScrollEnd,
+                    onScrollEnd,
+                    scrollToRow,
                     // scrollLeft,
-                    // scrollTop
-                    changetab,
                     loading
                 })}
             </div>

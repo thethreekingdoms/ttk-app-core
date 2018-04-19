@@ -40,20 +40,20 @@ plugins.push(
         }
     })
 )
-plugins.push(new webpack.optimize.CommonsChunkPlugin({
-    names: ['edf'],
-    filename: '[name].[hash:8].min.js',
-    minChunks: Infinity
-}))
+// plugins.push(new webpack.optimize.CommonsChunkPlugin({
+//     names: ['bundle', 'edf'],
+//     filename: '[name].[hash:8].min.js',
+//     minChunks: Infinity
+// }))
 
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new webpack.NoEmitOnErrorsPlugin())
 plugins.push(new HtmlWebpackPlugin({
-    title: '企业开发平台', //标题
+    title: '智能财税', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index.html', //html模板路径
-    chunks: ['edf', 'bundle', 'icon', 'greenTheme'],
+    chunks: ['icon', 'businessBlueTheme'],
     hash: false,
     inject: 'body', //允许插件修改哪些内容，包括head与body`
     minify: { //压缩HTML文件
@@ -73,6 +73,12 @@ plugins.push(new OptimizeCssAssetsPlugin(
     }
 ))*/
 plugins.push(new CopyWebpackPlugin([{
+    from: './version.txt',
+    to: 'version.txt',
+    toType: 'file'
+}]))
+
+plugins.push(new CopyWebpackPlugin([{
     from: './robots.txt',
     to: 'robots.txt',
     toType: 'file'
@@ -90,11 +96,11 @@ module.exports = {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
         businessBlueTheme: "./assets/styles/businessBlue.less",
-        blackTheme: "./assets/styles/black.less",
-        greenTheme: "./assets/styles/green.less",
         orangeTheme: "./assets/styles/orange.less",
-        blueTheme: "./assets/styles/blue.less",
-        yellowTheme: "./assets/styles/yellow.less",
+        // blackTheme: "./assets/styles/black.less",
+        // greenTheme: "./assets/styles/green.less",
+        // blueTheme: "./assets/styles/blue.less",
+        // yellowTheme: "./assets/styles/yellow.less",
         icon: "./component/assets/style/iconset.less"
     },
 
@@ -113,6 +119,7 @@ module.exports = {
             'edf-utils': path.resolve(projectRootPath, './utils/index.js'),
             'webapi': path.resolve(projectRootPath, './api/index.js'),
             'edf-consts': path.resolve(projectRootPath, './constant/consts.js'),
+            'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
             'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js')
         }
@@ -158,7 +165,8 @@ module.exports = {
     devServer: {
         contentBase: './dist/',
         proxy: {
-            //  '/v1/*': 'http://127.0.0.1:8008/',
+            '/v1/*': 'http://debug.aierp.cn:8088/',
+            '/share-oss/*': 'http://debug.aierp.cn:8088/',
         }
     },
     plugins: plugins

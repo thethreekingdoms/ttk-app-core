@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Map, List, fromJS } from 'immutable'
 import Button from '../button/index'
 import { action as MetaAction, AppLoader } from 'edf-meta-engine'
+import clonedeep from 'lodash.clonedeep'
 import SearchForm from './SearchForm'
 import normalSearchFuc from './normalSearch'
 import AssistForm from './AssistForm'
@@ -25,23 +26,31 @@ class SearchComponent extends Component {
         this.state = {
             data: this.computeState(this.props),
             visible: false,
-            searchValue: props.moreSearch,
+            searchValue: clonedeep(props.moreSearch),
             key: '',
             height: 10000,
-            normalSearch: props.normalSearchValue ? props.normalSearchValue : {},
+            normalSearch: props.normalSearchValue ? clonedeep(props.normalSearchValue) : {},
             count: 0,
             containerHeight: 500
         }
         this.value = {}
         this.datePickerRandom = Math.floor(Math.random()*100000000)
-	    this.props.didMount && this.props.didMount(this)
+        this.props.didMount && this.props.didMount(this)
+        this.props.moreSearchItem.map(item => {
+            if( 
+                item.pre && item.pre.type && item.pre.type.includes('DatePicker') &&
+                item.next && item.next.type && item.next.type.includes('DatePicker')
+            ) {
+                this.state[`showDateWin_${item.pre.name}`] = false
+            }
+        })
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState(this.computeState(nextProps))
         this.setState({
-            searchValue: nextProps.moreSearch,
-            normalSearch: nextProps.normalSearchValue
+            searchValue: clonedeep(nextProps.moreSearch),
+            normalSearch: clonedeep(nextProps.normalSearchValue)
         })
     }
 
@@ -79,6 +88,17 @@ class SearchComponent extends Component {
     }
     componentWillUnmount() {
         window.removeEventListener('resize', this.computed, false)
+    }
+
+    dateWindowChange = (type, status, key) => {
+        if( type == 'next' ){
+            this.setState({
+                [key]: status
+            })
+        }
+        if( type == 'next' && status == false ){
+            // 采用异步是因为datePicker的onchange事件晚于onOpenChange触发
+        }
     }
 
     showPickerDidMount = () => {
@@ -204,7 +224,7 @@ class SearchComponent extends Component {
         const { cancelClick } = this.props
         this.showMoreSearch(false)
         this.setState({
-            searchValue: this.props.moreSearch,
+            searchValue: clonedeep(this.props.moreSearch),
             key: Math.random()
         })
         cancelClick && cancelClick()
@@ -276,12 +296,43 @@ class SearchComponent extends Component {
         })
     }
 
+    trantoNumber = (num) => {
+        if( !num ){
+            return 0
+        }
+        try{
+            return parseInt(num.format('YYYYMM'))
+        }catch(err){
+            console.log(err)
+            return 0
+        }
+    }
+
     someChange = (key, value) => {
-        const { searchValue } = this.state
-        searchValue[key] = value
-        this.setState({
-            searchValue
-        })
+        try{
+            const { searchValue } = this.state
+            searchValue[key] = value
+            if( this.state[`showDateWin_${key}`] != undefined ){
+                let nextKey
+                this.props.moreSearchItem.forEach(item => {
+                    if( item.next && item.pre && item.pre.name == key){
+                        nextKey = item.next.name
+                    }
+                    if(  this.trantoNumber(value) > this.trantoNumber(searchValue[nextKey]) ){
+                        searchValue[nextKey] = value
+                    }
+                })
+                this.setState({
+                    [`showDateWin_${key}`]: true
+                })
+            }
+            this.setState({
+                searchValue
+            })
+        }catch(err){
+            console.log(err)
+        }
+       
     }
 
     normalSelectDate = () => {
@@ -310,10 +361,30 @@ class SearchComponent extends Component {
         const { confirmBtn, cancelBtn, clearBtn, refreshBtn } = this.props
         const { containerHeight } = this.state
         let This = this
+        const moreSearchItem = this.props.moreSearchItem.map(item => {
+            if( item.pre && item.next && 
+                item.pre.type.includes('DatePicker') && item.next.type.includes('DatePicker')){
+                return {
+                    ...item,
+                    next:{
+                        ...item.next,
+                        onOpenChange: (status) => this.dateWindowChange('next', status, `showDateWin_${item.pre.name}`),
+                        open: this.state[`showDateWin_${item.pre.name}`] 
+                    },
+                    pre: {
+                        ...item.pre,
+                        onOpenChange: (status) => this.dateWindowChange('pre', status, `showDateWin_${item.pre.name}`)
+                    }
+                }
+            }
+            return item 
+        })
+        console.log(this.state.searchValue)
         return (
             <div ref='retrieveWrap' className='retrieveWrap mk-search' style={{ position: 'relative' }}>
                 <div className="mk-normal-search" style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div className="mk-normal-search-left" style={{ display: 'flex' }}>
+                        {this.props.selectDate?this.props.selectDate:null}
                         {this.renderNormalSearch()}
                         {this.props.normalSearcChildren ? this.props.normalSearcChildren : null}
                         <span
@@ -363,8 +434,8 @@ class SearchComponent extends Component {
                             <SearchForm
                                 target={this}
                                 onChange={this.someChange} 
-                                item={this.props.moreSearchItem} 
-                                key={this.state.key} 
+                                item={moreSearchItem} 
+                                key={Math.random()} 
                                 ref={(form) => { this.form = form }} 
                                 values={this.state.searchValue} 
                             />

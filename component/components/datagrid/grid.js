@@ -124,11 +124,8 @@ export default function GridComponent(props) {
 
 	// scrollTop = scrollTop < 0 ? 0 : scrollTop
 	// scrollToRow = parseInt(scrollTop / rowHeight)
-	//切换页签置顶
-	if(!props.changetab){
-		scrollToRow = 0
-	}
-
+	
+	
 	let size = props.loading && props.loading.size ? props.loading.size : 'large',
 		tip = props.loading && props.loading.tip ? props.loading.tip : "数据加载中...",
 		spinning = props.loading && props.loading.hasOwnProperty('spinning') ? props.loading.spinning : props.loading
@@ -156,7 +153,7 @@ export default function GridComponent(props) {
 							onRowClick={readonly === false ? undefined : onRowClick}
 							onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
 							onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-							// onScrollEnd={onScrollEnd}
+							onScrollEnd={onScrollEnd}
 						>{columns}
 						</Table>
 						<NoData style={{position:'absolute', height: '220px', top: '50%', marginTop: '-110px'}}>暂无数据</NoData>
@@ -181,7 +178,7 @@ export default function GridComponent(props) {
 							onRowClick={readonly === false ? undefined : onRowClick}
 							onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
 							onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-							// onScrollEnd={onScrollEnd}
+							onScrollEnd={onScrollEnd}
 						>{columns}
 						</Table>
 					</Spin>
@@ -213,7 +210,7 @@ export default function GridComponent(props) {
 				onRowClick={readonly === false ? undefined : onRowClick}
 				onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
 				onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-				// onScrollEnd={onScrollEnd}
+				onScrollEnd={onScrollEnd}
 				>{columns}
 				</Table>
 			</Spin>
@@ -236,7 +233,7 @@ export default function GridComponent(props) {
 				onRowClick={readonly === false ? undefined : onRowClick}
 				onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
 				onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-				// onScrollEnd={onScrollEnd}
+				onScrollEnd={onScrollEnd}
 			>{columns}
 			</Table>
 		}

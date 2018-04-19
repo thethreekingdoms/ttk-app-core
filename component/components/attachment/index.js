@@ -54,7 +54,7 @@ export default class attachmentComponent extends Component {
                 <div className={className + ' upload-content'}>
                     <Spin spinning={this.props.loading != undefined ? this.props.loading : false} tip='加载中...'>
                         <NoData type='noDocoments' small>
-                            <span>亲，还没有文件，赶快上传呦！</span>
+                            <span>亲，还没有文件，赶快上传呦</span>
 
 
                         </NoData>
@@ -70,22 +70,22 @@ export default class attachmentComponent extends Component {
                     let iconComponent
                     switch (data[ps.rowIndex].type) {
                         case 1000010001:
-                            iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon" style={{color:'#8080F3'}}/>)
                             break;
                         case 1000010002:
-                            iconComponent = (<Icon type="word" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="word" className="picture" fontFamily="edficon" style={{color:'#52C4FF'}}/>)
                             break;
                         case 1000010003:
-                            iconComponent = (<Icon type="Excel" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="Excel" className="picture" fontFamily="edficon" style={{color:'#FF7739'}}/>)
                             break;
                         case 1000010004:
-                            iconComponent = (<Icon type="ppt" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="ppt" className="picture" fontFamily="edficon" style={{color:'#4591FF'}}/>)
                             break;
                         case 1000010005:
-                            iconComponent = (<Icon type="pdf" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="pdf" className="picture" fontFamily="edficon" style={{color:'#36CEAB'}}/>)
                             break;
                         case 1000010006:
-                            iconComponent = (<Icon type="yasuobao" className="picture" fontFamily="edficon"/>)
+                            iconComponent = (<Icon type="yasuobao" className="picture" fontFamily="edficon" style={{color:'#F9A022'}}/>)
                             break;
                         default:
                             break;

@@ -206,6 +206,7 @@ export default {
     getPrecision,
     format,
     round,
+    toFixedFix,
     moneySmalltoBig,
     transferData
 }

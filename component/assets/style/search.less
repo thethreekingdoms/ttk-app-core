@@ -115,11 +115,12 @@
             float: left;
             font-size: 14px;
             height: 30px;
+            line-height: 30px;
             color: #454545;
             margin: 0;
             div{
                 width: 9%;
-                text-indent: 9px;
+                text-indent: 8px;
             }
         }
         .search-form-contaienr{
@@ -127,6 +128,7 @@
             float: left;
             font-size: 12px !important;
             overflow: auto;
+            padding-right: 12px;
             .ant-select-selection-selected-value {
                 font-size: 12px !important;
             }
@@ -159,7 +161,7 @@
             .ant-form-item-label{
                 width: 15%;
                 text-align: right;
-                line-height: 31px;
+                line-height: 32px;
                 color: rgba(0, 0, 0, 0.65);
                 label{
                     padding-right: 8px;
@@ -172,6 +174,22 @@
             }
             .ant-form-item-control-wrapper{
                 width: 85%;
+                margin-left: 1px !important;
+                .ant-form-item-control {
+                    .ant-form-item-children {
+                        .ant-calendar-picker {
+                            .ant-calendar-picker-input {
+                                height: 30px !important;
+                            }
+                        } 
+                        .ant-select-allow-clear {
+                            left: -0.5px;   
+                        }
+                        .ant-select-enabled {
+                            left: -0.5px;
+                        }
+                    }
+                }
                 .ant-calendar-picker-input {
                     font-size: 12px;
                 }
@@ -188,7 +206,10 @@
             width: 50%;
             float: left;
             display: flex;
-            line-height: 38px;
+            line-height:40px;
+            .select_range_content{
+                padding: 0 7px 0 8px !important;
+            }
             .select_range_label{
                 width: 18%;
                 text-align: right;

@@ -171,6 +171,7 @@ class action {
 					&& this.metaHandlers['componentDidCatch']
 					&& this.metaHandlers['componentDidCatch'] != this.componentDidCatch
 					&& this.metaHandlers['componentDidCatch'](e)
+				console.error(`表达式解析错误：${expressContent}`)
 				utils.exception.error(e)
 			}
 		}

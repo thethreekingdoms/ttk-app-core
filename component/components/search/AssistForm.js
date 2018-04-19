@@ -191,7 +191,7 @@ class FormList extends React.Component{
     verify = () => {
         const { selectValue } = this.state
         if( selectValue.length == 0 ){
-            message.warn('辅助项目信息不能为空！')
+            message.warn('辅助项目信息不能为空')
         }
         return selectValue.length == 0 ? false : true
     }

@@ -8,7 +8,7 @@ export function isAcrobatInstalledInIE() {
     let pdfPlugin = getPDFPlugin()
 
     if (!pdfPlugin) {
-        let message = { type: '', mode: 'message', content: '您可能没有安装pdf阅读器，为了方便您阅读pdf文档，请下载安装！', duration: 20 }
+        let message = { type: '', mode: 'message', content: '您可能没有安装pdf阅读器，为了方便您阅读pdf文档，请下载安装', duration: 20 }
         Message.info(message.content, message.duration)
         window.open("http://ardownload.adobe.com/pub/adobe/reader/win/9.x/9.3/chs/AdbeRdr930_zh_CN.exe")
 
