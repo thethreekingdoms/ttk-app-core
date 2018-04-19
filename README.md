@@ -8,7 +8,8 @@
 [![Build Status](https://img.shields.io/travis/thethreekingdoms/ttk-app-core/master.svg)](https://travis-ci.org/thethreekingdoms/ttk-app-core)
 [![devDependency Status](https://img.shields.io/david/dev/thethreekingdoms/ttk-app-core.svg)](https://david-dm.org/thethreekingdoms/ttk-app-core#info=devDependencies)
 [![NPM downloads](http://img.shields.io/npm/dm/ttk-app-core.svg?style=flat)](https://npmjs.org/package/ttk-app-core)
-
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/thethreekingdoms/ttk-app-core/pulls)
+[![Join the chat at https://gitter.im/ttkteam/ttk-app-core](https://badges.gitter.im/ttkteam/ttk-app-core.svg)](https://gitter.im/ttkteam/ttk-app-core?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  
 [演示地址](https://thethreekingdoms.github.io/html/#/ttk-edf-app-root/ttk-edf-app-login)
   ### ttk-app-core是一套完整的前端工程化解决方案，涵盖项目的起始、开发、测试以及部署阶段。
