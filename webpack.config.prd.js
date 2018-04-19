@@ -1,4 +1,4 @@
-﻿var webpack = require("webpack")
+var webpack = require("webpack")
 var path = require("path")
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -40,11 +40,11 @@ plugins.push(
         }
     })
 )
-// plugins.push(new webpack.optimize.CommonsChunkPlugin({
-//     names: ['bundle', 'edf'],
-//     filename: '[name].[hash:8].min.js',
-//     minChunks: Infinity
-// }))
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+    names: ['edf'],
+    filename: '[name].[hash:8].min.js',
+    minChunks: Infinity
+}))
 
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new webpack.NoEmitOnErrorsPlugin())
@@ -53,7 +53,7 @@ plugins.push(new HtmlWebpackPlugin({
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index.html', //html模板路径
-    chunks: ['icon', 'businessBlueTheme'],
+    chunks: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
     hash: false,
     inject: 'body', //允许插件修改哪些内容，包括head与body`
     minify: { //压缩HTML文件
