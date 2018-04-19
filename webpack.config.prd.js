@@ -49,7 +49,7 @@ plugins.push(
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new webpack.NoEmitOnErrorsPlugin())
 plugins.push(new HtmlWebpackPlugin({
-    title: '智能财税', //标题
+    title: '企业开发平台', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index.html', //html模板路径
