@@ -83,12 +83,12 @@ module.exports = {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
         businessBlueTheme: "./assets/styles/businessBlue.less",
-        // orangeTheme: "./assets/styles/orange.less",
+        orangeTheme: "./assets/styles/orange.less",
         // blackTheme: "./assets/styles/black.less",
         // greenTheme: "./assets/styles/green.less",
         // blueTheme: "./assets/styles/blue.less",
         // yellowTheme: "./assets/styles/yellow.less",
-        icon: "./component/assets/style/iconset.less",
+        icon: "./component/assets/style/iconset.less"
 
     },
 
