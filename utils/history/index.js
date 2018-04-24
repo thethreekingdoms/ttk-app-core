@@ -81,7 +81,7 @@ function pullChildApp(closeAppName, currentTab) {
     if (historyArray) {
         let childApp = getRealName(historyArray.get('appName'))
         if (childApp) {
-            let selfApp = 'edfx-app-portal'
+            let selfApp = 'ttk-edf-app-portal'
             this.pushChildApp(selfApp, childApp)
             /*
             try {
