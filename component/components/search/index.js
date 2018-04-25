@@ -379,7 +379,7 @@ class SearchComponent extends Component {
             }
             return item 
         })
-        console.log(this.state.searchValue)
+
         return (
             <div ref='retrieveWrap' className='retrieveWrap mk-search' style={{ position: 'relative' }}>
                 <div className="mk-normal-search" style={{ display: 'flex', justifyContent: 'space-between' }}>

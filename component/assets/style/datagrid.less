@@ -2,6 +2,7 @@
     flex: 1;
     height: 100%;
     overflow: hidden;
+    background: #fff;
     .ant-spin-nested-loading > div > .ant-spin{
         max-height: 100%;
         left: 0;
@@ -41,7 +42,7 @@
     }
     //表格边框颜色透明
     .fixedDataTableLayout_main {
-        border: 1px solid transparent;
+        border: none;
         border-right: 1px solid #d9d9d9;
         border-top: 1px solid #d9d9d9;
         //border-top-color: transparent;
@@ -80,12 +81,21 @@
         /* background-color: #f6f7f8; */
         /* background-image: -webkit-linear-gradient(#fff,#efefef); */
         //background-image: linear-gradient(#e6e6e7,#e6e6e7);
-        background-image: linear-gradient(#eaeaea, #eaeaea);
-        color: #fff;
+        // background-image: linear-gradient(#eaeaea, #eaeaea);
+        background: #eaeaea !important;
+        color: #333;
         font-size: 12px;
         font-weight: normal;
         // border-bottom-width: 0px;
         border-bottom: 1px solid #d9d9d9;
+    }
+
+    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+        background: #eaeaea !important;
+    }
+    .public_fixedDataTable_scrollbarSpacer{
+        top: 0px;
+        background: #eaeaea;
     }
 
     .fixedDataTableRowLayout_rowWrapper:hover{

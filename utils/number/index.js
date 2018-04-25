@@ -42,6 +42,21 @@ function toFixedFix(number, prec) {
     return '' + Math.round(number * k) / k
 }
 
+function toFixedLocal(value, precision){
+  let ret = value
+  if (value && value.toString().indexOf('.') > -1) {
+    if(value.toString().split('.')[1].length > precision){
+        if (!isNaN(value)) {
+            ret = parseFloat(Math.round(value * Math.pow(10, precision)) / Math.pow(10, precision))
+        } else {
+            ret = 0
+        }
+    }
+  }
+
+  return ret
+}
+
 function transferData(amount) {
     let ret
     if (amount == null || amount == '' || amount == undefined || isNaN(parseFloat(amount))) {
@@ -208,5 +223,6 @@ export default {
     round,
     toFixedFix,
     moneySmalltoBig,
-    transferData
+    transferData,
+    toFixedLocal
 }

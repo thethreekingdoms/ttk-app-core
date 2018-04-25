@@ -120,7 +120,9 @@ class DataGridComponent extends React.Component {
     }
 
     onScrollEnd = (x, y) => {
-        window[this.props.className] = y
+        if(!!this.props.rememberScrollTop){
+            window[this.props.className] = y
+        }
     }
 
     // update() {

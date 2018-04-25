@@ -214,8 +214,6 @@ class TableSettingCard extends React.Component {
         })
         let className2 = classNames({
             'mk-tableSetting-bottom': true,
-            'animated': this.props.visible? true: false,
-            'animated1': this.props.visible? false: true,
             'slideInRight': this.props.visible,
             'slideOutRight': !this.props.visible
         })

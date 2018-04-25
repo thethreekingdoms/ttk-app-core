@@ -253,7 +253,8 @@ export default class action {
     }
 
     getTaxRate = async (params) => {
-
+        //税率
+        // console.log(params, 'params')
     }
 
     getBankAccount = async (params, field) => {
@@ -354,7 +355,7 @@ export default class action {
             // console.log(rowIndex, rowData, v, '数量')
             this.quantityChange(rowIndex, rowData, v)
         }
-        else if (fieldName === 'rateName') {//税率
+        else if (fieldName === 'taxRateName') {//税率
             // console.log(rowIndex, rowData, v, '税率')
             this.taxRateChange(rowIndex, rowData, v, params.hasChangeTaxAmount)
         }
@@ -373,20 +374,12 @@ export default class action {
         // 金额＝单价×数量
         // 税额＝金额×税率
         // 价税合计＝金额＋税额
-
-        // console.log(rowData,rowData.rateName)
-      
-        //这些写法等有了接口文档之后在相应修改
-        let taxRate = rowData.rateName ? rowData.rateName.replace(/%/g,'') : 0
-        if (taxRate == '3减按2') {
-            taxRate = ('3减按2'.split('减按')[1])
-        }
-
+        
+        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
         const price = utils.number.round(v, 2),
             quantity = utils.number.round(rowData.quantity, 2),
             amount = utils.number.round(price * quantity, 2),
-            // tax = utils.number.round(amount * (rowData.tax ? rowData.tax.id : 0) / 100, 2),
-            tax = utils.number.round(amount * (rowData.rateName ? taxRate : 0) / 100, 2),
+            tax = utils.number.round(amount * (taxRate ? taxRate : 0), 2),
             taxInclusiveAmount = utils.number.round(amount + tax, 2)
 
         this.metaAction.sfs({
@@ -402,39 +395,14 @@ export default class action {
         // 价税合计＝金额+税额
         // 如果数量为0 ，单价为0
         // 如果数量不为0，单价＝金额÷数量 
-        
-        // const amount = utils.number.round(v, 2),
-        //     quantity = utils.number.round(rowData.quantity, 2),
-        //     price = utils.number.round(rowData.price, 2),
-        //     tax = utils.number.round(rowData.tax, 2),
-        //     taxRate = utils.number.round(rowData.taxRate.taxRate || 0, 2),
-        //     taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2)
-        // if (tax != undefined && taxRate >= 0) {
-        //     let _tax = amount * taxRate
-        //     let _taxInclusiveAmount = amount + _tax,
-        //         _price = price
-        //     if (quantity != 0) {
-        //         _price = utils.number.round(amount / quantity, 2)
-        //     }
-
-        //     this.metaAction.sfs({
-        //         [`data.form.details.${rowIndex}.amount`]: v,
-        //         [`data.form.details.${rowIndex}.tax`]: _tax,
-        //         [`data.form.details.${rowIndex}.taxInclusiveAmount`]: _taxInclusiveAmount,
-        //         [`data.form.details.${rowIndex}.price`]: _price
-        //     })
-        // }
-
-        let taxRate = rowData.rateName ? rowData.rateName.replace(/%/g,'') : 0
-        if (taxRate == '3减按2') { //这些写法等有了接口文档之后在相应修改
-            taxRate = ('3减按2'.split('减按')[1])
-        }
-
+     
+        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
         const amount = utils.number.round(v, 2),
             quantity = utils.number.round(rowData.quantity, 2),
             price = utils.number.round(rowData.price, 2),
             // tax = utils.number.round(amount * (rowData.tax ? rowData.tax.id : 0) / 100, 2),
-            tax = utils.number.round(amount * (rowData.rateName ? taxRate : 0) / 100, 2),
+            // rate = utils.number.round(rowData.rate/100, 2),
+            tax = utils.number.round(amount * (taxRate ? taxRate: 0), 2),
             taxInclusiveAmount = utils.number.round(amount + tax, 2)
           let _price = 0
 
@@ -454,17 +422,12 @@ export default class action {
         // 金额＝单价×数量
         // 税额＝金额×税率
         // 价税合计＝金额＋税额
-
-        let taxRate = rowData.rateName ? rowData.rateName.replace(/%/g,'') : 0
-        if (taxRate == '3减按2') {//这些写法等有了接口文档之后在相应修改
-            taxRate = ('3减按2'.split('减按')[1])
-        }
-        
+       
+        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
         const quantity = utils.number.round(v, 2),
             price = utils.number.round(rowData.price, 2),
             amount = utils.number.round(price * quantity, 2),
-            // tax = utils.number.round(amount * (rowData.tax ? rowData.tax.id : 0) / 100, 2),
-            tax = utils.number.round(amount * (rowData.rateName ? taxRate : 0) / 100, 2),
+            tax = utils.number.round(amount * (taxRate ? taxRate: 0), 2),
             taxInclusiveAmount = utils.number.round(amount + tax, 2)
 
         this.metaAction.sfs({
@@ -482,39 +445,13 @@ export default class action {
         // 如果数量不为0:
         // 单价=价税合计÷（1＋税率）÷数量
         
-        // let taxRates = this.metaAction.gf('data.other.taxRate').toJS()
-        // if (taxRates) {
-        //     const hit = taxRates.find(o => o.id == v)
-
-        //     if (!hit)
-        //         return
-
-        //     const amount = rowData.amount,
-        //         tax = utils.number.round(amount * hit.id / 100, 2),
-        //         taxInclusiveAmount = utils.number.round(amount + tax, 2)
-
-        //     this.metaAction.sfs({
-        //         [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
-        //         [`data.form.details.${rowIndex}.rateName`]: hit["name"],
-        //         [`data.form.details.${rowIndex}.tax`]: fromJS(tax),
-        //         [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-        //     })
-        // }
-        // console.log(rowData)
-        
         //这些写法等有了接口文档之后在相应修改
         let taxRates = this.metaAction.gf('data.other.taxRate').toJS()
-            // console.log(taxRates, 'taxRates')
+            // console.log(taxRates, 'rowData')
             let hit = taxRates.find(o => o.id == v)
             if (!hit) return
-    
-            let taxRate = hit["name"].replace(/%/g,'')
-            if (taxRate == '3减按2') {
-                taxRate = ('3减按2'.split('减按')[1])/100
-            }else {
-                taxRate = taxRate/100
-            }
-    
+            // console.log(hit, taxRates,'hit')
+            let taxRate = utils.number.round(hit.taxRate, 2)
             if (hasChangeTaxAmount) {
                 const taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2),
                     amount = utils.number.round(taxInclusiveAmount / (1 + taxRate), 2),
@@ -528,7 +465,7 @@ export default class action {
 
                 this.metaAction.sfs({
                     [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
-                    [`data.form.details.${rowIndex}.rateName`]: hit["name"],
+                    [`data.form.details.${rowIndex}.taxRateName`]: hit["name"],
                     [`data.form.details.${rowIndex}.tax`]: tax,
                     [`data.form.details.${rowIndex}.amount`]: amount,
                     [`data.form.details.${rowIndex}.price`]: _price,
@@ -540,7 +477,7 @@ export default class action {
 
                 this.metaAction.sfs({
                     [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
-                    [`data.form.details.${rowIndex}.rateName`]: hit["name"],
+                    [`data.form.details.${rowIndex}.taxRateName`]: hit["name"],
                     [`data.form.details.${rowIndex}.tax`]: tax,
                     [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
                 })
@@ -552,28 +489,6 @@ export default class action {
         // 如果数量为0，则单价为0
         // 如果数量不为0，单价=金额÷数量
         
-        // const tax = utils.number.round(v, 2),
-        //     price = utils.number.round(rowData.price, 2),
-        //     quantity = utils.number.round(rowData.quantity, 2),
-        //     amount = utils.number.round(price * quantity, 2),
-        //     taxInclusiveAmount = utils.number.round(amount + tax, 2),
-            // taxRate = utils.number.round(rowData.taxRate.taxRate || 0, 2)
-
-        // if (tax >= 0 && taxRate >= 0) {
-        //     let _amountOfMoney = utils.number.round(tax / taxRate)
-        //     let _taxInclusiveAmount = utils.number.round(_amountOfMoney + tax)
-        //     let _price = 0
-        //     if (quantity != 0) {
-        //         _price = utils.number.round(_amountOfMoney / quantity)
-        //     }
-
-        //     this.metaAction.sfs({
-        //         [`data.form.details.${rowIndex}.tax`]: v,
-        //         [`data.form.details.${rowIndex}.amount`]: _amountOfMoney,
-        //         [`data.form.details.${rowIndex}.taxInclusiveAmount`]: _taxInclusiveAmount,
-        //         [`data.form.details.${rowIndex}.price`]: _price
-        //     })
-        // }
         const tax = utils.number.round(v, 2),
               taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2),
               quantity = utils.number.round(rowData.quantity, 2),
@@ -598,33 +513,8 @@ export default class action {
         // 如果数量不为0:
         // 单价=价税合计÷（1＋税率）÷数量
         
-        // const tax = utils.number.round(v, 2),
-        //     price = utils.number.round(rowData.price, 2),
-        //     quantity = utils.number.round(rowData.quantity, 2),
-        //     amount = utils.number.round(price * quantity, 2),
-        //     taxInclusiveAmount = utils.number.round(v, 2),
-            // taxRate = utils.number.round(rowData.taxRate.taxRate || 0, 2)
+        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
 
-        // if (taxInclusiveAmount && taxRate >= 0) {
-        //     let _amountOfMoney = utils.number.round(taxInclusiveAmount / (1 + taxRate), 2)
-        //     let _taxamount = utils.number.round(taxInclusiveAmount - _amountOfMoney, 2)
-        //     let _price = price
-        //     if (quantity != 0) {
-        //         _price = utils.number.round(taxInclusiveAmount / (1 + taxRate) / quantity, 2)
-        //     }
-        //     this.metaAction.sfs({
-        //         [`data.form.details.${rowIndex}.taxInclusiveAmount`]: v,
-        //         [`data.form.details.${rowIndex}.amount`]: _amountOfMoney,
-        //         [`data.form.details.${rowIndex}.tax`]: _taxamount,
-        //         [`data.form.details.${rowIndex}.price`]: _price
-        //     })
-        // }
-        let taxRate = rowData.rateName ? rowData.rateName.replace(/%/g,'') : 0
-        if (taxRate == '3减按2') {
-            taxRate = ('3减按2'.split('减按')[1])/100
-        } else {
-            taxRate = taxRate/100 
-        }
         const taxInclusiveAmount = utils.number.round(v, 2),
               amount = utils.number.round(taxInclusiveAmount/(1+taxRate), 2),
               tax = utils.number.round(taxInclusiveAmount-amount, 2),
