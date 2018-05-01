@@ -102,7 +102,7 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.4",
-    "css-loader": "^0.28.11",
+    "css-loader": "^0.29.11",
     "eslint": "^4.19.0",
     "eslint-config-airbnb": "latest",
     "eslint-plugin-babel": "^4.0.0",
@@ -153,5 +153,5 @@
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.28"
+  "version": "1.0.29"
 }
