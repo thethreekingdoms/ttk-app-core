@@ -64,6 +64,8 @@ import TagComponent from './components/tag/index'
 import ActiveLabelSelectComponent from './components/activeLabelSelect/index'
 import NoDataComponent from './components/nodata/index'
 import DateRangeMonthPickerComponent from './components/dateRangeMonthPicker/index'
+import ReactJsonTreeComponent from './components/jsonTree/index'
+import CodeMirrorComponent from './components/codeMirror/index'
 
 
 export const Address = AddressComponent
@@ -123,14 +125,13 @@ export const TableSettingCard = TableSettingCardComponent
 export const TableOperate = TableOperateComponent
 export const TableSort = TableSortComponent
 export const AntdSelect = AntdSelectComponent
-
+export const JSONTree = ReactJsonTreeComponent
 export const FormDecorator = FormDecoratorComponent
 export const GridDecorator = GridDecoratorComponent
 export const LoadingMask = loadingMask
 export const PrintOption = PrintOptionComponent
 export const PrintOption2 = PrintOptionComponent2
-
-
+export const CodeMirror = CodeMirrorComponent
 export const Tag = TagComponent
 export const ActiveLabelSelect = ActiveLabelSelectComponent
 export const DateRangeMonthPicker = DateRangeMonthPickerComponent

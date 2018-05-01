@@ -1,28 +1,28 @@
 {
-  "name": "ttk-app-core",
-  "version": "1.0.26",
-  "description": "ttk team",
-  "main": "index.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8082 --host 0.0.0.0",
-    "release": "rm -rf dist && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js",
-    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
-    "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
-    "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
-    "lint": "eslint apps",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_from": "ttk-app-core",
+  "_inBundle": false,
+  "_integrity": "sha512-8lDaMzJH9jmO+mSKfayDikAvqwkM8uMj4c6TBACONQuTyQzw6ckza1am6bNDMwa2mJbLKgz3Dbxd9ZtRXsV9yQ==",
+  "_location": "/ttk-app-core",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "ttk-app-core",
+    "name": "ttk-app-core",
+    "escapedName": "ttk-app-core",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "flux",
-    "redux",
-    "react-redux",
-    "antd",
-    "immutable"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
+  "_resolved": "https://registry.npmjs.org/ttk-app-core/-/ttk-app-core-1.0.26.tgz",
+  "_shasum": "e2ad86d16adfccde15c58d536084040a9ee24d5a",
+  "_spec": "ttk-app-core",
+  "_where": "D:\\ttk\\0427",
   "author": "edf team",
-  "license": "MIT",
   "babel": {
     "presets": [
       "es2015",
@@ -40,10 +40,15 @@
       ]
     ]
   },
+  "bugs": {
+    "url": "https://github.com/thethreekingdoms/ttk-app-core/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {
     "antd": "^3.4.1",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "codemirror": "^5.37.0",
     "console-polyfill": "^0.3.0",
     "echarts-for-react": "^2.0.8",
     "es3ify-webpack-plugin-v2": "0.0.2",
@@ -64,6 +69,7 @@
     "prop-types": "^15.6.1",
     "raf": "^3.4.0",
     "react": "^16.3.2",
+    "react-codemirror2": "^5.0.1",
     "react-dom": "^16.3.2",
     "react-json-tree": "^0.11.0",
     "react-keydown": "^1.9.7",
@@ -71,41 +77,11 @@
     "react-resizable": "^1.7.5",
     "react-viewer": "^2.3.9",
     "redux": "^3.7.2",
-    "ttk-app-init-demo": "^1.0.0",
-    "ttk-edf-app-basecard": "^1.0.0",
-    "ttk-edf-app-column": "^1.0.0",
-    "ttk-edf-app-dashboard-monitor": "^1.0.2",
-    "ttk-edf-app-dashboard-workplace": "^1.0.1",
-    "ttk-edf-app-enum": "^1.0.0",
-    "ttk-edf-app-home": "^1.0.5",
-    "ttk-edf-app-list-account": "^1.0.1",
-    "ttk-edf-app-list-currency": "^1.0.0",
-    "ttk-edf-app-list-customer": "^1.0.0",
-    "ttk-edf-app-list-department-personnel": "^1.0.0",
-    "ttk-edf-app-list-inventory": "^1.0.0",
-    "ttk-edf-app-list-project": "^1.0.0",
-    "ttk-edf-app-list-supplier": "^1.0.0",
-    "ttk-edf-app-list-userdefinecard": "^1.0.0",
-    "ttk-edf-app-login": "^1.0.1",
-    "ttk-edf-app-notice": "^1.0.1",
-    "ttk-edf-app-operation": "^1.0.0",
-    "ttk-edf-app-orderlist": "^1.0.1",
-    "ttk-edf-app-portal": "^1.0.9",
-    "ttk-edf-app-portal-menu": "^1.0.0",
-    "ttk-edf-app-productlist": "^1.0.0",
-    "ttk-edf-app-role-auth": "^1.0.0",
-    "ttk-edf-app-saleorder": "^1.0.4",
-    "ttk-edf-app-step-form": "^1.0.0",
-    "ttk-edf-app-stockcard": "^1.0.2",
-    "ttk-table-app-list": "^1.0.2",
-    "ttk-table-app-rpt": "^1.0.1",
-    "ttk-table-app-simplelist": "^1.0.1",
-    "ttk-table-app-simplerpt": "^1.0.4",
-    "ttk-table-app-tab-list": "^1.0.5",
-    "ttk-voucher-app-document": "^1.0.0",
     "url-polyfill": "^1.0.13",
     "whatwg-fetch": "^2.0.4"
   },
+  "deprecated": false,
+  "description": "ttk team",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -151,12 +127,31 @@
     "webpack-merge": "^4.1.2",
     "webpack-parallel-uglify-plugin": "^1.1.0"
   },
+  "homepage": "https://github.com/thethreekingdoms/ttk-app-core#readme",
+  "keywords": [
+    "react",
+    "reactjs",
+    "flux",
+    "redux",
+    "react-redux",
+    "antd",
+    "immutable"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "ttk-app-core",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thethreekingdoms/ttk-app-core.git"
   },
-  "bugs": {
-    "url": "https://github.com/thethreekingdoms/ttk-app-core/issues"
+  "scripts": {
+    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
+    "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
+    "lint": "eslint apps",
+    "release": "rm -rf dist && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js",
+    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8082 --host 0.0.0.0",
+    "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/thethreekingdoms/ttk-app-core#readme"
+  "version": "1.0.28"
 }
