@@ -1,14 +1,15 @@
-/*import beautify from 'js-beautify'
+import beautifyjs from './javascript/index'
+import beautifycss from './css/index'
 
 function beautifyJS(str) {
-    return beautify.js_beautify(str, { indent_size: 4 })
+    return beautifyjs(str, { indent_size: 4 })
 }
 
 function beautifyCSS(str) {
-    return beautify.css_beautify(str, { indent_size: 4 })
+    return beautifycss(str, { indent_size: 4 })
 }
 
 export default {
     beautifyJS,
     beautifyCSS
-}*/
+}

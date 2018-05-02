@@ -76,11 +76,7 @@ function getBrowserVersion() {
 function isDevMode() {
 	const devMode = location.href.indexOf('127.0.0.1') > -1
 		|| location.href.indexOf('localhost') > -1
-		|| location.href.indexOf('debug.') > -1
-		|| location.href.indexOf('192.') > -1
-		|| location.href.indexOf('172.') > -1
-		|| location.href.indexOf('dev.') > -1
-		|| location.href.indexOf('test.') > -1
+		|| location.href.indexOf('thethreekingdoms.github.io') > -1
 
 	if (location.href.indexOf('erptest.jchl') > -1) return false
 	return devMode
