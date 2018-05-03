@@ -27,7 +27,8 @@
 
 <body>
     <div id="app" style="width:100%;height:100%"></div>
-    <div id="box" style="position:relative;z-index:10000"></div>
+    <div id="box" style="position:relative;z-index:10000"></div>    
+    
     <script src='./vendor/polyfill.min.js' charset="utf-8"></script>
     <!--[if lt IE 10]>
 		<script type='text/javascript' src='./vendor/es5.min.js'></script>
@@ -35,21 +36,20 @@
     <script src='./vendor/vendor.dll.js' charset="utf-8"></script>
     <script src='./vendor/echarts.min.js' charset="utf-8"></script>
     <script src='./vendor/zrender.min.js' charset="utf-8"></script>
+    <script src='./vendor/jquery.min.js' charset="utf-8"></script>
+    <script src='./vendor/layer.js' charset="utf-8"></script>
 </body>
 
 <script type="text/javascript">
     window._hmt = window._hmt || [];
     window._vds = window._vds || [];
-    function downloadJSAtOnload() {
-        var j = document.createElement("script");
-        j.src = "./vendor/jquery.min.js";
+    function downloadJSAtOnload() {      
         var head = document.getElementsByTagName('HEAD').item(0);
         var style = document.createElement('link');
         style.href = './vendor/css/animate.min.css';
         style.rel = 'stylesheet';
         style.type = 'text/css';
         head.appendChild(style);
-        document.body.appendChild(j);
     }
     if (window.addEventListener)
         window.addEventListener("load", downloadJSAtOnload, false);
