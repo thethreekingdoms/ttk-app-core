@@ -153,5 +153,5 @@
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.36"
+  "version": "1.0.37"
 }
