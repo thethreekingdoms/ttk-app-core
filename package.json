@@ -145,10 +145,10 @@
     "url": "git+https://github.com/thethreekingdoms/ttk-app-core.git"
   },
   "scripts": {
-    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
+    "build": "cross-env NODE_ENV=production webpack --colors --display-error-details --config webpack.config.prd.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
     "lint": "eslint apps",
-    "release": "rm -rf dist && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js",
+    "release": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js",
     "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8082 --host 0.0.0.0",
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"

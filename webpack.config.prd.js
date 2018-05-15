@@ -7,6 +7,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin")
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 //const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 var env = process.env.NODE_ENV
@@ -26,7 +27,9 @@ plugins.push(new webpack.DllReferencePlugin({
     context: __dirname,
     manifest: merge(require('./vendor/shim.manifest.json'), require('./vendor/vendor.manifest.json')),
 }))
-
+plugins.push(new CleanWebpackPlugin(['dist'], {
+    root: __dirname
+}))
 plugins.push(
     new ParallelUglifyPlugin({
         cacheDir: '.cache/',
