@@ -168,7 +168,11 @@ class TableSettingCard extends React.Component {
             this.props.cancelClick()
         }
     }
-
+    reset = () => {
+        if (this.props.resetClick) {
+            this.props.resetClick()
+        }
+    }
     renderStyle1 = () => {
         const { data, height, top } = this.state
         const [arrLeft, arrRight] = this.renderItem(data)
@@ -237,7 +241,9 @@ class TableSettingCard extends React.Component {
                     <h2>栏目设置</h2>
                     <div style={{height: '100%', overflow: 'auto'}}>{  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
                     <div className={className2}>
-                        <Button className={className3} onClick={this.cancelClick}>取消</Button>
+                        <Button className="mk-tableSetting-bottom-btn" onClick={this.cancelClick}>取消</Button>
+                        
+                        <Button className="mk-tableSetting-bottom-btn" onClick={this.reset}>重置</Button>
                         <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
                     </div>
                 </div>

@@ -1,12 +1,10 @@
 import React from 'react'
-require('codemirror/lib/codemirror.css');
-require('codemirror/theme/material.css');
-require('codemirror/theme/neat.css');
-require('codemirror/mode/xml/xml.js');
-require('codemirror/mode/javascript/javascript.js');
-
-import {UnControlled as CodeMirror} from 'react-codemirror2';
+//import CodeMirror from 'react-codemirror2'
+// import 'codemirror/theme/material.css'
+// import "codemirror/lib/codemirror.css"
+// import "codemirror/mode/javascript/javascript"
+// import "codemirror/mode/css/css"
 
 export default function CodeMirrorComponent(props) {
-	return <CodeMirror {...props} />
+	return <div {...props}/>
 }

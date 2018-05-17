@@ -47,7 +47,6 @@ export default class attachmentComponent extends Component {
             [this.props.contentClassName]: !!this.props.contentClassName
         })
         const data = this.props.data || []
-
         const status = this.props.status
         if (data && data.length == 0 && this.props.status != 1) {
             return (
@@ -68,7 +67,7 @@ export default class attachmentComponent extends Component {
                 flexGrow={1}
                 cell={(ps) => {
                     let iconComponent
-                    switch (data[ps.rowIndex].type) {
+                    switch (data[ps.rowIndex].type || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type)) {
                         case 1000010001:
                             iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon" style={{color:'#8080F3'}}/>)
                             break;
@@ -90,6 +89,7 @@ export default class attachmentComponent extends Component {
                         default:
                             break;
                     }
+                    // console.log(data[ps.rowIndex], 'data[ps.rowIndex]')
                     return (
                         <Popover
                             content={this.getThumbnail(data[ps.rowIndex])}
@@ -100,7 +100,14 @@ export default class attachmentComponent extends Component {
                                 <a>
                                     {iconComponent}
                                 </a>
-                                {data[ps.rowIndex].type == 1000010001 ? <a onClick={(e) => this.openViewer(ps.rowIndex, e)} title={data[ps.rowIndex].name || data[ps.rowIndex].alt}>{data[ps.rowIndex].name || data[ps.rowIndex].alt}</a> : <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt}>{data[ps.rowIndex].name || data[ps.rowIndex].alt}</span>}
+                                {data[ps.rowIndex].type == 1000010001 || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type == 1000010001) ? 
+                                <a onClick={(e) => 
+                                    this.openViewer(ps.rowIndex, e)} 
+                                title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}
+                                </a> : 
+                                <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}</span>}
                             </Cell>
                         </Popover>
                     )
@@ -187,7 +194,7 @@ export default class attachmentComponent extends Component {
                 content={this.getContent()}
                 // placement="bottomRight"
                 onVisibleChange={this.contentVisibleChange}
-                visible={this.state.contentIsVisible || this.props.visible}
+                // visible={this.state.contentIsVisible || this.props.visible}
                 title={this.getTitle()}
                 trigger='click'
             >

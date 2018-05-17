@@ -27,7 +27,7 @@ module.exports = {
 			'redux',
 			'prop-types',
 			'react-redux',
-			'mk-rc-select',
+			'ttk-rc-select',
 			'moment',
 			'md5',
 			'immutable',
@@ -46,7 +46,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, 'vendor'),
 		filename: '[name].dll.js',
-		library: '[name]_[chunkhash:8]',
+		library: '[name]_lib',
 		// library 与 DllPlugin 中的 name 一致
 	},
 	plugins: [
@@ -61,7 +61,7 @@ module.exports = {
 		// new webpack.IgnorePlugin(/^\.\/locale$/i, /moment$/i),
 		new webpack.DllPlugin({
 			context: __dirname,
-			name: '[name]_[chunkhash:8]',
+			name: '[name]_lib',
 			path: path.join(__dirname, 'vendor', '[name].manifest.json'),
 		}),
 		new ParallelUglifyPlugin({

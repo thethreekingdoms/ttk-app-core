@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import { Input } from 'antd'
 import utils from 'edf-utils'
 
-
 export default class InputNumberComponent extends Component {
 
     state = {
@@ -190,7 +189,7 @@ export default class InputNumberComponent extends Component {
         }
 
         //是数字或者是空或者是-
-        if ((!isNaN(value) && regExp.test(value)) || value === '' || value === '-') {
+        if ((!isNaN(utils.number.clearThousPos(value)) && regExp.test(utils.number.clearThousPos(value))) || value === '' || value === '-') {
         		this.setState({ value })
         		this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
         }

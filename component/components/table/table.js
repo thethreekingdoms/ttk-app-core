@@ -14,11 +14,11 @@ import classNames from 'classnames'
 
 const ResizeableTitle = (props) => {
     const { onResize, width, ...restProps } = props;
-    // console.log(restProps)
 
     // if (!width) {
     //   return <th {...restProps} />;
     // }
+   
     return (
       <Resizable width={width ? width : 100} height={0} onResize={onResize}>
         <th {...restProps} ></th>
@@ -44,17 +44,14 @@ class AntTable extends Component {
             sumWidth: 1090
         }
         if (this.props.allowColResize ){
-            
             const { newCol, sumWidth } = this.initStateWidth(props.columns, [], memoryWidthLocalSotrage)
             this.state.columns = newCol
             this.state.sumWidth = sumWidth
         }
-        
-        
     }
 
     componentWillMount = () =>{
-        
+
     }
 
     memoryWidth = (props) => {
@@ -121,7 +118,6 @@ class AntTable extends Component {
             })
         } catch (err) {
         }
-
     }
 
     componentWillReceiveProps(nextProps){
@@ -142,7 +138,7 @@ class AntTable extends Component {
                 sumWidth
             })
         }
-        
+
     }
 
     components = {
@@ -153,43 +149,41 @@ class AntTable extends Component {
 
     handleResize = index => (e, { size }) => {
         const { columns, appContainerWidth } = this.state
+        delete columns[columns.length-1]
         const Index = columns.findIndex(item => item.dataIndex == index)
         if( Index == -1 ){
             return
         }
         let preWidth = columns[Index].width
-        columns[Index].width = size.width 
-        let sumWidth = 0
+        columns[Index].width = size.width
+        let sumWidth = 0,
+            columnDetails = [],
+            param = {}
         columns.forEach(item => {
+           
+            columnDetails.push({
+                fieldName: item.dataIndex,
+                width: item.width,
+                isVisible: true
+            })
             sumWidth = sumWidth + item.width
         })
-        if( sumWidth <=  appContainerWidth){
+        param.columnDetails = columnDetails
+        
+        if( sumWidth <= appContainerWidth){
             columns[Index].width = preWidth
         }
         this.setState({
             columns: columns,
             sumWidth
         })
-        const { remberName } = this.props
-        if( !remberName ){
-            return
-        }
-        const { memoryWidth } = this.state
-        this.setAppData(remberName, size.width, index )
-        memoryWidth[index] = size.width
-        this.setState({
-            memoryWidth
+      
+        let that = this,res
+        this.onResizend(function(){
+            res = that.props.onResizeEnd(param)
+           
         })
-        // this.setState(({ columns }) => {
-        //   const nextColumns = [...columns];
-        //   console.log(index)
-        //   const dataIndex = columns.findIndex(item => item.dataIndex == index)
-        //   nextColumns[dataIndex] = {
-        //     ...nextColumns[dataIndex],
-        //     width: size.width,
-        //   };
-        //   return { columns: nextColumns };
-        // });
+      
     }
 
     showTheadTitle = (title) => {
@@ -199,7 +193,26 @@ class AntTable extends Component {
             return title
         }
     }
+    onResizend = (onResizend) => {
+        /**
+         * <<<算法说明>>>
+         * ---------------------------------------------------------------------------------
+         * 1. 默认窗口状态 normal.
+         * 2. 调整窗口大小时状态 resizing.
+         * 3. 调整窗口大小时设置动作状态为 resizing, 并设置延时任务. 若已存在延时任务,则重新设置.
+         * 4. 若500毫秒后没有断续调整大小,则认为调整结束,执行resizend事件.
+         */
 
+        let that = this,
+        timeOutTask = function(){
+            that.state.taskPtr && clearTimeout(that.state.taskPtr)
+            let taskPtr = setTimeout(function(){
+                    onResizend && onResizend();
+            }, 500)
+            that.setState({taskPtr: taskPtr})
+        }
+        timeOutTask()
+    }
     initStateWidth = (data, columns, memoryWidth) => {
         if( !data ){
             return []
@@ -208,56 +221,48 @@ class AntTable extends Component {
         let norSetWidth = 0
         let flag = false
         data.forEach(item => {
-            if( memoryWidth && memoryWidth[item.dataIndex] ){
+            if( item.width ){
                 norSetWidth++
             }else{
                 flag = true
             }
         })
         if( flag ){
-            memoryWidth = {}
             norSetWidth=0
         }
         let appContainerWidth = null
         try{
             const dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
             if( dom ){
-                appContainerWidth = dom.offsetWidth - 130 + 80
+                appContainerWidth = dom.offsetWidth - 160 + 80
             }else{
-                appContainerWidth = window.innerWidth - 100 - 130 + 80
+                appContainerWidth = window.innerWidth - 100 - 160 + 80
             }
+            
         }catch(err){
             console.log(err)
             appContainerWidth = 1090
         }
-
-        // debugger
-        let avrWidth = Math.ceil(appContainerWidth/ (data.length - 1 - norSetWidth))
+        let avrWidth = Math.ceil((appContainerWidth)/ (data.length -1 ))
+        let sumWidth1 = 0
+        data.map((item) => {
+            if(item.width){
+                sumWidth1 = sumWidth1 + item.width
+            } 
+        })
         const newCol = data.map((item)=>{
-            const key = columns.find(o => o.dataIndex == item.dataIndex)
-            if( key ){
-                item.width = key.width
-            }
-            if( memoryWidth && memoryWidth[item.dataIndex] ){
-                item.width = memoryWidth[item.dataIndex]
-            }
-            if (memoryWidth && !memoryWidth[item.dataIndex] && !item.fixed ){
-                item.width = avrWidth
-            } else if (!item.width) {
-                item.width = avrWidth
-            }
-            
-            
+           
             item.title = this.showTheadTitle(item.title)
-            // item.onHeaderCell = () => {
-            //     return { type: item.dataIndex }
-            // }
+            if(sumWidth1+80+60 < appContainerWidth && !item.fixed){
+                item.width = avrWidth
+            }
             sumWidth= sumWidth + item.width
-            
+           
             return item
         })
         this.state.appContainerWidth = appContainerWidth
         return {newCol, sumWidth}
+        
     }
 
     setTableHeight = () => {
@@ -277,7 +282,6 @@ class AntTable extends Component {
             }
             const tableBody = container.getElementsByClassName('ant-table-body')[0]
             if( this.state.resizeColumn && dataSource && dataSource.length == 0 ){
-                console.log('出发了')
                 tableBody.style.overflowY = null
             }
             if( !scroll.x && !scroll.y ){
@@ -354,7 +358,7 @@ class AntTable extends Component {
     // }
 
     getColumns = () => {
-        let columns 
+        let columns
         if( this.state.allowColResize ){
             columns = this.state.columns
         }else{
@@ -438,7 +442,7 @@ class AntTable extends Component {
         let { selectValue,  checkboxId} = this.state
         let flag = true
         for( const key of checkboxId.keys() ){
-            if( !selectValue.has(key) ){
+            if( !selectValue.has(key) && typeof key != "undefined"){
                 flag = false
             }
         }
@@ -497,6 +501,7 @@ class AntTable extends Component {
     rowSpan = (text, record, index) => {
         const { checkboxKey } = this.props
         const { dataSource } = this.props
+        if(!record[checkboxKey]) return 1;
         const key = dataSource.findIndex(item => item[checkboxKey]==record[checkboxKey])
         let num = 1
         if( key == index ){
@@ -523,10 +528,10 @@ class AntTable extends Component {
               width: 60,
               render: (text, record, index) => {
                 const obj = {
-                    children:   <Checkbox
+                    children: record[checkboxKey]?   <Checkbox
                                     checked={selectValue.has(record[checkboxKey])}
                                     onClick={(e)=>this.checkboxItemClick(e, record[checkboxKey], record)}
-                                />,
+                                />:null,
                     props: {
                         rowSpan: this.rowSpan(text, record, index),
                     },
@@ -614,7 +619,7 @@ class AntTable extends Component {
     }
 
     decorateHeaderTitle = (column) => {
-       
+
         if( !column ){
             return undefined
         }
@@ -675,13 +680,13 @@ class AntTable extends Component {
                 renderColumn = [ this.renderChekbox(1) , ...renderColumn ]
             }
             const columns3 = this.decorateColumns(renderColumn)
+            let newColumn = this.decorateHeaderTitle(columns3)
             let scrollX = this.props.dataSource&&this.props.dataSource.length > 0 ? sumWidth : null
             if( this.state.resizeColumn ){
-                // console.log(scrollX, {...this.props.scroll, x: scrollX}, this.props.dataSource.length)
                 return <Table {...this.props }
-                    scroll={{...this.props.scroll, x: scrollX}} 
-                    components={this.components} 
-                    columns={this.decorateHeaderTitle(columns3)} 
+                    scroll={{...this.props.scroll, x: scrollX}}
+                    components={this.components}
+                    columns={this.decorateHeaderTitle(columns3)}
                     locale={{'emptyText': emptyText}}
                     loading={loading}
                 />

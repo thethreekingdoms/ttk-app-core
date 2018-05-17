@@ -63,7 +63,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "md5": "^2.2.1",
-    "mk-rc-select": "^1.0.4",
+    "ttk-rc-select": "^1.0.4",
     "moment": "^2.22.1",
     "omit.js": "^1.0.0",
     "prop-types": "^15.6.1",
@@ -153,5 +153,5 @@
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.37"
+  "version": "1.0.38"
 }

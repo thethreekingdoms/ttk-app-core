@@ -22,6 +22,7 @@ import CascaderComponent from './components/cascader'
 import MessageComponent from './components/message'
 import ToastComponent from './components/toast'
 import ModalComponent from './components/modal'
+import RepeterComponent from './components/repeter'
 import AlertComponent from './components/alert'
 import NotificationComponent from './components/notification'
 import PopconfirmComponent from './components/popconfirm'
@@ -54,6 +55,7 @@ import GridDecoratorComponent from './decorator/grid/index'
 import SelectRangeComponent from './components/selectRange/index'
 import TableSettingCardComponent from './components/tableSettingCard/index'
 import TableOperateComponent from './components/tableOperate/index'
+import TableOperate2Component from './components/tableOperate2/index'
 import TableSortComponent from './components/tableSort/index'
 import AntdSelectComponent from './components/antdSelect/index'
 import loadingMask from './components/loadingMask/index'
@@ -64,8 +66,10 @@ import TagComponent from './components/tag/index'
 import ActiveLabelSelectComponent from './components/activeLabelSelect/index'
 import NoDataComponent from './components/nodata/index'
 import DateRangeMonthPickerComponent from './components/dateRangeMonthPicker/index'
-import ReactJsonTreeComponent from './components/jsonTree/index'
-import CodeMirrorComponent from './components/codeMirror/index'
+import DateRangeDatePickerComponent from './components/dateRangeDatePicker/index'
+import ColumnsSettingComponent from './components/columnsSetting/index'
+import RowComponent from './components/row/index'
+import ColComponent from './components/col/index'
 
 
 export const Address = AddressComponent
@@ -98,6 +102,7 @@ export const Notification = NotificationComponent
 export const Popconfirm = PopconfirmComponent
 export const Popover = PopoverComponent
 export const Tooltip = TooltipComponent
+export const Repeter = RepeterComponent
 export const Spin = SpinComponent
 export const Progress = ProgressComponent
 export const Timeline = TimelineComponent
@@ -123,16 +128,22 @@ export const SearchCard = SearchComponent
 export const SelectRange = SelectRangeComponent
 export const TableSettingCard = TableSettingCardComponent
 export const TableOperate = TableOperateComponent
+export const TableOperate2 = TableOperate2Component
 export const TableSort = TableSortComponent
 export const AntdSelect = AntdSelectComponent
-export const JSONTree = ReactJsonTreeComponent
+
 export const FormDecorator = FormDecoratorComponent
 export const GridDecorator = GridDecoratorComponent
 export const LoadingMask = loadingMask
 export const PrintOption = PrintOptionComponent
 export const PrintOption2 = PrintOptionComponent2
-export const CodeMirror = CodeMirrorComponent
+
+
 export const Tag = TagComponent
 export const ActiveLabelSelect = ActiveLabelSelectComponent
 export const DateRangeMonthPicker = DateRangeMonthPickerComponent
+export const DateRangeDatePicker =DateRangeDatePickerComponent
 export const NoData = NoDataComponent
+export const ColumnsSetting = ColumnsSettingComponent
+export const Row = RowComponent
+export const Col = ColComponent

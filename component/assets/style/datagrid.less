@@ -154,6 +154,7 @@
     //字体12px
     .mk-datagrid-cellContent {
         font-size: 12px;
+        white-space: nowrap;
     }
 }
 
@@ -172,10 +173,10 @@
     .fixedDataTableLayout_main,
     .public_fixedDataTable_main {
         .fixedDataTableLayout_rowsContainer > div:nth-child(3) > div:hover {
-            .mk-datagrid-addDelRow-cell, .mk-datagrid-upDownRow-cell {
-                /*a {
-                    //display: none;
-                }*/
+            .mk-datagrid-addDelRow-cell, .mk-datagrid-upDownRow-cell, .mk-datagrid-sequence-cell {
+                a.addDelrow {
+                    display: none;
+                }
                 .anticon {
                     display: block!important;
                 }

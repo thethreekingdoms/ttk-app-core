@@ -155,7 +155,11 @@ export function formPost(url, data, isFree) {
 		if (val) {
 			var hiddenInput = document.createElement("input")
 			hiddenInput.setAttribute("name", k)
-			hiddenInput.setAttribute("value", data[k])
+			if(typeof data[k] == "object"){
+				hiddenInput.setAttribute("value", JSON.stringify(data[k]))
+			}else {
+				hiddenInput.setAttribute("value", data[k])
+			}
 			postForm.appendChild(hiddenInput)
 		}
 
@@ -186,7 +190,11 @@ export function printPost(url, data, isFree) {
 		if (val) {
 			var hiddenInput = document.createElement("input")
 			hiddenInput.setAttribute("name", k)
-			hiddenInput.setAttribute("value", data[k])
+			if(typeof data[k] == "object"){
+				hiddenInput.setAttribute("value", JSON.stringify(data[k]))
+			}else {
+				hiddenInput.setAttribute("value", data[k])
+			}
 			postForm.appendChild(hiddenInput)
 		}
 	}

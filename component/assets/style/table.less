@@ -47,6 +47,7 @@
     }
     .ant-table-bordered .ant-table-fixed-right table{
         border-left-color: #d9d9d9;
+        border-bottom-color:#d9d9d9;
     }
     .ant-table-fixed-right, .ant-table-fixed-right table{
         border-radius: 0;
@@ -102,7 +103,10 @@
             background: rgba(255,255,255,1);
         }
         tr:nth-child(even) {
-            background: #f8f8f8;
+            td {
+                background: #f8f8f8;
+            }
+            // background: #f8f8f8;
         }
         tr:hover {
             // background: #fff !important;
@@ -223,7 +227,7 @@
             padding: 0 8px;
             white-space:nowrap;
             overflow:hidden;
-            border-color: #d9d9d9;
+            border-color: #d9d9d9 !important;
             text-overflow:ellipsis;
             height: 100%;
             // border-top: 1px solid #d9d9d9;
@@ -231,7 +235,8 @@
     }
 
     .ant-table-tbody{
-        background: #cacaca;
+        // background: #cacaca;
+        background: #fff;
         .table_center{
             text-align: center;
         }
