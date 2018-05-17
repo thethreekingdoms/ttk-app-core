@@ -6,6 +6,8 @@ import * as edfComponents from 'edf-component'
 import myConfig from './config'
 import promise from 'es6-promise'
 
+if (typeof (_hmt) == 'undefined') window._hmt = []
+
 //#region app导入
 //note-start
 //note-start和note-end之间的内容用脚手架匹配，请不要再该区域书写内容，在执行ttk reset过程中会被删除
