@@ -164,9 +164,9 @@ class DataGridComponent extends React.Component {
         if(this.props.rememberScrollTop && window[this.props.className]) {
             scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight)
         }
-
         return (
             <div className={className}
+                style={this.props.style ? this.props.style : {}}
                 onKeyDown={this.props.onKeyDown}
                 onKeyUp={this.props.onKeyUp}>
                 {Grid({

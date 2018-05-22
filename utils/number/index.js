@@ -224,5 +224,6 @@ export default {
     toFixedFix,
     moneySmalltoBig,
     transferData,
-    toFixedLocal
+    toFixedLocal,
+    clearThousPos
 }

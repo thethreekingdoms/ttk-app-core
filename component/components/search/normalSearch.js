@@ -24,7 +24,7 @@ const renderOption=(type, data, childType, target )=>{
         data.onChange = (e) => {
             target.normalSearchChange(data.name, e, 'e')
         }
-    }else if( type == 'DateRangeMonthPicker' ){
+    }else if( type == 'DateRangeMonthPicker' ||type=='DateRangeDatePicker'){
         if( !data.onChange ){
             data.onChange = (e) => {
                 target.normalSearchChange(data.name, e, 'time', true)

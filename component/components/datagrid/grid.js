@@ -22,6 +22,7 @@ export default function GridComponent(props) {
 		heightFromRowsCount,
 		readonly,
 		enableSequence,
+		enableSequenceAddDelrow,
 		startSequence,
 		enableAddDelrow,
 		enableUpDownrow,
@@ -42,6 +43,7 @@ export default function GridComponent(props) {
 		isColumnResizing,
 		allowColumnResize,
 		onColumnResizeEndCallback,
+		onColumnResizeEnd,
 		onSortChange,
 		...other,
 	} = props
@@ -54,21 +56,21 @@ export default function GridComponent(props) {
 	columns = [...columns]
 
 	if (enableSequence) {
-		if (columns.length > 0 && columns[0].props && columns[0].props.children) {
+		if (columns.length > 0 && columns[0] && columns[0].props && columns[0].props.children) {
 			columns[0].props.children.splice(0, 0, SequenceColumn({
 				startSequence,
-				enableAddDelrow: readonly === false ? enableAddDelrow : false,
+				enableSequenceAddDelrow: readonly === false ? enableSequenceAddDelrow : false,
 				footer: sequenceFooter,
-				//onAddrow,
-				//onDelrow
+				onAddrow,
+				onDelrow
 			}))
 		} else {
 			columns.splice(0, 0, SequenceColumn({
 				startSequence,
-				enableAddDelrow: readonly === false ? enableAddDelrow : false,
+				enableSequenceAddDelrow: readonly === false ? enableSequenceAddDelrow : false,
 				footer: sequenceFooter,
-				//onAddrow,
-				//onDelrow
+				onAddrow,
+				onDelrow
 			}))
 		}
 	}
@@ -103,7 +105,8 @@ export default function GridComponent(props) {
 	}
 
 	onColumnResizeEndCallback = (newColumnWidth, columnKey) => {
-	
+		if(newColumnWidth<41) newColumnWidth = 41
+		onColumnResizeEnd && onColumnResizeEnd(newColumnWidth, columnKey)
 	}
 
 	onSortChange = (columnKey, sortDir) => {

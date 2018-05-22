@@ -130,6 +130,12 @@ function pushChildApp(selfApp, childApp) {
     hashHistory.push(getAlias(segs.join('/')))
 }
 
+//重定向
+function redirect(url) {
+    console.log('redirect')
+    window.location.href = url
+}
+
 
 export default {
     config,
@@ -138,5 +144,6 @@ export default {
     getChildApp,
     pushChildApp,
     pullChildApp,
+    redirect,
     location: hashHistory.location
 }

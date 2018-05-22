@@ -6,6 +6,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin")
 //const marauderDebug = require('sinamfe-marauder-debug')
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+var CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
 //const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 var env = process.env.NODE_ENV
@@ -41,6 +42,7 @@ plugins.push(new HtmlWebpackPlugin({
 
 plugins.push(new ExtractTextPlugin('[name].[hash:8].css'))
 
+plugins.push(new CSSSplitWebpackPlugin({size: 1000}))
 /*
 plugins.push(new OptimizeCssAssetsPlugin(
     {

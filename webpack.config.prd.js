@@ -8,6 +8,7 @@ const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+var CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
 //const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 var env = process.env.NODE_ENV
@@ -67,6 +68,8 @@ plugins.push(new HtmlWebpackPlugin({
 }))
 
 plugins.push(new ExtractTextPlugin('[name].[hash:8].css'))
+// 在ie9下单个css样式文件最大不能超过400k
+plugins.push(new CSSSplitWebpackPlugin({size: 1000}))
 plugins.push(new LodashModuleReplacementPlugin)
 /*
 plugins.push(new OptimizeCssAssetsPlugin(

@@ -22,6 +22,7 @@ export default class movableComponent extends Component {
 
 
     handleMouseDown = (e) =>{
+        if(e.target.getAttribute('class').indexOf('movable_handle') == -1) return
         if (e.button !== 0) return
         var pos = ReactDOM.findDOMNode(this.refs.internal).getBoundingClientRect()
         var parentPos = ReactDOM.findDOMNode(this.refs.internal).parentElement.getBoundingClientRect()
@@ -126,7 +127,7 @@ export default class movableComponent extends Component {
                 ref='internal' 
                 className={className}
                 {...this.props}
-                onMouseDown={this.handleMouseDown}
+                onMouseDown={this.handleMouseDown.bind(this)}
                 onClick = {this.handleClick}
                 style={style}>
                 {this.props.children}

@@ -36,8 +36,8 @@ class SearchComponent extends Component {
         this.value = {}
         this.datePickerRandom = Math.floor(Math.random()*100000000)
         this.props.didMount && this.props.didMount(this)
-        this.props.moreSearchItem.map(item => {
-            if( 
+        this.props.moreSearchItem&&this.props.moreSearchItem.map(item => {
+            if(
                 item.pre && item.pre.type && item.pre.type.includes('DatePicker') &&
                 item.next && item.next.type && item.next.type.includes('DatePicker')
             ) {
@@ -120,7 +120,7 @@ class SearchComponent extends Component {
         dateDom.addEventListener('click', this.rangePickerClick, false)
     }
 
-    
+
 
     getPopupContainer() {
         return document.querySelector('.app-proof-of-list')
@@ -149,7 +149,7 @@ class SearchComponent extends Component {
     showMoreSearch = (bol) => {
         let { data, count } = this.state
         data = this.set(null, { childVisible: bol })
-        
+
         this.setState({
             data,
             count: 1
@@ -161,13 +161,13 @@ class SearchComponent extends Component {
         const _this = this
         this.form.validateFields((err, values) => {
             if( err ){
-                return 
+                return
             }
             let flag = true
             let option
             if( _this.props.moreSearchItem.findIndex(item=> item.type == 'AssistForm') >-1 ){
                 flag = _this.assistForm.verify()
-                
+
                 if( flag ){
                     const getValue = _this.assistForm.getValue()
                     values.groupStr = this.sortAssitItem(getValue.option, getValue.selectValue)
@@ -180,7 +180,7 @@ class SearchComponent extends Component {
                 flag = moreSearchRules(values, _this.form)
             }
             if( !flag ){
-                return 
+                return
             }
             _this.showMoreSearch(false)
             if (searchClick) {
@@ -191,13 +191,13 @@ class SearchComponent extends Component {
 			            searchClick(values)
 		            }
 	            }, 800)
-             
-                
+
+
             }
         })
-        
+
     }
-    
+
     // 对辅助项参数进行排序
     sortAssitItem = (data, selectValue) => {
         const arr = []
@@ -251,7 +251,7 @@ class SearchComponent extends Component {
             }else if( !item.noClear ){
                 clearValue[item.name] = null
             }
-            
+
         })
         this.setState({
             searchValue: { ...searchValue, ...clearValue},
@@ -332,7 +332,7 @@ class SearchComponent extends Component {
         }catch(err){
             console.log(err)
         }
-       
+
     }
 
     normalSelectDate = () => {
@@ -340,11 +340,11 @@ class SearchComponent extends Component {
         const { normalSearch } = this.state
         let value = normalSearch.date
         this.setState({
-            DatePickerOpen: false 
+            DatePickerOpen: false
         })
         if (this.state.normalSearch[name] == value && this.props.normalSearchChange) {
             let initValue = this.clearValue()
-            
+
             this.props.normalSearchChange(name, value, initValue)
         }
     }
@@ -361,15 +361,15 @@ class SearchComponent extends Component {
         const { confirmBtn, cancelBtn, clearBtn, refreshBtn } = this.props
         const { containerHeight } = this.state
         let This = this
-        const moreSearchItem = this.props.moreSearchItem.map(item => {
-            if( item.pre && item.next && 
+        const moreSearchItem = this.props.moreSearchItem?this.props.moreSearchItem.filter(item => {
+            if( item.pre && item.next &&
                 item.pre.type.includes('DatePicker') && item.next.type.includes('DatePicker')){
                 return {
                     ...item,
                     next:{
                         ...item.next,
                         onOpenChange: (status) => this.dateWindowChange('next', status, `showDateWin_${item.pre.name}`),
-                        open: this.state[`showDateWin_${item.pre.name}`] 
+                        open: this.state[`showDateWin_${item.pre.name}`]
                     },
                     pre: {
                         ...item.pre,
@@ -377,8 +377,8 @@ class SearchComponent extends Component {
                     }
                 }
             }
-            return item 
-        })
+            if(!item.visible) return item
+        }):null
 
         return (
             <div ref='retrieveWrap' className='retrieveWrap mk-search' style={{ position: 'relative' }}>
@@ -387,7 +387,7 @@ class SearchComponent extends Component {
                         {this.props.selectDate?this.props.selectDate:null}
                         {this.renderNormalSearch()}
                         {this.props.normalSearcChildren ? this.props.normalSearcChildren : null}
-                        <span
+                        {this.props.moreSearchItem?<span
                             className='mk-span'
                             onClick={this.showMoreSearch.bind(this, true)}
                             style={{
@@ -399,13 +399,14 @@ class SearchComponent extends Component {
                                 justifyContent: 'center'
                             }}>
                             <a className="searchBtn">高级查询</a>
-                        </span>
+                        </span>:null}
                         {refreshBtn}
                     </div>
                     <div className="mk-title-otherBtn">
                         {this.props.menuBtn}
                     </div>
                 </div>
+                
                 <div
                     style={{
                         width: '100%',
@@ -424,21 +425,21 @@ class SearchComponent extends Component {
                             maxHeight: `${containerHeight}px`
                             // top: `${this.state.data.get('childVisible') ? '0' : `-${this.state.height}px`}`
                         }}
-                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' :　'slideOutUp'}`}                        
+                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' :　'slideOutUp'}`}
                     >
                         <h2>
                             <div>高级查询</div>
                         </h2>
                         <div className="search-form-contaienr" style={{ maxHeight: `${containerHeight-90}px` }}>
                             {this.props.treeSelect ? this.props.treeSelect : null}
-                            <SearchForm
+                           {this.props.moreSearchItem&&<SearchForm
                                 target={this}
-                                onChange={this.someChange} 
-                                item={moreSearchItem} 
-                                key={Math.random()} 
-                                ref={(form) => { this.form = form }} 
-                                values={this.state.searchValue} 
-                            />
+                                onChange={this.someChange}
+                                item={moreSearchItem}
+                                key={Math.random()}
+                                ref={(form) => { this.form = form }}
+                                values={this.state.searchValue}
+                            />}
                             {this.props.assistForm ? (
                                 <AssistForm
                                     ref={form => this.assistForm=form}
@@ -447,7 +448,7 @@ class SearchComponent extends Component {
                                 />
                             ) : null}
                         </div>
-	                    
+
                         <div className="mk-search-high-search-bottomBtn" style={{ textAlign: This.get('btnTextAlign') }}>
                             <span id='btnClick'>
                                 {
@@ -475,6 +476,7 @@ class SearchComponent extends Component {
                         </div>
                     </div>
                 </div>
+
             </div>
         )
     }

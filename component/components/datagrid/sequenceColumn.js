@@ -6,7 +6,7 @@ export default function SequenceColumn(props) {
 	const {
 		enableLink, //启用链接
 		startSequence, //开始序号值
-		enableAddDelrow, //启用增删行功能
+		enableSequenceAddDelrow, //启用增删行功能
 		footer, //脚
 		onAddrow, //增行事件
 		onDelrow, //删行事件
@@ -14,29 +14,28 @@ export default function SequenceColumn(props) {
 	} = props
 
 	const getContent = (ps) => {
-
 		//序号列显示内容，如果有开始序号那么加上
 		let text = startSequence ? (startSequence + ps.rowIndex) + '' : (ps.rowIndex + 1) + ''
 
 		//启用链接，会响应click事件
-		//if (enableLink) {
-			//return (
-				//<div className='mk-datagrid-sequence-cell' onClick={onClick ? () => onClick(ps) : undefined}>
-					{/*enableAddDelrow ? <Icon type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null*/}
-					//<a>
-						//{text}
-					//</a>
-					{/*enableAddDelrow ? <Icon type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null*/}
-				//</div>
-			//)
-		//}
+		if (enableLink) {
+			return (
+				<div className='mk-datagrid-sequence-cell' onClick={onClick ? () => onClick(ps) : undefined}>
+					{enableSequenceAddDelrow ? <Icon title="増行" type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null}
+					<a className = {enableSequenceAddDelrow ? 'addDelrow' : ''}>
+						{text}
+					</a>
+					{enableSequenceAddDelrow ? <Icon title="删行" type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null}
+				</div>
+			)
+		}
 
 		return <div className='mk-datagrid-sequence-cell'>
-			{/*enableAddDelrow ? <Icon type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null*/}
-			<a style={{ color: "#444444", cursor: "default" }}>
+			{enableSequenceAddDelrow ? <Icon title="増行" type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null}
+			<a className = {enableSequenceAddDelrow ? 'addDelrow' : ''} style={{ color: "#444444", cursor: "default" }}>
 				{text}
 			</a>
-			{/*enableAddDelrow ? <Icon type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null*/}
+			{enableSequenceAddDelrow ? <Icon title="删行" type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null}
 		</div>
 	}
 
