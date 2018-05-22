@@ -5,7 +5,7 @@ import utils from 'edf-utils'
 import { fromJS } from 'immutable'
 import contextManager from './context'
 import config from './config'
-//import * as Babel from 'babel-standalone'
+import * as Babel from 'babel-standalone'
 
 
 const appInstances = {}
@@ -147,11 +147,13 @@ class action {
 		if (browserType && browserType.ie) {
 			if (expressContent && expressContent.indexOf('=>') > -1) {
 				console.log('ie兼容exception:' + expressContent)
-				//if (Babel) {
-				//	expressContent = Babel.transform(expressContent, { presets: ['es2015'] }).code
-					//expressContent = expressContent.replace("use strict;", "")
-					//v = v.replace("use strict", '')
-				//}
+				if (Babel) {
+					expressContent = Babel.transform(expressContent, { presets: ['es2015'] }).code
+					expressContent = expressContent.replace(`"use strict";`, "")
+					expressContent = expressContent.replace(/\n/gi, '')
+					expressContent = expressContent.replace(/\{\s+\{/gi, '{{')
+					expressContent = expressContent.replace(/\}\s+\}/gi, '}}')
+				}
 			}
 		}
 		let _express = this.parseExpreesion(expressContent)

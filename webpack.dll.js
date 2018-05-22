@@ -9,13 +9,12 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 	},
 	entry: {
-		/*
 		shim: [
 			'console-polyfill',
 			'es5-shim',
 			'es5-shim/es5-sham',
 			'html5shiv',
-		],*/
+		],
 		vendor: [
 			'raf/polyfill',
 			'babel-polyfill',
@@ -40,7 +39,8 @@ module.exports = {
 			'react-json-tree',
 			'react-viewer',
 			'whatwg-fetch',
-			'fixed-data-table-2'
+			'fixed-data-table-2',
+			'babel-standalone'
 		]
 	},
 	output: {

@@ -11,6 +11,7 @@ export function getMeta() {
 				{
 					name: 'imgLogo',
 					component: '::img',
+					onClick: '{{(e)=>console.log(e)}}',
 					src: require('./images/ttk-logo.jpg'),
 				}, {
 					name: 'tips',

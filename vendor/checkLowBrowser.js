@@ -76,7 +76,7 @@ function getBrowserVersion() {
 function checkLowBrowser () {
     var browser = getBrowserVersion()
     // browser.ie && browser.version < 10
-    if( browser.ie && browser.version < 10 ) {
+    if( browser.ie && browser.version < 9 ) {
 		// window.location.href='vendor/checkBrowser/index.html' 
 		window.open('vendor/checkBrowser/index.html', '_blank')
 	}

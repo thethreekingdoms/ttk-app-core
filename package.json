@@ -47,6 +47,7 @@
   "dependencies": {
     "antd": "^3.4.1",
     "babel-polyfill": "^6.26.0",
+    "babel-standalone": "^6.26.0",
     "classnames": "^2.2.5",
     "codemirror": "^5.37.0",
     "console-polyfill": "^0.3.0",
