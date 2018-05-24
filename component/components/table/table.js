@@ -430,37 +430,53 @@ class AntTable extends Component {
     noCheckItem = () => {
         let { selectValue,  checkboxId} = this.state
         let flag = true
-        for( const key of checkboxId.keys() ){
+        checkboxId.map((item, key) => {
             if( selectValue.has(key) ){
                 flag = false
             }
-        }
+        })
+        // for( const key of checkboxId.keys() ){
+        //     if( selectValue.has(key) ){
+        //         flag = false
+        //     }
+        // }
         return flag
     }
 
     checkAllItem = () => {
         let { selectValue,  checkboxId} = this.state
         let flag = true
-        for( const key of checkboxId.keys() ){
+        checkboxId.map((item, key) => {
             if( !selectValue.has(key) && typeof key != "undefined"){
                 flag = false
             }
-        }
+        })
+        // for( const key of checkboxId.keys() ){
+        //     if( !selectValue.has(key) && typeof key != "undefined"){
+        //         flag = false
+        //     }
+        // }
         return flag
     }
 
     checkboxAllClick = (e) => {
         let { selectValue,  checkboxId} = this.state
         if( selectValue.size == 0 ){
-            for( const [key, value] of checkboxId.entries() ) {
+            checkboxId.map((value, key) => {
                 selectValue = selectValue.set(key, value)
-            }
+            })
+            // for( const [key, value] of checkboxId.entries() ) {
+            //     selectValue = selectValue.set(key, value)
+            // }
         }else if(this.checkAllItem()) {
             selectValue = new Map()
         }else{
-            for( const [key, value] of checkboxId.entries() ) {
+            checkboxId.map((vlaue, key) => {
                 selectValue = selectValue.set(key, value)
-            }
+            })
+            // for( const [key, value] of checkboxId.entries() ) {
+            //     selectValue = selectValue.set(key, value)
+            // }
         }
         this.setState({
             selectValue
@@ -572,10 +588,14 @@ class AntTable extends Component {
             const arr = []
             const arrValue = []
             const { selectValue } = this.state
-            for( const [key, value] of data.entries() ){
+            data.map((value, key) => {
                 arr.push(key)
                 arrValue.push(value)
-            }
+            })
+            // for( const [key, value] of data.entries() ){
+            //     arr.push(key)
+            //     arrValue.push(value)
+            // }
             this.props.checkboxChange(arr, arrValue)
         }
     }
