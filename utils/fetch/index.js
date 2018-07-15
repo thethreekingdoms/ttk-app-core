@@ -97,7 +97,7 @@ export function get(url, headers, option) {
 export function post(url, data, headers, option) {
 	//url增加处理参数
 	if (url && url.indexOf('?') == -1) {
-		url = `${url}?appId=000101&requestId=${this.getRandom()}`
+		url = `${url}?appId=000101&requestId=${getRandom()}`
 		if (getAccessToken()) {
 			url = url + "&token = " + getAccessToken()
 		}
