@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Map } from 'immutable'
+import { Map, fromJS } from 'immutable'
+import isequal from 'lodash.isequal'
 import Button from '../button/index'
 import Checkbox from '../checkbox/index'
 
@@ -16,6 +17,21 @@ class TableSettingCard extends React.Component {
         }
 
     }
+
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+    //     return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    // }
 
     getAbsPoint = (e) => {
         var x = e.offsetLeft
@@ -72,7 +88,7 @@ class TableSettingCard extends React.Component {
     }
 
     handleChange = (e, item) => {
-        const { data } = this.state
+        const  data =  fromJS(this.state.data).toJS()
         const index = data.findIndex(index => {
             return index.id == item.id
         })

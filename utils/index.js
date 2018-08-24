@@ -15,7 +15,12 @@ import history from './history'
 import less from './less'
 import environment from './environment'
 import date from './date'
-
+import eventUtil from './eventUtil'
+import { Base64ForDelphi, Base64 } from './base64'
+import { CryptoJS } from './des'
+import parseHtml from './html2json'
+import request from './request'
+const { FetchRequest } = request;
 export default {
 	beautify,
 	json,
@@ -33,5 +38,11 @@ export default {
 	history,
 	less,
 	environment,
-	date
+	date,
+	eventUtil,
+	Base64ForDelphi,
+	Base64,
+	CryptoJS,
+	parseHtml,
+	fetchCors:FetchRequest
 }

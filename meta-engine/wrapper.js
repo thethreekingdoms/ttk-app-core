@@ -4,6 +4,8 @@ import monkeyKing from './monkeyKing'
 import config from './config'
 import utils from 'edf-utils'
 
+import shallowCompare from 'react-addons-shallow-compare';
+
 export default function wrapper(option) {
 	return WrappedComponent => {
 		return class internal extends Component {
@@ -36,7 +38,15 @@ export default function wrapper(option) {
 						return true
 					}
 				}
-				return false
+
+				let __shouldComponentUpdate = shallowCompare(this, nextProps, nextState) || false
+
+				if (__shouldComponentUpdate == true) {
+					return true
+				}
+				else {
+					return __shouldComponentUpdate
+				}
 			}
 
 
@@ -77,7 +87,7 @@ export default function wrapper(option) {
 			render() {
 				if (this.state.hasError) {
 					//return <div style={{ color: 'red' }}>{this.state.error}</div>
-					return <div style={{ color: 'red' }}>{this.state.error && this.state.error.message }</div>
+					return <div style={{ color: 'red' }}>{this.state.error && this.state.error.message}</div>
 				}
 
 				if (this.props.notRender === true || this.props._notRender === true)

@@ -39,7 +39,6 @@ class ColumnsSetting extends React.Component {
         this.setState({
             option: value
         })
-
         return {
             type: 'confirm',
             option: clonedeep(value)
@@ -79,12 +78,15 @@ class ColumnsSetting extends React.Component {
             'ttk-ColumnsSetting-item': true,
             [itemClassName]: !!itemClassName
         })
+        const width = 100/arr.length
         const childArr =  arr.map(item => {
+            let key = item.key ? item.key : item.name
             return (
-                <TabPane forceRender={true} tab={item.name} key={item.key}>
+                <div key={key} style={{ width: `${width}%` }} className="ttk-ColumnsSetting-modal-item">
+                    <div className="ttk-ColumnsSetting-modal-item-tit">{item.name}</div>
                     <ItemOption 
                         num={this.state.num}
-                        ref={(child) => this.childRef[item.key] = child}
+                        ref={(child) => this.childRef[key] = child}
                         option={item.option}
                         labelKey={labelKey}
                         checkedKey={checkedKey}
@@ -93,13 +95,14 @@ class ColumnsSetting extends React.Component {
                         editName={editName}
                         itemClassName={itemClassName}
                     />
-                </TabPane>
+                </div>
             )
         })
         return (
-            <Tabs defaultActiveKey="1">
+            <div className="ttk-ColumnsSetting-modal">
+                <span className="ttk-ColumnsSetting-modal-line"></span>
                 {childArr}
-            </Tabs>
+            </div>
         )
     }
 
@@ -121,10 +124,11 @@ class ColumnsSetting extends React.Component {
         const { confirmClick } =  this.props
         const { option } = this.state
         let value = option.map(item => {
-            if( this.childRef[item.key] ){
+            let key = item.key ? item.key : item.name
+            if( this.childRef[key] ){
                 return {
                     ...item,
-                    option: this.childRef[item.key].getValue()
+                    option: this.childRef[key].getValue()
                 }
             }
             return item
@@ -132,6 +136,12 @@ class ColumnsSetting extends React.Component {
         this.setState({
             option: value
         })
+        if( this.props.closeModal ){
+            return this.props.closeModal({
+                type: 'confirm',
+                option: clonedeep(value)
+            })
+        }
         return confirmClick && confirmClick(value)
     }
 
@@ -141,6 +151,12 @@ class ColumnsSetting extends React.Component {
             option: clonedeep(option),
             num: Math.random() ,
         })
+        if( this.props.closeModal ){
+            return this.props.closeModal({
+                type: 'cancel',
+                option: clonedeep(this.props.option)
+            })
+        }
         return cancelClick && cancelClick()
     }
 
@@ -149,26 +165,21 @@ class ColumnsSetting extends React.Component {
         const { option } = this.state
         let className = classNames({
             'ttk-ColumnsSetting': true,
-            [props.className]: !!props.className
+            [props.className]: !!props.className,
         })
         return (
-            <div className={className}>
-                <div className="ttk-ColumnsSetting-header">
-                    <div className="ttk-ColumnsSetting-header-title">
-                        {/* <span>选择列</span> */}
-                    </div>
-                    <div>
-                        <a href="javascript:;" onClick={this.resetClick}>恢复默认设置</a>
-                    </div>
-                </div>
+            <div className={className} style= {{paddingBottom : 0,paddingTop:0}}>
+                
                 <div className="ttk-ColumnsSetting-container">
                     {this.renderItem(option)}
                 </div>
                 {
-                    !this.props.setOkListener ? (
-                        <div className="ttk-ColumnsSetting-footer">
-                            <Button type="primary" onClick={this.confirmClick}>确定</Button>
-                            <Button onClick={this.cancelClick}>取消</Button>
+                    true ? (
+                        <div className="ttk-ColumnsSetting-footer" style= {{marginTop : 12}}>
+                            <span className="ttk-ColumnsSetting-footer-line"></span>
+                            <Button style= {{width : 60}} onClick={this.cancelClick}>取消</Button>
+                            <Button style= {{width : 60}} onClick={this.resetClick}>重置</Button>
+                            <Button style= {{width : 60}} type="primary" onClick={this.confirmClick}>确定</Button>
                         </div>
                     ) : null
                 }

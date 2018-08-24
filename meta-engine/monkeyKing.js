@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppLoader } from 'edf-app-loader'
+import { AppLoader, getApps } from 'edf-app-loader'
 import componentFactory from './componentFactory'
 import omit from 'omit.js'
 import config from './config'
@@ -14,13 +14,22 @@ function parseMetaProps(meta, props, data) {
 
         if (v instanceof Array) {
             ret[key] = []
-            v.forEach(c => {
-                let mc = metaToComponent(c, props, data)
-                if (mc instanceof Array)
-                    ret[key] = ret[key].concat(mc)
-                else
-                    ret[key].push(mc)
-            })
+
+            var i, c;
+
+            for (i = 0; c = v[i++];) {
+                //v.forEach(c => {
+                if (c instanceof Array) {
+                    ret[key] = v
+                }
+                else {
+                    let mc = metaToComponent(c, props, data)
+                    if (mc instanceof Array)
+                        ret[key] = ret[key].concat(mc)
+                    else
+                        ret[key].push(mc)
+                }
+            }
         }
         else if (t == 'object') {
             if (v && v._notParse) {
@@ -41,6 +50,7 @@ function parseMetaProps(meta, props, data) {
     return ret
 }
 
+
 function metaToComponent(meta, props, data) {
     if (!meta)
         return meta
@@ -51,6 +61,9 @@ function metaToComponent(meta, props, data) {
         return meta
     }
     else if (metaType == 'object' && meta['_isAMomentObject']) {
+        return meta
+    }
+    else if (metaType == 'object' && meta instanceof Date) {
         return meta
     }
     else if (metaType == 'object') {
@@ -87,28 +100,17 @@ function metaToComponent(meta, props, data) {
             if (meta['_power'] && meta['_power'].indexOf('=>') != -1) {
                 return (...args) => {
                     let varsString = ''
-
-                    if (meta['_power'] == '({rowIndex})=>rowIndex') {
+                    let _powerString = utils.string.trim(meta['_power'])
+                    if (_powerString == '({rowIndex})=>rowIndex' || _powerString == '({rowIndex}) => rowIndex') {
                         varsString = (new Function('return (function(_ref) {var rowIndex = _ref.rowIndex;return rowIndex})'))()(...args)
                     }
                     else {
-                        varsString = (new Function('return ' + meta['_power']))()(...args)
+                        varsString = (new Function('return ' + _powerString))()(...args)
                     }
-                    
-                    
-                    /*
-                    let browserType = utils.environment.getBrowserVersion()
-                    if (browserType && (browserType.ie || browserType.chrome ==44)) {
-                       
-                    }
-                    else {
-                        varsString = (new Function('return ' + meta['_power']))()(...args)
-                    }*/
-
 
                     //let varsString = (new Function('return ' + meta['_power']))()(...args)
                     let childMeta = props.gm(meta.path + ',' + varsString, undefined, data)
-                    delete childMeta._power
+                    childMeta._power = undefined
                     return metaToComponent(childMeta, props, data)
                     //return co ? React.cloneElement(co, { path: meta.path + ',' + varsString }) : co
                 }
@@ -117,44 +119,77 @@ function metaToComponent(meta, props, data) {
             const componentName = meta.component,
                 component = componentFactory.getComponent(props.appName, componentName)
 
+            /*
             var allProps = {
                 key: meta.path,
                 ...props,
                 ...parseMetaProps(meta, props, data),
+            }*/
+
+            var allProps = parseMetaProps(meta, props, data)
+            if (!allProps.key) {
+                allProps.key = meta.path
             }
 
-            //删除一些组件不需要的属性
-            delete allProps.clearAppState
+            if (allProps.useAllProps && componentName !='AppLoader') {
+                allProps = { ...props, ...allProps }
+            }
+            //allProps.gf = props.gf
+            /*
+             var metaProps = parseMetaProps(meta, props, data)
+    
+            var metaPropsKeys = Object.keys(metaProps)
+            for (var i = 0; i < metaPropsKeys.length; i++) {
+                allProps[metaPropsKeys[i]] = metaProps[metaPropsKeys[i]]
+            }*/
+
             delete allProps.component
             delete allProps.name
-            delete allProps.getDirectFuns
-            delete allProps.initView
-            delete allProps.payload
-            delete allProps.componentWillMount
-            delete allProps.componentDidMount
-            delete allProps.shouldComponentUpdate
-            delete allProps.componentWillReceiveProps
-            delete allProps.componentWillUpdate
-            delete allProps.componentDidCatch
-            delete allProps.componentWillUnmount
-            delete allProps.componentDidUpdate
-            delete allProps.unmount
-
-            //使用omit性能较低
-            //allProps = omit(allProps, ['clearAppState', 'component', 'name', 'getDirectFuns', 'initView', 'payload'])
 
             if (componentName == 'AppLoader') {
+                var propKeys = Object.keys(props),
+                    i, key
+
+                for (i = 0; key = propKeys[i++];) {
+                    if (allProps[key] == undefined) {
+                        allProps[key] = props[key]
+                    }
+                }
+
+                //删除一些组件不需要的属性
+                delete allProps.clearAppState
+                delete allProps.getDirectFuns
+                delete allProps.initView
+                delete allProps.payload
+                delete allProps.componentWillMount
+                delete allProps.componentDidMount
+                delete allProps.shouldComponentUpdate
+                delete allProps.componentWillReceiveProps
+                delete allProps.componentWillUpdate
+                delete allProps.componentDidCatch
+                delete allProps.componentWillUnmount
+                delete allProps.componentDidUpdate
+                delete allProps.unmount
+
                 if (!allProps.appName)
                     return null
-                return React.createElement(component, { ...allProps, key: allProps.appName, name: allProps.appName })
+                
+                if (allProps._notRender === true && !getApps()[allProps.appName]) {
+                    return null
+                }
+                allProps.key = allProps.appName
+                allProps.name = allProps.appName
+                return React.createElement(component, allProps)
             }
 
+            /*
             delete allProps.store
             delete allProps.appName
             delete allProps.appFullName
             delete allProps.appQuery
             delete allProps.appParams
             delete allProps.storeSubscription
+            */
 
             return React.createElement(component, allProps)
         }

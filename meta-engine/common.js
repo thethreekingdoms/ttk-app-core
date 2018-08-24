@@ -1,6 +1,6 @@
 import Immutable, { Map, List, fromJS } from 'immutable'
 import utils, { path } from 'edf-utils'
-
+import templateFactory from './templateFactory'
 const { existsParamsInPath, parsePath } = path
 
 
@@ -22,9 +22,16 @@ export function setMetaForce(appName, meta) {
 
     meta = fromJS(meta)
 
+    meta = parseMetaTemplate(meta)
+
     cache.meta = cache.meta
         .setIn([appName, 'meta'], meta)
         .setIn([appName, 'metaMap'], parseMeta(meta))
+}
+
+export function setChildMeta(appInfo, fullpath, propertys, val) {
+    //修改meta path下对对应的结构信息
+    debugger
 }
 
 export function getMeta(appInfo, fullpath, propertys) {
@@ -51,11 +58,19 @@ export function getMeta(appInfo, fullpath, propertys) {
 
     //属性为数组，遍历获取
     if (propertys instanceof Array) {
+        var i, p;
+
+        for (i = 0; p = propertys[i++];) {
+            var val = currentMeta.getIn(p.split('.'))
+            ret[p] = (val && val.toJS) ? val.toJS() : val
+        }
+
+        /*
         propertys.forEach(p => {
             let val = currentMeta.getIn(p.split('.'))
             //immutable值，直接toJS()
             ret[p] = (val && val.toJS) ? val.toJS() : val
-        })
+        })*/
 
         return ret
     }
@@ -94,10 +109,12 @@ export function setField(state, fieldPath, value) {
 }
 
 export function setFields(state, values) {
-    Object.keys(values).forEach(k => {
-        state = setField(state, k, values[k])
-    })
+    var keys = Object.keys(values),
+        i, key
 
+    for (i = 0; key = keys[i++];) {
+        state = setField(state, key, values[key])
+    }
     return state
 }
 
@@ -111,6 +128,62 @@ export function updateField(state, fieldPath, fn) {
 
 function isComponent(meta) {
     return typeof meta == 'object' && !!meta.name && !!meta.component
+}
+
+function parseMetaTemplate(meta) {
+    var templates = []
+    
+    const parseProp = (propValue, path) => {
+        if (!(propValue instanceof Immutable.Map)) {
+            return
+        }
+        if (propValue.get('component')) {
+            var component = utils.string.trim(propValue.get('component'))
+            if(component.substring(0, 2) == '##'){
+                var template = templateFactory.getTemplate(component.substr(2))
+                if(template){
+                    templates.push([path, fromJS(template(propValue.toJS()))])
+                    return 
+                }
+            }
+        }
+
+        propValue.keySeq().toArray().forEach(p => {
+            let v = propValue.get(p)
+            if (v instanceof Immutable.List) {
+                v.forEach((c, index) => {
+                    let currentPath = path ? `${path}.${p}.${index}` : `${p}.${index}`
+                    parseProp(c, currentPath)
+                })
+            } else {
+                let currentPath = path ? `${path}.${p}` : p
+                parseProp(v, currentPath)
+            }
+        })
+    }
+    parseProp(meta, '')
+    templates.forEach(t => {
+        let seg = t[0].split('.')
+        if (
+            (t[1] instanceof Immutable.List) && 
+            (meta.getIn(seg.slice(0, seg.length-1)) instanceof Immutable.List )
+        ) {
+            let index = seg.pop()
+            meta = meta.updateIn(seg, ll=>{
+                ll = ll.remove(index)
+
+                t[1].forEach(o=>{
+                    ll = ll.insert(index, o)
+                    index++
+                })
+                return ll
+            })
+        }
+        else{
+            meta = meta.setIn(seg, t[1] )
+        }
+    })
+    return meta
 }
 
 function parseMeta(meta) {

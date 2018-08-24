@@ -17,14 +17,14 @@
     }
     &-cellContent-left {
         //justify-content: flex-start;
-        text-align: left;
+        text-align: left !important;
         margin-left: 8px;
     }
     &-cellContent-center {
         justify-content: center;
     }
     &-cellContent-right {
-        text-align: right;
+        text-align: right !important;
         //justify-content: flex-end;
     }
     &-cellContent-text {
@@ -90,8 +90,14 @@
         border-bottom: 1px solid #d9d9d9;
     }
 
-    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
-        background: #eaeaea !important;
+    .fixedDataTableLayout_rowsContainer {
+        .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+            background: #eaeaea !important;
+            text-align: center;
+        }
+        .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_footer{
+            text-align: center;
+        }
     }
     .public_fixedDataTable_scrollbarSpacer{
         top: 0px;
@@ -153,21 +159,49 @@
     }
     //字体12px
     .mk-datagrid-cellContent {
+        padding: 0 8px;
+        display: block;
         font-size: 12px;
         white-space: nowrap;
+        line-height: 36px;
+        // text-align: center;
+    }
+
+    //去掉拖动时的蓝色线和修改拖动光标样式
+    .fixedDataTableCellLayout_columnResizerContainer {
+        cursor: col-resize !important;
+    }
+    .public_fixedDataTableCell_columnResizerKnob {
+        background-color: transparent !important;
+        cursor: col-resize !important;
+    }
+    .fixedDataTableColumnResizerLineLayout_mouseArea {
+        cursor: col-resize !important;
+    }
+    .fixedDataTableColumnResizerLineLayout_main.public_fixedDataTableColumnResizerLine_main {
+        border-color: transparent;
     }
 }
 
 //可编辑特殊样式
 .mk-datagrid-editable {
     background-color: #fff;
-    &-add-row, &-remove-row, &-up-row, &-down-row {
+    &-add-row, &-up-row, &-down-row {
         display: none!important;
         font-size: 16px;
         color: #666;
         &:hover {
             cursor: pointer;
             color: @link-color;
+        }
+    }
+    &-remove-row{
+        display: none!important;
+        font-size: 16px;
+        color: #666;
+        &:hover {
+            cursor: pointer;
+            color: red;
         }
     }
     .fixedDataTableLayout_main,
@@ -198,6 +232,9 @@
             overflow: visible;
             //margin-left: -1px;
         }
+    }
+    .mk-datagrid-cellContent {
+        display: flex;
     }
 
     .mk-datagrid-addDelRow-cell {
@@ -273,7 +310,7 @@
             text-overflow: ellipsis;
             overflow: hidden;
             margin-left: 0;
-            padding: 8px;
+            padding: 0 8px;
             display: block;
         }
     }

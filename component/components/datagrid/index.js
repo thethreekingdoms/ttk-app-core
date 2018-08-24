@@ -19,7 +19,7 @@ class DataGridComponent extends React.Component {
         rowsCount: 0,
         scrollLeft: 0
     }
-    
+
     constructor(props) {
         super(props)
         this.onResize = this.onResize.bind(this)
@@ -41,7 +41,7 @@ class DataGridComponent extends React.Component {
     componentDidMount() {
         //if (this.props.isFix === true) return
         this.refreshSize()
-      
+
         var win = window
         if (win.addEventListener) {
             win.addEventListener('resize', this.onResize, false)
@@ -95,8 +95,7 @@ class DataGridComponent extends React.Component {
             height: dom.offsetHeight,
             width: dom.offsetWidth
         })
-        
-        
+
         // let keyRandom = Math.floor(Math.random()*100000)
         // this.keyRandom = keyRandom
         // setTimeout(()=>{
@@ -123,6 +122,8 @@ class DataGridComponent extends React.Component {
         if(!!this.props.rememberScrollTop){
             window[this.props.className] = y
         }
+
+        this.props.onScrollEnd && this.props.onScrollEnd(x, y)
     }
 
     // update() {
@@ -162,25 +163,56 @@ class DataGridComponent extends React.Component {
         }
 
         if(this.props.rememberScrollTop && window[this.props.className]) {
-            scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight)
+            let { height } = this.state
+            let count = 0
+            if( height ) {
+                height = height - this.props.headerHeight - 15
+                if( height > 0 ) {
+                    count = Math.floor(height/this.props.rowHeight)
+                    if( typeof count != 'number' ) {
+                        count = 0
+                    }
+                }
+            }
+            scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight) + count
         }
-        return (
-            <div className={className}
-                style={this.props.style ? this.props.style : {}}
-                onKeyDown={this.props.onKeyDown}
-                onKeyUp={this.props.onKeyUp}>
-                {Grid({
-                    ...omit(this.props, ['className']),
-                    width,
-                    height,
-                    oldRowsCount,
-                    onScrollEnd,
-                    scrollToRow,
-                    // scrollLeft,
-                    loading
-                })}
-            </div>
-        )
+
+        if (scrollToRow) {
+            return (
+                <div className={className}
+                    style={this.props.style ? this.props.style : {}}
+                    onKeyDown={this.props.onKeyDown}
+                    onKeyUp={this.props.onKeyUp}>
+                    {Grid({
+                        ...omit(this.props, ['className']),
+                        width,
+                        height,
+                        oldRowsCount,
+                        onScrollEnd,
+                        scrollToRow,
+                        // scrollLeft,
+                        loading
+                    })}
+                </div>
+            )
+        } else {
+            return (
+                <div className={className}
+                    style={this.props.style ? this.props.style : {}}
+                    onKeyDown={this.props.onKeyDown}
+                    onKeyUp={this.props.onKeyUp}>
+                    {Grid({
+                        ...omit(this.props, ['className']),
+                        width,
+                        height,
+                        oldRowsCount,
+                        onScrollEnd,
+                        // scrollLeft,
+                        loading
+                    })}
+                </div>
+            )
+        }
     }
 }
 

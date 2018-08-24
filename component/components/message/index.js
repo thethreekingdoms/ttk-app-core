@@ -1,3 +1,5 @@
 import { message } from 'antd'
 
-export default message
+// webpack 
+const messageComponent = message
+export default messageComponent

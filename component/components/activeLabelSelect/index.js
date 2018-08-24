@@ -1,5 +1,7 @@
 import React from 'react'
 import Select from '../antdSelect/index'
+// import shouldCompare from 'react-addons-shallow-compare'
+import isequal from 'lodash.isequal'
 
 const Option = Select.Option
 
@@ -13,16 +15,23 @@ class ActiveLabelSelect extends React.Component{
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if( window.noshouldComponent ) {
+            return true
+        }
+        return !(isequal(this.props, nextProps) && isequal(this.state, nextState))
+    }
+
     componentWillReceiveProps(nextProps){
         let state = this.state
         const props = this.props
-        state = {
+        let state2 = {
             ...state,
             option: nextProps.option || [] ,
             selectLabel: nextProps.selectLabel || '',
             value: nextProps.value ? nextProps.value : state.value
         }
-        this.setState(state)
+        this.setState(state2)
     }
 
     renderLabelChildItem = () => {
@@ -33,10 +42,12 @@ class ActiveLabelSelect extends React.Component{
     }
 
     labelChange = (value) => {        
-        this.state.selectLabel =value
-        this.state.value = ''
-        this.setState({})
-        this.updateToParent()
+        let obj = {
+            selectLabel: value,
+            value: ''
+        }
+        this.setState(obj)
+        this.updateToParent(obj)
     }
 
     renderLable = () => {                
@@ -68,9 +79,12 @@ class ActiveLabelSelect extends React.Component{
     }
 
     valueChange = (value) => {        
-        this.state.value = value
-        this.setState({})
-        this.updateToParent()
+        // this.state.value = value
+        let obj = {
+            value: value ? value : ''
+        }
+        this.setState(obj)
+        this.updateToParent(obj)
     }
 
     renderValue = () => {        
@@ -100,9 +114,14 @@ class ActiveLabelSelect extends React.Component{
         )
     }
 
-    updateToParent = () => {        
+    updateToParent = (params) => {     
+        const state = this.state   
         if( this.props.onChange ) {
-            let  { selectLabel, value, option } =  this.state
+            let  { 
+                selectLabel = state.selectLabel, 
+                value = state.value, 
+                option = state.option
+            } =   params
             if( !selectLabel) {
                 selectLabel = option&& option.length > 0 ? option[0].key : ''
             }

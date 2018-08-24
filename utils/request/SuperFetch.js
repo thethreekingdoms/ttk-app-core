@@ -1,0 +1,1 @@
+export var SuperFetch = window.SuperFetch = window.SuperFetch || {};

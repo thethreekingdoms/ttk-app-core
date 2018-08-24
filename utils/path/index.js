@@ -64,10 +64,30 @@ function findPathByEvent(e) {
     }
 }
 
+function getVersion() {
+    var rawFile = {}
+    if (window.XMLHttpRequest) {
+        rawFile = new XMLHttpRequest();
+    } else {
+        rawFile = new ActiveXObject('Microsoft.XMLHTTP');
+    }
 
+    var allText = ''
+    rawFile.open("GET", "./version.txt", false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                allText = rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
+    return allText
+}
 
 export default {
     parsePath,
     existsParamsInPath,
-    findPathByEvent
+    findPathByEvent,
+    getVersion
 }

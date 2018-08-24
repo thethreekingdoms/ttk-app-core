@@ -1,0 +1,1864 @@
+.edfx-app-login {
+  position: relative;
+}
+.edfx-app-login-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-login-header-left-split {
+  position: absolute;
+  top: 0px;
+  left: 126px;
+}
+.edfx-app-login-header-left-login {
+  position: absolute;
+  top: 0px;
+  left: 158px;
+}
+.edfx-app-login-header-right {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.edfx-app-login-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  z-index: 1;
+}
+.edfx-app-login-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-login-footer p {
+  text-align: center;
+  padding-top: 30px;
+}
+.edfx-app-register {
+  position: relative;
+}
+.edfx-app-register-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-register-header-left-split {
+  position: absolute;
+  top: 0px;
+  left: 126px;
+}
+.edfx-app-register-header-left-login {
+  position: absolute;
+  top: 0px;
+  left: 158px;
+}
+.edfx-app-register-header-right {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.edfx-app-register-form {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  z-index: 1;
+}
+.edfx-app-register-form-bar-step {
+  position: absolute;
+  display: inline-block;
+}
+.edfx-app-register-form-bar .step1 {
+  left: 0;
+}
+.edfx-app-register-form-bar .step2 {
+  left: 172px;
+}
+.edfx-app-register-form-bar .step3 {
+  right: 0;
+}
+.edfx-app-register-form-bar-line {
+  border-top: 1px dashed #888;
+}
+.edfx-app-register-form-captcha .ant-input {
+  height: 50px;
+}
+.edfx-app-register-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-register-footer p {
+  text-align: center;
+  padding-top: 30px;
+}
+.edfx-app-forgot-password-form-bar-step {
+  position: absolute;
+  display: inline-block;
+}
+.edfx-app-forgot-password-form-bar .step1 {
+  left: 0;
+}
+.edfx-app-forgot-password-form-bar .step2 {
+  left: 172px;
+}
+.edfx-app-forgot-password-form-bar .step3 {
+  right: 0;
+}
+.edfx-app-forgot-password-form-bar-line {
+  border-top: 1px dashed #888;
+}
+.edfx-app-forgot-password-form-captcha .ant-input {
+  height: 50px;
+}
+.edfx-app-portal {
+  padding-top: 54px !important;
+  position: relative;
+}
+.edfx-app-portal-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 54px;
+}
+.edfx-app-portal-header-left {
+  width: 159px;
+  height: 54px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.edfx-app-portal-header-left h1 {
+  margin-top: 8px !important;
+}
+.edfx-app-portal-header-right {
+  width: 100%;
+  height: 54px;
+  padding-left: 159px;
+}
+.edfx-app-portal-search-rightDiv {
+  min-width: 250px;
+  position: relative;
+}
+.edfx-app-portal-search-rightDiv > span {
+  position: absolute;
+  left: 0;
+  top: 15px;
+}
+.edfx-app-portal-search-rightDiv .basicInfo {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+}
+.edfx-app-portal-content {
+  position: relative;
+  overflow: hidden;
+}
+.edfx-app-portal-content-left {
+  width: 160px !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 8px !important;
+  height: auto;
+  overflow: hidden;
+}
+.edfx-app-portal-content-left > div {
+  width: 100%;
+  float: left;
+}
+.edfx-app-portal-content-left .menu-switch {
+  height: 20px;
+}
+.edfx-app-portal-content-left .new-guide {
+  height: 100px;
+  overflow: hidden;
+}
+.edfx-app-portal-content > div {
+  width: 100%;
+  height: 100%;
+  padding-left: 173px;
+}
+.edfx-app-portal-content-main {
+  height: 100%;
+}
+.edfx-app-portal-content .mainTop {
+  position: absolute;
+  left: 170px;
+  top: 0px;
+  width: 100%;
+  z-index: 10000;
+}
+.edfx-app-portal-content .mainTop .extraMenu {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.edfx-app-portal-content .mainTop .extraMenu .panelControl {
+  float: left;
+}
+.edfx-app-portal-content .mainTop .extraMenu .edfx-app-portal-content-apiLink {
+  float: left;
+}
+.edfx-app-portal-content .edfx-app-portal-content-main {
+  padding-top: 46px !important;
+}
+.app-proof-of-charge {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.app-proof-of-charge-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 41px;
+  z-index: 99999;
+  overflow: visible;
+}
+.app-proof-of-charge-header-left {
+  width: 50%;
+  height: 40px !important;
+  float: left;
+  position: relative;
+}
+.app-proof-of-charge-header-left > button {
+  float: left;
+}
+.app-proof-of-charge-header-right {
+  width: 50%;
+  height: 40px !important;
+  float: left;
+  position: relative;
+}
+.app-proof-of-charge-header-right-iconbutton {
+  position: absolute;
+  top: 3px;
+  right: 140px;
+}
+.app-proof-of-charge-header-right > .mk-btn {
+  position: absolute;
+  top: 3px;
+  right: 80px;
+}
+.app-proof-of-charge-header-right .mk-btn-group {
+  position: absolute;
+  right: 8px;
+  top: 3px;
+}
+.app-proof-of-charge-title {
+  width: 100%;
+  position: absolute;
+  height: 20px;
+  top: 41px;
+  left: 0;
+}
+.app-proof-of-charge-title-center {
+  position: absolute;
+  top: 0;
+  left: 48%;
+}
+.app-proof-of-charge-form-header {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 59px;
+}
+.app-proof-of-charge-form-header-code {
+  width: 130px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  left: 25px;
+}
+.app-proof-of-charge-form-header-date {
+  height: 30px;
+  position: absolute;
+  left: 155px;
+  top: 0px;
+}
+.app-proof-of-charge-form-header-attachment {
+  width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+.app-proof-of-charge .gridDiv {
+  width: 100%;
+  height: 100% !important;
+  float: left;
+  padding-top: 99px;
+  padding-bottom: 0px !important;
+}
+.app-proof-of-charge-footer {
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+}
+.app-proof-of-charge-footer-left {
+  width: 50%;
+  float: left;
+}
+.app-proof-of-charge-footer-left > h3 {
+  margin-right: 0 !important;
+  width: 40%;
+  float: left;
+}
+.app-proof-of-charge-footer-right {
+  width: 50%;
+  float: left;
+}
+.app-proof-of-charge-footer-right > button {
+  float: right;
+}
+.app-proof-of-charge-money-cell-header-bottom {
+  height: 100%;
+}
+.app-proof-of-charge-money-cell-header-bottom > span {
+  width: 8.333333333% !important;
+  height: 100%;
+  display: inline-block;
+}
+.app-proof-of-charge-money-cell > div {
+  width: 8.333333333% !important;
+  height: 100%;
+  display: block !important;
+  float: left;
+}
+.app-proof-of-charge .mk-datagrid-cellContent {
+  text-align: center;
+  line-height: 49px !important;
+}
+.app-proof-of-charge-money-cell-header-top {
+  display: block;
+  text-align: center;
+}
+.app-proof-of-charge #assistDiv > div {
+  height: auto;
+  overflow: hidden;
+}
+.app-proof-of-charge #assistDiv > div .mk-form-item .ant-form-item-label {
+  width: 15%;
+  float: left;
+}
+.app-proof-of-charge #assistDiv > div .mk-form-item .ant-form-item-control-wrapper {
+  width: 85%;
+  float: left;
+}
+.app-proof-of-list {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+.app-proof-of-list .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.app-proof-of-list .mk-search .mk-normal-search {
+  width: 100%;
+  height: 40px;
+  float: left;
+}
+.app-proof-of-list .mk-search .mk-normal-search-left {
+  width: 50% !important;
+  float: left;
+}
+.app-proof-of-list .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+}
+.app-proof-of-list .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-proof-of-list-footer {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-right: 20px;
+}
+.app-proof-of-collect-rpt {
+  overflow: hidden;
+  position: relative;
+  padding-top: 50px !important;
+}
+.app-proof-of-collect-rpt-headerContent {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-proof-of-collect-rpt-table-tbody {
+  width: 100%;
+  float: left;
+}
+.app-sumaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-sumaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-sumaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-detailaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 140px !important;
+}
+.app-detailaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-detailaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-detailaccount-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.app-balancesum-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-balancesum-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left > * {
+  float: left;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-balancesum-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxsumaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-auxsumaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-auxsumaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxdetailaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 140px !important;
+}
+.app-auxdetailaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-auxdetailaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxdetailaccount-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.app-auxbalancesum-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 140px !important;
+}
+.app-auxbalancesum-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left > * {
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect {
+  min-width: 120px;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect-label {
+  width: 40%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect-value {
+  width: 60%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-auxbalancesum-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxbalancesum-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.slideOutUp {
+  display: none !important;
+}
+.mk-search-high-search .search-form-contaienr {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row > div {
+  width: 50%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .ant-form-item .ant-form-item-label {
+  width: 18%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .ant-form-item .ant-form-item-control-wrapper {
+  width: 78%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range {
+  width: 50%;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .select_range_label {
+  width: 18%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .ant-form-item {
+  width: 35%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .ant-form-item .ant-form-item-control-wrapper {
+  width: 100%;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .select_range_content {
+  width: 4%;
+  float: left;
+}
+.mk-search-high-search .FormList {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mk-search-high-search .FormList .item-list {
+  width: 100%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top {
+  width: 100%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-title {
+  width: 5%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-line-container {
+  width: 90%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-line-action {
+  width: 5%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-bottom {
+  width: 100%;
+  float: left;
+}
+.app-balancesheet-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-balancesheet-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-balancesheet-rpt-header {
+  width: 100%;
+}
+.app-balancesheet-rpt-header > * {
+  float: left;
+}
+.app-balancesheet-rpt-header-btn {
+  width: 80px;
+}
+.app-balancesheet-rpt-header-btn > div {
+  float: left;
+}
+.app-balancesheet-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-balancesheet-rpt-header-right > button,
+.app-balancesheet-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-balancesheet-rpt-header-textContent {
+  float: left;
+  width: 330px;
+}
+.app-balancesheet-rpt-header-textContent > div {
+  float: left;
+}
+.app-balancesheet-rpt-header-textContent > div > * {
+  display: inline-block;
+}
+.app-balancesheet-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-profitstatement-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-profitstatement-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-profitstatement-rpt-header {
+  width: 100%;
+}
+.app-profitstatement-rpt-header > * {
+  float: left;
+}
+.app-profitstatement-rpt-header-btn {
+  width: 80px;
+}
+.app-profitstatement-rpt-header-btn > div {
+  float: left;
+}
+.app-profitstatement-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-profitstatement-rpt-header-right > button,
+.app-profitstatement-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-profitstatement-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-cashflowstatement-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-cashflowstatement-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-cashflowstatement-rpt-header {
+  width: 100%;
+}
+.app-cashflowstatement-rpt-header > * {
+  float: left;
+}
+.app-cashflowstatement-rpt-header-btn {
+  width: 80px;
+}
+.app-cashflowstatement-rpt-header-btn > div {
+  float: left;
+}
+.app-cashflowstatement-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-cashflowstatement-rpt-header-right > button,
+.app-cashflowstatement-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-cashflowstatement-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.edfx-deptPersNoBorder {
+  position: relative;
+  padding-left: 200px !important;
+  padding-bottom: 60px !important;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-left {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: relative;
+  padding-top: 50px !important;
+  padding-bottom: 40px !important;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-head {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-content {
+  width: 100%;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-footer {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  z-index: 99999999;
+}
+.app-list-customer {
+  padding-bottom: 90px !important;
+  position: relative;
+}
+.app-list-customer-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-customer-header-left {
+  float: left;
+}
+.app-list-customer-header-right {
+  float: right;
+}
+.app-list-customer-header-right > button {
+  float: right;
+}
+.app-list-customer .app-list-currency-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-customer-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-customer-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
+.app-list-supplier {
+  padding-bottom: 90px !important;
+  position: relative;
+}
+.app-list-supplier-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-supplier-header-left {
+  float: left;
+}
+.app-list-supplier-header-right {
+  float: right;
+}
+.app-list-supplier-header-right > button {
+  float: right;
+}
+.app-list-supplier-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-supplier-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-supplier-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-project {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-project-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-project-header-left {
+  float: left;
+}
+.app-list-project-header-right {
+  float: right;
+}
+.app-list-project-header-right > button {
+  float: right;
+}
+.app-list-project-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-project-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-project-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-inventory {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-inventory-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-inventory-header-left {
+  float: left;
+}
+.app-list-inventory-header-right {
+  float: right;
+}
+.app-list-inventory-header-right > button {
+  float: right;
+}
+.app-list-inventory-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-inventory-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-inventory-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-account {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-account-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-account-header-left {
+  float: left;
+}
+.app-list-account-header-right {
+  float: right;
+}
+.app-list-account-header-right > button {
+  float: right;
+}
+.app-list-account-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-account-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-account-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-currency {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-currency-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-currency-header-left {
+  float: left;
+}
+.app-list-currency-header-right {
+  float: right;
+}
+.app-list-currency-header-right > button {
+  float: right;
+}
+.app-list-currency-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-currency-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-currency-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-userdefinecard-grid {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-userdefinecard-grid-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-userdefinecard-grid-header-left {
+  float: left;
+}
+.app-list-userdefinecard-grid-header-right {
+  float: right;
+}
+.app-list-userdefinecard-grid-header-right > button {
+  float: right;
+}
+.app-list-userdefinecard-grid-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-userdefinecard-grid-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-userdefinecard-grid-footer .mk-pagination {
+  width: 100%;
+}
+.app-list-userdefinecard-grid-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.app-list-userdefinecard-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-userdefinecard-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.app-list-userdefinecard-card-son {
+  position: absolute;
+  top: 150px;
+  left: 40%;
+}
+.app-card-person-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-person-form .mk-form-item {
+  float: left;
+}
+.app-card-person-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-inventory-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-inventory-form .mk-form-item {
+  float: left;
+}
+.app-card-inventory-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-customer {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-customer .mk-form-item {
+  float: left;
+}
+.app-card-customer .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-vendor {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-vendor .mk-form-item {
+  float: left;
+}
+.app-card-vendor .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-project {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-project .mk-form-item {
+  float: left;
+}
+.app-card-project .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-bankaccount {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-bankaccount .mk-form-item {
+  float: left;
+}
+.app-card-bankaccount .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-bankaccount > .mk-layout {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item {
+  width: 100%;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item .ant-form-item-label {
+  width: 110px;
+  display: inline-block;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item .ant-form-item-control-wrapper {
+  width: 200px;
+  display: inline-block;
+}
+.app-card-currency {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-currency .mk-form-item {
+  float: left;
+}
+.app-card-currency .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-userdefinecard .archives-name {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-userdefinecard .archives-name .mk-form-item {
+  float: left;
+}
+.app-card-userdefinecard .archives-name .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-account-subjects {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 30px !important;
+}
+.app-account-subjects-tabs {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-account-subjects-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-proof-of-charge-new-subjects-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item {
+  width: 100%;
+  float: left;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item .ant-form-item-label {
+  width: 20%;
+  display: inline-block;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.edfx-app-org {
+  width: 100%;
+  height: 100%;
+}
+.edfx-app-org-content {
+  width: 100%;
+  height: 100%;
+}
+.edfx-app-org-content .block .formline .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.app-account-beginbalance {
+  position: relative;
+  padding-top: 95px !important;
+}
+.app-account-beginbalance-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-account-beginbalance-header-left {
+  width: 50%;
+  float: left;
+}
+.app-account-beginbalance-header-right {
+  width: 50%;
+  float: left;
+}
+.app-account-beginbalance-header-right > * {
+  float: right;
+}
+.app-account-beginbalance-tabHeaderWrapDiv {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+.app-account-beginbalance-content {
+  height: 100%;
+  width: 100%;
+}
+.app-asset-list {
+  position: relative;
+  padding-top: 51px !important;
+  padding-bottom: 100px !important;
+}
+.app-asset-list-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-list-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-list .app-list-account-footer {
+  position: absolute;
+  left: 0;
+  bottom: 80px;
+}
+.mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 40%;
+  float: left;
+}
+.mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.app-asset-card-title {
+  width: 100%;
+  float: left;
+}
+.app-asset-card-more {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.app-asset-card-item {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.app-asset-card-item .mk-form-item {
+  width: 50%;
+  float: left;
+}
+.app-asset-card-item .mk-form-item .ant-form-item-label {
+  width: 25%;
+  display: inline-block;
+}
+.app-asset-card-item .mk-form-item .ant-form-item-control-wrapper {
+  width: 70%;
+  display: inline-block;
+}
+.app-asset-card-footer-btnGroup {
+  text-align: center;
+}
+.app-asset-depreciation {
+  position: relative;
+  padding-top: 51px !important;
+  padding-bottom: 100px !important;
+}
+.app-asset-depreciation-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-depreciation-header-left {
+  width: 50%;
+  float: left;
+}
+.app-asset-depreciation-header-right {
+  width: 50%;
+  float: left;
+}
+.app-asset-depreciation-header-right > * {
+  float: right;
+  margin-right: 8px;
+}
+.app-asset-depreciation-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-depreciation .app-list-account-footer {
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
+.app-asset-depreciation .app-list-account-footer .mk-pagination > * {
+  display: inline-block;
+}
+.app-asset-statrpt {
+  position: relative;
+  padding-top: 51px !important;
+  padding-bottom: 60px !important;
+}
+.app-asset-statrpt-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-statrpt-header-assetProperty {
+  float: left;
+}
+.app-asset-statrpt-header-left {
+  width: 50%;
+  float: left;
+}
+.app-asset-statrpt-header-right {
+  width: 50%;
+  float: left;
+}
+.app-asset-statrpt-header-right > * {
+  float: right;
+  margin-right: 8px;
+}
+.app-asset-statrpt-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-statrpt .app-list-account-footer {
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
+.app-asset-statrpt .app-list-account-footer .mk-pagination > * {
+  display: inline-block;
+}
+.app-depr-detail-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  padding-bottom: 120px !important;
+}
+.app-depr-detail-rpt-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-depr-detail-rpt-header-assetProperty {
+  float: left;
+}
+.app-depr-detail-rpt-header-left {
+  width: 50%;
+  float: left;
+}
+.app-depr-detail-rpt-header-right {
+  width: 50%;
+  float: left;
+}
+.app-depr-detail-rpt-header-right > * {
+  float: right;
+  margin-right: 8px;
+}
+.app-depr-detail-rpt-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-depr-detail-rpt .app-list-account-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-depr-detail-rpt .app-list-account-footer .mk-pagination > * {
+  display: inline-block;
+}
+.ttk-access-app-tranreport-step0content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: #fff;
+}
+.ttk-access-app-tranreport-step0content .ant-spin-container {
+  position: relative;
+  height: 100%;
+}
+.ttk-access-app-tranreport-step0content-form .ant-row {
+  width: 590px;
+  margin: 8px auto;
+  white-space: nowrap;
+}
+.ttk-access-app-tranreport-step0content-form .ant-form-item-children {
+  position: relative;
+}
+.ttk-access-app-tranreport-step0content-form .ant-form-explain {
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-card {
+  position: relative;
+  width: 100%;
+}
+.ttk-scm-app-sa-invoice-card-header-left {
+  width: 50%;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-header-right {
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+}
+.ttk-scm-app-sa-invoice-card-title-left {
+  width: 30%;
+  text-align: left;
+}
+.ttk-scm-app-sa-invoice-card-title-center {
+  width: 30%;
+  text-align: center;
+}
+.ttk-scm-app-sa-invoice-card-title-right {
+  width: 30%;
+  text-align: right;
+}
+.ttk-scm-app-sa-invoice-card-form-header > div {
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-form-header .ant-form-item-label {
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-form-header .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-list {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-list .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 45%;
+  float: left;
+  overflow: hidden;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-normal-search .mk-title-otherBtn {
+  width: 50%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: right;
+}
+.ttk-scm-app-pu-invoice-card {
+  position: relative;
+  width: 100%;
+}
+.ttk-scm-app-pu-invoice-card-header-left {
+  width: 50%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-header-right {
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+}
+.ttk-scm-app-pu-invoice-card-title-left {
+  width: 30%;
+  text-align: left;
+}
+.ttk-scm-app-pu-invoice-card-title-center {
+  width: 30%;
+  text-align: center;
+}
+.ttk-scm-app-pu-invoice-card-title-right {
+  width: 30%;
+  text-align: right;
+}
+.ttk-scm-app-pu-invoice-card-form-header > div {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-form-header .ant-form-item-label {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-form-header .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-gl-app-period-expense-rpt {
+  position: relative;
+  padding-top: 50px !important;
+}
+.ttk-gl-app-period-expense-rpt-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.ttk-gl-app-period-expense-rpt-header-left {
+  width: 50%;
+  float: left;
+}
+.ttk-gl-app-period-expense-rpt-header-right {
+  width: 50%;
+  float: left;
+}
+.ttk-gl-app-period-expense-rpt-header-right > * {
+  display: inline-block;
+  float: right;
+  margin-left: 8px;
+}
+.ttk-scm-app-sa-invoice-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-list .mk-search {
+  width: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+.ttk-scm-app-sa-invoice-list-Body {
+  width: 100%;
+  height: 100%;
+}
+.ttk-scm-app-sa-invoice-list-footer {
+  width: 100%;
+  position: absolute !important;
+  bottom: 0px;
+  left: 0px;
+}
+.ttk-scm-app-sa-invoice-card {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 52px !important;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-sa-invoice-card-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left {
+  height: 100%;
+}
+.ttk-scm-app-sa-invoice-card-header-right {
+  height: 100%;
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-card-header-right > * {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card-header-right .edficon-jianpan {
+  position: absolute;
+  right: 295px;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card-header-right .edficon-jianpan::before {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details {
+  min-height: 320px !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-billing {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-billing > * {
+  display: inline-block;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-settlement {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-settlement > * {
+  display: inline-block;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers-settlement {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers-settlement-payDiv {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement > * {
+  display: inline-block;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement > * > * {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer-left {
+  width: 30%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer-right {
+  width: 70%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer-right > button {
+  float: right;
+}
+.ttk-scm-app-pu-invoice-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-list .mk-search {
+  width: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+.ttk-scm-app-pu-invoice-list-Body {
+  width: 100%;
+  height: 100%;
+}
+.ttk-scm-app-pu-invoice-list-footer {
+  width: 100%;
+  position: absolute !important;
+  bottom: 0px;
+  left: 0px;
+}
+.ttk-scm-app-pu-invoice-card {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 52px !important;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-pu-invoice-card-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px !important;
+}
+.ttk-scm-app-pu-invoice-card-header-left {
+  height: 100%;
+}
+.ttk-scm-app-pu-invoice-card-header-right {
+  height: 100%;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-card-header-right > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card-header-right .edficon-jianpan {
+  position: absolute;
+  right: 295px;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card-header-right .edficon-jianpan::before {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-card-content > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details {
+  min-height: 320px !important;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding-left: 50%;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement > * > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer > * {
+  width: 50%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer-right > button {
+  float: right;
+}

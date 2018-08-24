@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '../icon/index'
 import classNames from 'classnames'
+import isequal from 'lodash.isequal'
 import { Popover, Input,Message} from 'edf-component'
 class TableOperate extends React.Component {
     constructor (props){
@@ -11,9 +12,26 @@ class TableOperate extends React.Component {
             noteContent: '',
             flag: true,
             initnoteContent:'',
-            disable: false
+            disable: false,
+            checkFlag: true
         }
     }
+
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
+
     handleClick = (type) => {
         const { status, disable, submitNote,viewClick, editClick, deleteClick, noteClick, className, style } = this.props
         
@@ -41,10 +59,14 @@ class TableOperate extends React.Component {
     checkMaxInput = (e) => {
         if(this.state.flag) {
             let noteLength = e.target.value.length
+            if(noteLength<100) this.setState({checkFlag: true})
             if(noteLength > 100){
                 noteLength = 100
                 e.target.value = e.target.value.substring(0,100)
-                Message.warning('最多输入100个字',1)
+                if(this.state.checkFlag){
+                    Message.warning('最多输入100个字',1)
+                    this.setState({checkFlag: false})
+                }
                 this.setState({
                     noteContent: e.target.value,
                     
@@ -56,6 +78,16 @@ class TableOperate extends React.Component {
                 })
             }
             
+        }
+    }
+
+    changeMaxInput = (e) => {
+        let noteLength = e.target.value.length
+        if(noteLength > 100){
+            e.target.value = e.target.value.substring(0,100)
+            this.setState({
+                noteContent: e.target.value, 
+            })
         }
     }
     
@@ -113,6 +145,7 @@ class TableOperate extends React.Component {
                         onCompositionEnd = {(e) =>this.onCompositionEnd(e)} 
                         onInput = { (e) => this.checkMaxInput(e)} 
                         onBlur = {() => submitNote(this.state.noteContent)} 
+                        onChange = {(e) => this.changeMaxInput(e)}
                         id = "noteInput" 
                         disabled = {this.state.disable}
                         defaultValue = {this.state.initnoteContent}
@@ -128,7 +161,7 @@ class TableOperate extends React.Component {
                         onClick={()=>this.handleClick(4)} 
                         href="javascript:;"
                     >
-                        <Icon fontFamily='edficon' type="pizhu" title="批注" />
+                        <Icon fontFamily='edficon' type="notes" title="批注" />
                     </a>
                     </Popover>
                 

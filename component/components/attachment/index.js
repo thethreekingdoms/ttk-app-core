@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import isequal from 'lodash.isequal'
 import Popover from '../popover'
 import Icon from '../icon'
 import Layout from '../layout'
@@ -23,6 +24,20 @@ export default class attachmentComponent extends Component {
         }
     }
 
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
     contentVisibleChange = (visible) => {
         if (this.state.isOpen)
             return
@@ -54,8 +69,6 @@ export default class attachmentComponent extends Component {
                     <Spin spinning={this.props.loading != undefined ? this.props.loading : false} tip='加载中...'>
                         <NoData type='noDocoments' small>
                             <span>亲，还没有文件，赶快上传呦</span>
-
-
                         </NoData>
                     </Spin>
                 </div>
@@ -91,6 +104,8 @@ export default class attachmentComponent extends Component {
                     }
                     // console.log(data[ps.rowIndex], 'data[ps.rowIndex]')
                     return (
+
+                        (data[ps.rowIndex].type || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type)) == 1000010001 ?
                         <Popover
                             content={this.getThumbnail(data[ps.rowIndex])}
                             arrowPointAtCenter={true}
@@ -101,7 +116,8 @@ export default class attachmentComponent extends Component {
                                     {iconComponent}
                                 </a>
                                 {data[ps.rowIndex].type == 1000010001 || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type == 1000010001) ? 
-                                <a onClick={(e) => 
+                                <a className="attachmentName"
+                                onClick={(e) => 
                                     this.openViewer(ps.rowIndex, e)} 
                                 title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
                                 {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}
@@ -109,7 +125,23 @@ export default class attachmentComponent extends Component {
                                 <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
                                 {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}</span>}
                             </Cell>
-                        </Popover>
+                        </Popover> : 
+                            <div>
+                                <Cell className='mk-attachment-content-link-cell'>
+                                    <a>
+                                        {iconComponent}
+                                    </a>
+                                    {data[ps.rowIndex].type == 1000010001 || (data[ps.rowIndex].file && data[ps.rowIndex].file.type == 1000010001) ?
+                                        <a className="attachmentName"
+                                            onClick={(e) =>
+                                                this.openViewer(ps.rowIndex, e)}
+                                            title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                            {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}
+                                        </a> :
+                                        <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                            {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}</span>}
+                                </Cell>
+                            </div>
                     )
                 }}
                 width={100}
@@ -231,11 +263,14 @@ export default class attachmentComponent extends Component {
                 }
             })
         }
+        const activeIndex = newData.findIndex(item => {
+            return item.src == data[this.state.activeIndex].accessUrl
+        })
         return (
             <Viewer
                 images={newData}
                 visible={this.state.isOpen}
-                activeIndex={this.state.activeIndex}
+                activeIndex={activeIndex}
                 container={null}
                 onClose={this.closeViewer}
             />

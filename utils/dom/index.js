@@ -67,6 +67,13 @@ function gridCellAutoFocus(container, editCtrlClassName, position, path) {
         input.focus()
         return
     }
+
+	if (editorDOM.className.indexOf('cascader') != -1) {
+		editorDOM.click()
+		const input = editorDOM.querySelector('input')
+		input && input.select()
+		return
+	}
 }
 
 function cursorAtEnd(e) {

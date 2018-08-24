@@ -91,7 +91,7 @@ class PrintOptionComponent extends React.Component{
                         </div>  
                         <div className="item" style={{display: 'flex',flexDirection: 'row',alignItems:'center',marginBottom:'10px'}}>
                             <Radio value="2">自定义大小</Radio>
-                            <div className="item-select" style={{display: 'inline',width:'100%',textAlign:'right',marginRight:'5px'}}>
+                            <div className="item-select" style={{marginRight:'5px'}}>
                                 <label className="col-6">宽：</label>
                                 <Select value={this.state.width} style={{width:80}} disabled = {this.state.value == "2"?false:true} onChange = {(e) => {this.changeWidth(e)}}>
                                 {width.map(o => {
@@ -100,7 +100,7 @@ class PrintOptionComponent extends React.Component{
                                 
                                 </Select>
                             </div>
-                            <div className="item-select" style={{display: 'inline',width:'100%',textAlign:'right'}}>
+                            <div className="item-select" style={{}}>
                                 <label className="col-6">高：</label>
                                 <Select value={this.state.height} style={{width:80}} disabled = {this.state.value == "2"?false:true} onChange = {(e) => {this.changeHeight(e)}}>
                                 {height.map(o => {

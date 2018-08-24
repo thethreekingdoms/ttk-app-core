@@ -1,0 +1,193 @@
+.rdw-dropdown-wrapper {
+    height: 30px;
+    background: white;
+    cursor: pointer;
+    border: 1px solid #F1F1F1;
+    border-radius: 2px;
+    margin: 0 3px;
+    text-transform: capitalize;
+    background: white;
+  }
+  .rdw-dropdown-wrapper:focus {
+    outline: none;
+  }
+  .rdw-dropdown-wrapper:hover {
+    box-shadow: 1px 1px 0px #BFBDBD;
+    background-color: #FFFFFF;
+  }
+  .rdw-dropdown-wrapper:active {
+    box-shadow: 1px 1px 0px #BFBDBD inset;
+  }
+  .rdw-dropdown-carettoopen {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    border-top: 6px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+  .rdw-dropdown-carettoclose {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    border-bottom: 6px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+  .rdw-dropdown-selectedtext {
+    display: flex;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .rdw-dropdown-optionwrapper {
+    z-index: 100;
+    position: relative;
+    border: 1px solid #F1F1F1;
+    width: 98%;
+    background: white;
+    border-radius: 2px;
+    margin: 0;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: scroll;
+  }
+  .rdw-dropdown-optionwrapper:hover {
+    box-shadow: 1px 1px 0px #BFBDBD;
+    background-color: #FFFFFF;
+  }
+  .rdw-dropdownoption-default {
+    min-height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .rdw-dropdownoption-highlighted {
+    background: #F1F1F1;
+  }
+  .rdw-dropdownoption-active {
+    background: #f5f5f5;
+  }
+  .rdw-dropdownoption-disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  .rdw-link-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .rdw-link-dropdown {
+    width: 50px;
+  }
+  .rdw-link-dropdownOption {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .rdw-link-dropdownPlaceholder {
+    margin-left: 8px;
+  }
+  .rdw-link-modal {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+    height: 205px;
+    border: 1px solid #F1F1F1;
+    padding: 15px;
+    border-radius: 2px;
+    z-index: 100;
+    background: white;
+    box-shadow: 3px 3px 5px #BFBDBD;
+  }
+  .rdw-link-modal-label {
+    font-size: 15px;
+  }
+  .rdw-link-modal-input {
+    margin-top: 5px;
+    border-radius: 2px;
+    border: 1px solid #F1F1F1;
+    height: 25px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+  }
+  .rdw-link-modal-input:focus {
+    outline: none;
+  }
+  .rdw-link-modal-buttonsection {
+    margin: 0 auto;
+  }
+  .rdw-link-modal-target-option {
+    margin-bottom: 20px;
+  }
+  .rdw-link-modal-target-option > span {
+    margin-left: 5px;
+  }
+  .rdw-link-modal-btn {
+    margin-left: 10px;
+    width: 75px;
+    height: 30px;
+    border: 1px solid #F1F1F1;
+    border-radius: 2px;
+    cursor: pointer;
+    background: white;
+    text-transform: capitalize;
+  }
+  .rdw-link-modal-btn:hover {
+    box-shadow: 1px 1px 0px #BFBDBD;
+  }
+  .rdw-link-modal-btn:active {
+    box-shadow: 1px 1px 0px #BFBDBD inset;
+  }
+  .rdw-link-modal-btn:focus {
+    outline: none !important;
+  }
+  .rdw-link-modal-btn:disabled {
+    background: #ece9e9;
+  }
+  .rdw-link-dropdownoption {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .rdw-history-dropdown {
+    width: 50px;
+  }
+      
+  .rdw-option-wrapper {
+    border: 1px solid #F1F1F1;
+    padding: 5px;
+    min-width: 25px;
+    height: 20px;
+    border-radius: 2px;
+    margin: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    text-transform: capitalize;
+  }
+  .rdw-option-wrapper:hover {
+    box-shadow: 1px 1px 0px #BFBDBD;
+  }
+  .rdw-option-wrapper:active {
+    box-shadow: 1px 1px 0px #BFBDBD inset;
+  }
+  .rdw-option-active {
+    box-shadow: 1px 1px 0px #BFBDBD inset;
+  }
+  .rdw-option-disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  

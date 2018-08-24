@@ -1,0 +1,6 @@
+require('console-polyfill')
+require('es5-shim')
+require('es5-shim/es5-sham')
+require('event-source-polyfill')
+require('fetch-ie8')
+require('media-match')

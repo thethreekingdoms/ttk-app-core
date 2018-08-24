@@ -32,7 +32,6 @@ import SpinComponent from './components/spin'
 import ProgressComponent from './components/progress'
 import TimelineComponent from './components/timeline'
 import PaginationComponent from './components/pagination'
-import StepsComponent from './components/steps'
 import RateComponent from './components/rate'
 import SliderComponent from './components/slider'
 import UploadComponent from './components/upload'
@@ -70,7 +69,15 @@ import DateRangeDatePickerComponent from './components/dateRangeDatePicker/index
 import ColumnsSettingComponent from './components/columnsSetting/index'
 import RowComponent from './components/row/index'
 import ColComponent from './components/col/index'
-
+import SplitPanelComponent from './components/splitPanel/index'
+import FadeSliderComponent from './components/fadeSlider/index'
+import ResizerComponent from './components/splitPanel/resizer'
+import QuillComponent from './components/quill/index'
+import TimetreeComponent from './components/timetree'
+import TourComponent from './components/tour/index'
+import LazyLoadComponent from './components/lazyload/index'
+import JSONTreeComponent from './components/jsonTree/index'
+import DragComponent from './components/drag/index'
 
 export const Address = AddressComponent
 export const Menu = MenuComponent
@@ -107,7 +114,6 @@ export const Spin = SpinComponent
 export const Progress = ProgressComponent
 export const Timeline = TimelineComponent
 export const Pagination = PaginationComponent
-export const Steps = StepsComponent
 export const Rate = RateComponent
 export const Slider = SliderComponent
 export const Upload = UploadComponent
@@ -131,19 +137,25 @@ export const TableOperate = TableOperateComponent
 export const TableOperate2 = TableOperate2Component
 export const TableSort = TableSortComponent
 export const AntdSelect = AntdSelectComponent
-
 export const FormDecorator = FormDecoratorComponent
 export const GridDecorator = GridDecoratorComponent
 export const LoadingMask = loadingMask
 export const PrintOption = PrintOptionComponent
 export const PrintOption2 = PrintOptionComponent2
-
-
 export const Tag = TagComponent
 export const ActiveLabelSelect = ActiveLabelSelectComponent
 export const DateRangeMonthPicker = DateRangeMonthPickerComponent
-export const DateRangeDatePicker =DateRangeDatePickerComponent
+export const DateRangeDatePicker = DateRangeDatePickerComponent
 export const NoData = NoDataComponent
 export const ColumnsSetting = ColumnsSettingComponent
 export const Row = RowComponent
 export const Col = ColComponent
+export const FadeSlider = FadeSliderComponent
+export const SplitPanel = SplitPanelComponent
+export const Resizer = ResizerComponent
+export const Timetree = TimetreeComponent
+export const Quill = QuillComponent
+export const Tour = TourComponent
+export const LazyLoad = LazyLoadComponent
+export const JSONTree = JSONTreeComponent
+export const Drag = DragComponent

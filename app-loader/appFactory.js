@@ -4,8 +4,10 @@ class appFactory {
     }
 
     registerApp = (name, app) => {
-        if (this.apps[name])
-            throw `已经注册过这个app，不能重复注册. name: ${name}`
+        if (this.apps[name]) {
+            return
+        }
+        //throw `已经注册过这个app，不能重复注册. name: ${name}`
 
         this.apps[name] = app
     }
@@ -21,7 +23,19 @@ class appFactory {
 
     getApp = (name) => {
         var app = this.apps[name]
+        if (app)
+            return app
+        if (typeof (config) != 'undefined') {
+            if (config.current.requireFn
+                && config.current.appsMap
+                && config.current.appsMap[name]
+            )
+                return
 
+            if (config.current.requireFn
+                && config.current.loadAppInfoFn)
+                return
+        }
         if (!app) {
             throw `没有注册这个app. name: ${name}`
         }

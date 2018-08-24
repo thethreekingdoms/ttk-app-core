@@ -5,7 +5,6 @@ import utils from 'edf-utils'
 import { fromJS } from 'immutable'
 import contextManager from './context'
 import config from './config'
-import * as Babel from 'babel-standalone'
 
 
 const appInstances = {}
@@ -117,6 +116,10 @@ class action {
 		return this.injections.reduce('setFields', values)
 	}
 
+	setChildMeta = (appInfo, fullpath, propertys, val) => {
+		common.setChildMeta(appInfo, fullpath, propertys, val)
+	}
+
 	parseExpreesion = (v) => {
 		if (!this.cache.expression)
 			this.cache.expression = {}
@@ -147,8 +150,8 @@ class action {
 		if (browserType && browserType.ie) {
 			if (expressContent && expressContent.indexOf('=>') > -1) {
 				console.log('ie兼容exception:' + expressContent)
-				if (Babel) {
-					expressContent = Babel.transform(expressContent, { presets: ['es2015'] }).code
+				if (window.Babel) {
+					expressContent = window.Babel.transform(expressContent, { presets: ['es2015'] }).code
 					expressContent = expressContent.replace(`"use strict";`, "")
 					expressContent = expressContent.replace(/\n/gi, '')
 					expressContent = expressContent.replace(/\{\s+\{/gi, '{{')
@@ -220,6 +223,14 @@ class action {
 					currentPath = `${path}.${sub.name}`
 					sub.path = vars ? `${currentPath}, ${vars.join(',')}` : currentPath
 					continue
+				}
+
+				if (sub['attributes']) {
+					sub['attributes'].map((ele, index) => {
+						if(ele.key){
+							sub[ele.key] = ele.value
+						}						
+					})
 				}
 
 				let subType = typeof sub, isExpression = false, isMeta = false
@@ -362,6 +373,8 @@ class action {
 		common.setMetaForce(appName, meta)
 	}
 
+
+
 	focus = (path) => {
 		if (this.isFocus(path)) return false
 		this.setField('data.other.focusFieldPath', path)
@@ -420,7 +433,7 @@ class action {
 
 	toast = (...args) => {
 		const Toast = config.getToast()
-		if(Toast){
+		if (Toast) {
 			Toast.destroy()
 		}
 		if (!Toast || args.length == 0 || !Toast[args[0]]) return
@@ -436,9 +449,9 @@ class action {
 	}
 
 	clearToast = (Toast) => {
-		window.setTimeout(function(){
+		window.setTimeout(function () {
 
-		},0)
+		}, 0)
 	}
 
 	notification = (...args) => {

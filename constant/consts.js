@@ -2,6 +2,11 @@
  * 此文件由后台服务生成，请勿手工维护
  */
 export const consts = {
+    app : {
+        APPKEY_FORESEE_ECS_SINGLE: '10001006', //财税助手(独立版)
+        APPKEY_CHANJET_TPLUS: '10006001'  //TPlus
+    },
+
     enum : {
         FILETYPE: '100001', //文件类型100001
         VOUCHERSTATUS: '100002', //单据状态100002
@@ -91,6 +96,11 @@ export const consts = {
     VATTAXPAYER_smallScaleTaxPayer: '2000010002', //纳税人身份: 2000010002 小规模纳税人
     ACCOUNTINGSTANDARDS_2007: '2000020001', //会计准则: 2000020001 企业会计准则
     ACCOUNTINGSTANDARDS_2013: '2000020002', //会计准则: 2000020002 小企业会计准则
+    ACCOUNTINGSTANDARDS_bank: '2000020003',//会计准则: 企业会计准则（商业银行）
+    ACCOUNTINGSTANDARDS_securities: '2000020004',//会计准则: 企业会计准则（证券公司）
+    ACCOUNTINGSTANDARDS_Insurance: '2000020005', //会计准则: 企业会计准则（保险公司）
+    ACCOUNTINGSTANDARDS_guarantee: '2000020006',//会计准则: 企业会计准则（担保企业会计核算办法）
+    ACCOUNTINGSTANDARDS_enterprise: '2000020007',//会计准则: 事业单位会计制度
     INDUSTRY_001: '2000030001', //行业: 2000030001 农、林、牧、渔业
     INDUSTRY_002: '2000030002', //行业: 2000030002 采矿业
     INDUSTRY_003: '2000030003', //行业: 2000030003 制造业
@@ -173,6 +183,7 @@ export const consts = {
     INVOICETYPE_uninvoicedIncome: '4000010700', //票据类型: 4000010700 无票收入
     INVOICETYPE_uninvoicedExpenditure: '4000010800', //票据类型: 4000010800 无票支出
     INVOICETYPE_otherInvoice: '4000010900', //票据类型: 4000010900 其他票据
+    INVOICETYPE_uninvoiced: '4000010700', //票据类型: 4000010700 未开具发票
     PURCHASETYPE_normal: '4000020001', //采购类型: 4000020001 普通采购
     PURCHASETYPE_return: '4000020002', //采购类型: 4000020002 采购退货
     SETTLESTATUS_notSettle: '4000030001', //结算状态: 4000030001 未结清

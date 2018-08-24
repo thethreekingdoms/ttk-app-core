@@ -12,3 +12,5 @@ lib
 jsconfig.json
 package-lock.json
 website
+webpack.config.js
+webpack.config.prd.js

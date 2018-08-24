@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 function JSONTreeComponent(props) {
 	let className = classNames({
-		'edf-jsonTree': true,
+		'mk-jsonTree': true,
 		[props.className]: !!props.className
 	})
 	return <JSONTree {...props} className={className} />

@@ -18,11 +18,11 @@ const ResizeableTitle = (props) => {
     // if (!width) {
     //   return <th {...restProps} />;
     // }
-   
+
     return (
-      <Resizable width={width ? width : 100} height={0} onResize={onResize}>
-        <th {...restProps} ></th>
-      </Resizable>
+        <Resizable width={width ? width : 100} height={0} onResize={onResize}>
+            <th {...restProps} ></th>
+        </Resizable>
     )
 }
 @DecorateTable
@@ -36,27 +36,28 @@ class AntTable extends Component {
         const memoryWidthLocalSotrage = this.memoryWidth(props)
         this.state = {
             resizeColumn: this.props.allowColResize,
-            selectValue:  props.checkboxValue ? this.initSelectValue(props.checkboxValue, props.dataSource) : new Map(),
+            selectValue: props.checkboxValue ? this.initSelectValue(props.checkboxValue, props.dataSource) : new Map(),
             checkboxAllStatus: null,
             checkboxId: new Map(),
             columns: [],
             memoryWidth: memoryWidthLocalSotrage,
             sumWidth: 1090
         }
-        if (this.props.allowColResize ){
+        if (this.props.allowColResize) {
             const { newCol, sumWidth } = this.initStateWidth(props.columns, [], memoryWidthLocalSotrage)
             this.state.columns = newCol
             this.state.sumWidth = sumWidth
         }
+        // this.initCheckboxId(props.dataSource)
     }
 
-    componentWillMount = () =>{
+    componentWillMount = () => {
 
     }
 
     memoryWidth = (props) => {
-        const{ remberName } = props
-        if( !remberName ){
+        const { remberName } = props
+        if (!remberName) {
             return {}
         }
         const memoryWidth = this.getAppData(remberName)
@@ -120,18 +121,18 @@ class AntTable extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         const { memoryWidth } = this.state
-        if( nextProps.checkboxKey ){
+        if (nextProps.checkboxKey) {
             this.initCheckboxId(nextProps.dataSource)
         }
-        if( nextProps.checkboxValue ){
-           const selectValue = this.initSelectValue(nextProps.checkboxValue, nextProps.dataSource)
-           this.setState({
+        if (nextProps.checkboxValue) {
+            const selectValue = this.initSelectValue(nextProps.checkboxValue, nextProps.dataSource)
+            this.setState({
                 selectValue
-           })
+            })
         }
-        if( nextProps.allowColResize ){
+        if (nextProps.allowColResize) {
             const { newCol, sumWidth } = this.initStateWidth(nextProps.columns, this.state.columns, memoryWidth)
             this.setState({
                 columns: newCol,
@@ -143,15 +144,17 @@ class AntTable extends Component {
 
     components = {
         header: {
-          cell: ResizeableTitle,
+            cell: ResizeableTitle,
         },
     }
 
     handleResize = index => (e, { size }) => {
         const { columns, appContainerWidth } = this.state
-        delete columns[columns.length-1]
-        const Index = columns.findIndex(item => item.dataIndex == index)
-        if( Index == -1 ){
+        delete columns[columns.length - 1]
+        const Index = columns.findIndex(item => {
+            return item && item.dataIndex == index
+        })
+        if (Index == -1) {
             return
         }
         let preWidth = columns[Index].width
@@ -160,7 +163,7 @@ class AntTable extends Component {
             columnDetails = [],
             param = {}
         columns.forEach(item => {
-           
+
             columnDetails.push({
                 fieldName: item.dataIndex,
                 width: item.width,
@@ -169,27 +172,27 @@ class AntTable extends Component {
             sumWidth = sumWidth + item.width
         })
         param.columnDetails = columnDetails
-        
-        if( sumWidth <= appContainerWidth){
+
+        if (sumWidth <= appContainerWidth) {
             columns[Index].width = preWidth
         }
         this.setState({
             columns: columns,
             sumWidth
         })
-      
-        let that = this,res
-        this.onResizend(function(){
+
+        let that = this, res
+        this.onResizend(function () {
             res = that.props.onResizeEnd(param)
-           
+
         })
-      
+
     }
 
     showTheadTitle = (title) => {
-        if( Object.prototype.toString.call(title) == "[object String]" ){
-            return <span  title={title}>{title}</span>
-        }else{
+        if (Object.prototype.toString.call(title) == "[object String]") {
+            return <span title={title}>{title}</span>
+        } else {
             return title
         }
     }
@@ -204,110 +207,160 @@ class AntTable extends Component {
          */
 
         let that = this,
-        timeOutTask = function(){
-            that.state.taskPtr && clearTimeout(that.state.taskPtr)
-            let taskPtr = setTimeout(function(){
+            timeOutTask = function () {
+                that.state.taskPtr && clearTimeout(that.state.taskPtr)
+                let taskPtr = setTimeout(function () {
                     onResizend && onResizend();
-            }, 500)
-            that.setState({taskPtr: taskPtr})
-        }
+                }, 500)
+                that.setState({ taskPtr: taskPtr })
+            }
         timeOutTask()
     }
     initStateWidth = (data, columns, memoryWidth) => {
-        if( !data ){
+        if (!data) {
             return []
         }
-        let sumWidth = 0
+        // let sumWidth = 0
         let norSetWidth = 0
         let flag = false
         data.forEach(item => {
-            if( item.width ){
+            if (item.width) {
                 norSetWidth++
-            }else{
+            } else {
                 flag = true
             }
         })
-        if( flag ){
-            norSetWidth=0
+        if (flag) {
+            norSetWidth = 0
         }
         let appContainerWidth = null
-        try{
-            const dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
-            if( dom ){
+        try {
+            let dom
+            if( $ ) {
+                dom = $('.edfx-app-portal-content-main')[0]
+            }else {
+                dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
+            }
+            if (dom) {
                 appContainerWidth = dom.offsetWidth - 160 + 80
-            }else{
+            } else {
                 appContainerWidth = window.innerWidth - 100 - 160 + 80
             }
-            
-        }catch(err){
+
+        } catch (err) {
             console.log(err)
             appContainerWidth = 1090
         }
-        let avrWidth = Math.ceil((appContainerWidth)/ (data.length -1 ))
+        let avrWidth = Math.ceil((appContainerWidth) / (data.length - 1))
         let sumWidth1 = 0
         data.map((item) => {
-            if(item.width){
-                sumWidth1 = sumWidth1 + item.width
-            } 
-        })
-        const newCol = data.map((item)=>{
-           
-            item.title = this.showTheadTitle(item.title)
-            if(sumWidth1+80+60 < appContainerWidth && !item.fixed){
-                item.width = avrWidth
+            if (item.width) {
+                sumWidth1 = sumWidth1 + parseFloat(item.width)
             }
-            sumWidth= sumWidth + item.width
-           
+        })
+        const newCol = data.map((item) => {
+
+            item.title = this.showTheadTitle(item.title)
+            // if (sumWidth1 + 80 + 60 < appContainerWidth && !item.fixed) {
+            //     item.width = avrWidth
+            // }
+            // sumWidth = sumWidth + parseFloat(item.width)
+
             return item
         })
         this.state.appContainerWidth = appContainerWidth
-        return {newCol, sumWidth}
-        
+        return { newCol, sumWidth: sumWidth1 > appContainerWidth ? sumWidth1 : appContainerWidth + 50 }
+
     }
 
     setTableHeight = () => {
-        try{
-            const { dataSource, className, scroll, noCalculate } = this.props
-            if( noCalculate ){
-                return
-            }
-            if( !scroll ){
-                return
-            }
+        try {
+            const { dataSource, className, scroll, noCalculate,emptyShowScroll } = this.props
+            if(!emptyShowScroll){
+                if (noCalculate) {
+                    return
+                }
+                if (!scroll) {
+                    return
+                }
+                let container = ReactDOM.findDOMNode(this)
+                if (!container) {
+                    setTimeout(() => {
+                        this.setTableHeight()
+                    }, 100)
+                }
+                let tableBody
+                if( $ ) {
+                    tableBody = $(container).find('.ant-table-body')[0]
+                }else {
+                    tableBody = container.getElementsByClassName('ant-table-body')[0]
+                }
+                if (this.state.resizeColumn && dataSource && dataSource.length == 0) {
+                    tableBody.style.overflowY = null
+                }
+                if (!scroll.x && !scroll.y) {
+                    tableBody.style.height = 'auto'
+                    return
+                }
+                if (!scroll.y) {
+                    container.style.overflowY = 'auto'
+                }
+                if (tableBody.offsetHeight <= container.offsetHeight) {
+                    container.style.overflowY = 'hidden'
+                }
+                if (!tableBody || this.props.dataSource && dataSource.length == 0) {
+                    tableBody.style.height = 'auto'
+                    return
+                }
+    
+                tableBody.style.height = container.offsetHeight + 'px'
+                const table = tableBody.getElementsByTagName('table')[0]
+                tableBody.style.overflowY = 'auto'
+            }else{
+                  // if (noCalculate) {
+            //     return
+            // }
+            // if (!scroll) {
+            //     return
+            // }
             let container = ReactDOM.findDOMNode(this)
-            if( !container ){
-                setTimeout(()=>{
+            if (!container) {
+                setTimeout(() => {
                     this.setTableHeight()
                 }, 100)
             }
-            const tableBody = container.getElementsByClassName('ant-table-body')[0]
-            if( this.state.resizeColumn && dataSource && dataSource.length == 0 ){
+            let tableBody
+            if( $ ) {
+                tableBody = $(container).find('.ant-table-body')[0]
+            }else {
+                tableBody = container.getElementsByClassName('ant-table-body')[0]
+            }
+            if (this.state.resizeColumn && dataSource && dataSource.length == 0) {
                 tableBody.style.overflowY = null
             }
-            if( !scroll.x && !scroll.y ){
-                tableBody.style.height = 'auto'
-                return
-            }
-            if( !scroll.y ){
-                container.style.overflowY = 'auto'
-            }
-            if( tableBody.offsetHeight <=  container.offsetHeight ){
+            //  if (!scroll.x && !scroll.y) {
+            // tableBody.style.height = 'auto'
+            // return
+            // }
+            // if (!scroll && !scroll.y) {
+            //     container.style.overflowY = 'auto'
+            // }
+            if (tableBody.offsetHeight <= container.offsetHeight) {
                 container.style.overflowY = 'hidden'
             }
-            if( !tableBody || this.props.dataSource && dataSource.length == 0  ){
-                tableBody.style.height = 'auto'
-                return
-            }
+            // if (!tableBody || this.props.dataSource && dataSource.length == 0) {
+            //     tableBody.style.height = 'auto'
+            //     return
+            // }
 
             tableBody.style.height = container.offsetHeight + 'px'
             const table = tableBody.getElementsByTagName('table')[0]
             tableBody.style.overflowY = 'auto'
-        }catch(err){
+            }
+        } catch (err) {
             console.log(err)
         }
-
     }
-
     componentDidUpdate() {
         // this.removeDom()
         this.setTableHeight()
@@ -335,13 +388,23 @@ class AntTable extends Component {
             // 去掉所有col上面的width
             // this.setColumnsWidth(id)
         }
-        let height = ReactDOM.findDOMNode(this).offsetHeight,
-            titleHeight = document.getElementsByClassName('ant-table-thead')[0].clientHeight
-        if(height !== this.state.height){
-            this.setState({
-                height: height - titleHeight - 32
-            })
+        try {
+            let height = ReactDOM.findDOMNode(this).offsetHeight
+            let titleHeight 
+            if( $ ){
+                titleHeight = $('.ant-table-thead')[0].clientHeight
+            }else {
+                titleHeight = document.getElementsByClassName('ant-table-thead')[0].clientHeight
+            }
+            if (height !== this.state.height) {
+                this.setState({
+                    height: height - titleHeight - 32
+                })
+            }
+        }catch(err){
+
         }
+        
         /**
          * 合并首列包含CHECKBOX的情况
          */
@@ -359,9 +422,9 @@ class AntTable extends Component {
 
     getColumns = () => {
         let columns
-        if( this.state.allowColResize ){
+        if (this.state.allowColResize) {
             columns = this.state.columns
-        }else{
+        } else {
             columns = this.props.columns
         }
         let children = fromJS(columns),
@@ -373,7 +436,7 @@ class AntTable extends Component {
         for (let i = 0; i < children.size; i++) {
             let child = children.get(i)
             let column = this.getColumnByMeta(child)
-            if(column)
+            if (column)
                 renderColumns.push(column)
         }
         return renderColumns
@@ -382,45 +445,46 @@ class AntTable extends Component {
     getColumnByMeta = (meta) => {
         let children = meta.get('children'),
             ret = { ...meta.toJS() }
-        if(ret._visible === false)
+        if (ret._visible === false)
             return undefined
 
         if (children && children.size > 0) {
             ret.children = []
-            for (let sub of children) {
+            children.map((sub) => {
                 let o = this.getColumnByMeta(sub)
-                if(!o) continue
+                if (!o) return
 
-                if(!ret.children)
+                if (!ret.children)
                     ret.children = []
                 ret.children.push(o)
-            }
+            })
         }
 
         return ret
     }
 
-    initSelectValue = (selcted, all) =>{
+    initSelectValue = (selcted, all) => {
         let selectValue = new Map()
         const { checkboxKey } = this.props
         selcted.forEach(item => {
-            const i = all.find(key => key[checkboxKey] == item )
+            const i = all.find(key => key[checkboxKey] == item)
             selectValue = selectValue.set(item, i)
         })
         return selectValue
     }
 
     showCheckboxType = () => {
-        let { selectValue,  checkboxId} = this.state
+        let { selectValue } = this.state,
+            checkboxId = this.initCheckboxId(this.props.dataSource, 'get')
 
         let obj = {}
-        if( !checkboxId.size ){
+        if (!checkboxId.size) {
             obj.checked = false
-        }else if( this.checkAllItem() ){
+        } else if (this.checkAllItem()) {
             obj.checked = true
-        }else if( this.noCheckItem() ){
+        } else if (this.noCheckItem()) {
             obj.checked = false
-        }else{
+        } else {
             obj.checked = false
             obj.indeterminate = true
         }
@@ -428,15 +492,16 @@ class AntTable extends Component {
     }
 
     noCheckItem = () => {
-        let { selectValue,  checkboxId} = this.state
+        let { selectValue } = this.state,
+            checkboxId = this.initCheckboxId(this.props.dataSource, 'get')
         let flag = true
         checkboxId.map((item, key) => {
-            if( selectValue.has(key) ){
+            if (selectValue.has(key)) {
                 flag = false
             }
         })
-        // for( const key of checkboxId.keys() ){
-        //     if( selectValue.has(key) ){
+        // for (const key of checkboxId.keys()) {
+        //     if (selectValue.has(key)) {
         //         flag = false
         //     }
         // }
@@ -444,15 +509,16 @@ class AntTable extends Component {
     }
 
     checkAllItem = () => {
-        let { selectValue,  checkboxId} = this.state
+        let { selectValue } = this.state,
+            checkboxId = this.initCheckboxId(this.props.dataSource, 'get')
         let flag = true
         checkboxId.map((item, key) => {
-            if( !selectValue.has(key) && typeof key != "undefined"){
+            if (!selectValue.has(key) && typeof key != "undefined") {
                 flag = false
             }
         })
-        // for( const key of checkboxId.keys() ){
-        //     if( !selectValue.has(key) && typeof key != "undefined"){
+        // for (const key of checkboxId.keys()) {
+        //     if (!selectValue.has(key) && typeof key != "undefined") {
         //         flag = false
         //     }
         // }
@@ -460,21 +526,22 @@ class AntTable extends Component {
     }
 
     checkboxAllClick = (e) => {
-        let { selectValue,  checkboxId} = this.state
-        if( selectValue.size == 0 ){
+        let { selectValue } = this.state,
+            checkboxId = this.initCheckboxId(this.props.dataSource, 'get')
+        if (selectValue.size == 0) {
             checkboxId.map((value, key) => {
                 selectValue = selectValue.set(key, value)
             })
-            // for( const [key, value] of checkboxId.entries() ) {
+            // for (const [key, value] of checkboxId.entries()) {
             //     selectValue = selectValue.set(key, value)
             // }
-        }else if(this.checkAllItem()) {
+        } else if (this.checkAllItem()) {
             selectValue = new Map()
-        }else{
-            checkboxId.map((vlaue, key) => {
+        } else {
+            checkboxId.map((value, key) => {
                 selectValue = selectValue.set(key, value)
             })
-            // for( const [key, value] of checkboxId.entries() ) {
+            // for (const [key, value] of checkboxId.entries()) {
             //     selectValue = selectValue.set(key, value)
             // }
         }
@@ -486,9 +553,9 @@ class AntTable extends Component {
 
     checkboxItemClick = (e, key, record) => {
         let map = this.state.selectValue
-        if( !map.has(key) ){
+        if (!map.has(key)) {
             map = map.set(key, record)
-        }else(
+        } else (
             map = map.delete(key)
         )
         this.setState({
@@ -498,17 +565,20 @@ class AntTable extends Component {
     }
 
 
-    initCheckboxId = (data) => {
-        if( !data ) {
+    initCheckboxId = (data, type) => {
+        if (!data) {
             return
         }
         let map = new Map()
         const { checkboxKey } = this.props
         data.forEach(item => {
-            if( !map.has(item[checkboxKey]) ){
+            if (item[checkboxKey] && !map.has(item[checkboxKey])) {
                 map = map.set(item[checkboxKey], item)
             }
         })
+        if (type == 'get') {
+            return map
+        }
         this.setState({
             checkboxId: map
         })
@@ -517,16 +587,16 @@ class AntTable extends Component {
     rowSpan = (text, record, index) => {
         const { checkboxKey } = this.props
         const { dataSource } = this.props
-        if(!record[checkboxKey]) return 1;
-        const key = dataSource.findIndex(item => item[checkboxKey]==record[checkboxKey])
+        if (!record[checkboxKey]) return 1;
+        const key = dataSource.findIndex(item => item[checkboxKey] == record[checkboxKey])
         let num = 1
-        if( key == index ){
+        if (key == index) {
             let i = 0
-            while( dataSource[index+i] && dataSource[index+i][checkboxKey] && dataSource[key] && dataSource[key][checkboxKey] && (dataSource[index+i][checkboxKey] ==  dataSource[key][checkboxKey]) ){
-              i++
+            while (dataSource[index + i] && dataSource[index + i][checkboxKey] && dataSource[key] && dataSource[key][checkboxKey] && (dataSource[index + i][checkboxKey] == dataSource[key][checkboxKey])) {
+                i++
             }
             num = i
-        }else{
+        } else {
             num = 0
         }
         return num
@@ -535,39 +605,39 @@ class AntTable extends Component {
     renderChekbox = (type) => {
         const { checkboxKey } = this.props
         const { selectValue, columns } = this.state
-        if( type == 1 ) {
-          return {
-              title: <Checkbox {...this.showCheckboxType()} onClick={this.checkboxAllClick}/>,
-              dataIndex: 'checkboxKey',
-              key: 'checkboxKey',
-              className: "mk-table-checkbox",
-              width: 60,
-              render: (text, record, index) => {
-                const obj = {
-                    children: record[checkboxKey]?   <Checkbox
-                                    checked={selectValue.has(record[checkboxKey])}
-                                    onClick={(e)=>this.checkboxItemClick(e, record[checkboxKey], record)}
-                                />:null,
-                    props: {
-                        rowSpan: this.rowSpan(text, record, index),
-                    },
+        if (type == 1) {
+            return {
+                title: <Checkbox {...this.showCheckboxType()} onClick={this.checkboxAllClick} />,
+                dataIndex: 'checkboxKey',
+                key: 'checkboxKey',
+                className: "mk-table-checkbox",
+                width: 34,
+                render: (text, record, index) => {
+                    const obj = {
+                        children: record[checkboxKey] ? <Checkbox
+                            checked={selectValue.has(record[checkboxKey])}
+                            onClick={(e) => this.checkboxItemClick(e, record[checkboxKey], record)}
+                        /> : null,
+                        props: {
+                            rowSpan: this.rowSpan(text, record, index),
+                        },
+                    }
+                    return obj
                 }
-                return obj
-              }
-          }
-        }else{
-          return [
-              {
-                    title: <Checkbox {...this.showCheckboxType()} onClick={this.checkboxAllClick}/>,
+            }
+        } else {
+            return [
+                {
+                    title: <Checkbox {...this.showCheckboxType()} onClick={this.checkboxAllClick} />,
                     dataIndex: 'checkboxKey',
                     key: 'checkboxKey',
-                    width: 60,
+                    width: 34,
                     className: "mk-table-checkbox",
                     render: (text, record, index) => {
                         const obj = {
                             children: <Checkbox
                                 checked={selectValue.has(record[checkboxKey])}
-                                onClick={(e)=>this.checkboxItemClick(e, record[checkboxKey], record)}
+                                onClick={(e) => this.checkboxItemClick(e, record[checkboxKey], record)}
                             />,
                             props: {
                                 rowSpan: this.rowSpan(text, record, index),
@@ -576,15 +646,15 @@ class AntTable extends Component {
 
                         return obj
                     }
-              },
-              ...columns
-          ]
+                },
+                ...columns
+            ]
         }
 
     }
 
     update = (data) => {
-        if( this.props.checkboxChange ) {
+        if (this.props.checkboxChange) {
             const arr = []
             const arrValue = []
             const { selectValue } = this.state
@@ -592,7 +662,7 @@ class AntTable extends Component {
                 arr.push(key)
                 arrValue.push(value)
             })
-            // for( const [key, value] of data.entries() ){
+            // for (const [key, value] of data.entries()) {
             //     arr.push(key)
             //     arrValue.push(value)
             // }
@@ -605,19 +675,19 @@ class AntTable extends Component {
     }
 
     decorateColumns = (columns) => {
-        return columns.map((col, index)=>{
-            if( !(col.tip == false) && !col.render && col.dataIndex ){
+        return columns.map((col, index) => {
+            if (!(col.tip == false) && !col.render && col.dataIndex) {
                 col.render = this.rnederTitle
             }
-            if( this.state.resizeColumn ){
+            if (this.state.resizeColumn) {
                 return {
                     ...col,
                     onHeaderCell: (column) => ({
-                    width: column.width,
-                    onResize: this.handleResize(column.dataIndex),
+                        width: column.width,
+                        onResize: this.handleResize(column.dataIndex),
                     }),
                 }
-            }else{
+            } else {
                 return col
             }
         })
@@ -628,9 +698,9 @@ class AntTable extends Component {
             ...item,
             title: this.showTheadTitle(item.title)
         }
-        if( item.children ){
+        if (item.children) {
             const arr = []
-            for( const value of item.children.values() ){
+            for (const value of item.children.values()) {
                 arr.push(this.getChildrenTitle(value))
             }
             obj.children = arr
@@ -640,7 +710,7 @@ class AntTable extends Component {
 
     decorateHeaderTitle = (column) => {
 
-        if( !column ){
+        if (!column) {
             return undefined
         }
         return column.map(item => {
@@ -654,24 +724,31 @@ class AntTable extends Component {
             children = fromJS(this.props.columns),
             renderColumn = [],
             height = this.state.height, top, small = false, loading
-        if(height >= 238){
-            top = (height - 238)/2
-        }else{
+        if (height >= 238) {
+            top = (height - 238) / 2
+        } else {
             small = true
-            top = (height - 168)/2
+            top = (height - 168) / 2
         }
-        if(otherProps.loading != undefined){
+        if (otherProps.loading != undefined) {
             loading = {
                 size: 'large',
+                delay: 2000,
                 spinning: otherProps.loading,
-                tip:"数据加载中..."
+                tip: "数据加载中..."
             }
         }
+        let emptyText = <NoData style={{ position: 'relative', marginTop: top, paddingBottom: top }} small={small}>暂无数据</NoData>
+        //table 控件自定义空数据描述
+        if (this.props.emptyText) {
+            emptyText = <NoData style={{ position: 'relative', marginTop: top, paddingBottom: top }} small={small}>{this.props.emptyText}</NoData>
+        }
 
-        let emptyText = <NoData style={{position: 'relative', marginTop: top, paddingBottom: top}} small={small}>暂无数据</NoData>,
-            locale = {
-                'emptyText': emptyText
-            }
+        if (this.props.pureText) {
+            emptyText = this.props.pureText
+        }
+
+        let locale = { 'emptyText': emptyText }
         if (children && children.size > 0) {
 
             // for (let i = 0; i < children.size; i++) {
@@ -696,30 +773,56 @@ class AntTable extends Component {
             //     }
             // }
             let renderColumn = this.getColumns()
-            if( this.props.checkboxKey ) {
-                renderColumn = [ this.renderChekbox(1) , ...renderColumn ]
+            if (this.props.checkboxKey) {
+                renderColumn = [this.renderChekbox(1), ...renderColumn]
             }
             const columns3 = this.decorateColumns(renderColumn)
             let newColumn = this.decorateHeaderTitle(columns3)
-            let scrollX = this.props.dataSource&&this.props.dataSource.length > 0 ? sumWidth : null
-            if( this.state.resizeColumn ){
-                return <Table {...this.props }
-                    scroll={{...this.props.scroll, x: scrollX}}
+            let scrollX = this.props.dataSource && this.props.dataSource.length > 0 ? sumWidth : null
+            if(this.props.emptyShowScroll){
+                scrollX = sumWidth
+            }
+            if (this.state.resizeColumn) {
+                return <Table {...this.props}
+                    scroll={{ ...this.props.scroll, x: scrollX }}
                     components={this.components}
-                    columns={this.decorateHeaderTitle(columns3)}
-                    locale={{'emptyText': emptyText}}
+                    columns={this.addColumn(this.decorateHeaderTitle(columns3))}
+                    locale={{ 'emptyText': emptyText }}
                     loading={loading}
                 />
-            }else{
-                return <Table {...this.props } columns={this.decorateHeaderTitle(columns3)} locale={{'emptyText': emptyText}} loading={loading}/>
+            } else {
+                return <Table {...this.props} columns={this.decorateHeaderTitle(columns3)} locale={{ 'emptyText': emptyText }} loading={loading} />
             }
 
 
 
         }
         else {
-            return <Table {...this.props } columns={this.decorateHeaderTitle(this.props.columns)} locale={{'emptyText': emptyText}} loading={loading}/>
+            return <Table {...this.props} columns={this.decorateHeaderTitle(this.props.columns)} locale={{ 'emptyText': emptyText }} loading={loading} />
         }
+    }
+
+    addColumn = (data) => {
+        const me = ReactDOM.findDOMNode(this)
+        if (!me) {
+            return data
+        }
+        const containerWidth = me.offsetWidth
+        let setWidthSum = 0
+        data.forEach(item => {
+            setWidthSum = setWidthSum + parseFloat(item.width)
+        })
+        if (setWidthSum > containerWidth) {
+            return data
+        }
+        let remain = containerWidth - setWidthSum + 50
+        data.splice(data.length - 1, 0, {
+            dataIndex: 'remain',
+            title: <span></span>,
+            key: 'remain',
+            width: remain
+        })
+        return data
     }
 }
 

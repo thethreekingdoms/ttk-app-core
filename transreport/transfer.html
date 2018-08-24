@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>
+        跳转中
+    </title>
+    <style type="text/css">
+        html,
+        body{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            z-index: 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+        /*
+            临时解决客户端跳转过程中的参数过滤问题
+        */
+        var getCurrentUrl = location.href;
+        if (getCurrentUrl && getCurrentUrl.indexOf('?') > -1) {
+            var getParams = getCurrentUrl.substr(getCurrentUrl.indexOf('?') + 1)
+
+            var pathName = location.origin
+
+            if (pathName && getParams) {
+                window.location.href = pathName + "/#/edfx-app-root/ttk-access-app-tranreport?" + getParams
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

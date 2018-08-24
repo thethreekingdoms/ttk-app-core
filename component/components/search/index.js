@@ -34,10 +34,10 @@ class SearchComponent extends Component {
             containerHeight: 500
         }
         this.value = {}
-        this.datePickerRandom = Math.floor(Math.random()*100000000)
+        this.datePickerRandom = Math.floor(Math.random() * 100000000)
         this.props.didMount && this.props.didMount(this)
-        this.props.moreSearchItem&&this.props.moreSearchItem.map(item => {
-            if(
+        this.props.moreSearchItem && this.props.moreSearchItem.map(item => {
+            if (
                 item.pre && item.pre.type && item.pre.type.includes('DatePicker') &&
                 item.next && item.next.type && item.next.type.includes('DatePicker')
             ) {
@@ -91,28 +91,28 @@ class SearchComponent extends Component {
     }
 
     dateWindowChange = (type, status, key) => {
-        if( type == 'next' ){
+        if (type == 'next') {
             this.setState({
                 [key]: status
             })
         }
-        if( type == 'next' && status == false ){
+        if (type == 'next' && status == false) {
             // 采用异步是因为datePicker的onchange事件晚于onOpenChange触发
         }
     }
 
     showPickerDidMount = () => {
         const { normalSearch } = this.props
-        if( !normalSearch || normalSearch.length == 0 ){
+        if (!normalSearch || normalSearch.length == 0) {
             return
         }
         const flag = normalSearch.find(item => item.type == 'DatePicker.RangePicker')
-        if( !flag ){
+        if (!flag) {
             return
         }
         const dateDom = document.getElementsByClassName(this.datePickerRandom)[0]
-        if( !dateDom ) {
-            setTimeout(()=>{
+        if (!dateDom) {
+            setTimeout(() => {
                 this.showPickerDidMount()
             }, 50)
             return
@@ -160,15 +160,15 @@ class SearchComponent extends Component {
         const { searchClick, moreSearchRules } = this.props
         const _this = this
         this.form.validateFields((err, values) => {
-            if( err ){
+            if (err) {
                 return
             }
             let flag = true
             let option
-            if( _this.props.moreSearchItem.findIndex(item=> item.type == 'AssistForm') >-1 ){
+            if (_this.props.moreSearchItem.findIndex(item => item.type == 'AssistForm') > -1) {
                 flag = _this.assistForm.verify()
 
-                if( flag ){
+                if (flag) {
                     const getValue = _this.assistForm.getValue()
                     values.groupStr = this.sortAssitItem(getValue.option, getValue.selectValue)
                     values.whereStr = _this.getWhereStr(getValue.option, getValue.selectValue)
@@ -176,21 +176,21 @@ class SearchComponent extends Component {
                 }
             }
 
-            if( moreSearchRules ){
+            if (moreSearchRules) {
                 flag = moreSearchRules(values, _this.form)
             }
-            if( !flag ){
+            if (!flag) {
                 return
             }
             _this.showMoreSearch(false)
             if (searchClick) {
-            	setTimeout(()=>{
-		            if( _this.props.moreSearchItem.findIndex(item=> item.type == 'AssistForm') >-1  ){
-			            searchClick(values, option)
-		            }else{
-			            searchClick(values)
-		            }
-	            }, 800)
+                setTimeout(() => {
+                    if (_this.props.moreSearchItem.findIndex(item => item.type == 'AssistForm') > -1) {
+                        searchClick(values, option)
+                    } else {
+                        searchClick(values)
+                    }
+                }, 800)
 
 
             }
@@ -202,7 +202,7 @@ class SearchComponent extends Component {
     sortAssitItem = (data, selectValue) => {
         const arr = []
         data.forEach(item => {
-            if( selectValue.includes(item.key) ){
+            if (selectValue.includes(item.key)) {
                 arr.push(item.key)
             }
         })
@@ -213,7 +213,7 @@ class SearchComponent extends Component {
     getWhereStr = (option, selectLabel) => {
         let arr = []
         option.forEach(item => {
-            if( item.value && item.value.length > 0 &&  selectLabel.includes(item.key)){
+            if (item.value && item.value.length > 0 && selectLabel.includes(item.key)) {
                 arr.push(`${item.key}:${item.value.join(',')}`)
             }
         })
@@ -241,23 +241,23 @@ class SearchComponent extends Component {
         const { clearClick, moreSearchItem } = this.props
         let clearValue = {}
         moreSearchItem.forEach(item => {
-            if( item.range ){
-                if( !item.pre.noClear ) {
+            if (item.range) {
+                if (!item.pre.noClear) {
                     clearValue[item.pre.name] = null
                 }
-                if( !item.next.noClear ) {
+                if (!item.next.noClear) {
                     clearValue[item.next.name] = null
                 }
-            }else if( !item.noClear ){
+            } else if (!item.noClear) {
                 clearValue[item.name] = null
             }
 
         })
         this.setState({
-            searchValue: { ...searchValue, ...clearValue},
+            searchValue: { ...searchValue, ...clearValue },
             key: Math.random()
         })
-        return { ...searchValue, ...clearValue}
+        return { ...searchValue, ...clearValue }
     }
 
 
@@ -268,7 +268,7 @@ class SearchComponent extends Component {
         this.setState({
             normalSearch
         })
-        if( name == 'date' && !bol){
+        if (name == 'date' && !bol) {
             // if (this.state.normalSearch[name] == value && this.props.normalSearchChange) {
             //     let initValue = this.clearValue()
             //     this.props.normalSearchChange(name, value, initValue, type)
@@ -297,28 +297,28 @@ class SearchComponent extends Component {
     }
 
     trantoNumber = (num) => {
-        if( !num ){
+        if (!num) {
             return 0
         }
-        try{
+        try {
             return parseInt(num.format('YYYYMM'))
-        }catch(err){
+        } catch (err) {
             console.log(err)
             return 0
         }
     }
 
     someChange = (key, value) => {
-        try{
+        try {
             const { searchValue } = this.state
             searchValue[key] = value
-            if( this.state[`showDateWin_${key}`] != undefined ){
+            if (this.state[`showDateWin_${key}`] != undefined) {
                 let nextKey
                 this.props.moreSearchItem.forEach(item => {
-                    if( item.next && item.pre && item.pre.name == key){
+                    if (item.next && item.pre && item.pre.name == key) {
                         nextKey = item.next.name
                     }
-                    if(  this.trantoNumber(value) > this.trantoNumber(searchValue[nextKey]) ){
+                    if (this.trantoNumber(value) > this.trantoNumber(searchValue[nextKey])) {
                         searchValue[nextKey] = value
                     }
                 })
@@ -329,7 +329,7 @@ class SearchComponent extends Component {
             this.setState({
                 searchValue
             })
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
 
@@ -361,12 +361,12 @@ class SearchComponent extends Component {
         const { confirmBtn, cancelBtn, clearBtn, refreshBtn } = this.props
         const { containerHeight } = this.state
         let This = this
-        const moreSearchItem = this.props.moreSearchItem?this.props.moreSearchItem.filter(item => {
-            if( item.pre && item.next &&
-                item.pre.type.includes('DatePicker') && item.next.type.includes('DatePicker')){
+        const moreSearchItem = this.props.moreSearchItem ? this.props.moreSearchItem.filter(item => {
+            if (item.pre && item.next &&
+                item.pre.type.includes('DatePicker') && item.next.type.includes('DatePicker')) {
                 return {
                     ...item,
-                    next:{
+                    next: {
                         ...item.next,
                         onOpenChange: (status) => this.dateWindowChange('next', status, `showDateWin_${item.pre.name}`),
                         open: this.state[`showDateWin_${item.pre.name}`]
@@ -377,17 +377,17 @@ class SearchComponent extends Component {
                     }
                 }
             }
-            if(!item.visible) return item
-        }):null
+            if (!item.visible) return item
+        }) : null
 
         return (
             <div ref='retrieveWrap' className='retrieveWrap mk-search' style={{ position: 'relative' }}>
                 <div className="mk-normal-search" style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div className="mk-normal-search-left" style={{ display: 'flex' }}>
-                        {this.props.selectDate?this.props.selectDate:null}
+                        {this.props.selectDate ? this.props.selectDate : null}
                         {this.renderNormalSearch()}
                         {this.props.normalSearcChildren ? this.props.normalSearcChildren : null}
-                        {this.props.moreSearchItem?<span
+                        {this.props.moreSearchItem ? <span
                             className='mk-span'
                             onClick={this.showMoreSearch.bind(this, true)}
                             style={{
@@ -399,14 +399,15 @@ class SearchComponent extends Component {
                                 justifyContent: 'center'
                             }}>
                             <a className="searchBtn">高级查询</a>
-                        </span>:null}
+                        </span> : null}
                         {refreshBtn}
+                        {this.props.leftMenuBtn ? this.props.leftMenuBtn : null }
                     </div>
                     <div className="mk-title-otherBtn">
                         {this.props.menuBtn}
                     </div>
                 </div>
-                
+
                 <div
                     style={{
                         width: '100%',
@@ -416,7 +417,7 @@ class SearchComponent extends Component {
                         zIndex: '10',
                         background: '#fff',
                         boxShadow: '0 0 5px #999',
-                        display: `${this.state.count == 1 ? 'block' :　'none'}`
+                        display: `${this.state.count == 1 ? 'block' : 　'none'}`
                     }}
                 >
                     <div
@@ -425,14 +426,14 @@ class SearchComponent extends Component {
                             maxHeight: `${containerHeight}px`
                             // top: `${this.state.data.get('childVisible') ? '0' : `-${this.state.height}px`}`
                         }}
-                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' :　'slideOutUp'}`}
+                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' : 　'slideOutUp'}`}
                     >
                         <h2>
                             <div>高级查询</div>
                         </h2>
-                        <div className="search-form-contaienr" style={{ maxHeight: `${containerHeight-90}px` }}>
+                        <div className="search-form-contaienr" style={{ maxHeight: `${containerHeight - 90}px` }}>
                             {this.props.treeSelect ? this.props.treeSelect : null}
-                           {this.props.moreSearchItem&&<SearchForm
+                            {this.props.moreSearchItem && <SearchForm
                                 target={this}
                                 onChange={this.someChange}
                                 item={moreSearchItem}
@@ -442,7 +443,7 @@ class SearchComponent extends Component {
                             />}
                             {this.props.assistForm ? (
                                 <AssistForm
-                                    ref={form => this.assistForm=form}
+                                    ref={form => this.assistForm = form}
                                     option={this.props.assistFormOption}
                                     selectValue={this.props.assistFormSelectValue}
                                 />
@@ -497,7 +498,7 @@ class SearchComponent extends Component {
             const point = this.getAbsPoint(table)
             let height = window.innerHeight - point.y
             this.setState({
-                containerHeight: height-5
+                containerHeight: height - 5
             })
         }
     }

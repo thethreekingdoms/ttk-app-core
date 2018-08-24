@@ -1,3 +1,4 @@
+
 logs
 *.log
 npm-debug.log*
@@ -20,4 +21,14 @@ stats.json
 .vscode
 jsconfig.json
 package-lock.json
-.idea
+webpack.config.js
+webpack.config.prd.js
+compatible/apps
+compatible/api
+compatible/app-loader
+compatible/constant
+compatible/meta-engine
+compatible/utils
+compatible/assets
+compatible/component
+compatible/transreport

@@ -52,7 +52,7 @@ export default function GridComponent(props) {
 	if (heightFromRowsCount) {
 		height = headerHeight + 2 + rowHeight * rowsCount + footerHeight
 	}
-	
+
 	columns = [...columns]
 
 	if (enableSequence) {
@@ -105,7 +105,7 @@ export default function GridComponent(props) {
 	}
 
 	onColumnResizeEndCallback = (newColumnWidth, columnKey) => {
-		if(newColumnWidth<41) newColumnWidth = 41
+		if (newColumnWidth < 41) newColumnWidth = 41
 		onColumnResizeEnd && onColumnResizeEnd(newColumnWidth, columnKey)
 	}
 
@@ -127,64 +127,65 @@ export default function GridComponent(props) {
 
 	// scrollTop = scrollTop < 0 ? 0 : scrollTop
 	// scrollToRow = parseInt(scrollTop / rowHeight)
-	
-	
+
+
 	let size = props.loading && props.loading.size ? props.loading.size : 'large',
 		tip = props.loading && props.loading.tip ? props.loading.tip : "数据加载中...",
+		delay = props.delay ? props.delay : 2000,
 		spinning = props.loading && props.loading.hasOwnProperty('spinning') ? props.loading.spinning : props.loading
 	if (rowsCount == 0 || height == 0 || width == 0) {
-		return(
+		return (
 			<div>
 				{
-					!props.loading ? 
-					<div style={{position: 'relative'}}>
-						<Table
-							{...other}
-							key={key}
-							rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
-							headerHeight={headerHeight}
-							rowHeight={rowHeight}
-							groupHeaderHeight={groupHeaderHeight}
-							footerHeight={footerHeight}
-							width={width}
-							height={height+2}
-							isColumnResizing={false}
-							onColumnResizeEndCallback={onColumnResizeEndCallback}
-							scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
-							scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
-							onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
-							onRowClick={readonly === false ? undefined : onRowClick}
-							onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
-							onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-							onScrollEnd={onScrollEnd}
-						>{columns}
-						</Table>
-						<NoData style={{position:'absolute', height: '220px', top: '50%', marginTop: '-110px'}}>暂无数据</NoData>
-					</div>
-					: 	
-					<Spin size={size} tip={tip} {...props.loading}>
-						<Table
-							{...other}
-							key={key}
-							rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
-							headerHeight={headerHeight}
-							rowHeight={rowHeight}
-							groupHeaderHeight={groupHeaderHeight}
-							footerHeight={footerHeight}
-							width={width}
-							height={height+2}
-							isColumnResizing={false}
-							onColumnResizeEndCallback={onColumnResizeEndCallback}
-							scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
-							scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
-							onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
-							onRowClick={readonly === false ? undefined : onRowClick}
-							onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
-							onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-							onScrollEnd={onScrollEnd}
-						>{columns}
-						</Table>
-					</Spin>
+					!props.loading ?
+						<div style={{ position: 'relative' }}>
+							<Table
+								{...other}
+								key={key}
+								rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
+								headerHeight={headerHeight}
+								rowHeight={rowHeight}
+								groupHeaderHeight={groupHeaderHeight}
+								footerHeight={footerHeight}
+								width={width}
+								height={height + 2}
+								isColumnResizing={false}
+								onColumnResizeEndCallback={onColumnResizeEndCallback}
+								scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
+								scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
+								onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
+								onRowClick={readonly === false ? undefined : onRowClick}
+								onRowMouseEnter={readonly === true ? undefined : onRowMouseEnter}
+								onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
+								onScrollEnd={onScrollEnd}
+							>{columns}
+							</Table>
+							<NoData style={{ position: 'absolute', height: '220px', top: '50%', marginTop: '-110px' }}>暂无数据</NoData>
+						</div>
+						:
+						<Spin delay={delay} size={size} tip={tip} {...props.loading}>
+							<Table
+								{...other}
+								key={key}
+								rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
+								headerHeight={headerHeight}
+								rowHeight={rowHeight}
+								groupHeaderHeight={groupHeaderHeight}
+								footerHeight={footerHeight}
+								width={width}
+								height={height + 2}
+								isColumnResizing={false}
+								onColumnResizeEndCallback={onColumnResizeEndCallback}
+								scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
+								scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
+								onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
+								onRowClick={readonly === false ? undefined : onRowClick}
+								onRowMouseEnter={readonly === true ? undefined : onRowMouseEnter}
+								onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
+								onScrollEnd={onScrollEnd}
+							>{columns}
+							</Table>
+						</Spin>
 				}
 			</div>
 		)
@@ -192,55 +193,55 @@ export default function GridComponent(props) {
 
 	return (
 		<div>
-		{
-			props.loading ? 
-			<Spin size={size} tip={tip} {...props.loading}>				
-				<Table
-				{...other}
-				key={key}
-				rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
-				headerHeight={headerHeight}
-				rowHeight={rowHeight}
-				groupHeaderHeight={groupHeaderHeight}
-				footerHeight={footerHeight}
-				width={width}
-				height={height+2}
-				isColumnResizing={false}
-				onColumnResizeEndCallback={onColumnResizeEndCallback}
-				scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
-				scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
-				onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
-				onRowClick={readonly === false ? undefined : onRowClick}
-				onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
-				onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-				onScrollEnd={onScrollEnd}
-				>{columns}
-				</Table>
-			</Spin>
-		:
-			<Table
-				{...other}
-				key={key}
-				rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
-				headerHeight={headerHeight}
-				rowHeight={rowHeight}
-				groupHeaderHeight={groupHeaderHeight}
-				footerHeight={footerHeight}
-				width={width}
-				height={height+2}
-				isColumnResizing={false}
-				onColumnResizeEndCallback={onColumnResizeEndCallback}
-				scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
-				scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
-				onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
-				onRowClick={readonly === false ? undefined : onRowClick}
-				onRowMouseEnter={readonly === false ? undefined : onRowMouseEnter}
-				onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
-				onScrollEnd={onScrollEnd}
-			>{columns}
-			</Table>
-		}
+			{
+				props.loading ?
+					<Spin delay={delay} size={size} tip={tip} {...props.loading}>
+						<Table
+							{...other}
+							key={key}
+							rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
+							headerHeight={headerHeight}
+							rowHeight={rowHeight}
+							groupHeaderHeight={groupHeaderHeight}
+							footerHeight={footerHeight}
+							width={width}
+							height={height + 2}
+							isColumnResizing={false}
+							onColumnResizeEndCallback={onColumnResizeEndCallback}
+							scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
+							scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
+							onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
+							onRowClick={readonly === false ? undefined : onRowClick}
+							onRowMouseEnter={readonly === true ? undefined : onRowMouseEnter}
+							onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
+							onScrollEnd={onScrollEnd}
+						>{columns}
+						</Table>
+					</Spin>
+					:
+					<Table
+						{...other}
+						key={key}
+						rowsCount={(height == 0 || width == 0) ? 0 : rowsCount}
+						headerHeight={headerHeight}
+						rowHeight={rowHeight}
+						groupHeaderHeight={groupHeaderHeight}
+						footerHeight={footerHeight}
+						width={width}
+						height={height + 2}
+						isColumnResizing={false}
+						onColumnResizeEndCallback={onColumnResizeEndCallback}
+						scrollToRow={(height != 0 && width != 0) ? scrollToRow : undefined}
+						scrollToColumn={(height != 0 && width != 0) ? scrollToColumn : undefined}
+						onRowDoubleClick={readonly === false ? undefined : onRowDoubleClick}
+						onRowClick={readonly === false ? undefined : onRowClick}
+						onRowMouseEnter={readonly === true ? undefined : onRowMouseEnter}
+						onRowMouseLeave={readonly === false ? undefined : onRowMouseLeave}
+						onScrollEnd={onScrollEnd}
+					>{columns}
+					</Table>
+			}
 		</div>
-		
+
 	)
 }

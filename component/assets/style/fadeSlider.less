@@ -1,0 +1,74 @@
+.fadeSlider{
+    width:100%;
+    height:100%;
+    position: relative;
+    .sliderContainer{
+        width:100%;
+        height:100%;
+        position: relative;
+        .imgBox{
+            width:100%;
+            height:100%;
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+    .lastPage{
+        width:20px;
+        height:30px;
+        position: absolute;
+        left:0;
+        top:50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index:100;
+        i{
+            font-size: 20px;
+            font-style: normal;
+            color:rgba(255,255,255,0.6);
+        }
+        i:hover{
+            color:rgba(255,255,255,1);
+        }
+    }
+    .nextPage{
+        width:20px;
+        height:30px;
+        position: absolute;
+        right:0;
+        top:50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index:100;
+        i{
+            font-size: 20px;
+            font-style: normal;
+            color:rgba(255,255,255,0.6);
+        }
+        i:hover{
+            color:rgba(255,255,255,1);
+        }
+    }
+    .navDot{
+        position: absolute;
+        bottom: 3px;
+        left:50%;
+        transform:translateX(-50%);
+        z-index: 10;
+        span{
+            display: inline-block;
+            width:5px;
+            height:5px;
+            border-radius: 5px;
+            background:rgba(255,255,255,0.6);
+            cursor: pointer;
+        }
+        .middleDot{
+            margin:0 10px;
+        }
+        span.highlight{
+            background:rgba(255,255,255,1);
+        }
+    }
+}

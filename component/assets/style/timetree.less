@@ -1,0 +1,173 @@
+.timetree{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    position: relative;
+
+    #detailMessage{
+        p{
+            font-size:12px!important;
+            margin-bottom:0!important;
+            line-height:20px;
+        }
+    }
+
+    .rocket{
+        width:100%;
+        height:40px;
+        position: absolute;;
+        top:0;
+        left:0;
+        z-index:10;
+        user-select: none;
+        animation:fly 2s;
+        img{
+            width:34px;
+            height:40px;
+            position: absolute;
+            top:0;
+            left:50%;
+            margin-left:-17px;
+        }
+    }
+    .bottom{
+        width:100%;
+        height:31px;
+        position: absolute;
+        bottom:0;
+        left:0;
+        z-index:1;
+        img{
+            width:100%;
+            height:100%;
+        }
+    }
+
+    .content{
+        width:100%;
+        position: absolute;
+        top:0;
+        bottom:0;
+        overflow-y:auto;
+
+        .main{
+            width:930px;
+            margin:40px auto 0;
+            min-height:100%;
+            position: relative;
+
+            .line{
+                width:2px;
+                background:#E2FBF9;
+                position: absolute;
+                top:0;
+                bottom:0;
+                left:50%;
+                margin-left:-1px;
+            }
+            .year{
+                width: 31px;
+                height: 31px;
+                background: #1eb5ad;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 30px;
+                font-size: 12px;
+                margin: 0 auto;
+                color:#ffffff;
+            }
+            .msgBox{
+                width:100%;
+                overflow:hidden;
+                &>div{
+                    width:464px;
+                    .detail{
+                        width:443px;
+                        &>div{
+                            width:434px;
+                            border:1px solid #d9d9d9;
+                            position: relative;
+                            padding: 9px 13px;
+                            .title{
+                                font-size:14px;
+                                color:#333333;
+                            }
+                            .version{
+                                color:@primary-color;
+                                font-size:12px;
+                                line-height:20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .msgBox.leftSide{
+                &>div{
+                    float:left;
+                    .arrow img{
+                        width: 16px;
+                        height: 8px;
+                        float: right;
+                        margin: 16px -6px 0 0;
+                    }
+                    .detail{
+                        &>div:after{
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 5px;
+                            border-color: #ffffff #ffffff transparent transparent;
+                            transform: rotate(45deg);
+                            box-shadow: 1px -1px 0px #d9d9d9;
+                            right: -4px;
+                            top: 14px;
+                        }
+                    }
+                }
+            }
+            .msgBox.rightSide{
+                &>div{
+                    float:right;
+                    .arrow img{
+                        width: 16px;
+                        height: 8px;
+                        float: left;
+                        margin: 16px 0 0 -7px;
+                    }
+                    .detail{
+                        margin-left:20px;
+                        &>div{
+                            margin-left:9px;
+                        }
+                        &>div:after{
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 5px;
+                            border-color: #ffffff #ffffff transparent transparent;
+                            transform: rotate(225deg);
+                            box-shadow: 1px -1px 0px #d9d9d9;
+                            left: -4px;
+                            top: 14px;
+                        }
+                    }
+                }
+            }
+            .msgBox:not(:first-child){
+                margin-top:-30px;
+            }
+        }
+    }
+}
+@keyframes fly{
+    from{
+        top:100%;
+    }
+    to{
+        top:0;
+    }
+}

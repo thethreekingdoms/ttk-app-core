@@ -182,7 +182,7 @@ class ItemOption extends React.Component {
                             )
                         }
                     </div>
-                    <div className="ttk-ColumnsSetting-item-action">
+                    <div className="ttk-ColumnsSetting-item-action" style={{textAlign:"right"}}>
                         {
                             sort ? (
                                 <Icon 

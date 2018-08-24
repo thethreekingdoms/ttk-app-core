@@ -1,5 +1,5 @@
 import React from 'react'
-import { Steps } from 'antd'
+//import { Steps } from 'antd'
 import classNames from 'classnames'
 
 function StepsComponent(props) {
@@ -7,8 +7,8 @@ function StepsComponent(props) {
 		'mk-steps': true,
 		[props.className]: !!props.className
 	})
-	return <Steps {...props} className={className} />
+	return <div {...props} className={className} />
 }
 
-StepsComponent.Step = Steps.Step
+//StepsComponent.Step = Steps.Step
 export default StepsComponent

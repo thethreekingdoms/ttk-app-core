@@ -34,7 +34,19 @@ function transformMomentDate(str){
     return moment(new Date(arrNum.join('-')))
 }
 
+//获取指定月份首末日
+function monthStartEndDay(str){
+	if(typeof(str) != 'string'){
+		return '请输入格式化后的日期'
+	}
+	let date = {}
+	date.startDay = moment(str).format("YYYY-MM")+'-01'
+	date.endDay = moment(str).format("YYYY-MM") +'-'+ moment(str).daysInMonth()
+	return date
+}
+
 export default {
     transformDate,
-    transformMomentDate
+    transformMomentDate,
+	monthStartEndDay
 }

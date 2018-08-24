@@ -44,7 +44,7 @@ export default function SequenceColumn(props) {
 	return (
 		<Column
 			key="_sequence"
-			width={62}
+			width={42}
 			fixed={true}
 			cell={ps => getContent(ps)}
 			header={

@@ -1,13 +1,30 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Pagination } from 'antd'
 import Button from '../button/index'
 import classNames from 'classnames'
+import isequal from 'lodash.isequal'
 import Message from '../message/index'
 
 class PaginationComponent extends React.Component{
 	constructor(props){
 		super()
 	}
+
+	assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
 
 	handleClick = () => {
 		const props = this.props
@@ -38,15 +55,25 @@ class PaginationComponent extends React.Component{
 	}
 
 	calJumperInputValue = () => {
-		const props  = this.props
-		const jumperContaienr = document.getElementsByClassName('ant-pagination-options-quick-jumper')[0]
-		if(!jumperContaienr) return setTimeout(()=>this.calJumperInputValue(), 10)
-		const dom = jumperContaienr.getElementsByTagName('input')[0]
-		if( !dom ) return setTimeout(()=>this.calJumperInputValue(), 10)
-		if( parseInt(dom.value) == parseInt(props.current) ){
-			return  
+		try{
+			const props  = this.props
+			const me = ReactDOM.findDOMNode(this)
+			if( !me ) {
+				setTimeout(()=>this.calJumperInputValue(), 10)
+				return
+			}
+			const jumperContaienr = me.getElementsByClassName('ant-pagination-options-quick-jumper')[0]
+			if(!jumperContaienr) return setTimeout(()=>this.calJumperInputValue(), 10)
+			const dom = jumperContaienr.getElementsByTagName('input')[0]
+			if( !dom ) return setTimeout(()=>this.calJumperInputValue(), 10)
+			if( parseInt(dom.value) == parseInt(props.current) ){
+				return  
+			}
+			dom.value = props.current
+		}catch(err){
+			console.log(err)
 		}
-		dom.value = props.current
+		
 	}
 
 	render(){

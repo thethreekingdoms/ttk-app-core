@@ -13,5 +13,6 @@ function DropdownComponent(props) {
 }
 
 DropdownComponent.Button = DropdownButton
+DropdownComponent.AntButton = Dropdown.Button
 
 export default DropdownComponent

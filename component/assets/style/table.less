@@ -1,4 +1,18 @@
 @hoverTdColor: #e6f7f3;
+.emptyShowScroll{
+    .ant-table-placeholder{
+        .mk-nodata{
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        padding: 0;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        border: none !important
+    }
+}
 .mk-table {
     height: 100%;
     overflow-x: hidden;
@@ -9,7 +23,7 @@
     ::selection {
         color:#333;
     }
-    
+
     .ant-table-thead > tr > th:last-child{
         border-radius: 0;
     }
@@ -49,16 +63,11 @@
         border-left-color: #d9d9d9;
         border-bottom-color:#d9d9d9;
     }
-    .ant-table-fixed-right, .ant-table-fixed-right table{
-        border-radius: 0;
-    }
-
-
 
     .ant-table .ant-table-fixed tr{
         background: rgba(0,0,0,0);
         td{
-            height: 35px;
+            height: 37px !important;
             text-overflow: ellipsis;
             border-right: 1px solid #d9d9d9;
         }
@@ -116,7 +125,11 @@
         }
     }
 
-
+    .ant-table-scroll  .ant-table-header {
+        .ant-table-fixed {
+            border-left: none;
+        }
+    }
 
     .ant-table-header{
         //edge
@@ -139,10 +152,50 @@
         scrollbar-track-color: #eaeaea;
         scrollbar-arrow-color: #eaeaea;
         scrollbar-shadow-color: #eaeaea;       
+        .ant-table-fixed {
+            border-top: 1px solid #d9d9d9;
+            .ant-table-thead {
+                border-left: 1px solid #d9d9d9;
+            }
+        }
+        
+    }
+    .ant-table-body {
+        &>table {
+            border-top: 1px solid #d9d9d9; 
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 0px;
+        }
+    }
+
+    .ant-table-header {
         &::-webkit-scrollbar/*整体部分*/
         {
-            width: 6px;
-            height:6px;
+            width: 10px;
+            height: 6px;
+            background: #eaeaea;
+            // margin-left: 5px;
+            // padding: 0px 2px;
+            // margin: 0px 2px;
+        }
+    }
+
+    .ant-table-fixed-header .ant-table-fixed-right, .ant-table-fixed-right table{
+        border-radius: 0;
+        .ant-table-body-outer {
+            margin-bottom: -10px !important;
+        }
+    }
+
+    .ant-table-body, .ant-table-fixed-right .ant-table-body-inner{
+        
+        -webkit-overflow-scrolling: auto;
+        &::-webkit-scrollbar/*整体部分*/
+        {
+            width: 10px;
+            height:10px;
+            // background-color: #eaeaea;
             // margin-left: 5px;
             // padding: 0px 2px;
             // margin: 0px 2px;
@@ -155,19 +208,19 @@
             background: #eaeaea;
             // margin-left: 5px;
             padding: 0px 5px;
-            width: 6px;
+            width: 10px;
             border-left: none;
             border-right: none;
             // border-left: 1px solid #d9d9d9;
             // border-right: 1px solid #d9d9d9;
         }
-
+       
         &::-webkit-scrollbar-thumb/*滑块*/
         {
-            border-radius: 0;
+            border-radius: 10px;
             background-color: #eaeaea;
             padding-top: 4px;
-            width: 6px;
+            width: 10px;
             -webkit-box-shadow: none;
             background: #c2c2c2;
             border-left: none;
@@ -178,42 +231,13 @@
 
         &::-webkit-scrollbar-thumb:hover/*滑块效果*/
         {
-            border-radius: 0;
+            border-radius: 10px;
             -webkit-box-shadow: none;
             // border-left: 1px solid #d9d9d9;
             border-left: none;
             border-right: none;
             // border-right: 1px solid #d9d9d9;
             background: rgba(114,114,114,0.8);
-        }
-
-        .ant-table-fixed {
-            border-top: 1px solid #d9d9d9;
-            .ant-table-thead {
-                border-left: 1px solid #d9d9d9;
-            }
-        }
-        
-    }
-    .ant-table-body{
-        -webkit-overflow-scrolling: auto;
-        &::-webkit-scrollbar-track/*滑动轨道*/
-        {
-            -webkit-box-shadow: none;
-            border-radius: 0;
-            background: #eaeaea;
-            // margin-left: 5px;
-            padding: 0px 5px;
-            width: 6px;
-            // border-left: 1px solid #d9d9d9;
-            // border-right: 1px solid #d9d9d9;
-            border-right: none;
-        }
-        &>table {
-            border-top: 1px solid #d9d9d9; 
-            border-left: 0px;
-            border-right: 0px;
-            border-bottom: 0px;
         }
     }
     .ant-table-thead > tr {
@@ -231,6 +255,9 @@
             text-overflow:ellipsis;
             height: 100%;
             // border-top: 1px solid #d9d9d9;
+            &>span:first-child{
+                // line-height: 35px;
+            }
         }
     }
 
@@ -241,24 +268,24 @@
             text-align: center;
         }
 
-        tr{
-            height: 35px !important;
+        tr:not(.lazy_table_tr){
+            height: 37px !important;
             box-sizing: border-box;
-        }
-        td {
-            height: 35px !important;
-            font-size: 10px;
-            padding: 0 8px;
-            border-top: 0;
-            border-bottom: 1px solid #d9d9d9;
-            border-left: 0;
-            border-color: #d9d9d9;
-            box-sizing: border-box;
-            color: #333333;
-            font-size: 12px;
-            white-space:nowrap;
-            overflow:hidden;
-            text-overflow:ellipsis;
+            td {
+                height: 37px !important;
+                font-size: 10px;
+                padding: 0 8px;
+                border-top: 0;
+                border-bottom: 1px solid #d9d9d9;
+                border-left: 0;
+                border-color: #d9d9d9;
+                box-sizing: border-box;
+                color: #333333;
+                font-size: 12px;
+                white-space:nowrap;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
         }
         tr:last-child{
         	td{
@@ -269,12 +296,18 @@
     .mk-table-checkbox{
         text-align: center;
         vertical-align: middle;
-        width: 60px !important;
+        width: 34px !important;
     }
     //暂无数据显示的下边框
     .ant-table-placeholder{
         border-bottom: none;
         overflow: hidden;
+		
+		// position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate3d(-50%, -50%, 0);
+        // border: none !important
     }
 }
 .mk-table.mk-table-loading{
@@ -295,3 +328,8 @@
 .ant-table-fixed-header .ant-table-body table {
     border-top: none;
 }
+.ant-table{
+    .ant-table-fixed-right{
+        box-shadow: -6px 0 6px -4px rgba(0, 0, 0, 0.15) !important
+    }
+} 

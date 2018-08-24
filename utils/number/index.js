@@ -201,14 +201,18 @@ function addThousPos(input, isFixed) {
     return num.replace(regex, "$1,")
 }
 
-function clearThousPos(num) {
+function clearThousPos(num, isRetOriginalVal) {
     let ret
 
     if (num && num.toString().indexOf(',') > -1) {
         ret = parseFloat(num.toString().replace(/,/g, ""))
     } else {
         if (num == undefined || isNaN(num) || num == null || num.toString().replace(/\s+/g, '') == '') {
-            ret = 0
+            if (!!isRetOriginalVal) {
+              ret = num
+            } else {
+              ret = 0
+            }
         } else {
             ret = parseFloat(num)
         }
@@ -225,5 +229,6 @@ export default {
     moneySmalltoBig,
     transferData,
     toFixedLocal,
-    clearThousPos
+    clearThousPos,
+    addThousPos
 }

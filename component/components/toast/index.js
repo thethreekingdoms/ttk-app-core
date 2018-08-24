@@ -6,4 +6,5 @@ message.config({
     stack: false,
 });
 
-export default message
+const messageComponent = message
+export default messageComponent

@@ -20,7 +20,6 @@ export default class reducer {
         let isAttachCount = this.metaReducer.gf(state, 'data.form.isAttachCount'),
             attachCount = this.metaReducer.gf(state, 'data.form.attachCount'),
             enclosures = List()
-            
         let attachmentFiles = []
         if (file && file.length > 0) {
             file.map(o => {
@@ -45,11 +44,22 @@ export default class reducer {
         }
 
         if (!!ts) {
-            state = this.metaReducer.sf(state, 'data.form.ts', ts)
+            let ts1 = this.metaReducer.gf(state, 'data.form.ts')
+            if(ts1){
+                let ts2 = ts1.slice(11,26).replace(/:/g, '')
+                let newTs = ts.slice(11,26).replace(/:/g, '')
+                if(ts2 <= newTs){
+                    state = this.metaReducer.sf(state, 'data.form.ts', ts) 
+                }
+            }else {
+                state = this.metaReducer.sf(state, 'data.form.ts', ts) 
+            }
+            
         }
 
         state = this.metaReducer.sf(state, 'data.form.adjunctInfo.album', file)
         state = this.metaReducer.sf(state, 'data.form.adjunctInfo.adjunctSize', file.length)
+        // state = this.metaReducer.sf(state, 'data.form.attachmentFiles', fromJS(file))
         state = this.metaReducer.sf(state, 'data.form.attachmentFiles', fromJS(attachmentFiles))
 
         return state

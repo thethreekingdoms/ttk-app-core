@@ -32,6 +32,7 @@ class FormList extends React.Component{
             })
         }
     }
+    
 
     changeList = (a, b) => {
         let { option } = this.state

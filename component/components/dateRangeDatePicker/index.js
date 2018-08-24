@@ -35,8 +35,8 @@ class DateRangeDatePicker extends React.Component {
             }
 
         }
-
-        return parseInt(`${time.year()}${time.month() < 10 ? `0${time.month()}` : `${time.month()}`}${time.date() < 10 ? `0${time.date()}` : `${time.date()}`}`);
+        return time.format('YYYYMMDD');
+        //  return parseInt(`${time.year()}${time.month() < 10 ? `0${time.month()}` : `${time.month()}`}${time.date() < 10 ? `0${time.date()}` : `${time.date()}`}`);
 
     }
 
@@ -108,34 +108,33 @@ class DateRangeDatePicker extends React.Component {
         }
         if (!startEnableDate) {
             //return this.transformDateToNum(nextValue) < this.transformDateToNum(currentValue)||
-            return this.transformDateToNum(moment()) < this.transformDateToNum(currentValue)
+            // return this.transformDateToNum(moment()) < this.transformDateToNum(currentValue)
+            return false;
         } else {
-            return this.transformDateToNum(currentValue) < this.transformDateToNum(startEnableDate)
+            return this.transformDateToNum(currentValue) < this.transformDateToNum(startEnableDate) 
+            //|| this.transformDateToNum(currentValue) > moment().format('YYYYMMDD')
         }
-
-        return false
     }
     disabledEndDate = (currentValue) => {
-        const { endEnableDate } = this.props
+        let { endEnableDate } = this.props
         const { preValue } = this.state
         if (!preValue && !endEnableDate) {
             return false
         }
         if (!endEnableDate) {
-            return this.transformDateToNum(preValue) > this.transformDateToNum(currentValue) 
-            //|| this.transformDateToNum(moment()) < this.transformDateToNum(currentValue)
-        } else {
+           // endEnableDate = moment();
+            return this.transformDateToNum(preValue) > this.transformDateToNum(currentValue)
+        }else{
             return this.transformDateToNum(preValue) > this.transformDateToNum(currentValue) || this.transformDateToNum(currentValue) > this.transformDateToNum(endEnableDate)
         }
-
-        return false
+      
     }
 
     render() {
         const { preValue, nextValue, visible } = this.state
         const props = this.props
         let className = classNames({
-            'mk-dateRangeMonthPicker': false,
+            'mk-dateRangeDatePicker': true,
             [props.className]: !!props.className
         })
         return (

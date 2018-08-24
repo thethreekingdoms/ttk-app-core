@@ -50,6 +50,8 @@ class reducer {
 
 	setFields = common.setFields
 
+	setChildMeta = common.setChildMeta
+
 	gm = common.getMeta
 
 	sm = common.setMetaForce

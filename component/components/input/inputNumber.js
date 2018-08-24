@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { Input } from 'antd'
 import utils from 'edf-utils'
+import isequal from 'lodash.isequal'
 
 export default class InputNumberComponent extends Component {
 
@@ -34,6 +35,20 @@ export default class InputNumberComponent extends Component {
 
     }
 
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
 
     calculateState(props) {
         let data = {}
@@ -179,19 +194,63 @@ export default class InputNumberComponent extends Component {
 
 
     onChange(e) {
-    		const value = (e.target.validity.valid) ? e.target.value : this.state.value
+        //const value = e.target.validity ? (e.target.validity.valid ? e.target.value : this.state.value) : e.target.value
+        let value
+        if (e.target.validity) {
+            value = (e.target.validity.valid) ? e.target.value : this.state.value
+        } else {
+            value = e.target.value
+        }
+
+        if(value.trim()=='-.') value=0
         const regExp = this.getRegExp()
+
+        // edge浏览器微软拼音输入法下，小数位数控制不住的问题处理
+        if (value &&
+            value.toString().length > 1 &&
+            value.toString().substr(value.toString().length-1, 1) != '.' &&
+            !regExp.test(utils.number.clearThousPos(value, true))) {
+
+            if (e.preventDefault)
+              e.preventDefault()
+            if (e.stopPropagation)
+              e.stopPropagation()
+
+            return
+        }
 
         //当为小数正则表达式时，不进行小数点正则检查
         if (regExp.test('0.0') && e.target.value && e.target.value != '' && e.target.value.indexOf('.') > -1) {
-        		this.setState({ value })
-        		this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                this.setState({ value })
+                if( this.props.timeout ) {
+                    let keyRandom = Math.floor(Math.random()*10000000)
+                    this.keyRandom = keyRandom
+                    setTimeout(() => {
+                        if( keyRandom == this.keyRandom ) {
+                            this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                        }
+                    }, 200)
+                }else{
+                    this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                }
+        		
         }
 
         //是数字或者是空或者是-
-        if ((!isNaN(utils.number.clearThousPos(value)) && regExp.test(utils.number.clearThousPos(value))) || value === '' || value === '-') {
-        		this.setState({ value })
-        		this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+        if ((!isNaN(utils.number.clearThousPos(value, true)) && regExp.test(utils.number.clearThousPos(value))) || value === '' || value === '-') {
+                this.setState({ value })
+                if( this.props.timeout ) {
+                    let keyRandom = Math.floor(Math.random()*10000000)
+                    this.keyRandom = keyRandom
+                    setTimeout(() => {
+                        if( keyRandom == this.keyRandom ) {
+                            this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                        }
+                    }, 200)
+                }else{
+                    this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                }
+        		
         }
 
         // COMMENT 0205 HAOZHAO START
@@ -253,7 +312,7 @@ export default class InputNumberComponent extends Component {
             this.setState({ value: value + '' })
             this.state.oldValue != value && this.props.onChange && this.props.onChange(this.toNumber(this.toPrecisionAsStep(value)), this.toNumber(this.toPrecisionAsStep(this.state.oldValue)))
         }
-        if(value == ''){
+        if(value == '' && this.props.nullToZero){
             value = 0
         }
         if(this.props.executeBlur){
@@ -285,139 +344,172 @@ export default class InputNumberComponent extends Component {
             }
         }
         //if (this.props.numberOnly) {
-            //空格和等号,这两个对于凭证有特殊含义的快捷键
-            if (e.key === ' ' || e.keyCode == 32 || e.key === '=' || e.keyCode == 187 ||
-                (e.target.value && (e.key === '-' || e.keyCode == 189 || e.keyCode == 109))) {
-                if (this.props.onShortcutKey) {
-                    this.props.onShortcutKey(e)
+        //空格和等号,这两个对于凭证有特殊含义的快捷键
+        if (e.key === ' ' || e.keyCode == 32 || e.key === '=' || e.keyCode == 187 ||
+            (e.target.value && (e.key === '-' || e.keyCode == 189 || e.keyCode == 109))) {
+            if (this.props.onShortcutKey) {
+                this.props.onShortcutKey(e)
 
-                    if (e.preventDefault)
-                        e.preventDefault()
-                    if (e.stopPropagation)
-                        e.stopPropagation()
-                    return
-                }
+                if (e.preventDefault)
+                    e.preventDefault()
+                if (e.stopPropagation)
+                    e.stopPropagation()
+                return
             }
-            //if (this.state.regex) {
-                if (e.type !== 'keydown' ||
-                    e.keyCode == 8 ||
-                    e.keyCode == 46 ||
-                    e.keyCode == 27 ||
-                    e.keyCode == 9 ||
-                    e.keyCode == 37 ||
-                    e.keyCode == 39 ||
-                    e.keyCode == 38 ||
-                    e.keyCode == 40 ||
-                    e.key === 'Enter' ||
-                    e.keyCode == 13 ||
-                    e.keyCode == 108 ||
-                    (e.ctrlKey)) {
+        }
+        //if (this.state.regex) {
+        if (e.type !== 'keydown' ||
+            e.keyCode == 8 ||
+            e.keyCode == 46 ||
+            e.keyCode == 27 ||
+            e.keyCode == 9 ||
+            e.keyCode == 37 ||
+            e.keyCode == 39 ||
+            e.keyCode == 38 ||
+            e.keyCode == 40 ||
+            e.key === 'Enter' ||
+            e.keyCode == 13 ||
+            e.keyCode == 108 ||
+            (e.ctrlKey)) {
 
-                    //this.props.onEventKeyDown && this.props.onEventKeyDown(e)
-                    //this.props.onKeyDown && this.props.onKeyDown(e)
-                    return
-                }
+            //this.props.onEventKeyDown && this.props.onEventKeyDown(e)
+            //this.props.onKeyDown && this.props.onKeyDown(e)
+            return
+        }
 
-                //解极品五笔输入法下，新增凭证中无法输入数字的问题
-                if (e.keyCode == '229') {
-                    // COMMENT TTK-2229 TTK-2242 解决该问题(IE下微软中文时无法录入数字)  故先注释掉以下四行
-                    // if (e.preventDefault)
-                    //     e.preventDefault()
-                    // if (e.stopPropagation)
-                    //     e.stopPropagation()
-                    return
-                }
+        //解极品五笔输入法下，新增凭证中无法输入数字的问题
+        if (e.keyCode == '229') {
+            // COMMENT TTK-2229 TTK-2242 解决该问题(IE下微软中文时无法录入数字)  故先注释掉以下四行
+            // if (e.preventDefault)
+            //     e.preventDefault()
+            // if (e.stopPropagation)
+            //     e.stopPropagation()
+            return
+        }
 
-                // 获取光标当前位置
-                let cursorPosition = utils.dom.getCursorPosition(e.target)
-                let regExp = this.getRegExp()
+        // 获取光标当前位置
+        let cursorPosition = this.getCursorPosition(e.target)//utils.dom && utils.dom.getCursorPosition(e.target)
 
-                let selectedText = window.getSelection().toString(),
-                    checkText, keyCode
+        let regExp = this.getRegExp()
+        //IE 、IE8兼容处理
 
-                //Chrome中小数点的ascii码是110（小键盘）、190（大键盘）
-                if (e.keyCode == 46 || e.keyCode == 110 || e.keyCode == 190) {
-                    keyCode = 46
-                    //当为小数正则表达式时，不进行小数点正则检查
-                    if (regExp.test('0.0') && e.target.value && e.target.value.indexOf('.') == -1) {
-                        console.log('e.key:   ' + e.key)
-                        return
-                    }
-                    //109：小键盘负号的keyCode 189:大键盘负号的keyCode
-                } else if (e.keyCode == 189 || e.keyCode == 109) {
-                    keyCode = 45
+        let selectedText = this.getSelection(),
+            checkText, keyCode
 
-                    //当为负数正则表达式时，不进行负号正则检查
-                    if (regExp.test('-1') && !e.target.value) {
-                        return
-                    }
-                } else {
-                    keyCode = e.keyCode
-                }
+        //Chrome中小数点的ascii码是110（小键盘）、190（大键盘）
+        if (e.keyCode == 46 || e.keyCode == 110 || e.keyCode == 190) {
 
-                let stateValue = this.state.value.toString()
-                if (selectedText != '') {
-                    stateValue = stateValue.replace(selectedText, '')
-                }
+            // keyCode = 46
+            //当为小数正则表达式时，不进行小数点正则检查
+            if (regExp.test('0.0') && e.target.value && e.target.value.indexOf('.') == -1) {
+                console.log('e.key:   ' + e.key)
+                return
+            }
+            //109：小键盘负号的keyCode 189:大键盘负号的keyCode
+        } else if (e.keyCode == 189 || e.keyCode == 109) {
+            keyCode = 45
 
-                //将输入的字符插入数字串中
-                if (stateValue.length == cursorPosition) {
-                    if (regExp.test('-1')) { //为了解决edge和ie下，值有负号不能全选修改的问题
-                        stateValue = stateValue.replace(/-/g,'')
-                    }
+            //当为负数正则表达式时，不进行负号正则检查
+            if (regExp.test('-1') && !e.target.value) {
+                return
+            }
+        } else {
+            keyCode = e.keyCode
+        }
 
-                    checkText = stateValue + this.stringFromCharCode(keyCode)
-                } else if (cursorPosition == 0) {
-                    if (regExp.test('-1')) {//为了解决edge和ie下，值有负号不能全选修改的问题
-                        stateValue = stateValue.replace(/-/g,'')
-                    }
+        let stateValue = this.state.value.toString()
+        if (selectedText != '') {
+            stateValue = stateValue.replace(selectedText, '')
+        }
 
-                    checkText = this.stringFromCharCode(keyCode) + stateValue
-                } else {
-                    if (regExp.test('-1')) {//为了解决edge和ie下，值有负号不能全选修改的问题
-                        stateValue = stateValue.replace(/-/g,'')
-                    }
+        //将输入的字符插入数字串中
+        if (stateValue.length == cursorPosition) {
+            if (regExp.test('-1')) { //为了解决edge和ie下，值有负号不能全选修改的问题
+                stateValue = stateValue.replace(/-/g, '')
+            }
 
-                    checkText = stateValue.substring(0, cursorPosition) +
-                        this.stringFromCharCode(keyCode) +
-                        stateValue.substring(cursorPosition)
-                }
+            checkText = stateValue + this.stringFromCharCode(keyCode)
+        } else if (cursorPosition == 0) {
+            if (regExp.test('-1')) {//为了解决edge和ie下，值有负号不能全选修改的问题
+                stateValue = stateValue.replace(/-/g, '')
+            }
 
-                //去掉输入值中的逗号
-                if (checkText) {
-                    if (checkText.indexOf(',') > -1) {
-                        checkText = checkText.replace(/,/g,'')
-                    }
-                }
+            checkText = this.stringFromCharCode(keyCode) + stateValue
+        } else {
+            if (regExp.test('-1')) {//为了解决edge和ie下，值有负号不能全选修改的问题
+                stateValue = stateValue.replace(/-/g, '')
+            }
 
-                // if (!regExp.test(checkText)) {
-                //     if (e.preventDefault)
-                //         e.preventDefault()
-                //     if (e.stopPropagation)
-                //         e.stopPropagation()
-                //     return
-                // }
+            checkText = stateValue.substring(0, cursorPosition) +
+                this.stringFromCharCode(keyCode) +
+                stateValue.substring(cursorPosition)
 
-                if (regExp.test('-1')) {
-                    // 为了解决 360浏览器和谷歌浏览器输入负号无法输入的情况
-                    if (checkText != '-' && !regExp.test(checkText)) {
-                        if (e.preventDefault)
-                            e.preventDefault()
-                        if (e.stopPropagation)
-                            e.stopPropagation()
-                        return
-                    }
-                } else {
-                    if (!regExp.test(checkText)) {
-                        if (e.preventDefault)
-                            e.preventDefault()
-                        if (e.stopPropagation)
-                            e.stopPropagation()
-                        return
-                    }
-                }
-            //}
+        }
+
+        //去掉输入值中的逗号
+        if (checkText) {
+            if (checkText.indexOf(',') > -1) {
+                checkText = checkText.replace(/,/g, '')
+            }
+        }
+
+        // if (!regExp.test(checkText)) {
+        //     if (e.preventDefault)
+        //         e.preventDefault()
+        //     if (e.stopPropagation)
+        //         e.stopPropagation()
+        //     return
+        // }
+
+        if (regExp.test('-1')) {
+            // 为了解决 360浏览器和谷歌浏览器输入负号无法输入的情况
+            if (checkText != '-' && !regExp.test(checkText)) {
+                if (e.preventDefault)
+                    e.preventDefault()
+                if (e.stopPropagation)
+                    e.stopPropagation()
+                return
+            }
+        } else {
+            if (!regExp.test(checkText)) {
+                if (e.preventDefault)
+                    e.preventDefault()
+                if (e.stopPropagation)
+                    e.stopPropagation()
+                return
+            }
+        }
         //}
+        //}
+    }
+    getCursorPosition = (target) => {
+        var oTxt1 = target;
+        var cursorPosition = -1;
+        if (oTxt1.selectionStart != undefined) {//非IE浏览器
+            cursorPosition = oTxt1.selectionStart;
+        } else {//IE
+            var range = document.selection.createRange();
+            range.moveStart("character", -oTxt1.value.length);
+            cursorPosition = range.text.length;
+        }
+
+        return cursorPosition
+    }
+    /**
+     * IE：document.selection 　　
+     * FireFox：window.getSelection()
+     * window.getSelection()也只有FireFox和Safari支持 selection   对象
+     */
+    getSelection = () => {
+        if (window.getSelection) {
+            return window.getSelection().toString()
+        }
+        else if (document.getSelection) {
+            return document.getSelection().toString()
+
+        } else if (document.selection) {
+            return document.selection.createRange().text
+        }
     }
 
     getRegExp(){
@@ -454,6 +546,13 @@ export default class InputNumberComponent extends Component {
            (regExp.test('-1') && e.target.value == '-') ||
            (e.target.value != '-.')){
 
+            if (!regExp.test(e.target.value)) {
+                if (e.preventDefault)
+                    e.preventDefault()
+                if (e.stopPropagation)
+                    e.stopPropagation()
+                return
+            }
         }else{
             if(!regExp.test(repValue)){
               repValue = ''
@@ -494,17 +593,23 @@ export default class InputNumberComponent extends Component {
         return ret
     }
 
-  	handleFocus(e){
-  			setTimeout(() => {
-            if (document.activeElement &&
-                typeof document.activeElement.select == 'function'){
+    handleFocus = (e) => {
+        //获取事件对象 兼容IE8
+        const eve = e || window
+        ////获取document 对象的引用 兼容IE8
+        const objEle = eve.target || eve.srcElement
+        objEle.focus()
 
+        setTimeout(() => {
+            if (document.activeElement && typeof document.activeElement.select == 'function') {
                 document.activeElement.select()
+            } else {
+                objEle.select()
             }
-        }, 0)
-
+        }, 10)
         this.props.onFocus && this.props.onFocus(e)
-  	}
+    }
+
 
     render() {
         let className = classNames({
@@ -516,6 +621,7 @@ export default class InputNumberComponent extends Component {
                 {...this.props}
                 ref='internal'
                 className = { className }
+                id='mk-input-number'
                 onChange={:: this.onChange}
                 onKeyDown = {:: this.onKeyDown }
                 onKeyUp={::this.handleKeyUp}

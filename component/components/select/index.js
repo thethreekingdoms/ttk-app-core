@@ -1,6 +1,8 @@
 import React from 'react'
 import Select from 'ttk-rc-select'
 import classNames from 'classnames'
+import isequal from 'lodash.isequal'
+import LazySelect from './lazySelect'
 
 export default class SelectComponent extends React.Component {
 	constructor(props) {
@@ -12,6 +14,24 @@ export default class SelectComponent extends React.Component {
 			currentRows: props.defaultSelectRows
 		}
 	}
+
+	assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+		// if( window.noshouldComponent ) {
+        //     return true
+        // }
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
+
 	componentWillReceiveProps(nextProps) {
         // if( !isequal(nextProps, this.props) ){
         //    console.log(isequal(nextProps, this.props))
@@ -21,13 +41,14 @@ export default class SelectComponent extends React.Component {
 		if (props.filterOption) {
 			return props.filterOption
 		}
-	
+
 		let filterOptionExpressions = props.filterOptionExpressions
 		if(filterOptionExpressions){
+			// debugger
 			let filterFields = filterOptionExpressions.split(',')
 			return (input, option)=>{
 				for(let f of filterFields){
-					let tmp = option.props._data[f]
+					let tmp = option.props.children
 					if (tmp && tmp.toLowerCase().indexOf(input.toLowerCase()) != -1 )
 						return true
 				}
@@ -38,8 +59,8 @@ export default class SelectComponent extends React.Component {
 	}
 
 	popupScroll({event, data, defaultSelectRows, selectRows}){
-		//data:总数据 
-		//defaultSelectRows：初始默认行数 
+		//data:总数据
+		//defaultSelectRows：初始默认行数
 		//selectRows:滚动一次加载的行数
 		if(this.state.props.selectPagination){
 			if(event.target.scrollHeight - event.target.scrollTop - event.target.offsetHeight < 5){
@@ -50,7 +71,6 @@ export default class SelectComponent extends React.Component {
 		}else{
 			return
 		}
-		
 	}
 
 	SelectComponent(props) {
@@ -89,7 +109,22 @@ export default class SelectComponent extends React.Component {
 		else{
 			otherProps.children = props.children
 		}
-		
+		if( this.props.lazyload ) {
+			return (
+				<LazySelect
+					{...otherProps}
+					{...modeConfig}
+					prefixCls='ant-select'
+					className={className}
+					notFoundContent={notFoundContent}
+					suffix={suffix}
+					// defaultSelectRows = {this.state.props.defaultSelectRows || 10}  //select组件默认显示行数
+					// selectRows = {this.state.props.selectRows || 10} //select组件滚动一次加载的行数
+					// selectPagination = {this.state.props.selectPagination || false} //select组件是否支持分页加载
+					//onPopupScroll = {(e) => this.popupScroll({event, data: this.props.onPopupScroll, defaultSelectRows: this.props.defaultSelectRows, selectRows: this.props.selectRows})}
+				/>
+			)
+		}
 		return (<Select
 			{...otherProps}
 			{...modeConfig}

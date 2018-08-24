@@ -9,17 +9,18 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 	},
 	entry: {
+		/*
 		shim: [
 			'console-polyfill',
 			'es5-shim',
 			'es5-shim/es5-sham',
 			'html5shiv',
-		],
+		],*/
 		vendor: [
-			'raf/polyfill',
-			'babel-polyfill',
-			'url-polyfill',
-			'es6-promise',
+			// 'raf/polyfill',
+			// 'babel-polyfill',
+			// 'url-polyfill',
+			// 'es6-promise',
 			'react',
 			'react-dom',
 			'antd',
@@ -27,6 +28,7 @@ module.exports = {
 			'prop-types',
 			'react-redux',
 			'ttk-rc-select',
+			'ttk-rc-intro',
 			'moment',
 			'md5',
 			'immutable',
@@ -39,13 +41,12 @@ module.exports = {
 			'react-json-tree',
 			'react-viewer',
 			'whatwg-fetch',
-			'fixed-data-table-2',
-			'babel-standalone'
+			'fixed-data-table-2'
 		]
 	},
 	output: {
 		path: path.join(__dirname, 'vendor'),
-		filename: '[name].dll.js',
+		filename: '[name].[chunkhash:8].dll.js',
 		library: '[name]_lib',
 		// library 与 DllPlugin 中的 name 一致
 	},

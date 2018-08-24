@@ -8,9 +8,31 @@ import warning from './warning'
 import confirm from './confirm'
 import zhCN from 'antd/lib/locale-provider/zh_CN'
 import classNames from 'classnames'
+import Drag from '../drag/index'
+
+class DragTitle extends Component {
+	updateTransform = transformStr => {
+		this.modalDom.style.transform = transformStr;
+	};
+	componentDidMount() {
+		this.modalDom = document.getElementsByClassName(
+			"ant-modal" //modal的class是ant-modal
+		)[0];
+	}
+	render() {
+		const title = this.props.title
+		return (
+			<Drag updateTransform={this.updateTransform}>
+				<div>{title}</div>
+			</Drag>
+		)
+	}
+}
+
 
 class ModalComponent extends Component {
 	state = {
+		confirmLoading: false
 	}
 
 	setOkListener = (cb) => {
@@ -23,16 +45,17 @@ class ModalComponent extends Component {
 
 
 	handleOk = async () => {
+		this.setState({ confirmLoading: true })
 		let listener = this.state.okListener, ret
-
 		if (listener) {
 			ret = await listener()
+			this.setState({ confirmLoading: false })
 			if (ret === false) {
 				return
 			}
 		}
-
 		this.props.onOk && this.props.onOk(ret)
+
 	}
 
 	handleCancel = async () => {
@@ -49,7 +72,8 @@ class ModalComponent extends Component {
 	}
 
 	render() {
-		var { children, ...otherProps } = this.props
+		var { children, title, allowDrag, ...otherProps } = this.props
+		var { confirmLoading } = this.state
 		children = React.cloneElement(children, {
 			setOkListener: this.setOkListener,
 			setCancelLister: this.setCancelListener,
@@ -58,10 +82,21 @@ class ModalComponent extends Component {
 		let className = classNames({
 			'mk-modal': true
 		})
+		
+		allowDrag = allowDrag === false ? false : true
+
+		if (allowDrag) {
+			title = (
+				<DragTitle title={title} />
+			)
+		}
+
 		return (
 			<LocaleProvider locale={zhCN}>
 				<Modal
-					visible
+					visible={true}
+					title={title}
+					confirmLoading={confirmLoading}
 					className={className}
 					{...otherProps}
 					children={children}
@@ -74,6 +109,7 @@ class ModalComponent extends Component {
 }
 
 ModalComponent.newInstance = (props) => {
+
 	return {
 		show(properties) {
 			const div = document.createElement('div')
@@ -105,10 +141,12 @@ ModalComponent.newInstance = (props) => {
 					resolve(res || true)
 					return res
 				}
-				
+				const title = (
+					<DragTitle title="Basic Modal" />
+				)
 
 				const props = properties || {}
-				if( props.closeBack ){
+				if (props.closeBack) {
 					props.closeBack(closeModal)
 				}
 				props.cancelText = props.cancelText || '取消'
@@ -129,6 +167,8 @@ ModalComponent.newInstance = (props) => {
 		}
 	}
 }
+
+
 
 let m = window.__Modal
 

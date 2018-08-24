@@ -87,7 +87,20 @@ export default class reducer {
         return this.metaReducer.sf(state, path, lst)
     }
 
-    delRow = (state, gridName, rowIndex) => {
+    addBottomRow = (state, gridName, rowIndex) => {
+        if (!this.option)
+            return state
+
+        const path = this.option[gridName].path,
+            emptyRow = this.option[gridName].emptyRow || {}
+
+        var lst = this.metaReducer.gf(state, path)
+        lst = lst.insert(rowIndex+1, Map(emptyRow))
+
+        return this.metaReducer.sf(state, path, lst)
+    }
+
+    delRow = (state, gridName, rowIndex, delControl) => {
         if (!this.option)
             return state
 
@@ -98,7 +111,9 @@ export default class reducer {
             return state
 
         lst = lst.remove(rowIndex)
-
+	    if(delControl != undefined){
+		    return this.metaReducer.sf(state, path, lst)
+	    }
         //永远保证有5行
         let defaultLength = this.metaReducer.gf(state, 'data.other.defaultLength')
         if ((defaultLength != undefined && lst.size == defaultLength-1) || lst.size == 4)

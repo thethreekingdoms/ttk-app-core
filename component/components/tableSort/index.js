@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import isequal from 'lodash.isequal'
 import { Icon } from 'antd'
 
 export default class Sort extends React.Component{
@@ -7,6 +8,22 @@ export default class Sort extends React.Component{
         super(props)
         this.state = {}
     }
+
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
+
     handleClick=(value)=>{
         let flag
         let { sortOrder, handleClick } = this.props

@@ -30,7 +30,7 @@ function listen(selfApp, handler) {
 
         h = handler
         let unlisten = hashHistory.listen((location, action) => {
-            const childApp = getChildApp(selfApp) || 'ttk-edf-app-home'
+            const childApp = getChildApp(selfApp) || 'edfx-app-home'
             handler(childApp, location, action)
         })
 
@@ -81,11 +81,11 @@ function pullChildApp(closeAppName, currentTab) {
     if (historyArray) {
         let childApp = getRealName(historyArray.get('appName'))
         if (childApp) {
-            let selfApp = 'ttk-edf-app-portal'
+            let selfApp = 'edfx-app-portal'
             this.pushChildApp(selfApp, childApp)
             /*
             try {
-                
+
                 let newHistoryApp = selfApp + childApp
                 if (!childApp || childApp == '/' || childApp.indexOf(childApp) == -1) {
                     hashHistory.push(getAlias(`/${selfApp}/${childApp}`))
@@ -100,7 +100,33 @@ function pullChildApp(closeAppName, currentTab) {
     }
 }
 
-function pushChildApp(selfApp, childApp) {
+function pullChildAppMin(closeAppName, currentTab) {
+  //关闭页签，刷新router
+  let currentTabIndex = currentTab.size == 0 ? 0 : currentTab.size -1
+  let historyArray = currentTab.get(currentTabIndex)
+  if (historyArray) {
+    let childApp = getRealName(historyArray.get('appName'))
+    if (childApp) {
+      let selfApp = 'ttk-edf-app-simple-portal'
+      this.pushChildApp(selfApp, childApp)
+      /*
+      try {
+
+          let newHistoryApp = selfApp + childApp
+          if (!childApp || childApp == '/' || childApp.indexOf(childApp) == -1) {
+              hashHistory.push(getAlias(`/${selfApp}/${childApp}`))
+              return
+          }
+          //hashHistory.push(newHistoryApp)
+      }
+      catch (exp) {
+
+      }*/
+    }
+  }
+}
+
+function pushChildApp(selfApp, childApp, params) {
     let pathName = hashHistory.location.pathname
     pathName = getRealName(pathName)
     if (!pathName || pathName == '/' || pathName.indexOf(selfApp) == -1) {
@@ -119,22 +145,30 @@ function pushChildApp(selfApp, childApp) {
         segs.splice(selfIndex + 1, segs.length - selfIndex, childApp)
         //segs[selfIndex + 1] = childApp
     }
-
     if (pathName == segs.join('/')) {
 
         hashHistory.push(getAlias(segs.join('/')))
         return
     }
+	if(params){
+    	let str = '';
+    	Object.entries(params).forEach((data) => str = str +  data[0] + '=' + data[1] + '&')
+		if(str.includes('undefined')){
+			hashHistory.push(getAlias(segs.join('/')+`?`))
+		}else {
+			hashHistory.push(getAlias(segs.join('/')+`?${str.slice(0,str.length-1)}`))
+		}
+	}else {
+		hashHistory.push(getAlias(segs.join('/')))
+	}
 
-
-    hashHistory.push(getAlias(segs.join('/')))
 }
 
 //重定向
-function redirect(url) {
+function redirect(url){
     console.log('redirect')
     window.location.href = url
-}
+    }
 
 
 export default {
@@ -144,6 +178,7 @@ export default {
     getChildApp,
     pushChildApp,
     pullChildApp,
+    pullChildAppMin,
     redirect,
     location: hashHistory.location
 }

@@ -8,6 +8,8 @@
     .ant-popover-arrow{
         left: auto !important;
         right: 12% !important;
+        top: -4px;
+        transform: translateX(-50%) rotate(-135deg) !important;
     }
     .ant-popover-title {
         padding: 0px 10px;
@@ -25,6 +27,7 @@
                 line-height: 25px;
                 &:hover{
                     color: @primary-color;
+                    text-decoration: none;
                 }
             }
         }
@@ -50,6 +53,14 @@
 .mk-attachment > i{
     margin-left: 35px;
 }
+.mk-attachment:hover{
+    // .edficon-fujian{
+    //     &:hover{
+            color: @primary-color;
+            cursor: pointer;
+        // }
+    // }
+}
 .mk-attachment > span:hover{
     color: @link-color;
     cursor: pointer;
@@ -59,6 +70,12 @@
     height: 220px;
     display: flex;
     flex-direction: column;
+    .mk-datagrid .fixedDataTableLayout_main{
+        border-top: none;
+    }
+    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+        border: none;
+    }
     .mk-datagrid-cellContent-left {
         padding-left: 10px;
     }
@@ -69,6 +86,8 @@
         text-align: left;
         .edficon{
             font-size: 24px;
+            height: 35px;
+            line-height: 35px;
             &.del{
                 font-size: 20px;
             }
@@ -89,11 +108,17 @@
         justify-content: flex-start;
         padding-left: 10px;
         font-size: 12px;
+        display: flex !important;
+        a{
+            height: 100%;
+            // float: left;
+        }
         span{
             white-space: nowrap;
             text-overflow: ellipsis;
             width: 145px;
             overflow: hidden;
+            display: inline-block;
         }
         
     }

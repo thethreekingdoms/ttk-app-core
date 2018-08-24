@@ -64,7 +64,7 @@ export default class action {
         return ret
     }
 
-    getSelected = (gridName) => {
+    getSelected = (gridName, name) => {
         if (!this.option) return
 
         if (!(typeof gridName == 'string' && gridName)) {
@@ -75,7 +75,11 @@ export default class action {
 
         if (!lst || lst.size == 0) return 0
 
-        lst.map(m => { if (m.get('selected')) ret.push({ id: m.get('id'), ts: m.get('ts') })})
+        lst.map(m => { 
+            let obj = { id: m.get('id'), ts: m.get('ts')}
+            if(name){ obj[name] = m.get(name)}
+            if (m.get('selected')) ret.push(obj)
+        })
 
         return ret
     }
@@ -117,6 +121,10 @@ export default class action {
     gridKeydown = (e) => {
         if (!this.option)
             return
+        //某些条件下可能需要禁用, 不需要移动单元格
+        if( this.option && this.option.details && this.option.details.needBreak &&  this.option.details.needBreak()) {
+            return 
+        } 
 
         var path = ''
 
@@ -333,9 +341,33 @@ export default class action {
         this.injections.reduce('addRow', gridName, ps.rowIndex)
     }
 
-    delRow = (gridName) => (ps) => {
+    //增行在所在行下侧
+	addBottomRow = (gridName, maxLength) => (ps) => {
+		if(typeof(maxLength) == "number"){
+			let details = this.metaAction.gf(`data.form.${gridName}`).toJS()
+			if(details.length >= maxLength){
+				this.metaAction.toast('warning', '表单已达最大行数')
+				return false
+			}
+		}
+        this.injections.reduce('addRowBefore', gridName, ps.rowIndex)
+        this.injections.reduce('addBottomRow', gridName, ps.rowIndex)
+    }
+
+    delRow = (gridName, delControl) => (ps) => {
+    	if(typeof(delControl) == "boolean"){
+		    let details = this.metaAction.gf(`data.form.${gridName}`).toJS()
+		    if(details.length < 2){
+			    this.metaAction.toast('warning', '初始行无法删除')
+			    return false
+		    }
+	    }
         this.injections.reduce('delRowBefore', gridName, ps.rowIndex)
-        this.injections.reduce('delRow', gridName, ps.rowIndex)
+	    if(typeof(delControl) == "boolean") {
+		    this.injections.reduce('delRow', gridName, ps.rowIndex, delControl)
+		    return false
+	    }
+	    this.injections.reduce('delRow', gridName, ps.rowIndex)
     }
 
     upRow = (gridName) => (ps) => {

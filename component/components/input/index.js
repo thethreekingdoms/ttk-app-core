@@ -2,6 +2,7 @@ import React from 'react'
 import { Input, InputNumber as AntNumber} from 'antd'
 import classNames from 'classnames'
 import InputNumber from './inputNumber'
+import isequal from 'lodash.isequal'
 
 class InputComponent extends React.Component {
   state = {
@@ -10,14 +11,31 @@ class InputComponent extends React.Component {
   }
 
 	constructor(props) {
-		super(props)
+        super(props)
 		this.state = { value: props.value }
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-    this.handleKeyUp = this.handleKeyUp.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
+        this.handleKeyUp = this.handleKeyUp.bind(this)
 	}
 
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
+
 	componentWillReceiveProps(nextProps) {
-		this.setState({ value: nextProps.value })
+        if( nextProps.value != this.state.value && nextProps.value != this.props.value) {
+            this.setState({ value: nextProps.value })
+        }
 	}
 
   handleKeyDown(e) {
@@ -42,8 +60,8 @@ class InputComponent extends React.Component {
           let cursorPosition = this.getCursorPosition(e.target)
           let regExp = new RegExp(this.props.regex)///^[A-Za-z0-9]+$/)
 
-          let selectedText = window.getSelection().toString(),
-              checkText,keyCode
+          let selectedText = this.getSelection()//window.getSelection().toString(),
+          let checkText, keyCode
 
           //Chrome中小数点的ascii码是110（小键盘）、190（大键盘）
           if(e.keyCode == 46 || e.keyCode == 110 || e.keyCode == 190){
@@ -99,7 +117,22 @@ class InputComponent extends React.Component {
       }
       this.props.onKeyDown && this.props.onKeyDown(e)
   }
+    /**
+         * IE：document.selection 　　
+         * FireFox：window.getSelection()
+         * window.getSelection()也只有FireFox和Safari支持 selection   对象
+         */
+    getSelection = () => {
+        if (window.getSelection) {
+            return window.getSelection().toString()
+        }
+        else if (document.getSelection) {
+            return document.getSelection().toString()
 
+        } else if (document.selection) {
+            return document.selection.createRange().text
+        }
+    }
   stringFromCharCode(keyCode){
       let ret = ''
       if(keyCode == 96){
@@ -184,9 +217,31 @@ class InputComponent extends React.Component {
   }
 
 	handleChange(e) {
-		const value = (e.target.validity.valid) ? e.target.value : this.state.value
-		this.setState({ value })
-		this.props.onChange && this.props.onChange(e)
+        //const value = e.target.validity ? (e.target.validity.valid ? e.target.value : this.state.value) : e.target.value
+        //IE9一下没有此属性
+        let value
+        if (e.target.validity) {
+            value = (e.target.validity.valid) ? e.target.value : this.state.value
+        } else {
+            value = e.target.value
+        }
+        this.setState({ value })
+        // 有些地方太卡，增加一个节流
+        if( this.props.timeout ) {
+            let keyRandom = Math.floor(Math.random()*10000000)
+            this.keyRandom = keyRandom
+            const a = e.target
+            setTimeout(() => {
+                if( keyRandom == this.keyRandom ) {
+                    this.props.onChange && this.props.onChange({target: a})
+                }
+            }, 300)
+        }else{
+            this.props.onChange && this.props.onChange(e)
+        }
+
+        // this.props.onChange && this.props.onChange(e)
+
 	}
 
 	render() {
@@ -194,15 +249,14 @@ class InputComponent extends React.Component {
 			'mk-input': true,
 			[this.props.className]: !!this.props.className
 		})
-
 		return (
 			<Input
 				{...this.props}
 				value={this.state.value}
 				className={className}
 				onChange={::this.handleChange}
-        onKeyUp={::this.handleKeyUp}
-        onKeyDown={::this.handleKeyDown}
+                onKeyUp={::this.handleKeyUp}
+                onKeyDown={::this.handleKeyDown}
   			/>
   		)
   	}

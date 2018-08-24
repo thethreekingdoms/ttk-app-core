@@ -2,7 +2,7 @@ import utils from 'edf-utils'
 import ReactDOM from 'react-dom'
 import config from './config'
 import Immutable, { fromJS, Map, List } from 'immutable'
-import { LoadingMask } from 'edf-component';
+import { LoadingMask } from '../../components/loadingMask/index';
 import { consts } from 'edf-constant'
 
 let requiredFieldList = []
@@ -126,6 +126,7 @@ export default class action {
                 }
             )
         })
+
         if (ret && ret.isEnable) {
             if (typeof field === 'string') {
                 this.metaAction.sfs({ [field]: fromJS(ret) })
@@ -231,10 +232,10 @@ export default class action {
     }
 
     getInventory = async (params, field) => {
-        let invParam = { status: true, notNeedPage: true }
-        if (params && params.voucherTypeId) {
-            invParam.voucherTypeId = params.voucherTypeId
-        }
+        let invParam = { status: true, notNeedPage: true, ...params }
+        // if (params && params.voucherTypeId) {
+        //     invParam.voucherTypeId = params.voucherTypeId
+        // }
         const response = await this.webapi.inventory.queryList(invParam)
         if (response) {
             this.metaAction.sf(field || 'data.other.inventory', fromJS(response.list))
@@ -257,13 +258,15 @@ export default class action {
         if (!params) {
             params = {
                 bankAccountTypeIds: [98, 99, 101, 100, 152],
-                status: true
+                status: true,
+                ...params
             }
         }
         else {
             params = {
                 status: true,
-                bankAccountTypeIds: params.bankAccountTypeIds
+                bankAccountTypeIds: params.bankAccountTypeIds,
+                ...params
             }
         }
         const response = await this.webapi.bankaccount.queryList(params)
@@ -290,7 +293,7 @@ export default class action {
         }
     }
 
-    addInventory = async (field) => {
+    addInventory = async (field, type) => {
         const ret = await this.metaAction.modal('show', {
             title: '新增存货',
             width: 750,
@@ -302,9 +305,39 @@ export default class action {
         })
 
         if (ret && ret.isEnable) {
-            this.metaAction.sfs({
-                [field]: fromJS(ret)
-            })
+            if (type == 'get') {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve(ret)
+                    }, 0)
+                })
+            } else {
+                this.metaAction.sfs({
+                    [field]: fromJS(ret)
+                })
+            }
+            // this.metaAction.sfs({
+            //     [field]: fromJS(ret)
+            // })
+        }
+    }
+
+    addRevenueType = async (field) => {
+        const ret = await this.metaAction.modal('show', {
+            title: '新增收入类型',
+            width: 450,
+            height: 280,
+            footer: null,
+            children: this.metaAction.loadApp(
+                'scm-incomeexpenses-setting-card', {
+                    store: this.component.props.store,
+                    incomeexpensesTabId: 2001003
+                }
+            )
+        })
+
+        if (ret) {
+            return ret
         }
     }
 
@@ -325,208 +358,379 @@ export default class action {
         }
     }
 
-	beforeUpload = (file) => {
-		let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome')<0)
-		if(!isWin) return
-		let type = file.type ? file.type : ''
-		if(!(type == 'application/vnd.ms-excel'
-				|| type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
-			LoadingMask.hide()
-			this.metaAction.toast('error', '仅支持上传Excel格式的文件')
-			return false
-		}
+    beforeUpload = (file, filetype) => {
+        const isLt10M = file.size / 1024 / 1024 < 10;
+        if (!isLt10M) {
+            //LoadingMask.hide()            
+            this.metaAction.toast('warning', '文件过大，请上传小于10兆的附件')
+            this.injections.reduce('attachmentLoading', false)
+            return false
+        }
     }
 
-    calc = (fieldName, rowIndex, rowData, params) => {
+    excelbeforeUpload = (file) => {
+
+        let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome') < 0)
+        if (!isWin) return
+
+        let type = file.type ? file.type : ''
+
+        if (!(type == 'application/vnd.ms-excel'
+            || type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
+            LoadingMask.hide()
+            this.metaAction.toast('error', '仅支持上传Excel格式的文件')
+            return false
+        }
+
+        this.beforeUpload(file)
+    }
+
+    docBeforeUpload = (file) => {
+        let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome') < 0)
+        if (!isWin) return
+        let type = file.type ? file.type : ''
+
+        if (!(type == 'application/msword'
+            || type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            LoadingMask.hide()
+            this.metaAction.toast('error', '仅支持上传Doc格式的文件')
+            return false
+        }
+
+        this.beforeUpload(file)
+    }
+
+    calc = (fieldName, rowIndex, rowData, params, isNCPFP) => {
         let v = params.value
         if (fieldName === 'price') {//单价
-            this.priceChange(rowIndex, rowData, v)
+            this.priceChange(rowIndex, rowData, v, isNCPFP)
         }
         else if (fieldName === 'amount') {//金额
-            this.amountChange(rowIndex, rowData, v)
+            this.amountChange(rowIndex, rowData, v, isNCPFP)
         }
         else if (fieldName === 'quantity') {//数量
-            this.quantityChange(rowIndex, rowData, v)
+            this.quantityChange(rowIndex, rowData, v, isNCPFP)
         }
         else if (fieldName === 'taxRateName') {//税率
-            this.taxRateChange(rowIndex, rowData, v, params.hasChangeTaxAmount)
+            this.taxRateChange(rowIndex, rowData, v, params.hasChangeTaxAmount, isNCPFP)
         }
         else if (fieldName === 'tax') {//税额
-            this.taxChange(rowIndex, rowData, v)
+            this.taxChange(rowIndex, rowData, v, isNCPFP)
         }
         else if (fieldName === 'taxInclusiveAmount') {
-            this.taxInclusiveAmountChange(rowIndex, rowData, v)
+            this.taxInclusiveAmountChange(rowIndex, rowData, v, isNCPFP)
+        }
+        else if (fieldName === 'fees') {
+            this.feesChange(rowIndex, rowData, v)
         }
 
     }
 
-    priceChange = (rowIndex, rowData, v) => {
+    priceChange = (rowIndex, rowData, v, isNCPFP) => {
         // 金额＝单价×数量
         // 税额＝金额×税率
         // 价税合计＝金额＋税额
-        
-        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
-        const price = utils.number.round(v, 2),
-            quantity = utils.number.round(rowData.quantity, 2),
-            amount = utils.number.round(price * quantity, 2),
-            tax = utils.number.round(amount * (taxRate ? taxRate : 0), 2),
+        // let taxRate = utils.number.round(rowData.taxRate, 2)
+        // const price = utils.number.round(v, 6),
+        const price = Number(v),//解决删除时将小数点自动删除得问题
+            quantity = utils.number.round(rowData.quantity, 6),
+            taxRate = rowData.taxRate
+
+        let amount, tax, taxInclusiveAmount
+        if (quantity) {
+
+            amount = utils.number.round(price * quantity, 2)
+            tax = utils.number.round(amount * (taxRate ? taxRate : 0), 2)
             taxInclusiveAmount = utils.number.round(amount + tax, 2)
 
-        this.metaAction.sfs({
-            [`data.form.details.${rowIndex}.price`]: price,
-            [`data.form.details.${rowIndex}.amount`]: amount,
-            [`data.form.details.${rowIndex}.tax`]: tax,
-            [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-        })
-    }
-
-    amountChange = (rowIndex, rowData, v) => {
-        // 税额＝金额×税率
-        // 价税合计＝金额+税额
-        // 如果数量为0 ，单价为0
-        // 如果数量不为0，单价＝金额÷数量 
-     
-        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
-        const amount = utils.number.round(v, 2),
-            quantity = utils.number.round(rowData.quantity, 2),
-            price = utils.number.round(rowData.price, 2),
-            tax = utils.number.round(amount * (taxRate ? taxRate: 0), 2),
-            taxInclusiveAmount = utils.number.round(amount + tax, 2)
-          let _price = 0
-
-        if (quantity != 0) {
-            _price = utils.number.round(amount / quantity, 2)
-        } 
-
-        this.metaAction.sfs({
-            [`data.form.details.${rowIndex}.amount`]: amount,
-            [`data.form.details.${rowIndex}.tax`]: tax,
-            [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-            [`data.form.details.${rowIndex}.price`]: _price
-        })
-    }
-
-    quantityChange = (rowIndex, rowData, v) => {
-        // 金额＝单价×数量
-        // 税额＝金额×税率
-        // 价税合计＝金额＋税额
-       
-        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
-        const quantity = utils.number.round(v, 2),
-            price = utils.number.round(rowData.price, 2),
-            amount = utils.number.round(price * quantity, 2),
-            tax = utils.number.round(amount * (taxRate ? taxRate: 0), 2),
-            taxInclusiveAmount = utils.number.round(amount + tax, 2)
-
-        this.metaAction.sfs({
-            [`data.form.details.${rowIndex}.quantity`]: quantity,
-            [`data.form.details.${rowIndex}.amount`]: amount,
-            [`data.form.details.${rowIndex}.tax`]: tax,
-            [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-        })
-    }
-
-    taxRateChange = (rowIndex, rowData, v, hasChangeTaxAmount) => {
-        // 金额＝价税合计÷（1＋税率）
-        // 税额＝价税合计－金额
-        // 如果数量为0，单价为0
-        // 如果数量不为0:
-        // 单价=价税合计÷（1＋税率）÷数量
-        
-        let taxRates = this.metaAction.gf('data.other.taxRate').toJS()
-            let hit = taxRates.find(o => o.id == v)
-            if (!hit) return
-            let taxRate = utils.number.round(hit.taxRate, 2)
-            if (hasChangeTaxAmount) {
-                const taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2),
-                    amount = utils.number.round(taxInclusiveAmount / (1 + taxRate), 2),
-                    tax = utils.number.round(taxInclusiveAmount - amount, 2),
-                    quantity = utils.number.round(rowData.quantity, 2)
-                    
-                let _price = 0
-                if (quantity != 0) {
-                    _price = utils.number.round(taxInclusiveAmount / (1 + taxRate) / quantity, 2)
+            if (taxRate || taxRate == 0) {//没有税率时不进行 税额和价税合计的反算
+                if (isNCPFP) {
+                    taxInclusiveAmount = utils.number.round(amount / (1 - taxRate), 2)
+                    tax = utils.number.round(taxInclusiveAmount - amount, 2)
                 }
-
                 this.metaAction.sfs({
-                    [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
-                    [`data.form.details.${rowIndex}.taxRateName`]: hit["name"],
-                    [`data.form.details.${rowIndex}.tax`]: tax,
+                    [`data.form.details.${rowIndex}.price`]: price,
+                    // [`data.form.details.${rowIndex}.price`]: v,
                     [`data.form.details.${rowIndex}.amount`]: amount,
-                    [`data.form.details.${rowIndex}.price`]: _price,
-                })
-            } else {
-                const amount = utils.number.round(rowData.amount, 2),
-                    tax = utils.number.round(amount * taxRate, 2),
-                    taxInclusiveAmount = utils.number.round(amount + tax, 2)
-
-                this.metaAction.sfs({
-                    [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
-                    [`data.form.details.${rowIndex}.taxRateName`]: hit["name"],
                     [`data.form.details.${rowIndex}.tax`]: tax,
                     [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
                 })
+            } else {
+                this.metaAction.sfs({
+                    [`data.form.details.${rowIndex}.price`]: price,
+                    // [`data.form.details.${rowIndex}.price`]: v,
+                    [`data.form.details.${rowIndex}.amount`]: amount,
+                })
             }
+
+        } else {
+            this.metaAction.sf(`data.form.details.${rowIndex}.price`, price)
+            // this.metaAction.sf(`data.form.details.${rowIndex}.price`, v)
+        }
     }
 
-    taxChange = (rowIndex, rowData, v) => {
-        // 金额=价税合计－税额
-        // 如果数量为0，则单价为0
-        // 如果数量不为0，单价=金额÷数量
-        
-        const tax = utils.number.round(v, 2),
-              taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2),
-              quantity = utils.number.round(rowData.quantity, 2),
-              amount = utils.number.round(taxInclusiveAmount - tax, 2)
+    amountChange = (rowIndex, rowData, v, isNCPFP) => {
+        // 税额＝金额×税率
+        // 价税合计＝金额+税额
+        // 如果数量为0 ，单价为0
+        // 如果数量不为0，单价＝金额÷数量
+
+        // let taxRate = utils.number.round(rowData.taxRate, 2),
+        let taxRate = rowData.taxRate,
+            // amount = utils.number.round(v, 2),
+            amount = Number(v),//解决删除时将小数点自动删除得问题
+            quantity = utils.number.round(rowData.quantity, 6),
+            price = utils.number.round(rowData.price, 6),
+            tax = utils.number.round(amount * (taxRate ? taxRate : 0), 2),
+            taxInclusiveAmount = utils.number.round(amount + tax, 2)
+
+        if (taxRate || taxRate == 0) {
+            if (isNCPFP) {
+                taxInclusiveAmount = utils.number.round(amount / (1 - taxRate), 2)
+                tax = utils.number.round(taxInclusiveAmount - amount, 2)
+            }
+
+            let _price = 0
+            if (quantity != 0) {
+                _price = utils.number.round(amount / quantity, 6)
+            }
+
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.amount`]: amount,
+                // [`data.form.details.${rowIndex}.amount`]: v,
+                [`data.form.details.${rowIndex}.tax`]: tax,
+                [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
+                [`data.form.details.${rowIndex}.price`]: _price
+            })
+        } else {
+            const price = quantity != 0 ? utils.number.round(amount / quantity, 6) : 0
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.amount`]: amount,
+                // [`data.form.details.${rowIndex}.amount`]: v,
+                [`data.form.details.${rowIndex}.price`]: price
+            })
+        }
+    }
+
+    feesChange = (rowIndex, rowData, v) => {
+        const fees = utils.number.round(v, 2)
+        this.metaAction.sfs({
+            [`data.form.details.${rowIndex}.fees`]: fees
+        })
+    }
+
+    quantityChange = (rowIndex, rowData, v, isNCPFP) => {
+        // 金额＝单价×数量
+        // 税额＝金额×税率
+        // 价税合计＝金额＋税额
+        // let taxRate = utils.number.round(rowData.taxRate, 2)
+
+        // let quantity = utils.number.round(v, 6),
+        let quantity = Number(v),//解决删除时将小数点自动删除得问题
+            price = utils.number.round(rowData.price, 6),
+            taxRate = rowData.taxRate
+
+        let amount = utils.number.round(rowData.amount, 2), tax, taxInclusiveAmount
+
+        if (price) {
+            amount = utils.number.round(price * quantity, 2),
+                tax = utils.number.round(amount * (taxRate ? taxRate : 0), 2),
+                taxInclusiveAmount = utils.number.round(amount + tax, 2)
+            if (taxRate || taxRate == 0) {
+                if (typeof (rowData.amount) != "undefined" && rowData.amount != null) {
+                    const _price = quantity != 0 ? utils.number.round(rowData.amount / quantity, 6) : 0
+                    this.metaAction.sfs({
+                        [`data.form.details.${rowIndex}.quantity`]: quantity,
+                        // [`data.form.details.${rowIndex}.quantity`]: v,
+                        [`data.form.details.${rowIndex}.price`]: _price,
+                    })
+                }
+                else {
+                    if (isNCPFP) {
+                        taxInclusiveAmount = utils.number.round(amount / (1 - taxRate), 2)
+                        tax = utils.number.round(taxInclusiveAmount - amount, 2)
+                    }
+                    this.metaAction.sfs({
+                        [`data.form.details.${rowIndex}.quantity`]: quantity,
+                        // [`data.form.details.${rowIndex}.quantity`]: v,
+                        [`data.form.details.${rowIndex}.amount`]: amount,
+                        [`data.form.details.${rowIndex}.tax`]: tax,
+                        [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount
+                    })
+                }
+            } else {
+                if (typeof (rowData.amount) != "undefined" && rowData.amount != null) {
+                    const _price = quantity != 0 ? utils.number.round(rowData.amount / quantity, 6) : 0
+                    this.metaAction.sfs({
+                        [`data.form.details.${rowIndex}.quantity`]: quantity,
+                        // [`data.form.details.${rowIndex}.quantity`]: v,
+                        [`data.form.details.${rowIndex}.price`]: _price,
+                    })
+                }
+                else {
+                    this.metaAction.sfs({
+                        [`data.form.details.${rowIndex}.quantity`]: quantity,
+                        // [`data.form.details.${rowIndex}.quantity`]: v,
+                        [`data.form.details.${rowIndex}.amount`]: amount,
+                    })
+                }
+            }
+        } else {
+            price = utils.number.round(amount / quantity, 6)
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.quantity`]: quantity,
+                // [`data.form.details.${rowIndex}.quantity`]: v,
+                [`data.form.details.${rowIndex}.price`]: price
+            })
+        }
+    }
+
+    taxRateChange = (rowIndex, rowData, v, hasChangeTaxAmount, isNCPFP) => {
+        // 金额＝价税合计÷（1＋税率）
+        // 税额＝价税合计－金额
+        // 如果数量为0，单价为0
+        // 如果数量不为0:   
+        // 单价=价税合计÷（1＋税率）÷数量
+
+        let taxRates = this.metaAction.gf('data.other.taxRate').toJS()
+        let hit = taxRates.find(o => o.id == v)
+        if (!hit) return
+        let taxRate = utils.number.round(hit.taxRate, 2)
+
+        let taxInclusiveAmount = utils.number.round(rowData.taxInclusiveAmount, 2),
+            tax = utils.number.round(rowData.tax, 2),
+            amount = utils.number.round(rowData.amount, 2),
+            quantity = utils.number.round(rowData.quantity, 6)
+
+        if (isNCPFP) {
+            if (taxInclusiveAmount) {
+                tax = utils.number.round(taxInclusiveAmount * taxRate, 2)
+                amount = utils.number.round(taxInclusiveAmount - tax, 2)
+            } else {
+                if (tax) {
+                    taxInclusiveAmount = utils.number.round(tax / taxRate, 2)
+                    amount = utils.number.round(taxInclusiveAmount - tax, 2)
+                } else if (amount) {
+                    taxInclusiveAmount = utils.number.round(amount / (1 - taxRate), 2)
+                    tax = utils.number.round(taxInclusiveAmount - amount, 2)
+                }
+            }
+        } else {
+            if (amount) {
+                tax = utils.number.round(amount * taxRate, 2)
+                taxInclusiveAmount = utils.number.round(amount + tax, 2)
+            } else {
+                if (tax) {
+                    amount = utils.number.round(tax / taxRate, 2)
+                    taxInclusiveAmount = utils.number.round(amount + tax, 2)
+                } else if (taxInclusiveAmount) {
+                    amount = utils.number.round(taxInclusiveAmount / (1 + taxRate), 2)
+                    tax = utils.number.round(taxInclusiveAmount - amount, 2)
+                }
+            }
+        }
+
         let _price = 0
         if (quantity != 0) {
-            _price = utils.number.round(amount/quantity, 2)
+            _price = utils.number.round(amount / quantity, 6)
         }
 
         this.metaAction.sfs({
+            [`data.form.details.${rowIndex}.taxRateId`]: hit["id"],
+            [`data.form.details.${rowIndex}.taxRateName`]: hit["name"],
+            [`data.form.details.${rowIndex}.taxRate`]: hit["taxRate"],
             [`data.form.details.${rowIndex}.tax`]: tax,
+            [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
             [`data.form.details.${rowIndex}.amount`]: amount,
-            [`data.form.details.${rowIndex}.price`]: _price
+            [`data.form.details.${rowIndex}.price`]: _price,
         })
-
-        // amount = utils.number.round(rowData.amount, 2),
-        // taxInclusiveAmount = utils.number.round(tax+amount, 2),
-        // this.metaAction.sfs({
-        //     [`data.form.details.${rowIndex}.tax`]: tax,
-        //     [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-        // })
-        
     }
 
-    taxInclusiveAmountChange = (rowIndex, rowData, v) => {
+    taxChange = (rowIndex, rowData, v, isNCPFP) => {
+        // 金额=价税合计－税额
+        // 如果数量为0，则单价为0
+        // 如果数量不为0，单价=金额÷数量
+
+        // let tax = utils.number.round(v, 2),
+        let tax = Number(v), //解决删除时将小数点自动删除得问题
+            // taxRate = utils.number.round(rowData.taxRate, 2),
+            taxRate = rowData.taxRate,
+            quantity = utils.number.round(rowData.quantity, 6),
+            amount = utils.number.round(tax / taxRate, 2),
+            taxInclusiveAmount = utils.number.round(amount + tax, 2)
+        if (taxRate || taxRate == 0) {
+            if (isNCPFP) {
+                taxInclusiveAmount = utils.number.round(tax / taxRate, 2)
+                amount = utils.number.round(taxInclusiveAmount - tax, 2)
+            }
+            let _price = 0
+            if (quantity != 0) {
+                _price = utils.number.round(amount / quantity, 6)
+            }
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.tax`]: tax,
+                // [`data.form.details.${rowIndex}.tax`]: v,
+                [`data.form.details.${rowIndex}.amount`]: amount,
+                [`data.form.details.${rowIndex}.price`]: _price,
+                [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount
+            })
+        } else {
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.tax`]: tax
+                // [`data.form.details.${rowIndex}.tax`]: v
+            })
+        }
+    }
+
+    taxInclusiveAmountChange = (rowIndex, rowData, v, isNCPFP) => {
         // 金额＝价税合计÷（1＋税率）
         // 税额＝价税合计－金额
         // 如果数量为0，单价为0
         // 如果数量不为0:
         // 单价=价税合计÷（1＋税率）÷数量
-        
-        let taxRate = utils.number.round(rowData.taxRateId/100, 2)
 
-        const taxInclusiveAmount = utils.number.round(v, 2),
-              amount = utils.number.round(taxInclusiveAmount/(1+taxRate), 2),
-              tax = utils.number.round(taxInclusiveAmount-amount, 2),
-              quantity = utils.number.round(rowData.quantity, 2)
-        let _price = 0
-        if (quantity != 0) {
-            _price = utils.number.round(taxInclusiveAmount/(1 + taxRate)/quantity, 2)
+        // let taxRate = utils.number.round(rowData.taxRate, 2),
+        let taxRate = rowData.taxRate,
+            // taxInclusiveAmount = utils.number.round(v, 2),
+            taxInclusiveAmount = Number(v), //解决删除时将小数点自动删除得问题
+            amount = utils.number.round(taxInclusiveAmount / (1 + taxRate), 2),
+            tax = utils.number.round(taxInclusiveAmount - amount, 2),
+            quantity = utils.number.round(rowData.quantity, 6)
+
+        if (taxRate || taxRate == 0) {
+            if (isNCPFP) {
+                tax = utils.number.round(taxInclusiveAmount * taxRate, 2)
+                amount = utils.number.round(taxInclusiveAmount - tax, 2)
+            }
+
+            let _price = 0
+            if (quantity != 0) {
+                _price = utils.number.round(amount / quantity, 6)
+            }
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
+                // [`data.form.details.${rowIndex}.taxInclusiveAmount`]: v,
+                [`data.form.details.${rowIndex}.amount`]: amount,
+                [`data.form.details.${rowIndex}.tax`]: tax,
+                [`data.form.details.${rowIndex}.price`]: _price,
+            })
+
+        } else {
+            this.metaAction.sfs({
+                [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
+                // [`data.form.details.${rowIndex}.taxInclusiveAmount`]: v,
+            })
         }
-        this.metaAction.sfs({
-            [`data.form.details.${rowIndex}.taxInclusiveAmount`]: taxInclusiveAmount,
-            [`data.form.details.${rowIndex}.amount`]: amount,
-            [`data.form.details.${rowIndex}.tax`]: tax,
-            [`data.form.details.${rowIndex}.price`]: _price,
-        })
     }
 
     sumColumn = (col) => {
         let currentSumCol = col,
             details = this.metaAction.gf('data.form.details')
-        return this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 2)
+        if (currentSumCol == 'quantity') {
+            return this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 6)
+        } else {
+            return this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 2)
+        }
     }
 
     sum = (details, fn) => {
@@ -571,26 +775,44 @@ export default class action {
         }
     }
 
-    checkSaveInvoice = (form, page) => {
+    checkSaveInvoice = (form, page, other) => {
+
         let msg = [], allItemEmpty = true
         if (page == 'pu') {
             if (!form.supplierId) {
-                msg.push('供应商不能为空')
+                msg.push('销方名称不能为空')
             }
         } else if (page == 'sa') {
             if (!form.customerId) {
-                msg.push('客户不能为空')
+                msg.push('购方名称不能为空')
             }
         }
 
         if (!form.businessDate)
-        msg.push('记账日期不能为空')
+            msg.push('记账日期不能为空')
 
         if (!form.invoiceTypeId)
-        msg.push('票据类型不能为空') 
-        
-        if (!form.invoiceDate && page == 'pu')
-        msg.push('开票日期不能为空')
+            msg.push('发票类型不能为空')
+
+        if (page == 'pu' && !form.authenticated && other.vatTaxpayer == '2000010001' && (form.invoiceTypeId != 4000010030 && form.invoiceTypeId != 4000010010 && form.invoiceTypeId != 4000010900)) {
+            if (!form.invoiceNumber && !form.invoiceCode) {
+                msg.push('发票号码不能为空')
+                msg.push('发票代码不能为空')
+            } else if (!form.invoiceNumber) {
+                msg.push('发票号码不能为空')
+            } else if (!form.invoiceCode) {
+                msg.push('发票代码不能为空')
+            }
+        }
+
+        if (page == 'pu' && form.authenticated && other.vatTaxpayer == '2000010001' && (form.invoiceTypeId != 4000010030 && form.invoiceTypeId != 4000010010 && form.invoiceTypeId != 4000010900)) {
+            if (!form.authenticatedMonth) {
+                msg.push('认证月份不能为空')
+            }
+        }
+
+        // if (!form.invoiceDate && page == 'pu')
+        // msg.push('开票日期不能为空')
 
         if (form.invoiceNumber && (form.invoiceNumber.length != 8)) {
             msg.push('发票号码长度必须为8位')
@@ -604,48 +826,43 @@ export default class action {
             msg.push('明细不能为空')
         }
 
-        // form.details.forEach((detail, index) => {
-        //     let isSelect = false
-        //     if (!detail.inventoryId && !detail.quantity && !detail.price && !detail.amount && !detail.taxInclusiveAmount) {
-        //         isSelect = true
-        //     }
-
-        //     if (!isSelect) {
-        //         let errorStr = ''
-        //         if (!detail.inventoryId) errorStr = errorStr + '存货不能为空,'
-        //         if (!detail.quantity) errorStr = errorStr + '数量不能为空或0,'
-        //         // if (detail.price!=0 && !detail.price) errorStr = errorStr + '单价不能为空,'
-        //         // if (detail.amount!=0 && !detail.amount) errorStr = errorStr + '金额不能为空'
-        //         if (!detail.price) errorStr = errorStr + '单价不能为空或0,'
-        //         if (!detail.amount) errorStr = errorStr + '金额不能为空或0'
-        //         errorStr && msg.push(`明细第${index + 1}行，${errorStr}`)
-        //     }
-        // })
-
         for (let i = 0; i < form.details.length; i++) {
             if (!form.details[i] || (
-                !form.details[i].inventoryId 
-                && !form.details[i].quantity 
-                && !form.details[i].price 
-                && !form.details[i].amount 
-                && !form.details[i].taxRateId 
+                // !form.details[i].inventoryId
+                (page == 'pu' ? (!form.details[i].inventoryId && !form.details[i].businessTypeId) : !form.details[i].inventoryId)
+                && !form.details[i].quantity
+                && !form.details[i].price
+                && !form.details[i].amount
+                && !form.details[i].taxRateId
                 && !form.details[i].tax
                 && !form.details[i].unitId
                 && !form.details[i].taxInclusiveAmount
-                && (page == 'sa' ? !form.details[i].revenueType : true)
-                )) {
-                    continue
+                // && (page == 'sa' ? !form.details[i].revenueType : true)
+            )) {
+                continue
             }
 
             allItemEmpty = false
-
             let errorStr = ''
-            if (!form.details[i].inventoryId) errorStr = errorStr + '存货不能为空,'
-            if (!form.details[i].revenueType && page == 'sa') errorStr = errorStr + '收入类型不能为空,'
-            if (!form.details[i].quantity) errorStr = errorStr + '数量不能为空或0,'
-            if (!form.details[i].price) errorStr = errorStr + '单价不能为空或0,'
-            if (!form.details[i].amount) errorStr = errorStr + '金额不能为空或0'
-            errorStr && msg.push(`明细第${i + 1}行，${errorStr}`)
+            // if(form.details[i].price != 0 && form.details[i].price != null && page == 'sa') {
+            //     if(form.details[i].quantity != 0 && form.details[i].quantity != null) {
+            //         if ((form.details[i].price * form.details[i].quantity).toFixed(2) != form.details[i].amount) errorStr = errorStr + '，金额不等于数量乘以单价'
+            //     }
+            // }
+            if (!(form.details[i].inventoryId || form.details[i].businessTypeId)) errorStr = errorStr + '，存货不能为空'
+            if (!form.details[i].revenueType && page == 'sa') errorStr = errorStr + '，收入类型不能为空'
+            if (!(form.details[i].propertyName || form.details[i].businessTypeName) && page == 'pu') errorStr = errorStr + '，业务类型不能为空'
+            // if (!form.details[i].taxRateName) errorStr = errorStr + '，税率不能为空或0'
+            if (!form.details[i].taxRateName) errorStr = errorStr + '，税率不能为空'
+            // if (!form.details[i].amount) errorStr = errorStr + '，金额不能为空或0'
+            if (!form.details[i].amount) {
+                if (page == 'pu' && form.invoiceTypeId == 4000010040) {
+                    errorStr = errorStr + '，完税价格不能为空或0'
+                } else {
+                    errorStr = errorStr + '，金额不能为空或0'
+                }
+            }
+            errorStr && msg.push(`明细第${i + 1}行${errorStr}`)
         }
 
         if (allItemEmpty) {
@@ -659,38 +876,30 @@ export default class action {
 
         let details = form.details
 
-        // if (form.invoiceNumber && (form.invoiceNumber.length != 8)) {
-        //     otherMsg.push('发票号码长度必须为8位！')
-        //     return otherMsg
-        // }
-
-        // if (form.invoiceCode && (form.invoiceCode.length != 10 && form.invoiceCode.length != 12)) {
-        //     otherMsg.push('发票代码长度必须为10位或者12位！')
-        //     return otherMsg
-        // }
-        
         if (details) {
             details = details.filter(detail => {
                 return (detail.inventoryId || detail.quantity || detail.price || detail.amount)
             })
             for (let i = 0; i < details.length; i++) {
                 for (let j = i + 1; j < details.length - i; j++) {
-
                     const judgeObj = details[i].amount * details[j].amount < 0 || details[i].quantity * details[j].quantity < 0 ||
-                     details[i].tax * details[j].tax < 0 || details[i].price * details[j].price < 0 || details[i].taxInclusiveAmount * details[j].taxInclusiveAmount < 0
-                     
-                    const max = (details[i].amount > 0 && details[i].quantity > 0 && details[i].tax > 0 && details[i].taxInclusiveAmount > 0)
-                    const min = (details[i].amount < 0 && details[i].quantity < 0 && details[i].tax < 0 && details[i].taxInclusiveAmount < 0)
+                        details[i].tax * details[j].tax < 0 || details[i].price * details[j].price < 0 || details[i].taxInclusiveAmount * details[j].taxInclusiveAmount < 0
+
+                    // const max = (details[i].amount >= 0 && details[i].quantity >= 0 && details[i].tax >= 0 && details[i].taxInclusiveAmount >= 0)
+                    // const min = (details[i].amount <= 0 && details[i].quantity <= 0 && details[i].tax <= 0 && details[i].taxInclusiveAmount <= 0)
+                    const max = (details[i].amount >= 0 && details[i].tax >= 0 && details[i].taxInclusiveAmount >= 0)
+                    const min = (details[i].amount <= 0 && details[i].tax <= 0 && details[i].taxInclusiveAmount <= 0)
                     const judgeAttribute = !(max || min)
                     if (details[i].price < 0 || details[j].price < 0) {
                         otherMsg.push('单价不能为负数')
                         return otherMsg
                     }
-                  
-                    if (judgeObj || judgeAttribute) {
-                        otherMsg.push('采购单不能即录入正数，又录入负数')
-                        return otherMsg
-                    } 
+                    // // if (judgeObj && judgeAttribute) {
+                    // if (judgeObj || judgeAttribute) {
+                    //     // otherMsg.push('进项单不能即录入正数，又录入负数')
+                    //     otherMsg.push('进项发票蓝字时，全部为正数，红字时，全部为负数，不支持正负混录')
+                    //     return otherMsg
+                    // }
                 }
                 if (details[i].price < 0) {
                     otherMsg.push('单价不能为负数')
@@ -698,18 +907,34 @@ export default class action {
                 }
             }
         }
-        
-        if (form.settles && form.settles.length!=0) {
+
+        if (form.settles && form.settles.length != 0) {
             form.settles = form.settles.filter((item) => {
+                // return item.bankAccountId || Number(item.amount)
                 return item.bankAccountId || item.amount
             })
             for (let i = 0; i < form.settles.length; i++) {
-                if (form.settles[i].bankAccountId == '') {
+
+                if (!form.settles[i].bankAccountId && Number(form.settles[i].amount)) {
                     otherMsg.push('现结账户不能为空')
                     return otherMsg
-                } else if (form.settles[i].amount == '') {
-                    otherMsg.push('现结金额不能为空')
+                }
+                if (form.settles[i].bankAccountId && !Number(form.settles[i].amount)) {
+                    otherMsg.push('现结金额不能为空或零')
                     return otherMsg
+                }
+                if (!form.settles[i].bankAccountId && form.settles[i].amount == 0) {
+                    otherMsg.push('现结金额不能为零')
+                    return otherMsg
+                }
+            }
+
+            for (let n = 0; n < form.settles.length; n++) {
+                for (let m = n + 1; m < details.length - n; m++) {
+                    if (form.settles[n] * form.settles[m] < 0) {
+                        otherMsg.push('现结金额和明细金额正负不一致')
+                        return otherMsg
+                    }
                 }
             }
         }
@@ -720,7 +945,7 @@ export default class action {
     checkSave = (form) => {
         var msg = []
         if (!form.customer || !form.customer.id) {
-            msg.push('客户不能为空!')
+            msg.push('购方名称不能为空!')
         }
 
         if (!form.businessDate)
@@ -850,12 +1075,12 @@ export default class action {
 
             if (form.id) {
                 // let data = await this.webapi.arrival.updateEnclosure(res)
-                let data = updateEnclosure(res)
+                let data = await updateEnclosure(res)
                 if (data) {
                     this.injections.reduce('upload', form.attachmentFiles, data.ts, data.attachedNum)
                     this.metaAction.toast('success', '删除成功')
                 }
-            }else{
+            } else {
                 this.injections.reduce('upload', form.attachmentFiles, index.ts, form.attachmentFiles.length)
                 this.metaAction.toast('success', '删除成功')
             }
@@ -863,13 +1088,14 @@ export default class action {
         }
     }
 
-    attachmentChange = async (info, typeName) => {
+    attachmentChange = async (info, typeName, updateEnclosure) => {
         this.injections.reduce('attachmentLoading', true)
         if (info.file.status === 'done') {
-            if (info.file.response.error && info.file.response.error.message) {
+            if (info.file.response.error) {
+                this.injections.reduce('attachmentLoading', false)
                 return
             } else if (info.file.response.result && info.file.response.value) {
-                this.upload(info.file.response.value, info.file.response.value.ts, typeName)
+                this.upload(info.file.response.value, info.file.response.value.ts, typeName, updateEnclosure)
             }
         }
     }
@@ -881,9 +1107,9 @@ export default class action {
 	 */
     upload = async (file, ts, typeName, updateEnclosure) => {
         let form = this.metaAction.gf('data.form').toJS()
-        let fileList = this.metaAction.gf('data.form.attachmentFiles')&&this.metaAction.gf('data.form.attachmentFiles').toJS()||[]
+        let fileList = this.metaAction.gf('data.form.attachmentFiles') && this.metaAction.gf('data.form.attachmentFiles').toJS() || []
         let fileData = [], data
-        if(file.type != consts.consts.FILETYPE_pic && file.type != consts.consts.FILETYPE_word && file.type != consts.consts.FILETYPE_excel && file.type !=consts.consts.FILETYPE_ppt && file.type != consts.consts.constsFILETYPE_pdf && file.type != consts.consts.FILETYPE_zip){
+        if (file.type != consts.consts.FILETYPE_pic && file.type != consts.consts.FILETYPE_word && file.type != consts.consts.FILETYPE_excel && file.type != consts.consts.FILETYPE_ppt && file.type != consts.consts.FILETYPE_pdf && file.type != consts.consts.FILETYPE_zip) {
             this.metaAction.toast('warning', '此文件类型不支持上传')
             this.injections.reduce('attachmentLoading', false)
             return
@@ -895,15 +1121,15 @@ export default class action {
             "name": file.originalName,
             "fileId": file.id
         })
-        if(fileList.length > 20){
+        if (fileList.length > 20) {
             this.metaAction.toast('warning', '最多上传20个附件')
             this.injections.reduce('attachmentLoading', false)
             return
         }
 
-        if(form.id){
+        if (form.id) {
             let fileData
-            switch(typeName) {
+            switch (typeName) {
                 case 'vouchers': {
                     let attachments = []
                     attachments.push({
@@ -926,18 +1152,18 @@ export default class action {
                         }
                     })
                     fileData = { "docId": form.id, enclosures: enclosures }
-                    
+
             }
             // let data = await this.webapi.arrival.updateEnclosure(fileData)
-            let data = updateEnclosure(fileData)
+            let data = await updateEnclosure(fileData)
             fileList = []
-            if(data){
-                let newenclosures = data.attachments
+            if (data) {
+                let newenclosures = data.attachments || []
                 newenclosures.map((o) => {
                     fileList.push({
                         "id": o.id,
                         "accessUrl": o.file.accessUrl,
-                        "ts":o.ts || '',
+                        "ts": o.ts || '',
                         "type": o.file.type,
                         "name": o.file.originalName,
                         "fileId": o.file.id
@@ -945,7 +1171,7 @@ export default class action {
                 })
                 this.injections.reduce('upload', newenclosures, data.ts, fileList.length)
             }
-        }else{
+        } else {
             this.injections.reduce('upload', fileList, ts, fileList.length)
         }
 

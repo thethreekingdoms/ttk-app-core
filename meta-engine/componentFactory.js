@@ -4,9 +4,14 @@ class componentFactory {
         this.appComponents = {}
     }
 
-    registerComponent(name, component) {
+    registerComponent(name, component, ingoreExists) {
         if (this.components[name]) {
-            throw `组件existed. name: ${name}`
+            if (ingoreExists) {
+                return
+            }
+            else {
+                throw `组件existed. name: ${name}`
+            }
         }
         this.components[name] = component
     }
@@ -30,8 +35,8 @@ class componentFactory {
             throw 'component name can not null'
 
         if (name.substring(0, 2) == '::') {
-            if(name.substr(2))
-                return  name.substr(2) 
+            if (name.substr(2))
+                return name.substr(2)
             else
                 throw `没有组件. name: ::`
         }

@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import isequal from 'lodash.isequal'
 //import '../../assets/style/shortCut.less'
 
 const data = [
@@ -718,6 +719,21 @@ class ShortKeyComponent extends React.Component {
         }
     }
 
+    assitShouldComponent = (target) => {
+        let obj = {}
+        for( const [key, value] of Object.entries(target) ) {
+            if( typeof(value) != 'function' ) {
+                obj[key] = value
+            }
+        }
+        return obj
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log((isequal(this.props, nextProps) && isequal(this.state, nextState)))
+        return !(isequal(this.assitShouldComponent(this.props), this.assitShouldComponent(nextProps)) && isequal(this.state, nextState))
+    }
+
     componentWillReceiveProps(props) {
         const { active } = this.props
         if (active) {
@@ -789,6 +805,7 @@ class ShortKeyComponent extends React.Component {
 
     render() {
         const props = this.props
+        console.log(props, 'props')
         let className = classNames({
             'mk-shortCut': true,
             [props.className]: !!props.className
@@ -809,7 +826,8 @@ class ShortKeyComponent extends React.Component {
                     </div>
                     <div className="short-list">
                         <ul>
-                            {this.renderCuts(shortCuts)}
+                            { props.shortCuts ? this.renderCuts (props.shortCuts) : this.renderCuts(shortCuts)}
+                            {/* {this.renderCuts(shortCuts)} */}
                         </ul>
                     </div>
                 </div>
