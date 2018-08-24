@@ -4,7 +4,6 @@ var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
-//const marauderDebug = require('sinamfe-marauder-debug')
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const HappyPack = require('happypack')
@@ -22,9 +21,6 @@ var plugins = []
 var projectRootPath = path.resolve(__dirname, './')
 const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
 var businessBlue = ["./assets/styles/businessBlue.less"]
-var orangeStyle = ["./assets/styles/orange.less"]
-var yellowStyle = ["./assets/styles/yellow.less"]
-var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
 const version_ie8_bol = fs.existsSync(path.resolve(projectRootPath, version_ie8))
@@ -143,13 +139,7 @@ module.exports = {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
         businessBlueTheme: businessBlue.concat(['./assets/apps/businessBlue.less']),
-        // orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
-        // yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
-        // blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         ie: './assets/styles/ie.less',
-        // blackTheme: "./assets/styles/black.less",
-        // greenTheme: "./assets/styles/green.less",
-        // blueTheme: "./assets/styles/blue.less",
         icon: "./component/assets/style/iconset.less",
 
     },
@@ -207,14 +197,8 @@ module.exports = {
             errors: true
         },
         proxy: {
-            // '/v1/*': 'http://debug.aierp.cn:8088/',
-            // '/v1/*': 'http://172.16.20.227:8008/',
-            // '/v1/*': 'http://debug.aierp.cn:8085/',
-            // '/v1/*': 'http://172.16.10.22:30188/',
             '/v1/*': 'http://debug.aierp.cn:8085/',
-            '/share-oss/*': 'http://debug.aierp.cn:8085/',
-            // '/v1/*': 'http://172.16.20.239:8008/',
-            // '/v1/*': 'http://127.0.0.1:8008/',
+            '/share-oss/*': 'http://debug.aierp.cn:8085/',   
         }
     },
     plugins: plugins

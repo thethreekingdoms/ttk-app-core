@@ -162,9 +162,6 @@ module.exports = {
         orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
         blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
-        // blackTheme: "./assets/styles/black.less",
-        // greenTheme: "./assets/styles/green.less",
-        // yellowTheme: "./assets/styles/yellow.less",
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less"
     },
