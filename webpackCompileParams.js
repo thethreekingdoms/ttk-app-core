@@ -28,7 +28,8 @@ function checkRunParams(name) {
 
 function checkModule() {
     let target = {}
-    for( const [key, value] of Object.entries(moduleConfig)) {
+    for( const key in moduleConfig) {
+        const value = moduleConfig[key]
         target[key] = fs.existsSync(path.resolve(projectRootPath, `${value.path}/index.less`)) ? checkRunParams(value.name) : false
     }
 
@@ -38,11 +39,13 @@ function checkModule() {
 function webpackCompileParams () {
     const checkParams = checkModule()
     const modifyVars = {}
-    for( const [key, value] of Object.entries(moduleConfig) ) {
+    for( const key  in moduleConfig ) {
+        let value = moduleConfig[key]
         modifyVars[`@${value.less}`] = checkParams[key] && isUse ? value.less : 'empty'
     }
     const aliasModule = {}
-    for( const [key, value] of Object.entries(moduleConfig) ) {
+    for( const key in moduleConfig ) {
+        const value = moduleConfig[key]
         aliasModule[key] = checkParams[key] && isUse ? path.resolve(projectRootPath, `${value.path}/index.js`) : './empty.js'
     }
     return {

@@ -5,14 +5,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var ManifestPlugin = require('webpack-manifest-plugin')
-// ie9 下单个的css文件超过400k 不被解析
-// var CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
-//const marauderDebug = require('sinamfe-marauder-debug')
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 
-//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const merge = require('webpack-merge')
 const webpackCompileParams = require('./webpackCompileParams')
@@ -35,7 +31,6 @@ plugins.push(new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(env)
 }))
 
-//plugins.push(new webpack.ExtendedAPIPlugin())
 plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
 
 plugins.push(new webpack.DllReferencePlugin({
@@ -46,7 +41,6 @@ plugins.push(new webpack.DllReferencePlugin({
 plugins.push(new CleanWebpackPlugin(['dist'], {
     root: __dirname
 }))
-// plugins.push(new CSSSplitWebpackPlugin({size: 3000}))
 plugins.push(
     new ParallelUglifyPlugin({
         cacheDir: '.cache/',
@@ -60,13 +54,6 @@ plugins.push(
         }
     })
 )
-/*
-plugins.push(new webpack.optimize.CommonsChunkPlugin({
-    names: ['bundle', 'edf'],
-    filename: '[name].[hash:8].min.js',
-    minChunks: Infinity
-}))*/
-//'bundle', 'edf', 'icon', 'businessBlueTheme'
 plugins.push(new ManifestPlugin())
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new webpack.NoEmitOnErrorsPlugin())
@@ -87,60 +74,23 @@ plugins.push(new HtmlWebpackPlugin({
 
 plugins.push(new ExtractTextPlugin('[name].[hash:8].css'))
 plugins.push(new LodashModuleReplacementPlugin)
-/*
-plugins.push(new OptimizeCssAssetsPlugin(
-    {
-        cssProcessorOptions: { discardComments: { removeAll: true } },
-        canPrint: false
-    }
-))*/
+
 plugins.push(new CopyWebpackPlugin([{
     from: './version.txt',
     to: 'version.[hash:8].txt',
     toType: 'template'
 }]))
-/*
-plugins.push(new CopyWebpackPlugin([{
-    from: './robots.txt',
-    to: 'robots.txt',
-    toType: 'file'
-}]))
-*/
+
 plugins.push(new CopyWebpackPlugin([{
     from: './checkLowBrowser.js',
     to: 'checkLowBrowser.[hash:8].js',
     toType: 'template'
 }]))
 
-plugins.push(new CopyWebpackPlugin([{
-    from: './tplus.html',
-    to: 'tplus.html',
-    toType: 'file'
-}]))
-
-
-plugins.push(new CopyWebpackPlugin([{
-    from: './transfer.html',
-    to: 'transfer.html',
-    toType: 'file'
-}]))
-
-plugins.push(new CopyWebpackPlugin([{
-    from: './sso.html',
-    to: 'sso.html',
-    toType: 'file'
-}]))
 
 plugins.push(new CopyWebpackPlugin([{
     from: './vendor',
     to: './vendor',
-    ignore: ['.*']
-}]))
-
-/*报表转换-国税项目 */
-plugins.push(new CopyWebpackPlugin([{
-    from: './transreport',
-    to: './transreport',
     ignore: ['.*']
 }]))
 
@@ -174,7 +124,7 @@ module.exports = {
 
     resolve: {
         extensions: [".js"],
-        alias: {
+        alias: Object.assign({
             'edf-app-loader': path.resolve(projectRootPath, './app-loader/index.js'),
             'edf-meta-engine': path.resolve(projectRootPath, './meta-engine/index.js'),
             'edf-component': path.resolve(projectRootPath, './component/index.js'),
@@ -184,8 +134,7 @@ module.exports = {
             'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
             'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js'),
-            ...aliasModule
-        }
+        }, aliasModule)
     },
     externals: {
         "echarts": 'echarts',
@@ -204,9 +153,7 @@ module.exports = {
                 }, {
                     loader: "less-loader",
                     options: {
-                        "modifyVars": {
-                            ...modifyVars
-                        }
+                        "modifyVars": modifyVars
                     }
                 }]
             })

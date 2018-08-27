@@ -7,9 +7,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin")
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const HappyPack = require('happypack')
-// ie9 下单个的css文件超过400k 不被解析
-//var CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
-//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 
 const webpackCompileParams = require('./webpackCompileParams')
@@ -48,16 +45,6 @@ plugins.push(new HtmlWebpackPlugin({
 }))
 
 plugins.push(new ExtractTextPlugin('[name].css'))
-
-//plugins.push(new CSSSplitWebpackPlugin({ size: 3000 }))
-/*
-plugins.push(new OptimizeCssAssetsPlugin(
-    {
-        cssProcessorOptions: { discardComments: { removeAll: true } },
-        canPrint: false
-    }
-))
-*/
 
 plugins.push(new CopyWebpackPlugin([{
     from: './version.txt',
@@ -101,14 +88,11 @@ plugins.push(new HappyPack({
     }, {
         loader: "less-loader",
         options: {
-            "modifyVars": {
-                ...modifyVars
-            }
+            "modifyVars": modifyVars
         }
     }],
     threadPool: happyThreadPool,
 }))
-//plugins.push(new marauderDebug())
 plugins.push(new LodashModuleReplacementPlugin)
 
 plugins.push(new webpack.optimize.MinChunkSizePlugin({
@@ -127,11 +111,6 @@ plugins.push(new CopyWebpackPlugin([{
     ignore: ['.*']
 }]))
 
-plugins.push(new CopyWebpackPlugin([{
-    from: './transreport',
-    to: './transreport',
-    ignore: ['.*']
-}]))
 
 module.exports = {
     devtool: false, //devtool: 'cheap-module-eval-source-map',
@@ -152,7 +131,7 @@ module.exports = {
 
     resolve: {
         extensions: [".js"],
-        alias: {
+        alias: Object.assign({
             'edf-app-loader': path.resolve(projectRootPath, './app-loader/index.js'),
             'edf-meta-engine': path.resolve(projectRootPath, './meta-engine/index.js'),
             'edf-component': path.resolve(projectRootPath, './component/index.js'),
@@ -161,9 +140,8 @@ module.exports = {
             'edf-consts': path.resolve(projectRootPath, './constant/consts.js'),
             'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
-            'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js'),
-            ...aliasModule
-        }
+            'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js')
+        }, aliasModule)
     },
     externals: {
         "echarts": 'echarts',

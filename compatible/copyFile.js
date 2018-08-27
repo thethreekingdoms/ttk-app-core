@@ -51,9 +51,9 @@ function copyFileSync(){
         // _object-dp.js
         return new Promise((resolve, reject) => {
             vfs.src([
-                `../transreport/ie8/**`,
-                `../transreport/ie8/.*`,
-                `../transreport/ie8/.*/**`
+                `../vendor/ie8/**`,
+                `../vendor/ie8/.*`,
+                `../vendor/ie8/.*/**`
             ])
             .pipe(through.obj(function(file, enc, cb){
                 this.push(file)
