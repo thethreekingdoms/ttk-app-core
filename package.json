@@ -8,13 +8,15 @@
     "release": "npm run build && npm run splitcss",
     "packmodule": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
     "build": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js",
+    "build-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.nohash.prd.js",
     "splitcss": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
+    "splitcss-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.nohash.splitcss.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint apps",
     "css": "lessc  --clean-css ./assets/styles/ie.less ./vendor/ie.css",
-    "help": "echo \" scm(业务) gl(财务) edf(系统管理) ba(基础档案) asset(资产) operation(运营中心) taxapply(申报) access(报表转换) zzssb(增值税申报) fxsm(风险扫描) taxcheckup(财税体检) \r\n***********按模块打包使用方式:如 npm run start --arg=\"edf ba scm\" "
+    "help": "echo \" edf(系统管理) ba(基础档案)  \r\n***********按模块打包使用方式:如 npm run start --arg=\"edf\" "
   },
   "keywords": [
     "react",
