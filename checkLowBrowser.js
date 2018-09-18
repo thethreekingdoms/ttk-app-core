@@ -74,79 +74,110 @@ function getBrowserVersion() {
 }
 
 function loadSplitCss() {
-	for (var i = 1; i < 6; i++) {
-		var styleSheet = document.createElement('link')
-		styleSheet.href = './splitcss/businessBlueTheme-' + i + '.css'
-		styleSheet.rel = "stylesheet"
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
+	for (var i = 1; i < 7; i++) {
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin' + i.toString();
+
+		styleSheet.href = './splitcss/yellowTheme-' + i + '.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
 }
 
 function loadCss() {
-
-	var skin = localStorage.getItem('skin') || '#1EB5AD'
-
+	var skin = localStorage.getItem('skin') || '#FF913A';
 	if (skin == '#416AAA') {
-		var styleSheet = document.createElement('link')
-		styleSheet.href = './blueTheme.css'
-		styleSheet.rel = "stylesheet"
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './blueTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
 	else if (skin == '#B4A074') {
-		var styleSheet = document.createElement('link')
-		styleSheet.href = './orangeTheme.css'
-		styleSheet.rel = "stylesheet"
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './orangeTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
 	else if (skin == '#FF913A') {
-		var styleSheet = document.createElement('link')
-		styleSheet.href = './yellowTheme.css'
-		styleSheet.rel = "stylesheet"
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './yellowTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
+	}
+	else if (skin == '#1EB5AD') {
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './businessBlueTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
 	else {
-		var styleSheet = document.createElement('link')
-		styleSheet.href = './businessBlueTheme.css'
-		styleSheet.rel = "stylesheet"
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
-
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './yellowTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
+
+
 }
+
+
+function checkBrowserSystem() {
+	try {
+		var str = window.navigator.userAgent ? window.navigator.userAgent.toLowerCase() : ''
+		var win = str.match(/windows\s+nt\s+\d+\.\d+\;/)
+		if (win && win[0] && typeof win[0] == 'string') {
+			var version = win[0].replace(/[a-z\s\;]/g, '')
+			return parseFloat(version)
+		}
+		return 0
+	} catch (err) {
+		return 0
+	}
+
+}
+
 
 function checkLowBrowser() {
-	var browser = getBrowserVersion()
-	var isCheckLocalEnv = true
+	var browser = getBrowserVersion();
+	var isCheckLocalEnv = true;
 	if (location.href.indexOf('simplelogin?') > -1 || location.href.indexOf('sso.html') > -1 || location.href.indexOf('ttk-edf-app-simple-portal') > -1) {
-		isCheckLocalEnv = false
+		isCheckLocalEnv = false;
 	}
 	if (browser.ie && browser.version < 8 && isCheckLocalEnv) {
-		window.location.href = 'vendor/checkBrowser/index.html'
+		window.location.href = 'vendor/checkBrowser/index.html';
 	}
 	if (browser.ie && browser.version == 8) {
-		window.location.href = 'version/ie8/index.html' + window.location.hash
+		window.location.href = 'version/ie8/index.html' + window.location.hash;
 	}
 	if (browser.ie) {
-		var babelobj = document.createElement('script')
-		babelobj.src = './vendor/babel.min.js'
-		babelobj.charset = 'utf-8'
-		document.getElementsByTagName('HEAD').item(0).appendChild(babelobj)
-		if (browser.version < 10) {
-			loadSplitCss()
-			var styleSheet = document.createElement('link')
-			styleSheet.href = './vendor/ie.css'
-			styleSheet.rel = "stylesheet"
-			document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet)
+		if (browser.version < 10 || (browser.version <= 10 && checkBrowserSystem() < 6.4)) {
+			loadSplitCss();
+			if( browser.version < 10 ) {
+				var styleSheet = document.createElement('link');
+				styleSheet.href = './vendor/ie.css';
+				styleSheet.rel = "stylesheet";
+				document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
+			}
 			// 添加补充库
-			var shim = document.createElement('script')
-			shim.src = './vendor/shim.dll.js'
-			shim.charset = 'utf-8'
-			document.getElementsByTagName('HEAD').item(0).appendChild(shim)
+			var shim = document.createElement('script');
+			shim.src = './vendor/shim.dll.js';
+			shim.charset = 'utf-8';
+			document.getElementsByTagName('HEAD').item(0).appendChild(shim);
 		} else {
-			loadCss()
+			loadCss();
 		}
+		// var babelobj = document.createElement('script');
+		// babelobj.src = './vendor/babel.min.js';
+		// babelobj.charset = 'utf-8';
+		// document.getElementsByTagName('HEAD').item(0).appendChild(babelobj);
 	} else {
-		loadCss()
+		loadCss();
 	}
 
 }
-checkLowBrowser()
+checkLowBrowser();

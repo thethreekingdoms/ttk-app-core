@@ -1,6 +1,10 @@
 import 'whatwg-fetch'
-import { isAcrobatInstalledInIE } from './pdfplugin'
-import { getBrowserVersion } from '../environment'
+import {
+	isAcrobatInstalledInIE
+} from './pdfplugin'
+import {
+	getBrowserVersion
+} from '../environment'
 
 const mockApi = {}
 const mockData = {}
@@ -41,7 +45,12 @@ export function get(url, headers, option) {
 			setTimeout(() => {
 				try {
 					if (getAccessToken()) {
-						headers = headers ? { ...headers, token: getAccessToken() } : { token: getAccessToken() }
+						headers = headers ? {
+							...headers,
+							token: getAccessToken()
+						} : {
+								token: getAccessToken()
+							}
 					}
 					var resp = mockApi[url](headers)
 					if (resp.then && resp.catch) {
@@ -50,13 +59,11 @@ export function get(url, headers, option) {
 							return resolve(resp)
 						}).catch(reject)
 						return resp
-					}
-					else if (!option || option.ignoreAOP !== true) {
+					} else if (!option || option.ignoreAOP !== true) {
 						resp = after(resp, url, undefined, headers)
 					}
 					resolve(resp)
-				}
-				catch (e) {
+				} catch (e) {
 					reject(e)
 				}
 			}, 0)
@@ -95,7 +102,12 @@ export function post(url, data, headers, option) {
 			setTimeout(() => {
 				try {
 					if (getAccessToken()) {
-						headers = headers ? { ...headers, token: getAccessToken() } : { token: getAccessToken() }
+						headers = headers ? {
+							...headers,
+							token: getAccessToken()
+						} : {
+								token: getAccessToken()
+							}
 					}
 					var resp = mockApi[url](data, headers)
 					if (resp.then && resp.catch) {
@@ -104,13 +116,11 @@ export function post(url, data, headers, option) {
 							return resolve(r)
 						}).catch(reject)
 						return resp
-					}
-					else if (!option || option.ignoreAOP !== true) {
+					} else if (!option || option.ignoreAOP !== true) {
 						resp = after(resp, url, data, headers)
 					}
 					resolve(resp)
-				}
-				catch (e) {
+				} catch (e) {
 					reject(e)
 				}
 			}, 0)
@@ -131,13 +141,39 @@ export function post(url, data, headers, option) {
 
 	return new Promise((resolve, reject) => {
 		fetch(url, headers)
-			.then(response => response.json())
+			.then(function (response) {
+				if (response.status == 504 || response.status == 502) {
+					return {
+						sysNetException: true
+					}
+					//return reject(response)
+				}
+				else if (response.status == 500 || response.status == 403 || response.status == 0) {
+					return {
+						networkException: true
+					}
+				}
+				return response.json()
+			})
 			.then(responseJson => {
 				responseJson = after(responseJson, url, data, headers)
 				resolve(responseJson)
 			})
-			.catch(error => reject(error))
+			.catch(function (error) {
+				if (error) {
+					if (error.message && error.message.toLowerCase().indexOf('fetch') > -1) {
+						return {
+							networkException: true
+						}
+					}
+				}
+				return reject(error)
+			})
 	})
+
+}
+
+function ifdeubg() {
 
 }
 
@@ -182,7 +218,9 @@ export function formPost(url, data, isFree) {
 	if (!!accessToken && !isFree) {
 		data.token = accessToken
 	}
-	var postForm = document.createElement("form"), formatedUrl = formatUrl(url), index = 0
+	var postForm = document.createElement("form"),
+		formatedUrl = formatUrl(url),
+		index = 0
 	postForm.method = "post"
 	postForm.target = "_blank"
 
@@ -227,7 +265,7 @@ export function formPost(url, data, isFree) {
 		if (browserType && !browserType.edge && !browserType.ie && !browserType.safari) {
 			setTimeout(() => {
 				tempWindow.close()
-			}, 1000)
+			}, 2000)
 		}
 		return
 		// Edge、微信浏览器通过URL传递token等参数
@@ -250,7 +288,9 @@ export function printPost(url, data, isFree) {
 		data.token = accessToken
 	}
 
-	var postForm = document.createElement("form"), formatedUrl = formatUrl(url), index = 0
+	var postForm = document.createElement("form"),
+		formatedUrl = formatUrl(url),
+		index = 0
 	postForm.method = "post"
 	postForm.target = "_blank"
 
@@ -314,7 +354,9 @@ export function pdfPost(url, data, isFree, parentNode, cb) {
 		data.token = accessToken
 	}
 
-	var postForm = document.createElement("form"), formatedUrl = formatUrl(url), index = 0
+	var postForm = document.createElement("form"),
+		formatedUrl = formatUrl(url),
+		index = 0
 	postForm.method = "post"
 	postForm.target = parentNode
 
@@ -354,8 +396,8 @@ export function pdfPost(url, data, isFree, parentNode, cb) {
 
 	if (tempWindow != undefined) {
 		tempWindow.location.href = formatedUrl
-		if( cb ) {
-			hideLoading( cb , browserType )
+		if (cb) {
+			hideLoading(cb, browserType)
 		}
 		return
 	}
@@ -363,8 +405,8 @@ export function pdfPost(url, data, isFree, parentNode, cb) {
 	else if (browserType && (browserType.edge || browserType.wechat)) {
 		//解决edge MicrosoftEdge 20.10240.16384.0 版本中弹不出打印页面得问题
 		window.open(formatedUrl, parentNode)
-		if( cb ) {
-			hideLoading( cb , browserType )
+		if (cb) {
+			hideLoading(cb, browserType)
 		}
 		return;
 	} else {
@@ -374,29 +416,29 @@ export function pdfPost(url, data, isFree, parentNode, cb) {
 	document.body.appendChild(postForm)
 	postForm.submit()
 	document.body.removeChild(postForm)
-	if( cb ) {
-		hideLoading( cb , browserType )
+	if (cb) {
+		hideLoading(cb, browserType)
 	}
 }
 
 //hide loading
-export function hideLoading( cb, browserType ) {
-	let timer = setInterval( function() {
+export function hideLoading(cb, browserType) {
+	let timer = setInterval(function () {
 		let sub_con
-		if (browserType && ( browserType.ie ) ){//IE
-			if( document.frames["pdfIframe"] ) {
+		if (browserType && (browserType.ie)) { //IE
+			if (document.frames["pdfIframe"]) {
 				sub_con = document.frames["pdfIframe"]
-			} 
-		}else{//Firefox
-			if( document.getElementById('pdfIframe') || document.getElementById('pdfIframe').contentDocument ) {
-				sub_con =  document.getElementById('pdfIframe').contentDocument.body.innerHTML
+			}
+		} else { //Firefox
+			if (document.getElementById('pdfIframe') || document.getElementById('pdfIframe').contentDocument) {
+				sub_con = document.getElementById('pdfIframe').contentDocument.body.innerHTML
 			}
 		}
-		if(sub_con && cb ) {
+		if (sub_con && cb) {
 			cb()
-			clearInterval( timer )
+			clearInterval(timer)
 		}
-	} , 1000 )
+	}, 1000)
 }
 
 export function test(url, data, result) {
