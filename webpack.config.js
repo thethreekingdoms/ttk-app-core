@@ -16,8 +16,11 @@ var env = process.env.NODE_ENV
 var plugins = []
 
 var projectRootPath = path.resolve(__dirname, './')
-const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
-var businessBlue = ["./assets/styles/businessBlue.less"]
+const happyThreadPool = HappyPack.ThreadPool({ size: 12 })
+var defaultStyle = ["./assets/styles/businessBlue.less"]
+var orangeStyle = ["./assets/styles/orange.less"]
+var yellowStyle = ["./assets/styles/yellow.less"]
+var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
 const version_ie8_bol = fs.existsSync(path.resolve(projectRootPath, version_ie8))
