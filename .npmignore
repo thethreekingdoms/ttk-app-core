@@ -11,3 +11,5 @@ lib
 .vscode
 jsconfig.json
 package-lock.json
+.idea
+.cache

@@ -35,11 +35,11 @@ plugins.push(new webpack.DllReferencePlugin({
 
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new HtmlWebpackPlugin({
-    title: '金财管家', //标题
+    title: '企业开发平台', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index-dev.html', //html模板路径
-    chunks: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
+    chunks: ['bundle', 'edf', 'icon', 'blueTheme'],
     hash: false,
     inject: 'body'//允许插件修改哪些内容，包括head与body`
 }))
@@ -58,11 +58,11 @@ plugins.push(new CopyWebpackPlugin([{
     toType: 'file'
 }]))
 
-plugins.push(new CopyWebpackPlugin([{
-    from: './checkLowBrowser.js',
-    to: 'checkLowBrowser.js',
-    toType: 'file'
-}]))
+// plugins.push(new CopyWebpackPlugin([{
+//     from: './checkLowBrowser.js',
+//     to: 'checkLowBrowser.js',
+//     toType: 'file'
+// }]))
 
 
 if (version_ie8_bol) {
@@ -117,13 +117,12 @@ module.exports = {
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
-        businessBlueTheme: businessBlue.concat(['./assets/apps/businessBlue.less']),
+        //businessBlueTheme: businessBlue.concat(['./assets/apps/businessBlue.less']),
         //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
         //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
-        //blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
+        blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less",
-
     },
 
     output: {
@@ -179,7 +178,7 @@ module.exports = {
         },
         proxy: {
             '/v1/*': 'http://debug.aierp.cn:8085/',
-            '/share-oss/*': 'http://debug.aierp.cn:8085/',   
+            '/share-oss/*': 'http://debug.aierp.cn:8085/',
         }
     },
     plugins: plugins

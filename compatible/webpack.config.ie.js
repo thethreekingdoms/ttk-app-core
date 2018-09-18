@@ -19,7 +19,7 @@ copyFile()
 
 module.exports = function (webpackConfig) {
   webpackConfig.plugins.push(new HtmlWebpackPlugin({
-    title: '金财管家',
+    title: '企业开发平台',
     template: './index-dev.ejs',
     filename: 'index.html'
   }))

@@ -51,10 +51,10 @@ const { modifyVars } = webpackCompileParams()
 module.exports = {
     devtool: false,
     entry: {
-        businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
-        orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
+        //businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
+        //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
         blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
-        yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
+        //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
     },
 
     output: {
@@ -76,7 +76,7 @@ module.exports = {
                     loader: "less-loader",
                     options: {
                         "modifyVars": {
-                            ...modifyVars               
+                            ...modifyVars
                         }
                     }
                 }]

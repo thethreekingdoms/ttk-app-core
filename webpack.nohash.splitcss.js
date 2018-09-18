@@ -43,9 +43,9 @@ const { modifyVars } = webpackCompileParams()
 module.exports = {
     devtool: false,
     entry: {
-        businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
+        // businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
         //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
-        //blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
+        blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
     },
 
