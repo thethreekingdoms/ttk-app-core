@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
@@ -124,11 +124,13 @@
     "eslint-plugin-react": "7.5.1",
     "eslint-tinker": "^0.4.0",
     "etool-build": "^1.0.6",
+    "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "happypack": "^5.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "http-proxy-middleware": "^0.19.0",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
     "lodash-webpack-plugin": "^0.11.5",
