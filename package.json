@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {

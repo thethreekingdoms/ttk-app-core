@@ -50,14 +50,14 @@ function config(options) {
 				name: 'test'
 			},
 		},
-		'edfx-app-root': {
+		'ttk-edf-app-root': {
 			startAppName: _options.apps['ttk-edf-app-login'] ? 'ttk-edf-app-login' : 'app-test',
 		}
 	})
 
 	//require('./mock.js')
 	_options.targetDomId = 'app' //react render到目标dom
-	_options.startAppName = 'edfx-app-root' //启动app名，需要根据实际情况配置
+	_options.startAppName = 'ttk-edf-app-root' //启动app名，需要根据实际情况配置
 
 	_options.toast = Toast //轻提示使用组件，edf-meta-engine使用
 	_options.notification = Notification //通知组件
