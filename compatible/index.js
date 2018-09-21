@@ -16,13 +16,13 @@ if (typeof (_hmt) == 'undefined') window._hmt = []
 //note-start
 //note-start和note-end之间的内容用脚手架匹配，请不要再该区域书写内容，在执行ttk reset过程中会被删除
 
-import edfx_app_root from './apps/edf/edfx-app-root/index.js'
+import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 import app_test from './apps/test/app-test'
 
 
 const apps = {
     [app_test.name]: app_test,
-    [edfx_app_root.name]: edfx_app_root,
+    [ttk_edf_app_root.name]: ttk_edf_app_root,
 }
 //note-end
 

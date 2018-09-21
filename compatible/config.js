@@ -55,7 +55,7 @@ function config(options) {
 		}
 	})
 
-	require('./mock.js')
+	//require('./mock.js')
 	_options.targetDomId = 'app' //react render到目标dom
 	_options.startAppName = 'edfx-app-root' //启动app名，需要根据实际情况配置
 

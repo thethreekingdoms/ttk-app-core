@@ -17,9 +17,6 @@ var plugins = []
 
 var projectRootPath = path.resolve(__dirname, './')
 const happyThreadPool = HappyPack.ThreadPool({ size: 12 })
-var defaultStyle = ["./assets/styles/businessBlue.less"]
-var orangeStyle = ["./assets/styles/orange.less"]
-var yellowStyle = ["./assets/styles/yellow.less"]
 var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
@@ -120,9 +117,6 @@ module.exports = {
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
-        //businessBlueTheme: businessBlue.concat(['./assets/apps/businessBlue.less']),
-        //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
-        //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
         blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less",
