@@ -48,7 +48,7 @@ plugins.push(new HtmlWebpackPlugin({
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: './dist/index.html', //html模板路径
-    chunks: ['singleApp'],
+    chunks: [ 'singleCss', 'singleApp'],
     hash: false,
     inject: false//允许插件修改哪些内容，包括head与body`
 }))
@@ -66,7 +66,8 @@ const { aliasModule } = webpackCompileParams()
 module.exports = {
     devtool: false,
     entry: {
-        singleApp: `./webpacksingle/index.js`
+        singleApp: `./webpacksingle/index.js`,
+        singleCss: './webpacksingle/style.less'
     },
     output: {
         path: path.join(__dirname, `/dist/singleApp`),
