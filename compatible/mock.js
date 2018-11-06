@@ -12,7 +12,7 @@ import './apps/edf/ttk-edf-app-card-supplier/mock.js';
 import './apps/edf/ttk-edf-app-card-userdefinecard/mock.js';
 import './apps/edf/ttk-edf-app-column/mock.js';
 import './apps/edf/ttk-edf-app-column/apps/edfx-app-column-detail/mock.js';
-import './apps/edf/ttk-edf-app-column/apps/edfx-app-column-setting/mock.js';
+import './apps/edf/ttk-edf-app-column/apps/ttk-edf-app-column-setting/mock.js';
 import './apps/edf/ttk-edf-app-column/apps/edfx-app-column-type/mock.js';
 import './apps/edf/ttk-edf-app-company-manage/mock.js';
 import './apps/edf/ttk-edf-app-company-manage/apps/ttk-edf-app-company-manage-add/mock.js';

@@ -301,7 +301,7 @@ class action {
     columnSetting = async () => {
         const ret = await this.metaAction.modal('show', {
             title: '栏目设置',
-            children: this.metaAction.loadApp('edfx-app-column-setting', {
+            children: this.metaAction.loadApp('ttk-edf-app-column-setting', {
                 store: this.component.props.store,
                 columnCode: "menuList"
             })
