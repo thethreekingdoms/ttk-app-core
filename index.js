@@ -62,7 +62,7 @@ import ttk_edf_app_voucher_detail_setting from  './apps/edf/ttk-edf-app-voucher/
 import ttk_edf_app_voucher_setting from  './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting'
 import app_test from  './apps/test/app-test'
 
-const apps = {
+let apps = {
     [ttk_edf_app_card_account.name]: ttk_edf_app_card_account,
     [ttk_edf_app_card_currency.name]: ttk_edf_app_card_currency,
     [ttk_edf_app_card_customer.name]: ttk_edf_app_card_customer,
@@ -115,6 +115,11 @@ const apps = {
     [app_test.name]: app_test,
 }
 //note-end
+
+if( window.singleApps ){
+    const singleApps = window.singleApps
+    apps = { ...apps,  ...singleApps }
+}
 apps.config = (options) => {
 	Object.keys(options).forEach(key => {
 		const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)

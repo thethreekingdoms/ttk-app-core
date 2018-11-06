@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,8 @@
     "splitcss-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.nohash.splitcss.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
+    "single": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist --port 8081 --host 0.0.0.0 --config webpacksingle/webpack.config.single.js",
+    "singleStatic": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.single.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint apps",
     "css": "lessc  --clean-css ./assets/styles/ie.less ./vendor/ie.css",

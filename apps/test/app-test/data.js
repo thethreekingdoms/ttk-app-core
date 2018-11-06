@@ -29,7 +29,7 @@ export function getMeta() {
 export function getInitState() {
 	return {
 		data: {
-			content: 'Hello TTK!!! Successful project initialization',
+			content: 'Hello TTK!!! Successful project initialization.',
 			version: 'v1.0.0'
 		}
 	}
