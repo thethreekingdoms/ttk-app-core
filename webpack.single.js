@@ -72,12 +72,12 @@ plugins.push(new HtmlWebpackPlugin({
     // }
 }))
 
-plugins.push(new ExtractTextPlugin('[name].css'))
+plugins.push(new ExtractTextPlugin('[name].[hash:8].css'))
 plugins.push(new LodashModuleReplacementPlugin)
 
 plugins.push(new CopyWebpackPlugin([{
     from: './version.txt',
-    to: 'version.txt',
+    to: 'version.[hash:8].txt',
     toType: 'template'
 }]))
 
@@ -88,6 +88,8 @@ plugins.push(new CopyWebpackPlugin([{
     ignore: ['.*']
 }]))
 
+plugins.push(new webpack.ExtendedAPIPlugin())
+
 if (version_ie8_bol) {
     plugins.push(new CopyWebpackPlugin([{
         from: './compatible/dist',
@@ -95,6 +97,7 @@ if (version_ie8_bol) {
         ignore: ['.*']
     }]))
 }
+
 
 const { modifyVars, aliasModule } = webpackCompileParams()
 
@@ -112,8 +115,8 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, "/dist/"),
-        filename: '[name].min.js',
-        chunkFilename: '[name].chunk.js'
+        filename: '[name].[hash:8].min.js',
+        chunkFilename: '[name].[hash:8].chunk.js'
     },
 
     resolve: {
@@ -166,7 +169,7 @@ module.exports = {
             use: {
                 loader: 'url-loader',
                 options: {
-                    name: '[name].[ext]',
+                    name: '[name].[hash:8].[ext]',
                     limit: 8192
                 }
             }
