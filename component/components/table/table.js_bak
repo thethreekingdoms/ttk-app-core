@@ -235,7 +235,7 @@ class AntTable extends Component {
         }
         let appContainerWidth = null
         try {
-            const dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
+            const dom = document.getElementsByClassName('ttk-edf-app-portal-content-main')[0]
             if (dom) {
                 appContainerWidth = dom.offsetWidth - 160 + 80
             } else {

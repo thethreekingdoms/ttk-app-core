@@ -1,29 +1,29 @@
-.edfx-app-login {
+.ttk-edf-app-login {
   position: relative;
 }
-.edfx-app-login-header {
+.ttk-edf-app-login-header {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
 }
-.edfx-app-login-header-left-split {
+.ttk-edf-app-login-header-left-split {
   position: absolute;
   top: 0px;
   left: 126px;
 }
-.edfx-app-login-header-left-login {
+.ttk-edf-app-login-header-left-login {
   position: absolute;
   top: 0px;
   left: 158px;
 }
-.edfx-app-login-header-right {
+.ttk-edf-app-login-header-right {
   position: absolute;
   right: 0px;
   top: 10px;
 }
-.edfx-app-login-content {
+.ttk-edf-app-login-content {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -33,14 +33,14 @@
   padding-bottom: 80px;
   z-index: 1;
 }
-.edfx-app-login-footer {
+.ttk-edf-app-login-footer {
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
 }
-.edfx-app-login-footer p {
+.ttk-edf-app-login-footer p {
   text-align: center;
   padding-top: 30px;
 }
@@ -128,51 +128,51 @@
 .edfx-app-forgot-password-form-captcha .ant-input {
   height: 50px;
 }
-.edfx-app-portal {
+.ttk-edf-app-portal {
   padding-top: 54px !important;
   position: relative;
 }
-.edfx-app-portal-header {
+.ttk-edf-app-portal-header {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 54px;
 }
-.edfx-app-portal-header-left {
+.ttk-edf-app-portal-header-left {
   width: 159px;
   height: 54px;
   position: absolute;
   left: 0;
   top: 0;
 }
-.edfx-app-portal-header-left h1 {
+.ttk-edf-app-portal-header-left h1 {
   margin-top: 8px !important;
 }
-.edfx-app-portal-header-right {
+.ttk-edf-app-portal-header-right {
   width: 100%;
   height: 54px;
   padding-left: 159px;
 }
-.edfx-app-portal-search-rightDiv {
+.ttk-edf-app-portal-search-rightDiv {
   min-width: 250px;
   position: relative;
 }
-.edfx-app-portal-search-rightDiv > span {
+.ttk-edf-app-portal-search-rightDiv > span {
   position: absolute;
   left: 0;
   top: 15px;
 }
-.edfx-app-portal-search-rightDiv .basicInfo {
+.ttk-edf-app-portal-search-rightDiv .basicInfo {
   position: absolute;
   top: 15px;
   right: 0px;
 }
-.edfx-app-portal-content {
+.ttk-edf-app-portal-content {
   position: relative;
   overflow: hidden;
 }
-.edfx-app-portal-content-left {
+.ttk-edf-app-portal-content-left {
   width: 160px !important;
   position: absolute;
   left: 0;
@@ -181,44 +181,44 @@
   height: auto;
   overflow: hidden;
 }
-.edfx-app-portal-content-left > div {
+.ttk-edf-app-portal-content-left > div {
   width: 100%;
   float: left;
 }
-.edfx-app-portal-content-left .menu-switch {
+.ttk-edf-app-portal-content-left .menu-switch {
   height: 20px;
 }
-.edfx-app-portal-content-left .new-guide {
+.ttk-edf-app-portal-content-left .new-guide {
   height: 100px;
   overflow: hidden;
 }
-.edfx-app-portal-content > div {
+.ttk-edf-app-portal-content > div {
   width: 100%;
   height: 100%;
   padding-left: 173px;
 }
-.edfx-app-portal-content-main {
+.ttk-edf-app-portal-content-main {
   height: 100%;
 }
-.edfx-app-portal-content .mainTop {
+.ttk-edf-app-portal-content .mainTop {
   position: absolute;
   left: 170px;
   top: 0px;
   width: 100%;
   z-index: 10000;
 }
-.edfx-app-portal-content .mainTop .extraMenu {
+.ttk-edf-app-portal-content .mainTop .extraMenu {
   position: absolute;
   right: 0;
   top: 0;
 }
-.edfx-app-portal-content .mainTop .extraMenu .panelControl {
+.ttk-edf-app-portal-content .mainTop .extraMenu .panelControl {
   float: left;
 }
-.edfx-app-portal-content .mainTop .extraMenu .edfx-app-portal-content-apiLink {
+.ttk-edf-app-portal-content .mainTop .extraMenu .ttk-edf-app-portal-content-apiLink {
   float: left;
 }
-.edfx-app-portal-content .edfx-app-portal-content-main {
+.ttk-edf-app-portal-content .ttk-edf-app-portal-content-main {
   padding-top: 46px !important;
 }
 .app-proof-of-charge {

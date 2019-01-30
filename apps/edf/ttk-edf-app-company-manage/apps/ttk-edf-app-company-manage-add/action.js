@@ -130,7 +130,7 @@ class action {
             this.metaAction.toast('success', '创建成功')
             LoadingMask.hide()
             sessionStorage['currentOrgStatus'] = null
-            this.component.props.setPortalContent('门户首页', 'edfx-app-portal', {
+            this.component.props.setPortalContent('门户首页', 'ttk-edf-app-portal', {
                 isShowMenu: false,
                 isTabsStyle: false
             })

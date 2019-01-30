@@ -75,7 +75,7 @@ plugins.push(new HtmlWebpackPlugin({
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index.html', //html模板路径
-    chunks: ['bundle', 'edf', 'icon', 'blueTheme'],
+    chunks: [],
     hash: false,
     inject: 'body', //允许插件修改哪些内容，包括head与body`
     minify: { //压缩HTML文件
@@ -94,25 +94,19 @@ plugins.push(new OptimizeCssAssetsPlugin(
         canPrint: false
     }
 ))*/
+
 plugins.push(new CopyWebpackPlugin([{
-    from: './version.txt',
-    to: 'version.txt',
+    from: './checkLowBrowser.js',
+    to: 'checkLowBrowser.js',
     toType: 'template'
 }]))
-/*
-plugins.push(new CopyWebpackPlugin([{
-    from: './robots.txt',
-    to: 'robots.txt',
-    toType: 'file'
-}]))
-*/
-
 
 plugins.push(new CopyWebpackPlugin([{
     from: './vendor',
     to: './vendor',
     ignore: ['.*']
 }]))
+
 
 if (version_ie8_bol) {
     plugins.push(new CopyWebpackPlugin([{
@@ -128,9 +122,9 @@ module.exports = {
     devtool: false,
     entry: {
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi", "./index.js"],
-        //businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
+        businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
         //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
-        blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
+        //blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less"

@@ -1,11 +1,9 @@
-
-
 .mk-attachment-popover {
-    z-index: 1 !important;
-    top: 187.5px !important;
+    // z-index: 1 !important;
+    top: 190px !important;
     left: auto !important;
     right: 10.5px !important;
-    .ant-popover-arrow{
+    .ant-popover-arrow {
         left: auto !important;
         right: 12% !important;
         top: -4px;
@@ -25,7 +23,7 @@
                 cursor: pointer;
                 display: inline-block;
                 line-height: 25px;
-                &:hover{
+                &:hover {
                     color: @primary-color;
                     text-decoration: none;
                 }
@@ -34,101 +32,106 @@
     }
     .ant-popover-inner-content {
         padding: 0px;
-        a:hover{
+        a:hover {
             text-decoration: underline;
         }
     }
 }
 
+.mk-attachment-popover.isFromDocList {
+    z-index: 9999999 !important;
+    top: 87px !important;
+    right: 29px !important;
+}
+
 .attachment-title {
-    .upload{
-        &:hover{
+    .upload {
+        &:hover {
             text-decoration: underline;
         }
     }
-    .mk-upload{
+    .mk-upload {
         float: right;
     }
 }
-.mk-attachment > i{
+
+.mk-attachment>i {
     margin-left: 35px;
 }
-.mk-attachment:hover{
+
+.mk-attachment:hover {
     // .edficon-fujian{
     //     &:hover{
-            color: @primary-color;
-            cursor: pointer;
-        // }
+    color: @primary-color;
+    cursor: pointer; // }
     // }
 }
-.mk-attachment > span:hover{
+
+.mk-attachment>span:hover {
     color: @link-color;
     cursor: pointer;
 }
+
 .mk-attachment-content {
     width: 250px;
     height: 220px;
     display: flex;
     flex-direction: column;
-    .mk-datagrid .fixedDataTableLayout_main{
+    .mk-datagrid .fixedDataTableLayout_main {
         border-top: none;
     }
-    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header {
         border: none;
     }
     .mk-datagrid-cellContent-left {
         padding-left: 10px;
     }
-
     .fixedDataTableCellLayout_main {
         border-bottom-style: dashed;
         border-width: 0 0 1px 0;
         text-align: left;
-        .edficon{
+        .edficon {
             font-size: 24px;
             height: 35px;
             line-height: 35px;
-            &.del{
+            vertical-align: sub;
+            &.del {
                 font-size: 20px;
+                vertical-align: sub;
             }
-            &.download{
-                &:before{
+            &.download {
+                &:before {
                     color: #33C2A1;
                 }
-                &:hover{
-                    &:before{
+                &:hover {
+                    &:before {
                         color: #009875;
                     }
                 }
             }
         }
-        
     }
     &-link-cell {
         justify-content: flex-start;
         padding-left: 10px;
         font-size: 12px;
         display: flex !important;
-        a{
-            height: 100%;
-            // float: left;
+        a {
+            height: 100%; // float: left;
         }
-        span{
+        span {
             white-space: nowrap;
             text-overflow: ellipsis;
             width: 145px;
             overflow: hidden;
-            display: inline-block;
+            // display: inline-block;
         }
-        
     }
-
     .picture {
         font-size: 20px;
         margin-right: 5px;
         color: #3eabe8;
     }
-
     &-footer {
         flex: 0 0 35px;
         align-items: center;
@@ -142,8 +145,7 @@
 
 .upload-content {
     flex-direction: row;
-    justify-content: center;
-    //无附件显示图片加文字，2018/2/8 myf
+    justify-content: center; //无附件显示图片加文字，2018/2/8 myf
     // line-height: 100px;
     height: 220px;
 }

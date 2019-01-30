@@ -1,16 +1,29 @@
 
 .container {
 	background: url(./browbg.png) center center no-repeat;
-	margin: 20px;
+	margin: 0 auto;
 	position: relative;
-	height: 600px;
+	height: 280px;
 	background-size: cover;
 }
 
+#qihu{
+	margin: 0 auto;
+	text-align: center;
+	z-index: 999999999;
+}
+
 .container h1 {
-	margin-bottom: 40px;
+	margin-bottom: 5px;
 	font-size: 16px;
 	font-weight: inherit;
+}
+.browTips{
+	border:1px solid #3B3B3B;
+	margin: 0 auto;
+	text-align: center;
+	width: 900px;
+	overflow: hidden;
 }
 
 .container h1 span {
@@ -19,7 +32,7 @@
 	color: #3B3B3B;
 	max-width: 530px;
 	_width: 530px;
-	margin-top: 70px;
+	margin-top: 10px;
 }
 .container h1{
     text-align: center;
@@ -31,6 +44,21 @@
 
 .box ul li,.box-title,.pc-box li a {
 	text-align: center
+}
+
+.windown{
+	height:92px;
+	width: 100px;
+	background: url(./windows.png) no-repeat;
+	display: inline-block;
+	*display: inline;
+}
+.macdown{
+	height:92px;
+	width: 100px;
+	background: url(./mac.png) no-repeat;
+	display: inline-block;
+	*display: inline;
 }
 
 .sprite {
@@ -216,4 +244,73 @@ em,i {
 	margin-left: 160px;
 	margin-top: 20px;
 	box-shadow: 1px 1px 3px #EEE
+}
+.ztip {
+	color: blue;
+}
+
+#ztip {
+	display: none;
+	position: absolute;
+	background-color: #000;
+	color: #fff;
+	padding: 3px 5px;
+	font-size: 12px;
+	border-radius: 3px;
+	font-family: "Courier New"consolas;
+	display: inline-block;
+	text-align: center;
+}
+
+#ztip:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+
+#ztip.top:after {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	margin-bottom: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000;
+}
+
+#ztip.bottom:after {
+	top: 0;
+	left: 50%;
+	margin-left: -5px;
+	margin-top: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000;
+}
+
+#ztip.left:after {
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+	margin-right: -5px;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #000;
+}
+
+#ztip.right:after {
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	margin-left: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: #000;
+}
+
+#ztip.track {
+	text-align: left;
+}
+
+#ztip.track:after {
+	display: none;
 }

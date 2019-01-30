@@ -37,8 +37,8 @@ export default class InputNumberComponent extends Component {
 
     assitShouldComponent = (target) => {
         let obj = {}
-        for( const [key, value] of Object.entries(target) ) {
-            if( typeof(value) != 'function' ) {
+        for (const [key, value] of Object.entries(target)) {
+            if (typeof (value) != 'function') {
                 obj[key] = value
             }
         }
@@ -194,6 +194,7 @@ export default class InputNumberComponent extends Component {
 
 
     onChange(e) {
+        // debugger
         //const value = e.target.validity ? (e.target.validity.valid ? e.target.value : this.state.value) : e.target.value
         let value
         if (e.target.validity) {
@@ -202,55 +203,98 @@ export default class InputNumberComponent extends Component {
             value = e.target.value
         }
 
-        if(value.trim()=='-.') value=0
+        if (value.trim() == '-.') value = 0
         const regExp = this.getRegExp()
-
+        let isFullAngle = value.match(/[\uff00-\uffff]/g)
+        if (isFullAngle && isFullAngle.length > 0) {//全角输入法转换为半角输入法
+            var tmp = "";
+            for (var i = 0; i < value.length; i++) {
+                if (value.charCodeAt(i) == 12288) {
+                    tmp += String.fromCharCode(value.charCodeAt(i) - 12256);
+                    continue;
+                }
+                if (value.charCodeAt(i) > 65280 && value.charCodeAt(i) < 65375) {
+                    tmp += String.fromCharCode(value.charCodeAt(i) - 65248);
+                }
+                else {
+                    tmp += String.fromCharCode(value.charCodeAt(i));
+                }
+            }
+            value = tmp
+        }
+        
         // edge浏览器微软拼音输入法下，小数位数控制不住的问题处理
         if (value &&
             value.toString().length > 1 &&
-            value.toString().substr(value.toString().length-1, 1) != '.' &&
+            value.toString().substr(value.toString().length - 1, 1) != '.' &&
             !regExp.test(utils.number.clearThousPos(value, true))) {
 
             if (e.preventDefault)
-              e.preventDefault()
+                e.preventDefault()
             if (e.stopPropagation)
-              e.stopPropagation()
+                e.stopPropagation()
 
             return
         }
 
         //当为小数正则表达式时，不进行小数点正则检查
         if (regExp.test('0.0') && e.target.value && e.target.value != '' && e.target.value.indexOf('.') > -1) {
-                this.setState({ value })
-                if( this.props.timeout ) {
-                    let keyRandom = Math.floor(Math.random()*10000000)
-                    this.keyRandom = keyRandom
-                    setTimeout(() => {
-                        if( keyRandom == this.keyRandom ) {
-                            this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
-                        }
-                    }, 200)
-                }else{
-                    this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
-                }
-        		
+            if (typeof this.props.maxValue == 'number' && !isNaN(Number(value)) && this.props.maxValue < Number(value)) {
+                value = this.props.maxValue
+            }
+            if (this.props.maxValue == 0 && !isNaN(Number(value)) && 0 < Number(value)) {
+                value = 0
+            }
+            if (typeof this.props.maxValue == 'number' && !isNaN(Number(value)) && this.props.minValue > Number(value)) {
+                value = this.props.minValue
+            }
+            if (this.props.minValue == 0 && !isNaN(Number(value)) && 0 > Number(value)) {
+                value = 0
+            }
+
+            this.setState({ value })
+            if (this.props.timeout) {
+                let keyRandom = Math.floor(Math.random() * 10000000)
+                this.keyRandom = keyRandom
+                setTimeout(() => {
+                    if (keyRandom == this.keyRandom) {
+                        this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                    }
+                }, 200)
+            } else {
+                this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+            }
+
         }
 
         //是数字或者是空或者是-
         if ((!isNaN(utils.number.clearThousPos(value, true)) && regExp.test(utils.number.clearThousPos(value))) || value === '' || value === '-') {
-                this.setState({ value })
-                if( this.props.timeout ) {
-                    let keyRandom = Math.floor(Math.random()*10000000)
-                    this.keyRandom = keyRandom
-                    setTimeout(() => {
-                        if( keyRandom == this.keyRandom ) {
-                            this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
-                        }
-                    }, 200)
-                }else{
-                    this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
-                }
-        		
+            if (typeof this.props.maxValue == 'number' && !isNaN(Number(value)) && this.props.maxValue < Number(value)) {
+                value = this.props.maxValue
+            }
+            if (this.props.maxValue == 0 && !isNaN(Number(value)) && 0 < Number(value)) {
+                value = 0
+            }
+            if (typeof this.props.maxValue == 'number' && !isNaN(Number(value)) && this.props.minValue > Number(value)) {
+                value = this.props.minValue
+            }
+            if (this.props.minValue == 0 && !isNaN(Number(value)) && 0 > Number(value)) {
+                value = 0
+            }
+
+            this.setState({ value })
+            if (this.props.timeout) {
+                let keyRandom = Math.floor(Math.random() * 10000000)
+                this.keyRandom = keyRandom
+                setTimeout(() => {
+                    if (keyRandom == this.keyRandom) {
+                        this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+                    }
+                }, 200)
+            } else {
+                this.state.oldValue != value && this.props.onChange && this.props.onChange(value)
+            }
+
         }
 
         // COMMENT 0205 HAOZHAO START
@@ -312,16 +356,16 @@ export default class InputNumberComponent extends Component {
             this.setState({ value: value + '' })
             this.state.oldValue != value && this.props.onChange && this.props.onChange(this.toNumber(this.toPrecisionAsStep(value)), this.toNumber(this.toPrecisionAsStep(this.state.oldValue)))
         }
-        if(value == '' && this.props.nullToZero){
+        if (value == '' && this.props.nullToZero) {
             value = 0
         }
-        if(this.props.executeBlur){
+        if (this.props.executeBlur) {
             /**
              * 业务，填制凭证金额由于ONCHANGE事件，导致oldvalue与value永远相等，onblur事件一直执行
              */
             this.props.onBlur && this.props.onBlur(this.toNumber(this.toPrecisionAsStep(value)))
         }
-        else{
+        else {
             this.state.oldValue != value && this.props.onBlur && this.props.onBlur(this.toNumber(this.toPrecisionAsStep(value)))
         }
     }
@@ -512,7 +556,7 @@ export default class InputNumberComponent extends Component {
         }
     }
 
-    getRegExp(){
+    getRegExp() {
         let regExp
 
         if (this.props.regex) {
@@ -528,23 +572,23 @@ export default class InputNumberComponent extends Component {
         return regExp
     }
 
-    handleKeyUp(e){
-      let repValue=e.target.value
-      //if (this.state.regex) {
+    handleKeyUp(e) {
+        let repValue = e.target.value
+        //if (this.state.regex) {
         //[\u4e00-\u9fa5] 中文正则表达式  将中文替换为空，实现Input无法输入中文的功能
         if (e.target.value.indexOf('.') != -1) {
-          repValue =e.target.value.replace('。','')
+            repValue = e.target.value.replace('。', '')
         }
-        repValue =repValue.replace(/[\u4e00-\u9fa5]/g,'')
+        repValue = repValue.replace(/[\u4e00-\u9fa5]/g, '')
 
         //录入了字母+中文时，字母会被录入
         let regExp = this.getRegExp() //new RegExp(this.state.regex)
         //若regex为小数正则，则忽略小数点.
-        if((regExp.test('0.0') && e.target.value &&
-            e.target.value.at(e.target.value.length-1) == '.' &&
+        if ((regExp.test('0.0') && e.target.value &&
+            e.target.value.at(e.target.value.length - 1) == '.' &&
             e.target.value != '-.') ||
-           (regExp.test('-1') && e.target.value == '-') ||
-           (e.target.value != '-.')){
+            (regExp.test('-1') && e.target.value == '-') ||
+            (e.target.value != '-.')) {
 
             if (!regExp.test(e.target.value)) {
                 if (e.preventDefault)
@@ -553,15 +597,15 @@ export default class InputNumberComponent extends Component {
                     e.stopPropagation()
                 return
             }
-        }else{
-            if(!regExp.test(repValue)){
-              repValue = ''
+        } else {
+            if (!regExp.test(repValue)) {
+                repValue = ''
             }
         }
-      //}
+        //}
 
-      this.setState({value: repValue})
-      this.props.onKeyUp && this.props.onKeyUp(e)
+        this.setState({ value: repValue })
+        this.props.onKeyUp && this.props.onKeyUp(e)
     }
 
     stringFromCharCode = (keyCode) => {
@@ -619,15 +663,16 @@ export default class InputNumberComponent extends Component {
         return (
             <Input
                 {...this.props}
+                autocomplete='off'
                 ref='internal'
-                className = { className }
+                className={className}
                 id='mk-input-number'
                 onChange={:: this.onChange}
-                onKeyDown = {:: this.onKeyDown }
-                onKeyUp={::this.handleKeyUp}
-                onFocus={::this.handleFocus}
-                value = { this.state.value }
-                onBlur = {:: this.onBlur } />
+    onKeyDown = {:: this.onKeyDown }
+    onKeyUp = {:: this.handleKeyUp }
+    onFocus = {:: this.handleFocus }
+    value = { this.state.value }
+    onBlur = {:: this.onBlur } />
         )
-    }
+}
 }

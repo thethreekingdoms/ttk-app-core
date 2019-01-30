@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '../../../style.css';
+//import '../../../style.css';
 
 export default class DropDownOption extends Component {
   static propTypes = {
@@ -63,7 +63,8 @@ export default class DropDownOption extends Component {
         className={classNames(
           'rdw-dropdownoption-default',
           className,
-          { [`rdw-dropdownoption-active ${activeClassName}`]: active,
+          {
+            [`rdw-dropdownoption-active ${activeClassName}`]: active,
             [`rdw-dropdownoption-highlighted ${highlightedClassName}`]: highlighted,
             [`rdw-dropdownoption-disabled ${disabledClassName}`]: disabled,
           })

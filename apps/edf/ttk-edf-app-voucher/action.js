@@ -263,7 +263,7 @@ class action {
     modifyDetail = (id) => async () => {
         const ret = await this.metaAction.modal('show', {
             title: '修改',
-            children: this.metaAction.loadApp('edfx-app-portal-menu-detail', {
+            children: this.metaAction.loadApp('ttk-edf-app-portal-menu-detail', {
                 store: this.component.props.store,
                 id
             })

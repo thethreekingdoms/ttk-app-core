@@ -8,7 +8,7 @@ import { stopPropagation } from '../../../common';
 import { getFirstIcon } from '../../../toolbar';
 import Option from '../../Option';
 import { Dropdown, DropdownOption } from '../../Dropdown';
-import '../../../style.css';
+//import '../../../style.css';
 
 class LayoutComponent extends Component {
   static propTypes = {
@@ -171,7 +171,7 @@ class LayoutComponent extends Component {
           title={link.title || translations['components.controls.link.link']}
         >
           <img
-            style={{width:'15px', height:'15px'}}
+            style={{ width: '15px', height: '15px' }}
             src={link.icon}
             alt=""
           />
@@ -184,7 +184,7 @@ class LayoutComponent extends Component {
           title={unlink.title || translations['components.controls.link.unlink']}
         >
           <img
-            style={{width:'15px', height:'15px'}}
+            style={{ width: '15px', height: '15px' }}
             src={unlink.icon}
             alt=""
           />
@@ -225,7 +225,7 @@ class LayoutComponent extends Component {
           onExpandEvent={onExpandEvent}
         >
           <img
-            style={{width:'15px', height:'15px'}}
+            style={{ width: '15px', height: '15px' }}
             src={getFirstIcon(config)}
             alt=""
           />
@@ -235,7 +235,7 @@ class LayoutComponent extends Component {
             title={link.title || translations['components.controls.link.link']}
           >
             <img
-              style={{width:'15px', height:'15px'}}
+              style={{ width: '15px', height: '15px' }}
               src={link.icon}
               alt=""
             />
@@ -247,7 +247,7 @@ class LayoutComponent extends Component {
             title={unlink.title || translations['components.controls.link.unlink']}
           >
             <img
-              style={{width:'15px', height:'15px'}}
+              style={{ width: '15px', height: '15px' }}
               src={unlink.icon}
               alt=""
             />

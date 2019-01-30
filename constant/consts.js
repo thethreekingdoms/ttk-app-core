@@ -1,13 +1,13 @@
-﻿/**
+/**
  * 此文件由后台服务生成，请勿手工维护
  */
 export const consts = {
-    app : {
+    app: {
         APPKEY_FORESEE_ECS_SINGLE: '10001006', //财税助手(独立版)
         APPKEY_CHANJET_TPLUS: '10006001'  //TPlus
     },
 
-    enum : {
+    enum: {
         FILETYPE: '100001', //文件类型100001
         VOUCHERSTATUS: '100002', //单据状态100002
         VOUCHERTYPE: '100003', //单据类型100003

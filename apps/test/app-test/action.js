@@ -8,15 +8,15 @@ class action {
         this.config = config.current
     }
 
-    
+
     onInit = ({ component, injections }) => {
         this.component = component
         this.injections = injections
         injections.reduce('init')
     }
 
-    btnClick = () => {
-        this.injections.reduce('modifyContent')
+    onChange = (e) => {
+        this.injections.reduce('modifyContent', e.target.value)
     }
 }
 

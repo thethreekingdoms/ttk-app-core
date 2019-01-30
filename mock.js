@@ -38,7 +38,7 @@ import './apps/edf/ttk-edf-app-notice/mock.js';
 import './apps/edf/ttk-edf-app-operation/mock.js';
 import './apps/edf/ttk-edf-app-pagestyle/mock.js';
 import './apps/edf/ttk-edf-app-portal/mock.js';
-import './apps/edf/ttk-edf-app-portal-hor/mock.js';
+import './apps/edf/ttk-edf-app-portal/mock.js';
 import './apps/edf/ttk-edf-app-portal-menu/mock.js';
 import './apps/edf/ttk-edf-app-portal-menu-detail/mock.js';
 import './apps/edf/ttk-edf-app-register/mock.js';

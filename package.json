@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "2.0.16",
+  "version": "2.1.0",
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,18 @@
     "splitcss": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
     "splitcss-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.nohash.splitcss.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
+    "module": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.module.js",
+    "module:cli": "npm run build && npm run css && npm run css --split",
+    "modules": "npm run module --edf && npm run module --test",
+    "modules:all": "npm run module:cli && npm run modules && node createManifest.js",
+    "merge:manifest": "node createManifest.js",
+    "css": "cross-env NODE_ENV=production webpack --progress --config webpack.config.css.prd.js",
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
     "single": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist --port 8081 --host 0.0.0.0 --config webpacksingle/webpack.config.single.js",
     "singlestatic": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.single.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint apps",
-    "css": "lessc  --clean-css ./assets/styles/ie.less ./vendor/ie.css",
+    "less": "lessc  --clean-css ./assets/styles/ie.less ./vendor/ie.css",
     "help": "echo \" edf(系统管理) ba(基础档案)  \r\n***********按模块打包使用方式:如 npm run start --arg=\"edf\" "
   },
   "keywords": [
@@ -67,6 +73,7 @@
     "fixed-data-table-2": "0.8.11",
     "history": "4.7.2",
     "html-to-draftjs": "1.4.0",
+    "html2json-loader": "0.0.1",
     "html5shiv": "3.7.3",
     "immutable": "3.8.2",
     "lodash.clonedeep": "4.5.0",

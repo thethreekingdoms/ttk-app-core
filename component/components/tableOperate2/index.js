@@ -2,13 +2,12 @@ import React from 'react'
 import Icon from '../icon/index'
 import classNames from 'classnames'
 import isequal from 'lodash.isequal'
-import { Popover, Input, Message } from 'edf-component'
 class TableOperate2 extends React.Component {
 
     assitShouldComponent = (target) => {
         let obj = {}
-        for( const [key, value] of Object.entries(target) ) {
-            if( typeof(value) != 'function' ) {
+        for (const [key, value] of Object.entries(target)) {
+            if (typeof (value) != 'function') {
                 obj[key] = value
             }
         }
@@ -38,13 +37,13 @@ class TableOperate2 extends React.Component {
             default: return;
         }
     }
-    
+
     render() {
         const { status, disable, auditClick, editClick, deleteClick, unauditClick, className, style } = this.props
         const showBtn = []
 
         if (status == 1) {
-            editClick&&showBtn.push(
+            editClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('edit') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('edit')}
@@ -53,7 +52,7 @@ class TableOperate2 extends React.Component {
                     <Icon fontFamily='edficon' type="bianji" title="编辑" />
                 </a>
             )
-            auditClick&&showBtn.push(
+            auditClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('audit') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('audit')}
@@ -62,7 +61,7 @@ class TableOperate2 extends React.Component {
                     <Icon fontFamily='edficon' type="pizhu" title="审核" />
                 </a>
             )
-            deleteClick&&showBtn.push(
+            deleteClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('delete') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('delete')}
@@ -72,7 +71,7 @@ class TableOperate2 extends React.Component {
                 </a>
             )
         } else if (status == 2) {
-            editClick&&showBtn.push(
+            editClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('edit') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('edit')}
@@ -81,7 +80,7 @@ class TableOperate2 extends React.Component {
                     <Icon fontFamily='edficon' type="bianji" title="编辑" />
                 </a>
             )
-            unauditClick&&showBtn.push(
+            unauditClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('unaudit') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('unaudit')}
@@ -90,7 +89,7 @@ class TableOperate2 extends React.Component {
                     <Icon fontFamily='edficon' type="pizhu" title="反审核" color='red' />
                 </a>
             )
-            deleteClick&&showBtn.push(
+            deleteClick && showBtn.push(
                 <a
                     className={`${disable && disable.includes('delete') ? 'disabled' : ''}`}
                     onClick={() => this.handleClick('delete')}

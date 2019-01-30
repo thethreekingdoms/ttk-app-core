@@ -35,7 +35,7 @@ class action {
             this.component.props.onRedirect({ appName: 'ttk-edf-app-portal' })
         }
         else if (type == "T") {
-            this.component.props.onRedirect({ appName: 'ttk-edf-app-portal-hor' })
+            this.component.props.onRedirect({ appName: 'ttk-edf-app-portal' })
         }
     }
 

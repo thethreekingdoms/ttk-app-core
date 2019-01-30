@@ -20,14 +20,15 @@ export default class attachmentComponent extends Component {
             isOpen: false,
             activeIndex: 0,
             contentIsVisible: props.visible,
-            fileList: []
+            fileList: [],
+            isFromDocList: props.isFromDocList || ''
         }
     }
 
     assitShouldComponent = (target) => {
         let obj = {}
-        for( const [key, value] of Object.entries(target) ) {
-            if( typeof(value) != 'function' ) {
+        for (const [key, value] of Object.entries(target)) {
+            if (typeof (value) != 'function') {
                 obj[key] = value
             }
         }
@@ -80,24 +81,24 @@ export default class attachmentComponent extends Component {
                 flexGrow={1}
                 cell={(ps) => {
                     let iconComponent
-                    switch (data[ps.rowIndex].type || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type)) {
+                    switch (data[ps.rowIndex].type || (data[ps.rowIndex].file && data[ps.rowIndex].file.type)) {
                         case 1000010001:
-                            iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon" style={{color:'#8080F3'}}/>)
+                            iconComponent = (<Icon type="tupian" className="picture" fontFamily="edficon" style={{ color: '#8080F3' }} />)
                             break;
                         case 1000010002:
-                            iconComponent = (<Icon type="word" className="picture" fontFamily="edficon" style={{color:'#52C4FF'}}/>)
+                            iconComponent = (<Icon type="word" className="picture" fontFamily="edficon" style={{ color: '#52C4FF' }} />)
                             break;
                         case 1000010003:
-                            iconComponent = (<Icon type="Excel" className="picture" fontFamily="edficon" style={{color:'#FF7739'}}/>)
+                            iconComponent = (<Icon type="Excel" className="picture" fontFamily="edficon" style={{ color: '#FF7739' }} />)
                             break;
                         case 1000010004:
-                            iconComponent = (<Icon type="ppt" className="picture" fontFamily="edficon" style={{color:'#4591FF'}}/>)
+                            iconComponent = (<Icon type="ppt" className="picture" fontFamily="edficon" style={{ color: '#4591FF' }} />)
                             break;
                         case 1000010005:
-                            iconComponent = (<Icon type="pdf" className="picture" fontFamily="edficon" style={{color:'#36CEAB'}}/>)
+                            iconComponent = (<Icon type="pdf" className="picture" fontFamily="edficon" style={{ color: '#36CEAB' }} />)
                             break;
                         case 1000010006:
-                            iconComponent = (<Icon type="yasuobao" className="picture" fontFamily="edficon" style={{color:'#F9A022'}}/>)
+                            iconComponent = (<Icon type="yasuobao" className="picture" fontFamily="edficon" style={{ color: '#F9A022' }} />)
                             break;
                         default:
                             break;
@@ -105,27 +106,27 @@ export default class attachmentComponent extends Component {
                     // console.log(data[ps.rowIndex], 'data[ps.rowIndex]')
                     return (
 
-                        (data[ps.rowIndex].type || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type)) == 1000010001 ?
-                        <Popover
-                            content={this.getThumbnail(data[ps.rowIndex])}
-                            arrowPointAtCenter={true}
-                            placement='leftTop'
-                        >
-                            <Cell className='mk-attachment-content-link-cell'>
-                                <a>
-                                    {iconComponent}
-                                </a>
-                                {data[ps.rowIndex].type == 1000010001 || (data[ps.rowIndex].file&&data[ps.rowIndex].file.type == 1000010001) ? 
-                                <a className="attachmentName"
-                                onClick={(e) => 
-                                    this.openViewer(ps.rowIndex, e)} 
-                                title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
-                                {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}
-                                </a> : 
-                                <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
-                                {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}</span>}
-                            </Cell>
-                        </Popover> : 
+                        (data[ps.rowIndex].type || (data[ps.rowIndex].file && data[ps.rowIndex].file.type)) == 1000010001 ?
+                            <Popover
+                                content={this.getThumbnail(data[ps.rowIndex])}
+                                arrowPointAtCenter={true}
+                                placement='leftTop'
+                            >
+                                <Cell className='mk-attachment-content-link-cell'>
+                                    <a>
+                                        {iconComponent}
+                                    </a>
+                                    {data[ps.rowIndex].type == 1000010001 || (data[ps.rowIndex].file && data[ps.rowIndex].file.type == 1000010001) ?
+                                        <a className="attachmentName"
+                                            onClick={(e) =>
+                                                this.openViewer(ps.rowIndex, e)}
+                                            title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                            {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}
+                                        </a> :
+                                        <span title={data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}>
+                                            {data[ps.rowIndex].name || data[ps.rowIndex].alt || data[ps.rowIndex].file.originalName}</span>}
+                                </Cell>
+                            </Popover> :
                             <div>
                                 <Cell className='mk-attachment-content-link-cell'>
                                     <a>
@@ -144,7 +145,7 @@ export default class attachmentComponent extends Component {
                             </div>
                     )
                 }}
-                width={100}
+                width={180}
             />,
             <Column
                 columnKey='option'
@@ -213,7 +214,11 @@ export default class attachmentComponent extends Component {
             <img height={300} width={300} src={detail.accessUrl} />
         </div>)
     }
-
+    // getPopupContainer = () => {
+    //     if(this.props.isFromDocList){
+    //         return 
+    //     }
+    // }
     render() {
         const className = classNames({
             'mk-attachment': true,
@@ -221,21 +226,39 @@ export default class attachmentComponent extends Component {
         })
 
         return (
-            <Popover
-                overlayClassName='mk-attachment-popover attachment'
-                content={this.getContent()}
-                // placement="bottomRight"
-                onVisibleChange={this.contentVisibleChange}
-                // visible={this.state.contentIsVisible || this.props.visible}
-                title={this.getTitle()}
-                trigger='click'
-            >
-                <span {...this.props} className={className}>
-                    <Icon style={{ fontSize: '22px', verticalAlign: 'middle' }} fontFamily="edficon" type="fujian" />
-                    <span style={{ display: 'inline-block', height: '24px', lineHeight: '24px', verticalAlign: 'middle' }}>附件</span>
-                </span>
-                {this.renderViewer(this.props.data)}
-            </Popover>
+            this.props.isFromDocList ?
+                <Popover
+                    overlayClassName={this.props.isFromDocList ? "mk-attachment-popover attachment isFromDocList" : 'mk-attachment-popover attachment '}
+                    content={this.getContent()}
+                    getPopupContainer={() => document.querySelector('.copyDoc-modal')}
+                    // placement="bottomRight"
+                    onVisibleChange={this.contentVisibleChange}
+                    // visible={this.state.contentIsVisible || this.props.visible}
+                    title={this.getTitle()}
+                    trigger='click'
+                >
+                    <span {...this.props} className={className}>
+                        <Icon style={{ fontSize: '22px', verticalAlign: 'middle' }} fontFamily="edficon" type="fujian" />
+                        <span style={{ display: 'inline-block', height: '24px', lineHeight: '24px', verticalAlign: 'middle' }}>附件</span>
+                    </span>
+                    {this.renderViewer(this.props.data)}
+                </Popover> :
+                <Popover
+                    overlayClassName={this.props.isFromDocList ? "mk-attachment-popover attachment isFromDocList" : 'mk-attachment-popover attachment '}
+                    content={this.getContent()}
+                    // placement="bottomRight"
+                    onVisibleChange={this.contentVisibleChange}
+                    // visible={this.state.contentIsVisible || this.props.visible}
+                    title={this.getTitle()}
+                    trigger='click'
+                >
+                    <span {...this.props} className={className}>
+                        <Icon style={{ fontSize: '22px', verticalAlign: 'middle' }} fontFamily="edficon" type="fujian" />
+                        <span style={{ display: 'inline-block', height: '24px', lineHeight: '24px', verticalAlign: 'middle' }}>附件</span>
+                    </span>
+                    {this.renderViewer(this.props.data)}
+                </Popover>
+
         )
     }
 
@@ -258,7 +281,7 @@ export default class attachmentComponent extends Component {
         let newData = []
         if (data instanceof Array) {
             data.forEach(item => {
-                if(item.type == 1000010001){
+                if (item.type == 1000010001) {
                     newData.push({ src: item.accessUrl, alt: item.alt })
                 }
             })

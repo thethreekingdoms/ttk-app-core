@@ -1,4 +1,4 @@
-import utils from 'edf-utils'
+import utils, { environment } from 'edf-utils'
 import ReactDOM from 'react-dom'
 import config from './config'
 import Immutable, { fromJS, Map, List } from 'immutable'
@@ -272,6 +272,15 @@ export default class action {
         const response = await this.webapi.bankaccount.queryList(params)
 
         if (response) {
+            // if (invoiceType == 'sa') {
+            //     response.list = response.list.filter(o => o.bankAccountTypeName !== '冲减预付款')
+            // }
+            // if (invoiceType == 'pu') {
+            //     response.list = response.list.filter(o => o.bankAccountTypeName !== '冲减预收款')
+            // }
+            // if (invoiceType == 'payment' || invoiceType == 'proceeds') {
+            //     response.list = response.list.filter(o => o.bankAccountTypeName !== '冲减预收款' && o.bankAccountTypeName !== '冲减预付款')
+            // }
             this.metaAction.sf(field || 'data.other.bankAccount', fromJS(response.list))
         }
     }
@@ -296,7 +305,7 @@ export default class action {
     addInventory = async (field, type) => {
         const ret = await this.metaAction.modal('show', {
             title: '新增存货',
-            width: 750,
+            width: 800,
             children: this.metaAction.loadApp(
                 'app-card-inventory', {
                     store: this.component.props.store
@@ -358,10 +367,24 @@ export default class action {
         }
     }
 
+    addAccount = async (field) => {
+        const ret = await this.metaAction.modal('show', {
+			title: '新增账户',
+			width: 400,
+			height: 500,
+			children: this.metaAction.loadApp('app-card-bankaccount', {
+				store: this.component.props.store
+			}),
+		})
+		if (ret && ret.isEnable) {
+            return ret
+        }
+    }
+
     beforeUpload = (file, filetype) => {
         const isLt10M = file.size / 1024 / 1024 < 10;
-        if (!isLt10M) {
-            //LoadingMask.hide()            
+
+        if (file.size && !isLt10M) {
             this.metaAction.toast('warning', '文件过大，请上传小于10兆的附件')
             this.injections.reduce('attachmentLoading', false)
             return false
@@ -369,16 +392,18 @@ export default class action {
     }
 
     excelbeforeUpload = (file) => {
-
         let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome') < 0)
         if (!isWin) return
 
-        let type = file.type ? file.type : ''
-
+        let type = file.type ? file.type : 'application/vnd.ms-excel'
+        let mode = file.name.substr(file.name.length - 4, 4)
         if (!(type == 'application/vnd.ms-excel'
-            || type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
-            LoadingMask.hide()
+            || type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || mode.indexOf('xls') > -1)) {
+            if (LoadingMask) {
+                LoadingMask.hide()
+            }
             this.metaAction.toast('error', '仅支持上传Excel格式的文件')
+            this.injections.reduce('attachmentLoading', false)
             return false
         }
 
@@ -388,12 +413,28 @@ export default class action {
     docBeforeUpload = (file) => {
         let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome') < 0)
         if (!isWin) return
-        let type = file.type ? file.type : ''
-
+        let type = file.type ? file.type : 'application/msword'
+        let mode = file.name.substr(file.name.length - 4, 4)
         if (!(type == 'application/msword'
-            || type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-            LoadingMask.hide()
+            || type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || mode.indexOf('doc') > -1)) {
+            if (LoadingMask) {
+                LoadingMask.hide()
+            }
             this.metaAction.toast('error', '仅支持上传Doc格式的文件')
+            this.injections.reduce('attachmentLoading', false)
+            return false
+        }
+
+        this.beforeUpload(file)
+    }
+
+    zipBeforeUpload = (file) => {
+        let isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows") || (navigator.platform == "MacIntel" && navigator.userAgent.toLowerCase().indexOf('chrome') < 0)
+        if (!isWin) return
+        let type = file.type ? file.type : ''
+        let mode = file.name.substr(file.name.length - 4, 4)
+        if (!(type == 'application/x-zip-compressed' || mode == ".zip")) {
+            this.metaAction.toast('error', '仅支持上传zip格式的文件')
             return false
         }
 
@@ -589,7 +630,7 @@ export default class action {
         // 金额＝价税合计÷（1＋税率）
         // 税额＝价税合计－金额
         // 如果数量为0，单价为0
-        // 如果数量不为0:   
+        // 如果数量不为0:
         // 单价=价税合计÷（1＋税率）÷数量
 
         let taxRates = this.metaAction.gf('data.other.taxRate').toJS()
@@ -723,11 +764,13 @@ export default class action {
         }
     }
 
-    sumColumn = (col) => {
+    sumColumn = (col, isPercent) => {
         let currentSumCol = col,
             details = this.metaAction.gf('data.form.details')
         if (currentSumCol == 'quantity') {
             return this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 6)
+        } else if(isPercent=='isPercent'){
+            return `${this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 2)}%`
         } else {
             return this.numberFormat(this.sum(details, (a, b) => a + b.get(`${currentSumCol}`)), 2)
         }
@@ -776,20 +819,19 @@ export default class action {
     }
 
     checkSaveInvoice = (form, page, other) => {
-
         let msg = [], allItemEmpty = true
         if (page == 'pu') {
-            if (!form.supplierId) {
+            if (!form.supplierId && !form.supplierName) {
                 msg.push('销方名称不能为空')
             }
         } else if (page == 'sa') {
-            if (!form.customerId) {
+            if (!form.customerId && !form.customerName) {
                 msg.push('购方名称不能为空')
             }
         }
 
         if (!form.businessDate)
-            msg.push('记账日期不能为空')
+            msg.push('单据日期不能为空')
 
         if (!form.invoiceTypeId)
             msg.push('发票类型不能为空')
@@ -814,11 +856,11 @@ export default class action {
         // if (!form.invoiceDate && page == 'pu')
         // msg.push('开票日期不能为空')
 
-        if (form.invoiceNumber && (form.invoiceNumber.length != 8)) {
+        if (form.invoiceNumber && (form.invoiceNumber.length != 8) && (form.invoiceTypeId != 4000010040)) {
             msg.push('发票号码长度必须为8位')
         }
 
-        if (form.invoiceCode && form.invoiceCode.length != 10 && form.invoiceCode.length != 12) {
+        if (form.invoiceCode && form.invoiceCode.length != 10 && form.invoiceCode.length != 12 && (form.invoiceTypeId != 4000010040)) {
             msg.push('发票代码长度必须为10位或者12位')
         }
 
@@ -849,7 +891,10 @@ export default class action {
             //         if ((form.details[i].price * form.details[i].quantity).toFixed(2) != form.details[i].amount) errorStr = errorStr + '，金额不等于数量乘以单价'
             //     }
             // }
-            if (!(form.details[i].inventoryId || form.details[i].businessTypeId)) errorStr = errorStr + '，存货不能为空'
+            if(!form.voucherSource || form.voucherSource && form.voucherSource == 4000090001) {
+                if (!(form.details[i].inventoryName || form.details[i].businessTypeName)) errorStr = errorStr + '，存货不能为空'
+            }
+            
             if (!form.details[i].revenueType && page == 'sa') errorStr = errorStr + '，收入类型不能为空'
             if (!(form.details[i].propertyName || form.details[i].businessTypeName) && page == 'pu') errorStr = errorStr + '，业务类型不能为空'
             // if (!form.details[i].taxRateName) errorStr = errorStr + '，税率不能为空或0'
@@ -944,7 +989,7 @@ export default class action {
 
     checkSave = (form) => {
         var msg = []
-        if (!form.customer || !form.customer.id) {
+        if (!form.customer || !form.customer.id && !form.customer.name) {
             msg.push('购方名称不能为空!')
         }
 
@@ -959,10 +1004,12 @@ export default class action {
             msg.push('明细不能为空')
         }
 
-        form.details.forEach((detail, index) => {
-            if (!detail.inventory)
-                msg.push(`明细第${index + 1}行，存货不能为空`)
-        })
+        if(!form.voucherSource || form.voucherSource && form.voucherSource == 4000090001) {
+            form.details.forEach((detail, index) => {
+                if (!detail.inventory && detail.inventoryName)
+                    msg.push(`明细第${index + 1}行，存货不能为空`)
+            })
+        }
 
         return msg
     }
@@ -1023,7 +1070,13 @@ export default class action {
     download = (ps) => {
         let alink = document.createElement('a')
         alink.download = ps.accessUrl
-        alink.target = '_blank'
+        //alink.target = '_blank'
+        if (environment.isClientMode()) {
+            alink.target = '_self'
+        }
+        else {
+            alink.target = '_blank'
+        }
         alink.href = ps.accessUrl
         alink.click()
     }

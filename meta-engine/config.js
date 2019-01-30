@@ -10,7 +10,7 @@ function config(option) {
 	toast = option.toast
 	notification = option.notification
 	modal = option.modal
-	errorBox = option.errorBox
+	errorBox = option.errorBox 
 	apps = option.apps
 	popconfirm = option.popconfirm
 	alert = option.alert
@@ -34,7 +34,11 @@ function config(option) {
 			let a = apps[k]
 			if (a.components && a.components.length > 0) {
 				a.components.forEach(c => {
-					cf.registerAppComponent(a.name, c.name, c.component)
+						if (c.appName) {
+								cf.registerAppComponent(a.name, c.name, c.component)
+						} else {
+								cf.registerComponent(c.name, c.component, true)
+						}
 				})
 			}
 		})

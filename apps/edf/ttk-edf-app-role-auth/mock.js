@@ -1075,7 +1075,7 @@ const data = {
         "id": 5010001,
         "name": "菜单预置",
         "code": "5010001",
-        "appName": "edfx-app-portal-menu",
+        "appName": "ttk-edf-app-portal-menu",
         "appProps": "",
         "parentId": 5010,
         "showOrder": 902,

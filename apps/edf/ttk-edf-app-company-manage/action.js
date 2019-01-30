@@ -197,7 +197,7 @@ class action {
     }
 
     back = () => {	//返回到门户
-        this.component.props.setPortalContent('门户首页', 'edfx-app-portal', {isShowMenu: false, isTabsStyle: false})
+        this.component.props.setPortalContent('门户首页', 'ttk-edf-app-portal', {isShowMenu: false, isTabsStyle: false})
     }
 
     getListRowsCount = () => {
@@ -234,7 +234,7 @@ class action {
         sessionStorage['currentOrgStatus'] = null
         this.component.props.onPortalReload && await this.component.props.onPortalReload()
         this.metaAction.context.set('currentOrg', option)
-        this.component.props.setPortalContent('门户首页', 'edfx-app-portal', {isShowMenu: false, isTabsStyle: false})
+        this.component.props.setPortalContent('门户首页', 'ttk-edf-app-portal', {isShowMenu: false, isTabsStyle: false})
     }
     //修改档案
     modifyDetail = (id) => (e) => {

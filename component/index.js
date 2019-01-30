@@ -63,6 +63,7 @@ import PrintOptionComponent from './components/printOption/index'
 import PrintOptionComponent2 from './components/printOption/index2'
 import TagComponent from './components/tag/index'
 import ActiveLabelSelectComponent from './components/activeLabelSelect/index'
+import ListScrollerComponent from './components/listScroller/index'
 import NoDataComponent from './components/nodata/index'
 import DateRangeMonthPickerComponent from './components/dateRangeMonthPicker/index'
 import DateRangeDatePickerComponent from './components/dateRangeDatePicker/index'
@@ -78,6 +79,8 @@ import TourComponent from './components/tour/index'
 import LazyLoadComponent from './components/lazyload/index'
 import JSONTreeComponent from './components/jsonTree/index'
 import DragComponent from './components/drag/index'
+import AvatarComponent from './components/avatar/index'
+import GridComponent from './components/grid/index'
 
 export const Address = AddressComponent
 export const Menu = MenuComponent
@@ -144,6 +147,7 @@ export const PrintOption = PrintOptionComponent
 export const PrintOption2 = PrintOptionComponent2
 export const Tag = TagComponent
 export const ActiveLabelSelect = ActiveLabelSelectComponent
+export const InfiniteListScroller = ListScrollerComponent
 export const DateRangeMonthPicker = DateRangeMonthPickerComponent
 export const DateRangeDatePicker = DateRangeDatePickerComponent
 export const NoData = NoDataComponent
@@ -159,3 +163,5 @@ export const Tour = TourComponent
 export const LazyLoad = LazyLoadComponent
 export const JSONTree = JSONTreeComponent
 export const Drag = DragComponent
+export const Avatar = AvatarComponent
+export const Grid = GridComponent

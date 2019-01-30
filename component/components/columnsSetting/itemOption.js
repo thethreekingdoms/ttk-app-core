@@ -175,6 +175,7 @@ class ItemOption extends React.Component {
                             ) : (
                                 <Checkbox 
                                     checked={item[checkedKey]}
+                                    disabled={item.isMustSelect == true ? true : false}
                                     onChange={(e)=>this.itemClick(item[singleKey], e)}
                                 >
                                     {item[labelKey]}

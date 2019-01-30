@@ -236,10 +236,10 @@ class AntTable extends Component {
         let appContainerWidth = null
         try {
             let dom
-            if( $ ) {
-                dom = $('.edfx-app-portal-content-main')[0]
-            }else {
-                dom = document.getElementsByClassName('edfx-app-portal-content-main')[0]
+            if ($) {
+                dom = $('.ttk-edf-app-portal-content-main')[0]
+            } else {
+                dom = document.getElementsByClassName('ttk-edf-app-portal-content-main')[0]
             }
             if (dom) {
                 appContainerWidth = dom.offsetWidth - 160 + 80
@@ -275,8 +275,8 @@ class AntTable extends Component {
 
     setTableHeight = () => {
         try {
-            const { dataSource, className, scroll, noCalculate,emptyShowScroll } = this.props
-            if(!emptyShowScroll){
+            const { dataSource, className, scroll, noCalculate, emptyShowScroll } = this.props
+            if (!emptyShowScroll) {
                 if (noCalculate) {
                     return
                 }
@@ -290,9 +290,9 @@ class AntTable extends Component {
                     }, 100)
                 }
                 let tableBody
-                if( $ ) {
+                if ($) {
                     tableBody = $(container).find('.ant-table-body')[0]
-                }else {
+                } else {
                     tableBody = container.getElementsByClassName('ant-table-body')[0]
                 }
                 if (this.state.resizeColumn && dataSource && dataSource.length == 0) {
@@ -312,50 +312,50 @@ class AntTable extends Component {
                     tableBody.style.height = 'auto'
                     return
                 }
-    
+
                 tableBody.style.height = container.offsetHeight + 'px'
                 const table = tableBody.getElementsByTagName('table')[0]
                 tableBody.style.overflowY = 'auto'
-            }else{
-                  // if (noCalculate) {
-            //     return
-            // }
-            // if (!scroll) {
-            //     return
-            // }
-            let container = ReactDOM.findDOMNode(this)
-            if (!container) {
-                setTimeout(() => {
-                    this.setTableHeight()
-                }, 100)
-            }
-            let tableBody
-            if( $ ) {
-                tableBody = $(container).find('.ant-table-body')[0]
-            }else {
-                tableBody = container.getElementsByClassName('ant-table-body')[0]
-            }
-            if (this.state.resizeColumn && dataSource && dataSource.length == 0) {
-                tableBody.style.overflowY = null
-            }
-            //  if (!scroll.x && !scroll.y) {
-            // tableBody.style.height = 'auto'
-            // return
-            // }
-            // if (!scroll && !scroll.y) {
-            //     container.style.overflowY = 'auto'
-            // }
-            if (tableBody.offsetHeight <= container.offsetHeight) {
-                container.style.overflowY = 'hidden'
-            }
-            // if (!tableBody || this.props.dataSource && dataSource.length == 0) {
-            //     tableBody.style.height = 'auto'
-            //     return
-            // }
+            } else {
+                // if (noCalculate) {
+                //     return
+                // }
+                // if (!scroll) {
+                //     return
+                // }
+                let container = ReactDOM.findDOMNode(this)
+                if (!container) {
+                    setTimeout(() => {
+                        this.setTableHeight()
+                    }, 100)
+                }
+                let tableBody
+                if ($) {
+                    tableBody = $(container).find('.ant-table-body')[0]
+                } else {
+                    tableBody = container.getElementsByClassName('ant-table-body')[0]
+                }
+                if (this.state.resizeColumn && dataSource && dataSource.length == 0) {
+                    tableBody.style.overflowY = null
+                }
+                //  if (!scroll.x && !scroll.y) {
+                // tableBody.style.height = 'auto'
+                // return
+                // }
+                // if (!scroll && !scroll.y) {
+                //     container.style.overflowY = 'auto'
+                // }
+                if (tableBody.offsetHeight <= container.offsetHeight) {
+                    container.style.overflowY = 'hidden'
+                }
+                // if (!tableBody || this.props.dataSource && dataSource.length == 0) {
+                //     tableBody.style.height = 'auto'
+                //     return
+                // }
 
-            tableBody.style.height = container.offsetHeight + 'px'
-            const table = tableBody.getElementsByTagName('table')[0]
-            tableBody.style.overflowY = 'auto'
+                tableBody.style.height = container.offsetHeight + 'px'
+                const table = tableBody.getElementsByTagName('table')[0]
+                tableBody.style.overflowY = 'auto'
             }
         } catch (err) {
             console.log(err)
@@ -365,6 +365,11 @@ class AntTable extends Component {
         // this.removeDom()
         this.setTableHeight()
         if (this.state.resizeColumn) {
+            if (typeof ($) == 'undefined' || $ == null) {
+                this.AjaxLoadJquerylibrary()
+                window.setTimeout(function () {
+                }, 100)
+            }
             let me = $(ReactDOM.findDOMNode(this))
             let table = me.find('table')
             let id = uuid()
@@ -380,6 +385,11 @@ class AntTable extends Component {
         // this.removeDom()
         this.setTableHeight()
         if (this.state.resizeColumn) {
+            if (typeof ($) == 'undefined' || $ == null) {
+                this.AjaxLoadJquerylibrary()
+                window.setTimeout(function () {
+                }, 100)
+            }
             let me = $(ReactDOM.findDOMNode(this))
             let table = me.find('table')
             let id = uuid()
@@ -390,10 +400,10 @@ class AntTable extends Component {
         }
         try {
             let height = ReactDOM.findDOMNode(this).offsetHeight
-            let titleHeight 
-            if( $ ){
+            let titleHeight
+            if ($) {
                 titleHeight = $('.ant-table-thead')[0].clientHeight
-            }else {
+            } else {
                 titleHeight = document.getElementsByClassName('ant-table-thead')[0].clientHeight
             }
             if (height !== this.state.height) {
@@ -401,13 +411,26 @@ class AntTable extends Component {
                     height: height - titleHeight - 32
                 })
             }
-        }catch(err){
+        } catch (err) {
 
         }
-        
+
         /**
          * 合并首列包含CHECKBOX的情况
          */
+    }
+
+    AjaxLoadJquerylibrary = () => {
+        var d = document;
+        if (d) {
+            var s = d.getElementById('jqscript');
+            if (s != null)
+                return;
+            s = d.createElement('script');
+            s.type = 'text/javascript';
+            s.src = './vendor/jquery.min.js';
+            d.body.appendChild(s);
+        }
     }
 
     // setColumnsWidth = (id) => {
@@ -528,6 +551,7 @@ class AntTable extends Component {
     checkboxAllClick = (e) => {
         let { selectValue } = this.state,
             checkboxId = this.initCheckboxId(this.props.dataSource, 'get')
+            console.log(selectValue)
         if (selectValue.size == 0) {
             checkboxId.map((value, key) => {
                 selectValue = selectValue.set(key, value)
@@ -545,6 +569,7 @@ class AntTable extends Component {
             //     selectValue = selectValue.set(key, value)
             // }
         }
+        console.log(selectValue)
         this.setState({
             selectValue
         })
@@ -561,7 +586,7 @@ class AntTable extends Component {
         this.setState({
             selectValue: map
         })
-        this.update(map)
+        this.update(map, record)
     }
 
 
@@ -569,6 +594,7 @@ class AntTable extends Component {
         if (!data) {
             return
         }
+        data = data.filter(o => o.batchcheckboxDisabled == false || o.batchcheckboxDisabled == undefined)
         let map = new Map()
         const { checkboxKey } = this.props
         data.forEach(item => {
@@ -601,7 +627,18 @@ class AntTable extends Component {
         }
         return num
     }
-
+    getcheckboxAllDisabled = () => {
+        let dataSource = this.props.dataSource, disabled = true
+        let item = dataSource.find(o => {
+            if(!o.batchcheckboxDisabled){
+                return o
+            }
+        })
+        if(item){
+            disabled = false
+        }
+        return disabled
+    }
     renderChekbox = (type) => {
         const { checkboxKey } = this.props
         const { selectValue, columns } = this.state
@@ -616,6 +653,7 @@ class AntTable extends Component {
                     const obj = {
                         children: record[checkboxKey] ? <Checkbox
                             checked={selectValue.has(record[checkboxKey])}
+                            // disabled = {record['checkboxDisabled']}
                             onClick={(e) => this.checkboxItemClick(e, record[checkboxKey], record)}
                         /> : null,
                         props: {
@@ -625,6 +663,7 @@ class AntTable extends Component {
                     return obj
                 }
             }
+
         } else {
             return [
                 {
@@ -637,36 +676,38 @@ class AntTable extends Component {
                         const obj = {
                             children: <Checkbox
                                 checked={selectValue.has(record[checkboxKey])}
+                                // disabled = {record['checkboxDisabled']}
                                 onClick={(e) => this.checkboxItemClick(e, record[checkboxKey], record)}
                             />,
                             props: {
                                 rowSpan: this.rowSpan(text, record, index),
                             },
                         }
-
                         return obj
                     }
                 },
                 ...columns
             ]
         }
-
     }
 
-    update = (data) => {
+    update = (data, record) => {
         if (this.props.checkboxChange) {
             const arr = []
             const arrValue = []
             const { selectValue } = this.state
             data.map((value, key) => {
                 arr.push(key)
-                arrValue.push(value)
+                if(value.batchcheckboxDisabled == false || value.batchcheckboxDisabled == undefined){
+                    arrValue.push(value)
+                }
+                
             })
             // for (const [key, value] of data.entries()) {
             //     arr.push(key)
             //     arrValue.push(value)
             // }
-            this.props.checkboxChange(arr, arrValue)
+            this.props.checkboxChange(arr, arrValue, record)
         }
     }
 
@@ -733,7 +774,7 @@ class AntTable extends Component {
         if (otherProps.loading != undefined) {
             loading = {
                 size: 'large',
-                delay: 2000,
+                delay: otherProps.delay||2000,
                 spinning: otherProps.loading,
                 tip: "数据加载中..."
             }
@@ -779,7 +820,7 @@ class AntTable extends Component {
             const columns3 = this.decorateColumns(renderColumn)
             let newColumn = this.decorateHeaderTitle(columns3)
             let scrollX = this.props.dataSource && this.props.dataSource.length > 0 ? sumWidth : null
-            if(this.props.emptyShowScroll){
+            if (this.props.emptyShowScroll) {
                 scrollX = sumWidth
             }
             if (this.state.resizeColumn) {
@@ -815,7 +856,7 @@ class AntTable extends Component {
         if (setWidthSum > containerWidth) {
             return data
         }
-        let remain = containerWidth - setWidthSum + 50
+        let remain = containerWidth - setWidthSum - 10
         data.splice(data.length - 1, 0, {
             dataIndex: 'remain',
             title: <span></span>,

@@ -1,5 +1,14 @@
-@hoverTdColor: #e6f7f3;
+@hoverTdColor:@table-row-hover-bg;
 .emptyShowScroll{
+    .ant-table-body{
+        z-index: 9;
+        width: 100%;
+        position: relative;
+        background-color: transparent !important;
+    }
+    .ant-table-fixed-right{
+        z-index: 99;
+    }
     .ant-table-placeholder{
         .mk-nodata{
             margin: 0 !important;
@@ -13,6 +22,9 @@
         border: none !important
     }
 }
+.ant-table{
+    font-family: 'Microsoft Yahei', 'PingFang SC';
+}
 .mk-table {
     height: 100%;
     overflow-x: hidden;
@@ -20,6 +32,7 @@
     border-left: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
     border-top: 0;
+    font-family: 'Microsoft Yahei', 'PingFang SC';
     ::selection {
         color:#333;
     }

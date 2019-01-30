@@ -80,7 +80,13 @@ export default (actionInjections, reducerInjections) => (store) => {
 				if (appInfo) {
 					appInfo.load((component, action, reducer, meta, config) => {
 						if (!appInfo.meta && meta) {
-							appInfo.meta = meta.getMeta()
+							if (typeof meta.getMeta == "function") {
+								appInfo.meta = meta.getMeta()
+							}
+							else {
+								appInfo.meta = meta
+							}
+
 						}
 						if (!appInfo.config && config) {
 							appInfo.config = config

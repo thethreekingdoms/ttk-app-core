@@ -181,8 +181,18 @@ function moneySmalltoBig(money) {
     return ChineseStr;
 }
 
-function addThousPos(input, isFixed) {
-    if (input == null || input == '' || input == undefined || isNaN(parseFloat(input)) || parseFloat(input) == 0) return ''
+/**
+ * 为数值增加千分位
+ * input 具体数值
+ * isFixed  false: 格式化为整数，非false：保留两位小数位
+ * isRetailZero true：保留0  false：将0转换为''
+ */
+function addThousPos(input, isFixed, isRetailZero, precision) {
+    if (isRetailZero) {
+        if (input == null || input == undefined || isNaN(parseFloat(input))) return ''
+    } else {
+        if (input == null || input == '' || input == undefined || isNaN(parseFloat(input)) || parseFloat(input) == 0) return ''
+    }
 
     if (input.toString().indexOf(',') > -1) {
         return input
@@ -195,12 +205,17 @@ function addThousPos(input, isFixed) {
         num = parseFloat(input).toFixed(0).toString()
         regex = /(\d)(?=(?:\d{3})+$)/g
     } else {
-        num = parseFloat(input).toFixed(2).toString()
+        num = precision ? parseFloat(input).toFixed(precision).toString() : parseFloat(input).toFixed(2).toString()
     }
 
     return num.replace(regex, "$1,")
 }
 
+/**
+ * 去除数值的千分位
+ * num 具体数值
+ * isRetOriginalVal  true: 保留原始值，false：返回0
+ */
 function clearThousPos(num, isRetOriginalVal) {
     let ret
 

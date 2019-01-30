@@ -4,9 +4,13 @@ var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
+//const marauderDebug = require('sinamfe-marauder-debug')
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const HappyPack = require('happypack')
+// ie9 下单个的css文件超过400k 不被解析
+//var CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
+//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 
 const webpackCompileParams = require('./webpackCompileParams')
@@ -16,15 +20,19 @@ var env = process.env.NODE_ENV
 var plugins = []
 
 var projectRootPath = path.resolve(__dirname, './')
-const happyThreadPool = HappyPack.ThreadPool({ size: 12 })
-var blueStyle = ["./assets/styles/blue.less"]
+const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
+var businessBlue = ["./assets/styles/businessBlue.less"]
+//var orangeStyle = ["./assets/styles/orange.less"]
+//var yellowStyle = ["./assets/styles/yellow.less"]
+//var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
 const version_ie8_bol = fs.existsSync(path.resolve(projectRootPath, version_ie8))
 
 //node环境变量，生产环境：production，开发环境：development
 plugins.push(new webpack.DefinePlugin({
-    "process.env.NODE_ENV": JSON.stringify(env)
+    "process.env.NODE_ENV": JSON.stringify(env),
+    "process.env.MODE_SPLIT": true
 }))
 plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
 plugins.push(new webpack.ExtendedAPIPlugin())
@@ -39,30 +47,28 @@ plugins.push(new HtmlWebpackPlugin({
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index-dev.html', //html模板路径
-    chunks: ['bundle', 'edf', 'icon', 'blueTheme'],
+    chunks: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
     hash: false,
     inject: 'body'//允许插件修改哪些内容，包括head与body`
 }))
 
 plugins.push(new ExtractTextPlugin('[name].css'))
 
-plugins.push(new CopyWebpackPlugin([{
-    from: './version.txt',
-    to: 'version.txt',
-    toType: 'file'
-}]))
+//plugins.push(new CSSSplitWebpackPlugin({ size: 3000 }))
+/*
+plugins.push(new OptimizeCssAssetsPlugin(
+    {
+        cssProcessorOptions: { discardComments: { removeAll: true } },
+        canPrint: false
+    }
+))
+*/
 
 plugins.push(new CopyWebpackPlugin([{
-    from: './robots.txt',
-    to: 'robots.txt',
+    from: './checkLowBrowser.js',
+    to: 'checkLowBrowser.js',
     toType: 'file'
 }]))
-
-// plugins.push(new CopyWebpackPlugin([{
-//     from: './checkLowBrowser.js',
-//     to: 'checkLowBrowser.js',
-//     toType: 'file'
-// }]))
 
 
 if (version_ie8_bol) {
@@ -79,10 +85,17 @@ plugins.push(new HappyPack({
     threadPool: happyThreadPool,
 }))
 
-const { modifyVars, aliasModule } = webpackCompileParams()
+plugins.push(new HappyPack({
+    id: 'htm',
+    loaders: ['html2json-loader?cacheDirectory'],
+    threadPool: happyThreadPool,
+}))
+
+const { modifyVars, aliasModule, start_params } = webpackCompileParams('development')
+
 plugins.push(new HappyPack({
     id: 'css',
-    // loaders: ['css-loader', 'less-loader'],
+    // loaders: ['css-loader', clientInformation'less-loader'],
     loaders: [{
         loader: 'css-loader',
     }, {
@@ -93,6 +106,7 @@ plugins.push(new HappyPack({
     }],
     threadPool: happyThreadPool,
 }))
+//plugins.push(new marauderDebug())
 plugins.push(new LodashModuleReplacementPlugin)
 
 plugins.push(new webpack.optimize.MinChunkSizePlugin({
@@ -112,12 +126,32 @@ plugins.push(new CopyWebpackPlugin([{
 }]))
 
 
+function mergeTheme(arr, type) {
+    const newArr = [...arr]
+    const modules = ['edf']
+
+    if (start_params && start_params.toUpperCase() == 'RUNSTART' || !start_params) {
+        modules.forEach(item => {
+            newArr.push(`./apps/${item}/theme/${type}.less`)
+        })
+    }
+    else {
+        modules.forEach(item => {
+            item = item.toUpperCase()
+            if (start_params && start_params.includes(item)) {
+                newArr.push(`./apps/${item}/theme/${type}.less`)
+            }
+        })
+    }
+
+    return newArr
+}
 module.exports = {
     devtool: false, //devtool: 'cheap-module-eval-source-map',
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
-        blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
+        businessBlueTheme: businessBlue.concat(mergeTheme(['./assets/apps/businessBlue.less'], 'businessBlue')),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less",
     },
@@ -139,7 +173,8 @@ module.exports = {
             'edf-consts': path.resolve(projectRootPath, './constant/consts.js'),
             'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
-            'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js')
+            'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js'),
+            'Theme': path.resolve(projectRootPath, './component/assets/theme')
         }, aliasModule)
     },
     externals: {
@@ -156,6 +191,10 @@ module.exports = {
             test: /\.js?$/,
             exclude: /node_modules/,
             use: ['happypack/loader?id=babel']
+        }, {
+            test: /\.htm$/,
+            exclude: /node_modules/,
+            use: ['html2json-loader?id=htm']
         }, {
             test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
             use: {

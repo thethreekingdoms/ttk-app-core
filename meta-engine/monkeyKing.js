@@ -131,13 +131,22 @@ function metaToComponent(meta, props, data) {
                 allProps.key = meta.path
             }
 
-            if (allProps.useAllProps && componentName !='AppLoader') {
+            if (allProps.useAllProps && componentName != 'AppLoader') {
                 allProps = { ...props, ...allProps }
             }
-            //allProps.gf = props.gf
+
+            if (props.gf && !allProps.gf) allProps.gf = props.gf
+            if (props.sf && !allProps.sf) allProps.sf = props.sf
+            if (props.store && !allProps.store) allProps.store = props.store
+            if (props.toast && !allProps.toast) allProps.toast = props.toast
+            if (props.onEvent && !allProps.onEvent) allProps.onEvent = props.onEvent
+            if (props.onFieldChange && !allProps.onFieldChange) allProps.onFieldChange = props.onFieldChange
+            if (props.onShortcutKey && !allProps.onShortcutKey) allProps.onShortcutKey = props.onShortcutKey
+            if (props.setPortalContent && !allProps.setPortalContent) allProps.setPortalContent = props.setPortalContent
+
             /*
              var metaProps = parseMetaProps(meta, props, data)
-    
+
             var metaPropsKeys = Object.keys(metaProps)
             for (var i = 0; i < metaPropsKeys.length; i++) {
                 allProps[metaPropsKeys[i]] = metaProps[metaPropsKeys[i]]
@@ -173,9 +182,16 @@ function metaToComponent(meta, props, data) {
 
                 if (!allProps.appName)
                     return null
-                
+
                 if (allProps._notRender === true && !getApps()[allProps.appName]) {
-                    return null
+                    if (allProps.appName.indexOf('?') != -1) {
+                        let noArgName = allProps.appName.split('?')[0]
+                        if (!getApps()[noArgName]) {
+                            return null
+                        }
+                    } else {
+                        return null
+                    }
                 }
                 allProps.key = allProps.appName
                 allProps.name = allProps.appName

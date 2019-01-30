@@ -15,7 +15,16 @@ try {
 }
 
 const moduleConfig = {
-
+    useEDF: {
+        path: './apps/edf/',
+        name: 'edf',
+        less: 'edf'
+    },
+    useTEST: {
+        path: './apps/test/',
+        name: 'test',
+        less: 'test'
+    },
 }
 
 
@@ -28,7 +37,7 @@ function checkRunParams(name) {
 
 function checkModule() {
     let target = {}
-    for( const key in moduleConfig) {
+    for (const key in moduleConfig) {
         const value = moduleConfig[key]
         target[key] = fs.existsSync(path.resolve(projectRootPath, `${value.path}/index.less`)) ? checkRunParams(value.name) : false
     }
@@ -36,21 +45,30 @@ function checkModule() {
     return target
 }
 
-function webpackCompileParams () {
+function webpackCompileParams(mode) {
     const checkParams = checkModule()
     const modifyVars = {}
-    for( const key  in moduleConfig ) {
-        let value = moduleConfig[key]
+    for (const key in moduleConfig) {
+        const value = moduleConfig[key]
         modifyVars[`@${value.less}`] = checkParams[key] && isUse ? value.less : 'empty'
     }
     const aliasModule = {}
-    for( const key in moduleConfig ) {
+
+    for (const key in moduleConfig) {
         const value = moduleConfig[key]
-        aliasModule[key] = checkParams[key] && isUse ? path.resolve(projectRootPath, `${value.path}/index.js`) : './empty.js'
+        if (mode == 'development') {
+            aliasModule[key] = checkParams[key] && isUse ? path.resolve(projectRootPath, `${value.path}/index.js`) : './empty.js'
+        } else {
+            aliasModule[key] = path.resolve(projectRootPath, `./modules/${value.name}.js`)
+        }
     }
+    // for( const [key, value] of Object.entries(moduleConfig) ) {
+    //     aliasModule[key] = checkParams[key] && isUse ? path.resolve(projectRootPath, `${value.path}/index.js`) : './empty.js'
+    // }
     return {
         modifyVars,
-        aliasModule
+        aliasModule,
+        start_params
     }
 }
 

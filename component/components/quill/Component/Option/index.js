@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '../../style.css';
+//import '../../style.css';
 
 export default class Option extends Component {
   static propTypes = {

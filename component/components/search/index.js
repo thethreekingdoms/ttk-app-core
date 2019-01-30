@@ -232,11 +232,11 @@ class SearchComponent extends Component {
 
     clearClick = () => {
         const { clearClick } = this.props
-        const value = this.clearValue()
+        const value = this.clearValue('clear')
         clearClick && clearClick(value)
     }
 
-    clearValue = () => {
+    clearValue = (status) => {
         const { searchValue } = this.state
         const { clearClick, moreSearchItem } = this.props
         let clearValue = {}
@@ -250,6 +250,7 @@ class SearchComponent extends Component {
                 }
             } else if (!item.noClear) {
                 clearValue[item.name] = null
+                // if (status == 'clear' && item.allowClear) item.allowClear = false
             }
 
         })
@@ -401,7 +402,7 @@ class SearchComponent extends Component {
                             <a className="searchBtn">高级查询</a>
                         </span> : null}
                         {refreshBtn}
-                        {this.props.leftMenuBtn ? this.props.leftMenuBtn : null }
+                        {this.props.leftMenuBtn ? this.props.leftMenuBtn : null}
                     </div>
                     <div className="mk-title-otherBtn">
                         {this.props.menuBtn}
@@ -414,10 +415,10 @@ class SearchComponent extends Component {
                         height: '0',
                         position: 'absolute',
                         top: '0px',
-                        zIndex: '10',
+                        zIndex: '101',
                         background: '#fff',
                         boxShadow: '0 0 5px #999',
-                        display: `${this.state.count == 1 ? 'block' : 　'none'}`
+                        display: `${this.state.count == 1 ? 'block' : 'none'}`
                     }}
                 >
                     <div
@@ -426,7 +427,7 @@ class SearchComponent extends Component {
                             maxHeight: `${containerHeight}px`
                             // top: `${this.state.data.get('childVisible') ? '0' : `-${this.state.height}px`}`
                         }}
-                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' : 　'slideOutUp'}`}
+                        className={`mk-search-high-search animated ${this.state.data.get('childVisible') ? 'slideInDown' : 'slideOutUp'}`}
                     >
                         <h2>
                             <div>高级查询</div>

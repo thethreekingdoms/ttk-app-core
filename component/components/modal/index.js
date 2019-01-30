@@ -15,9 +15,24 @@ class DragTitle extends Component {
 		this.modalDom.style.transform = transformStr;
 	};
 	componentDidMount() {
-		this.modalDom = document.getElementsByClassName(
-			"ant-modal" //modal的class是ant-modal
-		)[0];
+
+		let modalObj = document.getElementsByClassName("ant-modal")
+
+		if (modalObj) {
+			let modalCount = modalObj.length
+			if (modalCount == 1) {
+				this.modalDom = document.getElementsByClassName(
+					"ant-modal" //modal的class是ant-modal
+				)[0];
+			}
+			else if (modalCount > 1) {
+				this.modalDom = document.getElementsByClassName(
+					"ant-modal" //modal的class是ant-modal
+				)[modalCount - 1];
+			}
+		}
+
+
 	}
 	render() {
 		const title = this.props.title
@@ -82,7 +97,7 @@ class ModalComponent extends Component {
 		let className = classNames({
 			'mk-modal': true
 		})
-		
+
 		allowDrag = allowDrag === false ? false : true
 
 		if (allowDrag) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { isDevMode } from '../environment/index'
 
 /**
  * [是否存在参数]
@@ -85,9 +86,37 @@ function getVersion() {
     return allText
 }
 
+function getResponse(response, declareState, reportId){
+    let skin = localStorage.getItem('skin').replace('#', '')
+
+    if (skin != '') {
+        response = response + '&skin=' + skin
+    }
+    //增加申报状态参数
+    response = response + '&declareState=' + declareState + '&reportId=' + reportId
+    if (isDevMode()) {
+        if (location.href.toLowerCase().indexOf('dev.') > -1) {
+            response = response.replace('http://120.79.197.174', 'http://dev-gs.aierp.cn:8089')
+        } else {
+            response = response.replace('http://120.79.197.174', 'http://test-gs.aierp.cn:8089')
+        }
+    } else {
+        if (location.href.toLowerCase().indexOf('erpdemo') > -1) {
+            response = response.replace('http://120.79.197.174', 'https://staging-gs.jchl.com')
+        } else {
+            response = response.replace('http://120.79.197.174', 'https://gs.jchl.com')
+        }
+    }
+    response = response.replace('sdlxindex', 'base')
+    console.log('个税URL地址:' + response)
+
+    return response
+}
+
 export default {
     parsePath,
     existsParamsInPath,
     findPathByEvent,
-    getVersion
+    getVersion,
+    getResponse
 }

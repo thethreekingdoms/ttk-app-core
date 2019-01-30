@@ -31,7 +31,9 @@ class PaginationComponent extends React.Component{
 		if( !props.total ){
 			return
 		}
-		const jumperContaienr = document.getElementsByClassName('ant-pagination-options-quick-jumper')[0]
+		
+		const thisDom = ReactDOM.findDOMNode(this)
+		const jumperContaienr = thisDom.getElementsByClassName('ant-pagination-options-quick-jumper')[0]
 		if(!jumperContaienr) return
 		const dom = jumperContaienr.getElementsByTagName('input')[0]
 		if( !dom ) return
@@ -69,7 +71,11 @@ class PaginationComponent extends React.Component{
 			if( parseInt(dom.value) == parseInt(props.current) ){
 				return  
 			}
-			dom.value = props.current
+			if( props.current ||  props.current == 0) {
+                setTimeout(()=>{
+					dom.value = props.current
+				}, 16)
+            }
 		}catch(err){
 			console.log(err)
 		}

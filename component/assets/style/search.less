@@ -239,8 +239,8 @@
             height: 53px;
             .mk-btn{
                 padding: 0 18px;
-                height: 33px;
-                line-height: 31px;
+                /*height: 33px;
+                line-height: 31px;*/
                 font-size: 12px;
             }
         }    
@@ -249,7 +249,11 @@
             margin-bottom: 6px;
         }
         .ant-row{
-            width: 50%;
+            width: 51%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 50%;
         }
     }
     .ant-btn{

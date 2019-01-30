@@ -34,12 +34,20 @@ class componentFactory {
         if (!name)
             throw 'component name can not null'
 
-        if (name.substring(0, 2) == '::') {
-            if (name.substr(2))
-                return name.substr(2)
-            else
-                throw `没有组件. name: ::`
+        if(name === 'Fragment'){
+            return React.Fragment
         }
+
+        if(name === "Suspense")
+            return React.Suspense
+
+        /*
+        if (name.substring(0, 2) == '::') {
+            if(name.substr(2))
+                return  name.substr(2) 
+            else
+                throw `No components. name: ::`
+        }*/
 
         const nameSegs = name.split('.'),
             firstSeg = nameSegs[0]
@@ -62,7 +70,8 @@ class componentFactory {
         }
 
         if (!component) {
-            throw `没有组件. name: ${name}`
+            return name
+            //throw `No components. name: ${name}`
         }
 
         return component

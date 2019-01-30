@@ -118,7 +118,7 @@ function loadCss() {
 	else {
 		var styleSheet = document.createElement('link');
 		styleSheet.id = 'refSkin';
-		styleSheet.href = './blueTheme.css';
+		styleSheet.href = './businessBlueTheme.css';
 		styleSheet.rel = "stylesheet";
 		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}

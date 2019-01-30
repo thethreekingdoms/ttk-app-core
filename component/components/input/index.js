@@ -235,7 +235,7 @@ class InputComponent extends React.Component {
                 if( keyRandom == this.keyRandom ) {
                     this.props.onChange && this.props.onChange({target: a})
                 }
-            }, 300)
+            }, 100)
         }else{
             this.props.onChange && this.props.onChange(e)
         }

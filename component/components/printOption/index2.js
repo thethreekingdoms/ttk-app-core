@@ -3,14 +3,18 @@ import moment from 'moment'
 import Checkbox from '../checkbox/index'
 import Button from '../button/index'
 import Select from '../antdSelect/index'
+import Radio from '../radio/index'
+const RadioGroup = Radio.Group
 const Option = Select.Option
-class PrintOptionComponent2 extends React.Component{
-    constructor(props){
+class PrintOptionComponent2 extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
             num: false,
             currency: false,
-            currencyId: '0'
+            currencyId: '0',
+            isAllInOne: false,
+            isOnlyEndNode: false
         }
     }
 
@@ -45,34 +49,51 @@ class PrintOptionComponent2 extends React.Component{
         const optionArr = arr.map(item => {
             return <Option value={item.value} title={item.label} >{item.label}</Option>
         })
-        return <Select dropdownClassName='printOption2-select-dropDown' className="printOption2-select" style={{ width: '378px' }}  value={currencyId} onChange={this.selectChange}>{optionArr}</Select>
+        return <Select dropdownClassName='printOption2-select-dropDown' className="printOption2-select" style={{ width: '378px' }} value={currencyId} onChange={this.selectChange}>{optionArr}</Select>
     }
-    
-    render(){
-        const { num, currency } = this.state
+    radioChange = (e, path) => {
+        this.setState({
+            [path]: e.target.value
+        })
+    }
+    render() {
+        const { num, currency, isAllInOne ,isOnlyEndNode} = this.state
         return (
             <div className="printOption2">
                 <div className="printOption2-contaienr">
-                    <div style={{padding: '5px 0', marginBottom: '9px'}} className="printOption2-title">请选择是否显示外币或数量</div>
-                    <div style={{padding: '5px 20px'}} className="printOption2-checkbox">
-                        <div style={{marginBottom: '14px'}} clssName="printOption2-contaienr-item">
-                            <span style={{paddingRight: '8px'}} className="printOption2-label">币别</span>
+                    <div style={{ padding: '5px 0', marginBottom: '9px' }} className="printOption2-title">请选择是否显示外币或数量</div>
+                    <div style={{ padding: '5px 20px' }} className="printOption2-checkbox">
+                        <div style={{ marginBottom: '14px' }} clssName="printOption2-contaienr-item">
+                            <span style={{ paddingRight: '8px' }} className="printOption2-label">币别</span>
                             {this.renderSelect()}
                         </div>
-                        <div clssName="printOption2-contaienr-item">
-                            <span style={{paddingRight: '8px', marginBottom: '9px'}} className="printOption2-label">数量</span>
+                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' }}>
+                            <span style={{ paddingRight: '8px', marginBottom: '9px' }} className="printOption2-label">数量</span>
                             <Checkbox checked={num} onChange={(e) => this.onChange(e, 'num')}></Checkbox>
                         </div>
+                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' }}>
+                            <span style={{ paddingRight: '8px', marginBottom: '9px' }} className="printOption2-label">只{this.props.type}末级</span>
+                            <Checkbox checked={isOnlyEndNode} onChange={(e) => this.onChange(e, 'isOnlyEndNode')}></Checkbox>
+                        </div>
+                        {
+                            this.props.type == '导出' ?
+                                <div clssName="printOption2-contaienr-item">
+                                    <RadioGroup  onChange={(e) => this.radioChange(e, 'isAllInOne')} value={isAllInOne}>
+                                        <Radio value={false}>不同科目分页签导出</Radio>
+                                        <Radio value={true}>不同科目同页签连续导出</Radio>
+                                    </RadioGroup>
+                                </div> : null
+                        }
                     </div>
-                    <div className="printOption2-detail">
+                    {/* <div className="printOption2-detail">
                         <span>
                             说明: 选择外币或数量后，只{this.props.type}设置了外币或数量核算的科目
                         </span>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="printOption2-bottom" style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <Button onClick={this.cancel} style={{padding:'0 15px', height: '32px', fontSize: '14px'}}>取消</Button>
-                    <Button style={{marginLeft: '8px', padding:'0 15px', height: '32px', fontSize: '14px'}} type='primary' onClick={this.confirm}>{this.props.type}</Button>
+                    <Button onClick={this.cancel} style={{ padding: '0 15px', height: '32px', fontSize: '14px' }}>取消</Button>
+                    <Button style={{ marginLeft: '8px', padding: '0 15px', height: '32px', fontSize: '14px' }} type='primary' onClick={this.confirm}>{this.props.type}</Button>
                 </div>
             </div>
         )

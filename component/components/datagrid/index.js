@@ -96,17 +96,6 @@ class DataGridComponent extends React.Component {
             width: dom.offsetWidth
         })
 
-        // let keyRandom = Math.floor(Math.random()*100000)
-        // this.keyRandom = keyRandom
-        // setTimeout(()=>{
-        //     if( keyRandom == this.keyRandom ) {
-        //         let dom = ReactDOM.findDOMNode(this)
-        //         this.setState({
-        //             height: dom.offsetHeight,
-        //             width: dom.offsetWidth
-        //         })
-        //     }
-        // }, 500)
     }
 
     componentDidUpdate(){
@@ -126,16 +115,21 @@ class DataGridComponent extends React.Component {
         this.props.onScrollEnd && this.props.onScrollEnd(x, y)
     }
 
-    // update() {
-    //     let dom = ReactDOM.findDOMNode(this),
-    //         height = dom.clientHeight,
-    //         width = dom.clientWidth
-    //     this.setStateDebounce({
-    //         height,
-    //         width
-    //     })
-    // }
+    filterChildren = () => {
+        if( !this.props.columns ) return
+        this.props.columns.forEach((item, index) => {
+            if( item && item.props && item.props.isColumnGroup && item.props.children && item.props.children.length > 0 ) {
+                let newChildren = []
+                item.props.children.forEach(item => {
+                    if( item && item.key != '_sequence') newChildren.push(item)
+                })
+                this.props.columns[index].props.children = newChildren
+            }
+        })
+    }
+
     render() {
+        this.filterChildren()
         let className = classNames({
             'mk-datagrid': true,
             'mk-datagrid-editable': this.props.readonly === false,
@@ -174,7 +168,12 @@ class DataGridComponent extends React.Component {
                     }
                 }
             }
-            scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight) + count
+            if(this.props.searchFlag == true){
+                scrollToRow = scrollToRow
+            }else{
+                
+                scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight) + count
+            }
         }
 
         if (scrollToRow) {
