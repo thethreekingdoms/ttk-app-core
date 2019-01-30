@@ -44,7 +44,7 @@ plugins.push(new LodashModuleReplacementPlugin)
 plugins.push(new ExtractTextPlugin('[name].css'))
 
 plugins.push(new HtmlWebpackPlugin({
-    title: '金财管家', //标题
+    title: '企业开发平台', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: './dist/index.html', //html模板路径
@@ -119,6 +119,10 @@ module.exports = {
                 }
             }]
         }, {
+            test: /\.htm$/,
+            exclude: /node_modules/,
+            use: ['html2json-loader?id=htm']
+        }, {
             test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
             use: {
                 loader: 'url-loader',
@@ -137,7 +141,7 @@ module.exports = {
         },
         proxy: {
             // '/v1/*': 'http://debug.aierp.cn:8088/',
-             '/v1/*': 'http://172.16.10.22:30288/',
+            '/v1/*': 'http://172.16.10.22:30288/',
             //'/v1/*': 'http://172.16.20.140:8008/',
             // '/v1/*': 'http://erpdemo.jchl.com/',
             '/share-oss/*': 'http://debug.aierp.cn:8085/',

@@ -15,6 +15,9 @@ class action {
         injections.reduce('init')
     }
 
+    Hello = () => {
+        alert('Hello')
+    }
     onChange = (e) => {
         this.injections.reduce('modifyContent', e.target.value)
     }

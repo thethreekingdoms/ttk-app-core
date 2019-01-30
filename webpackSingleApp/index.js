@@ -1,4 +1,4 @@
-import singleApp1 from '../apps/edf/ttk-app-edf-invoice/index'
+import singleApp1 from '../apps/test/app-test'
 
 const target = {
     [singleApp1.name]: singleApp1

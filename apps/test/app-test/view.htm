@@ -1,4 +1,15 @@
-<div class="json-html-view">
+<div>
     <div>{{data.content + data.input}}</div>
     <input placeholder="world" value="{{data.input}}" onChange="{{$onChange}}" />
+    <div>
+        <a href="https://gj.jchl.com" style="color:red;font-size:40px">
+            {{data.content}}
+        </a>
+        <button data-person='{name:"tom",age:10}' onClick='{{$Hello}}'>
+            hello
+        </button>
+    </div>
+
+    <!-- <Table columns={{data.columns}} dataSource={{data.dataSource}} /> -->
+
 </div>

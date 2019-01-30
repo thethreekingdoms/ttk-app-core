@@ -11,7 +11,7 @@ export default {
 	config: null,
 	load: (cb) => {
 		require.ensure([], require => {
-			cb(require('./component'), require('./action'), require('./reducer'), require('./xgmzzs_BDA0610025.htm'), require('./config'))
+			cb(require('./component'), require('./action'), require('./reducer'), require('./view.htm'), require('./config'))
 		}, "app-test")
 	}
 }
