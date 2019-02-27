@@ -128,7 +128,7 @@ plugins.push(new CopyWebpackPlugin([{
 
 function mergeTheme(arr, type) {
     const newArr = [...arr]
-    const modules = ['edf']
+    const modules = ['edf', 'test']
 
     if (start_params && start_params.toUpperCase() == 'RUNSTART' || !start_params) {
         modules.forEach(item => {

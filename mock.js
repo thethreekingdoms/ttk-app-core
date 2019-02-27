@@ -51,6 +51,15 @@ import './apps/test/app-test/mock.js';
 //note-end
 
 
+import './apps/test/ttk-tax-app-vattaxpayer/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-select/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsjmssbmxb/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsjmssbmxb-beijing/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzssyyxgmnsr/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmfjssb/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmflzl/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmkcxmqd/mock.js';
+import './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmxsbdcqkb/mock.js';
 
 
 

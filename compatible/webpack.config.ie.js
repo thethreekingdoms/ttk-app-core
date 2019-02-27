@@ -35,29 +35,29 @@ module.exports = function (webpackConfig) {
     loader: 'es3ify-loader',
   });
 
-  if(webpackConfig.UglifyJsPluginConfig){
-    webpackConfig.UglifyJsPluginConfig.output.beautify=false
+  if (webpackConfig.UglifyJsPluginConfig) {
+    webpackConfig.UglifyJsPluginConfig.output.beautify = false
     webpackConfig.UglifyJsPluginConfig.mangle = false
   }
 
 
   // Parse all less files as css module.
   //webpackConfig.module.loaders.forEach(function (loader, index) {
-    // if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
-    //   loader.test = /\.dont\.exist\.file/;
-    // }
-    // if (loader.test.toString() === '/\\.module\\.less$/') {
-    //   loader.test = /\.less$/;
-    // }
-    //if (loader.loader && loader.loader.indexOf('babel-loader') > -1) {
-      // if( loader.query && loader.query.presets ) {
-      //   loader.query.presets.push(['es2015', { loose: true, modules: false }])
-      // }else {
-      //   loader.query = {
-      //     presets: [ ['es2015', { loose: true, modules: false }] ]
-      //   }
-      // }
-    //}
+  // if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
+  //   loader.test = /\.dont\.exist\.file/;
+  // }
+  // if (loader.test.toString() === '/\\.module\\.less$/') {
+  //   loader.test = /\.less$/;
+  // }
+  //if (loader.loader && loader.loader.indexOf('babel-loader') > -1) {
+  // if( loader.query && loader.query.presets ) {
+  //   loader.query.presets.push(['es2015', { loose: true, modules: false }])
+  // }else {
+  //   loader.query = {
+  //     presets: [ ['es2015', { loose: true, modules: false }] ]
+  //   }
+  // }
+  //}
   //});
   webpackConfig.entry = {
     index: './index.js',
@@ -85,11 +85,7 @@ module.exports = function (webpackConfig) {
     'edf-component': path.resolve(projectRootPath, './component/ie8.js'),
     'webapi': path.resolve(projectRootPath, './api/index.js'),
     'edf-consts': path.resolve(projectRootPath, './constant/consts.js'),
-    'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
-    'tax_sbzs': '../empty.js',
-    'tax_zzfw': '../empty.js',
-    'tax_zzssb': '../empty.js'
-
+    'edf-constant': path.resolve(projectRootPath, './constant/index.js')
   };
   webpackConfig.plugins.push(
     new webpack.DefinePlugin({
@@ -97,12 +93,12 @@ module.exports = function (webpackConfig) {
     })
   );
   var Copyfile = new CopyWebpackPlugin([{
-      from: './transreport',
-      to: './ie8',
-      ignore: ['.*']
+    from: './transreport',
+    to: './ie8',
+    ignore: ['.*']
   }])
   var clearFile = new CleanWebpackPlugin(['dist'], {
-      root: __dirname
+    root: __dirname
   })
   var [CommonsChunkPlugin, ExtractTextPlugin, OccurrenceOrderPlugin, ProgressPlugin, NpmInstallPlugin, ...more] = webpackConfig.plugins;
   webpackConfig.plugins = [clearFile, CommonsChunkPlugin, ExtractTextPlugin, OccurrenceOrderPlugin, ProgressPlugin, Copyfile, ...more];

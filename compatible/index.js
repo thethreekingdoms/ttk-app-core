@@ -21,10 +21,30 @@ import ttk_edf_app_root from './apps/edf/ttk-edf-app-root/index.js'
 import app_test from './apps/test/app-test'
 
 
+
+import ttk_tax_app_vattaxpayer from "./apps/test/ttk-tax-app-vattaxpayer"
+import ttk_tax_app_select from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-select"
+import ttk_tax_app_zzsjmssbmxb from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsjmssbmxb"
+import ttk_tax_app_zzsjmssbmxb_beijing from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsjmssbmxb-beijing"
+import ttk_tax_app_zzssyyxgmnsr from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzssyyxgmnsr"
+import ttk_tax_app_zzsxgmfjssb from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmfjssb"
+import ttk_tax_app_zzsxgmflzl from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmflzl"
+import ttk_tax_app_zzsxgmkcxmqd from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmkcxmqd"
+import ttk_tax_app_zzsxgmxsbdcqkb from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmxsbdcqkb"
+
+
 const apps = {
     [app_test.name]: app_test,
     [ttk_edf_app_root.name]: ttk_edf_app_root,
-    //[ttk_edf_app_login.name]: ttk_edf_app_login
+    [ttk_tax_app_vattaxpayer.name]: ttk_tax_app_vattaxpayer,
+    [ttk_tax_app_select.name]: ttk_tax_app_select,
+    [ttk_tax_app_zzsjmssbmxb.name]: ttk_tax_app_zzsjmssbmxb,
+    [ttk_tax_app_zzsjmssbmxb_beijing.name]: ttk_tax_app_zzsjmssbmxb_beijing,
+    [ttk_tax_app_zzssyyxgmnsr.name]: ttk_tax_app_zzssyyxgmnsr,
+    [ttk_tax_app_zzsxgmfjssb.name]: ttk_tax_app_zzsxgmfjssb,
+    [ttk_tax_app_zzsxgmflzl.name]: ttk_tax_app_zzsxgmflzl,
+    [ttk_tax_app_zzsxgmkcxmqd.name]: ttk_tax_app_zzsxgmkcxmqd,
+    [ttk_tax_app_zzsxgmxsbdcqkb.name]: ttk_tax_app_zzsxgmxsbdcqkb
 }
 //note-end
 
