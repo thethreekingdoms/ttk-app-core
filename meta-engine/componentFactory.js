@@ -34,11 +34,11 @@ class componentFactory {
         if (!name)
             throw 'component name can not null'
 
-        if(name === 'Fragment'){
+        if (name === 'Fragment') {
             return React.Fragment
         }
 
-        if(name === "Suspense")
+        if (name === "Suspense")
             return React.Suspense
 
         /*
@@ -48,6 +48,12 @@ class componentFactory {
             else
                 throw `No components. name: ::`
         }*/
+
+        if (name.substring(0, 2) == '::') {
+            if (name.substr(2)) {
+                return name.substr(2)
+            }
+        }
 
         const nameSegs = name.split('.'),
             firstSeg = nameSegs[0]
