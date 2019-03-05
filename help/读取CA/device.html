@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="./date.js"></script>
+    <script type="text/javascript" src="./XTXSuite_login.js"></script>
+
+</head>
+
+<body>
+    <div id="xtxInfo"></div>
+
+    <input id="btnLogin" type="button" value="嘉业" onclick="jyLogin()" style="width:90px" />
+    <input id="btnLogin" type="button" value="顺源" onclick="syLogin()" style="width:90px" />
+    <input id="btnFillCert" type="button" value="获取usb证书" onclick="getUserList_USBKey()" style="width:90px" />
+    <input id="createCertInfo" type="button" value="生成加密串" onclick="createCertInfo()" style="width:90px" />
+    <input type="text" autocomplete="on" list="mylist" onkeyup="search(this)" />
+    <input type="hidden" id="txtUserLoginData" />
+    <div id="result"></div>
+    <div id="mylist"></div>
+    <textarea id="txtCert" type="text" value="" style="width: 100%; height: 300px"></textarea>
+
+    <script type="text/javascript">
+        function syLogin() {
+            var strFormName = document.getElementById('txtCert');
+            var strCertID = '5019201609024414';
+            var strPin = '111111';
+            var loginStatus = Login(strFormName, strCertID, strPin);
+            if (loginStatus) {
+                $('#result').html('login success');
+                $('#txtCert').val()
+            } else {
+                $('#result').html('login failed');
+            }
+
+        }
+
+        function jyLogin() {
+            var strFormName = document.getElementById('txtCert');
+            var strCertID = '5019201609024416';
+            var strPin = '111111';
+            var loginStatus = Login(strFormName, strCertID, strPin);
+            if (loginStatus) {
+                $('#result').html('login success');
+                $('#txtCert').val()
+            }
+            else {
+                $('#result').html('login failed');
+            }
+        }
+
+        function search(obj) {
+
+        }
+
+        function getSignedData() {
+            var strCertID = $('#radioCert').val().split('/')[1];
+            var strInData = strCertID;
+            var result = SignedData(strCertID, strInData);
+            return result;
+        }
+
+
+
+        SetOnUsbKeyChangeCallBack(function () {
+            getUserList_USBKey();
+        })
+
+
+        function getUserList_USBKey(type) {
+            var usbKeyList = GetUserList_USBKey();
+            if (type == 'init') usbKeyList = GetUserList();
+            if (usbKeyList) {
+                $("#mylist").empty();
+                usbKeyList = usbKeyList.split('&&&');
+
+
+
+                var ul = document.createElement("ul");
+
+                for (var i = 0; i < usbKeyList.length; i++) {
+                    var arr = usbKeyList[i];
+                    if (arr != '' && arr != null) {
+
+                        var checkBox = document.createElement("input");
+                        checkBox.setAttribute("type", "radio");
+                        checkBox.setAttribute("id", "radioCert");
+                        checkBox.setAttribute("name", "radioCert");
+                        checkBox.setAttribute("value", arr.split('||')[1]);
+                        var li = document.createElement("li");
+                        li.appendChild(checkBox);
+                        li.appendChild(document.createTextNode(arr.split('||')[0]));
+
+                        ul.appendChild(li);
+                    }
+
+
+                }
+
+                $("#mylist").html(ul);
+            }
+        }
+
+        function createCertInfo() {
+            $('#txtCert').val('');
+            var hashString = $('#txtUserLoginData').val();
+            var deviceId = $('#radioCert').val().split('/')[1];
+            $('#txtCert').val(hashString + ';' + deviceId + ';' + getSignedData());
+            // if (typeof GetUserList == "function") {
+            //     userList = GetUserList();
+            // }
+
+            // var userCertList = SetUserCertList(userList, 1);
+        }
+
+
+        $(document).ready(function () {
+            //getUserList_USBKey('init');
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -20,7 +20,10 @@ import { Base64ForDelphi, Base64 } from './base64'
 import { CryptoJS } from './des'
 import parseHtml from './html2json'
 import request from './request'
+import regexp from './regexp'
 const { FetchRequest } = request;
+
+
 export default {
 	beautify,
 	json,
@@ -44,5 +47,6 @@ export default {
 	Base64,
 	CryptoJS,
 	parseHtml,
-	fetchCors:FetchRequest
+	fetchCors: FetchRequest,
+	EXP: regexp
 }
