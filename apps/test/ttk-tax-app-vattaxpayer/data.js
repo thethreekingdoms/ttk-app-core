@@ -6,7 +6,7 @@ const OVERDUE = true //OVERDUE 为true过期
 export function getMeta() {
 	return {
 		name: 'root',
-		component: '::div',
+		component: 'div',
 		className: 'ttk-tax-app-vatTaxpayer',
 		children: [{
 			name: 'help',
@@ -52,7 +52,7 @@ export function getMeta() {
 			]
 		},{
 			name: 'back',
-			component: '::div',
+			component: 'div',
 			style: {
 				fontSize: '12px',
 				position: 'absolute',
@@ -96,11 +96,11 @@ export function getMeta() {
 			children: [
 				{
 					name: 'treeLeft',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-tax-app-vatTaxpayer-wraper-treeLeft',
 					children: [{
 						name: 'tbsm',
-						component: '::div',
+						component: 'div',
 						className: 'ttk-tax-app-vatTaxpayer-wraper-treeLeft-top',
 						children: [{
 							name: 'help',
@@ -131,19 +131,19 @@ export function getMeta() {
 					}]
 				}, {
 				name: 'rightDiv',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv',
 				children: [{
 					name: 'rightTable',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable',
 					children:[{
 						name: 'formHeadDiv',
-						component: '::div',
+						component: 'div',
 						className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv',
 						children:[
 							{
-								component: '::div',
+								component: 'div',
 								style: {
 									float: 'left'
 								},
@@ -168,11 +168,11 @@ export function getMeta() {
 								]
 							},
 							{
-								component: '::div',
+								component: 'div',
 								className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv-title',
 								children: '增值税纳税申报表'
 							},{
-								component: '::div',
+								component: 'div',
 								style: {
 									float: 'right'
 								},
@@ -308,7 +308,7 @@ export function getMeta() {
 						children: '{{$renderTabs()}}'
 					},{
 						name: 'apps',
-                        component: '::div',
+                        component: 'div',
                         className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formContentDiv',
 						children: [  
                             '{{$renderTable()}}',

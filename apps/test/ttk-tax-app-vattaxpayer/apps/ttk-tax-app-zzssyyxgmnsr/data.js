@@ -1,17 +1,17 @@
 export function getMeta() {
 	return {
 		name: 'tax-table',
-        component: '::div',
+        component: 'div',
         className: 'ttk-tax-app-zzsxgmGrid',
         children: [{
-            component: '::div',
+            component: 'div',
             className: 'theader',
             children: [{
                 name: 'top',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'nsrsbh',
-                    component: '::div',
+                    component: 'div',
                     className: 'nsrsbh',
                     children: ["纳税人识别号：", {
                         name: 'title',
@@ -20,26 +20,26 @@ export function getMeta() {
                     }]
                 }, {
                     name: 'date',
-                    component: '::div',
+                    component: 'div',
                     className: 'date',
                     children: '{{"税款所属期：" +(data.zzssyyxgmnsr.sbbhead.skssqq || "") + " 至 " + (data.zzssyyxgmnsr.sbbhead.skssqz || "")}}',
                 }]
             },{
                 name: 'bottom',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'nsrmc',
-                    component: '::div',
+                    component: 'div',
                     className: 'nsrmc',
                     children: '{{"纳税人名称（公章）："+ (data.zzssyyxgmnsr.sbbhead.nsrmc || "")}}',
                 },  {
                     name: 'sbrq1',
-                    component: '::div',
+                    component: 'div',
                     className: 'sbrq1',
                     children: '{{"填表日期："+(data.zzssyyxgmnsr.sbbhead.sbrq1||"")}}',
                 }, {
                     name: 'unit',
-                    component: '::div',
+                    component: 'div',
                     className: 'unit',
                     children: '金额单位：元至角分'
                 }]
@@ -120,36 +120,36 @@ export function getMeta() {
                 }
             ]
         },{
-            component: '::div',
+            component: 'div',
             className: 'formData',
             children: [
                 {
-                    component: '::div',
+                    component: 'div',
                     className: 'tform1Top',
                     children: [{
-                        component:"::div",
+                        component:"div",
                         className: 'tform1Top-cell',
                         children: '{{$renderSelectCell("sfzxsb",data.zzssyyxgmnsr.slxxForm.sfzxsb, "Radio", "N")}}'                                    
                     },{
-                        component:"::div",
+                        component:"div",
                         className: 'tform1Top-cell',
                         children: '办理人员身份证件类型： ',
                     },{
-                        component:"::div",
+                        component:"div",
                         className: 'tform1Top-cell',
                         children: '{{$renderSelectCell("blrysfzjlxDm",data.zzssyyxgmnsr.slxxForm.blrysfzjlxDm, "Select",(data.zzssyyxgmnsr.slxxForm.sfzxsb=="N"&&!data.zzssyyxgmnsr.slxxForm.blrysfzjlxDm) )}}'                                    
                     },{
-                        component:"::div",
+                        component:"div",
                         className: 'tform1Top-cell',
                         children: '办理人员身份证件号码： '
                     },{
-                        component:"::div",
+                        component:"div",
                         className: 'tform1Top-cell',
                         children: '{{$renderFormCell("blrysfzjhm",data.zzssyyxgmnsr.slxxForm.blrysfzjhm, "Input", (data.zzssyyxgmnsr.slxxForm.sfzxsb=="N"&&!data.zzssyyxgmnsr.slxxForm.blrysfzjhm) )}}'                                    
                     }]
                 },
                 {
-                    component: '::div',
+                    component: 'div',
                     className: 'tform1Left',
                     children: {
                         className: 'tform1LeftText',

@@ -1,5 +1,5 @@
-//import config from './config'
-//import * as data from './data'
+//
+//
 
 export default {
 	name: "ttk-tax-app-zzsjmssbmxb-beijing",

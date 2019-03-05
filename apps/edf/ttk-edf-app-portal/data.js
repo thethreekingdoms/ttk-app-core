@@ -4,7 +4,7 @@ export function getMeta() {
 
     return {
         name: 'root',
-        component: '::div',
+        component: 'div',
         className: 'ttk-edf-app-portal',
         children: [
             {
@@ -63,7 +63,7 @@ export function getMeta() {
                                 },
                                 {
                                     name: 'item2',
-                                    component: '::div',
+                                    component: 'div',
                                     style: { borderTop: '1px solid #e4e4e4', backgroundColor: '#F9F8FA' },
                                     children: [
                                         {
@@ -93,7 +93,7 @@ export function getMeta() {
                                         {
                                             name: 'line',
                                             style: { display: 'inline-block', verticalAlign: 'middle', width: '1px', height: '25px', borderLeft: '1px dashed #8E8C8C' },
-                                            component: '::div'
+                                            component: 'div'
                                         },
                                         {
                                             name: 'org4',
@@ -103,7 +103,7 @@ export function getMeta() {
                                             onClick: "{{$goRegister}}",
                                             children: {
                                                 name: 'container',
-                                                component: '::div',
+                                                component: 'div',
                                                 children: [{
                                                     name: 'add_company',
                                                     component: 'Icon',
@@ -124,7 +124,7 @@ export function getMeta() {
                             ],
                             children: {
                                 name: 'internal',
-                                component: '::div',
+                                component: 'div',
                                 className: 'orgName',
                                 _visible: '{{data.headCtrl}}',
                                 onClick: '{{$getOrgs}}',
@@ -148,7 +148,7 @@ export function getMeta() {
                         },
                         {
                             name: 'rightDiv',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-edf-app-portal-search-rightDiv',
                             children: [{
                                 name: 'topSearch1',
@@ -226,12 +226,12 @@ export function getMeta() {
                                 }]
                             }, {
                                 name: 'pop',
-                                component: '::div',
+                                component: 'div',
                                 className: 'popContent',
                                 style: { position: 'fixed', top: '54px', right: '0px', overflow: 'hidden', height: '{{data.animation == "in"?"100%":"0" }}', width: '100%', boxSizing: 'border-box', paddingBottom: '{{data.animation == "in"?"54px":"0"}}', zIndex: '2' },
                                 children: {
                                     name: 'card',
-                                    component: '::div',
+                                    component: 'div',
                                     bordered: false,
                                     style: { display: "{{data.showPanel}}" },
                                     onAnimationEnd: "{{$animationEnd}}",
@@ -241,20 +241,20 @@ export function getMeta() {
                                         name: 'shade1',
                                         onMouseOver: '{{$hidePanel}}',
                                         className: 'ttk-edf-app-portal-header-right-help-popover-shade',
-                                        component: '::div',
+                                        component: 'div',
                                         onClick: '{{$hidePanel}}'
                                     }, {
                                         name: 'shade2',
                                         className: 'ttk-edf-app-portal-header-right-help-popover-content',
-                                        component: '::div',
+                                        component: 'div',
 
                                         children: [{
                                             name: 'icon-arrow',
-                                            component: '::div',
+                                            component: 'div',
                                             className: 'ant-popover-arrow',
                                         }, /*{
                                             name: 'titleIcon',
-                                            component: '::div',
+                                            component: 'div',
                                             className: 'ttk-edf-app-portal-header-right-help-popover-titleIcon',
                                             children: [{
                                                 name: 'helpIcon',
@@ -273,7 +273,7 @@ export function getMeta() {
                                             }]
                                         }, */{
                                             name: 'Search',
-                                            component: '::div',
+                                            component: 'div',
                                             // className: 'ttk-edf-app-portal-header-right ,animated, slideInUp,',
                                             children: [{
                                                 name: 'search',
@@ -523,7 +523,7 @@ export function getMeta() {
                                 },
                                 children: {
                                     name: 'internal2',
-                                    component: '::div',
+                                    component: 'div',
                                     className: 'basicInfo',
                                     style: { margin: '0px 2px' },
                                     children: [{
@@ -572,13 +572,13 @@ export function getMeta() {
                                 children: "{{'搜索'}}"
                             }, {
                                 name: 'topSearchDiv',
-                                component: '::div',
+                                component: 'div',
                                 className: '{{data.animation1 == "in" ? "ttk-edf-app-portal-search-container animated slideInRight" : "ttk-edf-app-portal-search-container animated fadeOutRight"}}',
                                 onAnimationEnd: "{{$animationEnd2}}",
                                 style: { display: '{{data.showSearch}}' },
                                 children: [{
                                     name: 'coverShadeDiv',
-                                    component: '::div',
+                                    component: 'div',
                                     className: 'ttk-edf-app-portal-search-shade',
                                     onClick: '{{$hideSearch}}'
                                 }, {
@@ -623,7 +623,7 @@ export function getMeta() {
                         }]
                     }, {
                         name: 'switch',
-                        component: '::div',
+                        component: 'div',
                         className: 'menu-switch',
                         onClick: '{{$switchMenu}}',
                         children: [{
@@ -743,21 +743,21 @@ export function getMeta() {
             }, {
                 name: 'panel',
                 className: 'ttk-edf-app-portal-content-configPanel',
-                component: '::div',
+                component: 'div',
                 style: { display: "{{data.showControlPanel}}" },
                 children: [{
                     name: 'shade',
                     className: 'ttk-edf-app-portal-content-configPanel-shade',
-                    component: '::div',
+                    component: 'div',
                     onClick: '{{function(){$hideCtrlPanel("cancel")}}}'
                 }, {
                     name: 'container',
-                    component: '::div',
+                    component: 'div',
                     className: '{{data.panelAnimation == "in" ? "ttk-edf-app-portal-content-configPanel-container animated slideInRight" : "ttk-edf-app-portal-content-configPanel-container animated slideOutRight"}}',
                     onAnimationEnd: "{{$hidePanelEnd}}",
                     children: [{
                         name: 'title',
-                        component: '::div',
+                        component: 'div',
                         className: 'ttk-edf-app-portal-content-configPanel-title',
                         children: [{
                             name: 'icon',
@@ -772,10 +772,10 @@ export function getMeta() {
                     }, {
                         name: 'main',
                         className: 'ttk-edf-app-portal-content-configPanel-main',
-                        component: '::div',
+                        component: 'div',
                         children: [{
                             name: 'gl',
-                            component: '::div',
+                            component: 'div',
                             children: [{
                                 name: 'options',
                                 className: 'ttk-edf-app-portal-content-configPanel-main-options',
@@ -787,11 +787,11 @@ export function getMeta() {
                     }, {
                         name: 'btns',
                         className: 'ttk-edf-app-portal-content-configPanel-btns',
-                        component: '::div',
+                        component: 'div',
                         style: { position: 'relative', height: '80px' },
                         children: {
                             name: 'container',
-                            component: '::div',
+                            component: 'div',
                             style: { position: 'absolute', left: '50%', transform: 'translateX(-50%)' },
                             children: [{
                                 name: 'btn1',

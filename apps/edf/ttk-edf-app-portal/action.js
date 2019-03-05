@@ -401,7 +401,7 @@ class action {
     getExtraMenuWidth = () => {
         let style = {}
         let content = this.metaAction.gf('data.content').toJS()
-        if (content.appName == "edfx-app-home") {
+        if (content.appName == "ttk-edf-app-home") {
             style.width = environment.isDevMode() ? "185px" : "95px"
         } else {
             style.width = environment.isDevMode() ? "95px" : "0px"
@@ -445,8 +445,6 @@ class action {
                 if (currentOpenAppName == 'ttk-edf-app-company-manage' || currentOpenAppName == 'ttk-edf-app-company-manage') {
                     this.tabEdit(currentOpenAppName, 'remove')
                 }
-                if (!this.config.apps['ttk-edf-app-my-setting'])
-                    throw '不存在ttk-edf-app-my-setting应用，该功能不能使用'
                 this.metaAction.sf('data.isTabsStyle', true)
                 this.metaAction.sf('data.isShowMenu', true)
                 this.setContent('个人设置', 'ttk-edf-app-my-setting')
@@ -505,8 +503,6 @@ class action {
         if (e.stopPropagation) {
             e.stopPropagation()
         }
-        if (!this.config.apps['ttk-edf-app-company-manage'])
-            throw 'ttk-edf-app-company-manage应用，该功能不能使用'
         this.setContent('企业管理', 'ttk-edf-app-company-manage')
         this.metaAction.sf('data.isTabsStyle', false)
         this.metaAction.sf('data.isShowMenu', false)

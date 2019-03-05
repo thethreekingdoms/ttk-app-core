@@ -10,7 +10,7 @@ export function getMeta() {
 			title: '角色',
 			extra: {
 				name: 'header',
-				component: '::div',
+				component: 'div',
 				children: [{
 					name: 'add',
 					component: 'Button',

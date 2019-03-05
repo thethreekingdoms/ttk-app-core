@@ -1,7 +1,7 @@
 export function getMeta() {
 	return {
 		name: 'root',
-		component: '::div',
+		component: 'div',
 		className:'ttk-edf-app-my-setting-change-password',
 		children: {
 			name: 'form',

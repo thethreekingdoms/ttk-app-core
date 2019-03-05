@@ -25,7 +25,7 @@ export function getMeta() {
 			children: '{{$numberFormat(data.total)}}'
 		}, {
 			name: 'chart',
-			component: '::div',
+			component: 'div',
 			className: 'ttk-edf-app-visit-widget-chart',
 			children: {
 				name: 'chart',

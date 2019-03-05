@@ -1,19 +1,19 @@
 export function getMeta() {
 	return {
 		name: 'root',
-		component: '::div',
+		component: 'div',
 		className: 'ttk-edf-app-my-setting',
 		children: {
 			name: 'content',
-			component: '::div',
+			component: 'div',
 			className: 'ttk-edf-app-my-setting-content',
 			children: {
 				name: 'item',
-				component: '::div',
+				component: 'div',
 				className: 'container',
 				children: [{
 					name: 'baseInfo',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-my-setting-baseInfo',
 					children: [{
 						name: 'title',
@@ -31,7 +31,7 @@ export function getMeta() {
 							required: true,
 							children: [{
 								name: 'container',
-								component: '::div',
+								component: 'div',
 								children: [{
 									name: 'photo',
 									component: '::img',
@@ -41,7 +41,7 @@ export function getMeta() {
 							}]
 						}, {
 							name: 'detailItem',
-							component: '::div',
+							component: 'div',
 							className: 'ttk-edf-app-my-setting-baseInfo-form-detail',
 							children: [{
 								name: 'sexItem',
@@ -111,7 +111,7 @@ export function getMeta() {
 
 				}, {
 					name: 'security',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-my-setting-security',
 					children: [{
 						name: 'title',
@@ -121,12 +121,12 @@ export function getMeta() {
 						children: '安全设置'
 					}, {
 						name: 'item',
-						component: '::div',
+						component: 'div',
 						className: 'ttk-edf-app-my-setting-security-box',
 						children: [
 						// 	{
 						// 	name: 'level',
-						// 	component: '::div',
+						// 	component: 'div',
 						// 	className: '{{$getSecurityLevelClassName()}}',
 						// 	children: [{
 						// 		name: 'label',
@@ -144,23 +144,23 @@ export function getMeta() {
 						// 	}]
 						// }, {
 						// 	name: 'securityLevel',
-						// 	component: '::div',
+						// 	component: 'div',
 						// 	children: []
 						// },
 							{
 							name: 'grid',
-							component: '::div',
+							component: 'div',
 							className: 'ttk-edf-app-my-setting-security-grid',
 							className: 'ttk-edf-app-my-setting-security-layout',
 							children: [{
 								name: 'password',
 								className: 'ttk-edf-app-my-setting-security-grid-row',
-								component: '::div',
+								component: 'div',
 								key: 'password',
 								dataGrid: { x: 0, y: 0, w: 1, h: 1 },
 								children: [{
 									name: 'level',
-									component: '::div',
+									component: 'div',
 									children: [
 									// 	{
 									// 	name: 'icon',
@@ -175,7 +175,7 @@ export function getMeta() {
 								]
 								}, {
 									name: 'type',
-									component: '::div',
+									component: 'div',
 									children: {
 										name: 'p',
 										component: '::p',
@@ -183,10 +183,10 @@ export function getMeta() {
 									}
 								}, {
 									name: 'remind',
-									component: '::div',
+									component: 'div',
 									children: [{
 										name: 'p',
-										component: '::div',
+										component: 'div',
 										className: 'pws',
 										children: [{
 											name: 'item1',
@@ -200,7 +200,7 @@ export function getMeta() {
 											children: '{{$getPasswordStrength()}}'
 										}, {
 											name: 'bar',
-											component: '::div',
+											component: 'div',
 											className: 'pws-bar',
 											children: {
 												name: 'bar',
@@ -218,7 +218,7 @@ export function getMeta() {
 									}]
 								}, {
 									name: 'btn',
-									component: '::div',
+									component: 'div',
 									children: [{
 										name: 'btn',
 										component: 'Button',
@@ -230,12 +230,12 @@ export function getMeta() {
 							}, {
 								name: 'phone',
 								className: 'ttk-edf-app-my-setting-security-grid-row',
-								component: '::div',
+								component: 'div',
 								key: 'phone',
 								dataGrid: { x: 1, y: 0, w: 1, h: 1 },
 								children: [{
 									name: 'level',
-									component: '::div',
+									component: 'div',
 									children: [
 									// 	{
 									// 	name: 'icon',
@@ -250,7 +250,7 @@ export function getMeta() {
 								]
 								}, {
 									name: 'type',
-									component: '::div',
+									component: 'div',
 									children: {
 										name: 'p',
 										component: '::p',
@@ -258,7 +258,7 @@ export function getMeta() {
 									}
 								}, {
 									name: 'remind',
-									component: '::div',
+									component: 'div',
 									children: {
 										name: 'p',
 										component: '::p',
@@ -266,7 +266,7 @@ export function getMeta() {
 									}
 								}, {
 									name: 'btn',
-									component: '::div',
+									component: 'div',
 									children: [{
 										name: 'btn',
 										component: 'Button',
@@ -279,12 +279,12 @@ export function getMeta() {
 								//  {
 								// 	name: 'email',
 								// 	className: 'ttk-edf-app-my-setting-security-grid-row',
-								// 	component: '::div',
+								// 	component: 'div',
 								// 	key: 'email',
 								// 	dataGrid: {x:2,y:0,w:1,h:1},
 								// 	children: [{
 								// 		name: 'level',
-								// 		component: '::div',
+								// 		component: 'div',
 								// 		children: [{
 								// 			name: 'icon',
 								// 			component: 'Icon',
@@ -296,7 +296,7 @@ export function getMeta() {
 								// 		}]
 								// 	}, {
 								// 		name: 'type',
-								// 		component: '::div',
+								// 		component: 'div',
 								// 		children: {
 								// 			name: 'p',
 								// 			component: '::p',
@@ -304,7 +304,7 @@ export function getMeta() {
 								// 		}
 								// 	}, {
 								// 		name: 'remind',
-								// 		component: '::div',
+								// 		component: 'div',
 								// 		children: {
 								// 			name: 'p',
 								// 			component: '::p',
@@ -312,7 +312,7 @@ export function getMeta() {
 								// 		}
 								// 	}, {
 								// 		name: 'btn',
-								// 		component: '::div',
+								// 		component: 'div',
 								// 		children: [{
 								// 			name: 'btn',
 								// 			component: 'Button',

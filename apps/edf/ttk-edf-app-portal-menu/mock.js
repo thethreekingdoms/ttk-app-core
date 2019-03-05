@@ -18,7 +18,7 @@ function initMenu() {
             "id":1,
             "name":"我的桌面",
             "code":"01",
-            "appName":"edfx-app-home",
+            "appName":"ttk-edf-app-home",
             "iconFont":"zhuomianpeizhi",
             "parentId":0,
             "showOrder":100,

@@ -2,31 +2,31 @@
 export function getMeta() {
     return {
         name: 'root',
-        component: '::div',
+        component: 'div',
         className: 'ttk-tax-app-zzsxgmflzl',
         children: [
             {
                 name: 'content',
                 className: 'ttk-tax-app-zzsxgmflzl-content',
-                component: '::div',
+                component: 'div',
                 children:
                 [{
                     name: 'formTitle',
-                    component: '::div',
+                    component: 'div',
                     className: 'ttk-tax-app-zzsxgmflzl-content-formTitle',
                     _visible: false,
                     children: '增值税纳税申报表（小规模纳税人适用）附列资料'
                 },{
                     name: 'formHead',
-                    component: '::div',
+                    component: 'div',
                     className: 'ttk-tax-app-zzsxgmflzl-content-formHead theader',
                     children: [{
                         name: 'formHeadTop',
-                        component: '::div',
+                        component: 'div',
                         className: 'ttk-tax-app-zzsxgmflzl-content-formHead-Div',
                         children: [{
                             name: 'leftTopP',
-                            component: '::div',
+                            component: 'div',
                             children: ["纳税人识别号：", {
                                 name: 'title',
                                 component: '::span',
@@ -34,26 +34,26 @@ export function getMeta() {
                             }]
                         }, {
                             name: 'middleTopP',
-                            component: '::div',
+                            component: 'div',
                             className: 'alignCenter',
                             children: '{{"税款所属期：" +(data.sbbhead.skssqq || "") + " 至 " + (data.sbbhead.skssqz || "")}}',
                         }]
                     }, {
                         name: 'formHeadMiddle',
-                        component: '::div',
+                        component: 'div',
                         className: 'ttk-tax-app-zzsxgmflzl-content-formHead-Div',
                         children: [{
                             name: 'leftP',
-                            component: '::div',
+                            component: 'div',
                             children: '{{"纳税人名称（公章）："+ (data.sbbhead.nsrmc || "")}}',
                         },  {
                             name: 'MiddleP',
-                            component: '::div',
+                            component: 'div',
                             className: 'alignCenter',
                             children: '{{"填表日期："+(data.sbbhead.sbrq1||"")}}',
                         },  {
                             name: 'RightP',
-                            component: '::div',
+                            component: 'div',
                             className: 'alignRight',
                             children: `金额单位：元至角分`
                         }]
@@ -63,67 +63,67 @@ export function getMeta() {
                     component: 'Form',
                     children:[{
                         name: 'kcejs1',
-                        component: '::div',
+                        component: 'div',
                         children:[{
                             name: 'ysxwkcejs1',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formTableTitle',
                             children: '应税行为（3%征收率）扣除额计算'
                         },{
                             name: 'ysxwkcejs2',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcyeh2l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '期初余额'
                             },{
                                 name: 'bqfseh2l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期发生额'
                             },{
                                 name: 'bqkceh2l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期扣除额'
                             },{
                                 name: 'qmyeh2l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '期末余额'
                             }]
                         },{
                             name: 'ysxwkcejs3',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcyeh3l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '1'
                             },{
                                 name: 'bqfseh3l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '2'
                             },{
                                 name: 'bqkceh3l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '3（3≤1＋2之和，且3≤5）'
                             },{
                                 name: 'qmyeh3l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '4=1+2-3'
                             }]
                         },{
                             name: 'ysxwkcejs4',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcye',
@@ -154,67 +154,67 @@ export function getMeta() {
                         }]
                     },{
                         name: 'jsxsejs1',
-                        component: '::div',
+                        component: 'div',
                         children:[{
                             name: 'ysxwjsxsejs1',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formTableTitle',
                             children: '应税行为（3%征收率）计税销售额计算'
                         },{
                             name: 'ysxwjsxsejs2',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssrh2l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '全部含税收入（适用3%征收率）'
                             },{
                                 name: 'ysfwxsbqkceh2l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期扣除额'
                             },{
                                 name: 'ysfwxshsxseh2l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '含税销售额'
                             },{
                                 name: 'ysfwxsbhsxseh2l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '不含税销售额'
                             }]
                         },{
                             name: 'ysxwjsxsejs3',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssrh3l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '5'
                             },{
                                 name: 'ysfwxsbqkceh3l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '6=3'
                             },{
                                 name: 'ysfwxshsxseh3l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '7＝5－6'
                             },{
                                 name: 'ysfwxsbhsxseh3l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '8＝7÷1.03'
                             }]
                         },{
                             name: 'ysxwjsxsejs4',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssr',
@@ -245,67 +245,67 @@ export function getMeta() {
                         }]
                     },{
                         name: 'kcejs2',
-                        component: '::div',
+                        component: 'div',
                         children:[{
                             name: 'ysxwkcejs1',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formTableTitle',
                             children: '应税行为（5%征收率）扣除额计算'
                         },{
                             name: 'ysxwkcejs2',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcye5h2l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '期初余额'
                             },{
                                 name: 'bqfse5h2l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期发生额'
                             },{
                                 name: 'bqkce5h2l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期扣除额'
                             },{
                                 name: 'qmye5h2l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '期末余额'
                             }]
                         },{
                             name: 'ysxwkcejs3',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcye5h3l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '9'
                             },{
                                 name: 'bqfse5h3l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '10'
                             },{
                                 name: 'bqkce5h3l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '11（11≤9＋10之和，且11≤13）'
                             },{
                                 name: 'qmye5h3l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '12=9+10-11'
                             }]
                         },{
                             name: 'ysxwkcejs4',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'qcye5',
@@ -336,67 +336,67 @@ export function getMeta() {
                         }]
                     },{
                         name: 'jsxsejs1',
-                        component: '::div',
+                        component: 'div',
                         children:[{
                             name: 'ysxwjsxsejs1',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formTableTitle',
                             children: '应税行为（5%征收率）计税销售额计算'
                         },{
                             name: 'ysxwjsxsejs2',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssr5h2l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '全部含税收入（适用5%征收率）'
                             },{
                                 name: 'ysfwxsbqkce5h2l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '本期扣除额'
                             },{
                                 name: 'ysfwxshsxse5h1l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '含税销售额'
                             },{
                                 name: 'ysfwxsbhsxse5h2l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle',
                                 children: '不含税销售额'
                             }]
                         },{
                             name: 'ysxwjsxsejs3',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssr5h3l1',
-                                component: '::div',
+                                component: 'div',
                                 style: {borderLeft: 0},
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '13'
                             },{
                                 name: 'ysfwxsbqkce5h3l2',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '14=11'
                             },{
                                 name: 'ysfwxshsxse5h3l3',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '15＝13－14'
                             },{
                                 name: 'ysfwxsbhsxse5h3l4',
-                                component: '::div',
+                                component: 'div',
                                 className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem',
                                 children: '16＝15÷1.05'
                             }]
                         },{
                             name: 'ysxwjsxsejs4',
-                            component: '::div',
+                            component: 'div',
                             className: 'ttk-tax-app-zzsxgmflzl-content-formItemDiv',
                             children: [{
                                 name: 'ysfwxsqbhssr5',

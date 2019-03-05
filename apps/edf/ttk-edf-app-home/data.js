@@ -1,13 +1,13 @@
 export function getMeta() {
 	return {
 		name: 'root',
-		component: '::div',
+		component: 'div',
 		className: 'ttk-edf-app-dashboard-analysis',
 		_visible: '{{!!data.visit}}',
 		children: [{
 			name: 'gridLayout',
 			// component: 'GridLayout.WidthProviderGridLayout',
-			component: '::div',
+			component: 'div',
 			className: 'ttk-edf-app-dashboard-analysis-grid',
 			autoSize: true,
 			// cols: 12,
@@ -18,7 +18,7 @@ export function getMeta() {
 			containerPadding: [10, 10],
 			children: [{
 				name: 'sale',
-				component: '::div',
+				component: 'div',
 				key: 'sale',
 				children: {
 					name: 'card',
@@ -32,7 +32,7 @@ export function getMeta() {
 				}
 			}, {
 				name: 'visit',
-				component: '::div',
+				component: 'div',
 				key: 'visit',
 				children: {
 					name: 'card',
@@ -46,7 +46,7 @@ export function getMeta() {
 				}
 			}, {
 				name: 'trade',
-				component: '::div',
+				component: 'div',
 				key: 'trade',
 				children: {
 					name: 'card',
@@ -60,7 +60,7 @@ export function getMeta() {
 				}
 			}, {
 				name: 'market',
-				component: '::div',
+				component: 'div',
 				key: 'market',
 				children: {
 					name: 'card',
@@ -74,7 +74,7 @@ export function getMeta() {
 				}
 			}]},{
 				name: 'trend',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-dashboard-analysis-trendDiv',
 				key: 'trend',
 				children: [{
@@ -108,12 +108,12 @@ export function getMeta() {
 				}]
 			},{
 				name: 'buttomDiv',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-dashboard-analysis-buttomDiv',
 				children:[
 					{
 						name: 'hotSearch',
-						component: '::div',
+						component: 'div',
 						key: 'hotSearch',
 						children: [{
 							name: 'card',
@@ -128,7 +128,7 @@ export function getMeta() {
 						}]
 					}, {
 						name: 'saleProportion',
-						component: '::div',
+						component: 'div',
 						key: 'saleProportion',
 						children: [{
 							name: 'card',
@@ -144,7 +144,7 @@ export function getMeta() {
 					}]
 				},{
 				name: 'bottom',
-				component: '::div',
+				component: 'div',
 				key: 'bottom'
 			}]
 		}

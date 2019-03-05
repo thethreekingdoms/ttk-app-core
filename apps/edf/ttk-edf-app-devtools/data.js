@@ -48,7 +48,7 @@ export function getMeta() {
 			}]
 		}, {
 			name: 'content',
-			component: '::div',
+			component: 'div',
 			className: 'ttk-edf-app-devtools-content',
 			children: [{
 				name: 'state',
@@ -67,7 +67,7 @@ export function getMeta() {
 				data: '{{$getMockData()}}'
 			}, {
 				name: 'apis',
-				component: `{{$isExistsApp('ttk-edf-app-apidoc')?'AppLoader':'::div'}}`,
+				component: `{{$isExistsApp('ttk-edf-app-apidoc')?'AppLoader':'div'}}`,
 				notRender: "{{data.tabKey!='apis'}}",
 				_visible: "{{data.tabKey=='apis'}}",
 				appName: 'ttk-edf-app-apidoc',
@@ -76,7 +76,7 @@ export function getMeta() {
 			}, {
 				name: 'modifyApp',
 				_visible: "{{data.tabKey=='modifyApp'}}",
-				component: `{{$isExistsApp('ttk-edf-app-hotloader')?'AppLoader':'::div'}}`,
+				component: `{{$isExistsApp('ttk-edf-app-hotloader')?'AppLoader':'div'}}`,
 				notRender: "{{data.tabKey!='modifyApp'}}",
 				appName: 'ttk-edf-app-hotloader',
 				children: '运行网站需要ttk-edf-app-hotloader应用，可以使用[ttk clone ttk-edf-app-hotloader apps/]克隆应用',
@@ -84,7 +84,7 @@ export function getMeta() {
 
 			}, {
 				name: 'traceAction',
-				component: `{{$isExistsApp('ttk-edf-app-traceapp')?'AppLoader':'::div'}}`,
+				component: `{{$isExistsApp('ttk-edf-app-traceapp')?'AppLoader':'div'}}`,
 				notRender: "{{data.tabKey!='traceAction'}}",
 				_visible: "{{data.tabKey=='traceAction'}}",
 				appName: 'ttk-edf-app-traceapp',
@@ -92,7 +92,7 @@ export function getMeta() {
 				_excludeProps: "{{$isExistsApp('ttk-edf-app-traceapp')?['_visible','children']:['notRender','appName']}}"
 			}, {
 				name: 'metaDesign',
-				component: `{{$isExistsApp('ttk-edf-app-metadesign')?'AppLoader':'::div'}}`,
+				component: `{{$isExistsApp('ttk-edf-app-metadesign')?'AppLoader':'div'}}`,
 				notRender: "{{data.tabKey!='metaDesign'}}",
 				_visible: "{{data.tabKey=='metaDesign'}}",
 				appName: 'ttk-edf-app-metadesign',

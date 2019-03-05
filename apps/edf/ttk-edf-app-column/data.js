@@ -10,7 +10,7 @@ export function getMeta() {
 			title: '栏目方案',
 			extra: {
 				name: 'header',
-				component: '::div',
+				component: 'div',
 				children: [{
 					name: 'add',
 					component: 'Button',
@@ -50,7 +50,7 @@ export function getMeta() {
 			title: '栏目',
 			extra: {
 				name: 'header',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-column-content-header',
 				children: [{
 					name: 'add',

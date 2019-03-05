@@ -1,11 +1,11 @@
 export function getMeta() {
     return {
         name: 'root',
-        component: '::div',
+        component: 'div',
         className: 'ttk-edf-app-card-userdefinecard',
         children: [{
             name: 'archivesName',
-            component: '::div',
+            component: 'div',
             className: 'ttk-edf-app-card-userdefinecard-archivesname',
             _visible: "{{data.archivesName ? true : false}}",
             children: [{
@@ -26,7 +26,7 @@ export function getMeta() {
             }]
         }, {
             name: 'ttk-edf-app-card-userdefinecard-archive',
-            component: '::div',
+            component: 'div',
             className: 'archives-name',
             _visible: "{{data.archivesName ? false : true}}",
             children: [{

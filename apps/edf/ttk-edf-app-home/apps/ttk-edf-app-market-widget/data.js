@@ -20,7 +20,7 @@ export function getMeta() {
 			}]
 		}, {
 			name: 'chart',
-			component: '::div',
+			component: 'div',
 			className: 'ttk-edf-app-market-widget-chart',
 			children: {
 				name: 'chart',

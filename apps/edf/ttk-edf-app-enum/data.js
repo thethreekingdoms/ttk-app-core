@@ -10,7 +10,7 @@ export function getMeta() {
 			title: '枚举分类',
 			extra: {
 				name: 'header',
-				component: '::div',
+				component: 'div',
 				children: [{
 					name: 'add',
 					component: 'Button',
@@ -50,7 +50,7 @@ export function getMeta() {
 			title: '枚举项',
 			extra: {
 				name: 'header',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-enum-content-header',
 				children: [{
 					name: 'add',

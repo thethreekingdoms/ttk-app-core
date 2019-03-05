@@ -9,12 +9,12 @@ export function getMeta() {
 			className: 't-skin-content',
 			children: [{
 				name: 'tips1',
-				component: '::div',
+				component: 'div',
 				className: 't-layout-title',
 				children: '布局选择',
 			}, {
 				name: 'content1',
-				component: '::div',
+				component: 'div',
 				className: 't-skin-row t-selects t-layout-selects',
 				children: [{
 					name: 'a2',
@@ -26,24 +26,24 @@ export function getMeta() {
 					children: [{
 						name: 'child2',
 						className: 'skin-layout-l',
-						component: '::div',
+						component: 'div',
 						children: [{
 							name: 'child22',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-top'
 						}, {
 							name: 'child23',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-content'
 						}]
 					}, {
 						name: 'childright2',
-						component: '::div',
+						component: 'div',
 						className: 'skin-layout-r',
 						children: [
 							{
 								name: 'childright2-1',
-								component: '::div',
+								component: 'div',
 								className: 'skin-layout-top'
 							},
 							{
@@ -66,24 +66,24 @@ export function getMeta() {
 					'data-skinlayout': 'top',
 					children: [{
 						name: 'child3',
-						component: '::div',
+						component: 'div',
 						className: 'skin-layout-l',
 						children: [{
 							name: 'child3-1',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-top'
 						}, {
 							name: 'child3-2',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-content'
 						}]
 					}, {
 						name: 'child32',
-						component: '::div',
+						component: 'div',
 						className: 'skin-layout-r',
 						children: [{
 							name: 'child32-1',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-top'
 						}, {
 							name: 'child32-2',
@@ -106,16 +106,16 @@ export function getMeta() {
 					'data-skinlayout': 'left',
 					children: [{
 						name: 'child1',
-						component: '::div',
+						component: 'div',
 						className: 'skin-layout-l'
 					},
 					{
 						name: 'child2',
-						component: '::div',
+						component: 'div',
 						className: 'skin-layout-r',
 						children: [{
 							name: 'child2top',
-							component: '::div',
+							component: 'div',
 							className: 'skin-layout-top'
 						},
 						{
@@ -136,12 +136,12 @@ export function getMeta() {
 				}]
 			}, {
 				name: 'tips2',
-				component: '::div',
+				component: 'div',
 				className: 't-layout-title',
 				children: '颜色选择'
 			}, {
 				name: 'row2',
-				component: '::div',
+				component: 'div',
 				className: 't-skin-row t-color-selects',
 				children: [{
 					name: 'skin1',
@@ -168,12 +168,12 @@ export function getMeta() {
 				}]
 			}, {
 				name: 'row3title',
-				component: '::div',
+				component: 'div',
 				className: 't-layout-title',
 				children: '背景图片'
 			}, {
 				name: 'row3',
-				component: '::div',
+				component: 'div',
 				className: 't-skin-row t-color-selects',
 				children: [{
 					name: 'skin1',
@@ -182,7 +182,7 @@ export function getMeta() {
 					children: [{
 						name: 'bg1',
 						className: 'bg1',
-						component: '::div',
+						component: 'div',
 					}]
 				}, {
 					name: 'skin2',
@@ -191,7 +191,7 @@ export function getMeta() {
 					children: [{
 						name: 'bg2',
 						className: 'bg2',
-						component: '::div',
+						component: 'div',
 					}]
 				}, {
 					name: 'skin3',
@@ -200,7 +200,7 @@ export function getMeta() {
 					children: [{
 						name: 'bg3',
 						className: 'bg3',
-						component: '::div',
+						component: 'div',
 					}]
 				}]
 			}

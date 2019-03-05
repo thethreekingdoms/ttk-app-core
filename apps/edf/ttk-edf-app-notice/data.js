@@ -27,28 +27,28 @@ export function getMeta() {
 							key: '1',
 							children: [{
 								name: 'tab1content',
-								component: '::div',
+								component: 'div',
 								_visible:'{{data.noticedata&&data.noticedata.length>0}}',
 								children: [
 									{
 										name: 'split',
-										component: '::div',
+										component: 'div',
 										className: 'list-split',
 										children:
 											{
 												name: 'list-item',
-												component: '::div',
+												component: 'div',
 												className: 'list-item',
 												onClick: '{{$onItemClick()}}',
 												key: "{{data.noticedata && data.noticedata[_rowIndex].id }}",
 												children: {
 													name: 'list-item-meta',
-													component: '::div',
+													component: 'div',
 													className: 'list-item-meta',
 													children: [
 														{
 															name: 'avatar',
-															component: '::div',
+															component: 'div',
 															className: 'list-item-meta-avatar',
 															children: {
 																name: 'image',
@@ -62,7 +62,7 @@ export function getMeta() {
 														},
 														{
 															name: 'meta-content',
-															component: '::div',
+															component: 'div',
 															className: 'list-item-meta-content',
 															children: [{
 																name: 'title',
@@ -72,7 +72,7 @@ export function getMeta() {
 															},
 															{
 																name: 'description',
-																component: '::div',
+																component: 'div',
 																className: 'list-item-meta-description',
 																children: '{{data.noticedata[_rowIndex].datetime}}'
 															}
@@ -85,7 +85,7 @@ export function getMeta() {
 									},
 									{
 										name: 'qc',
-										component: '::div',
+										component: 'div',
 										className: 'clear',
 										onClick: '{{function(){$onClear("noticedata")}}}',
 										children: '清除通知',
@@ -93,7 +93,7 @@ export function getMeta() {
 								]
 
 							},,{
-								component:'::div',
+								component:'div',
 								className:'notfound',
 								_visible:'{{!data.noticedata||data.noticedata.length==0}}',
 								children:[
@@ -102,7 +102,7 @@ export function getMeta() {
 										src:'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
 									},
 									{
-										component:'::div',
+										component:'div',
 										children:'你已查看所有通知'
 									}
 								]
@@ -115,28 +115,28 @@ export function getMeta() {
 							key: '2',
 							children:[ {
 								name: 'tab2content',
-								component: '::div',
+								component: 'div',
 								_visible:'{{data.xxData&&data.xxData.length>0}}',
 								children: [
 									{
 										name: 'split',
-										component: '::div',
+										component: 'div',
 										className: 'list-split',
 										children:
 											{
 												name: 'list-item',
-												component: '::div',
+												component: 'div',
 												className: 'list-item',
 												onClick: '{{$onItemClick()}}',
 												key: "{{data.xxData && data.xxData[_rowIndex].id }}",
 												children: {
 													name: 'list-item-meta',
-													component: '::div',
+													component: 'div',
 													className: 'list-item-meta',
 													children: [
 														{
 															name: 'avatar',
-															component: '::div',
+															component: 'div',
 															className: 'list-item-meta-avatar',
 															children: {
 																name: 'image',
@@ -150,7 +150,7 @@ export function getMeta() {
 														},
 														{
 															name: 'meta-content',
-															component: '::div',
+															component: 'div',
 															className: 'list-item-meta-content',
 															children: [{
 																name: 'title',
@@ -160,18 +160,18 @@ export function getMeta() {
 															},
 															{
 																name: 'description',
-																component: '::div',
+																component: 'div',
 																className: 'list-item-meta-description',
 																children: {
-																	component: '::div',
+																	component: 'div',
 																	children: [
 																		{
-																			component: '::div',
+																			component: 'div',
 																			_visible: '{{data.xxData[_rowIndex].description}}',
 																			children: '{{data.xxData[_rowIndex].description}}'
 																		},
 																		{
-																			component: '::div',
+																			component: 'div',
 																			children: '{{data.xxData[_rowIndex].datetime}}'
 																		}
 																	]
@@ -188,7 +188,7 @@ export function getMeta() {
 									},
 									{
 										name: 'qc',
-										component: '::div',
+										component: 'div',
 										className: 'clear',
 										onClick: '{{function(){$onClear("xxData")}}}',
 										children: '清除消息',
@@ -196,7 +196,7 @@ export function getMeta() {
 								]
 							},
 							,{
-								component:'::div',
+								component:'div',
 								className:'notfound',
 								_visible:'{{!data.xxData||data.xxData.length==0}}',
 								children:[
@@ -205,7 +205,7 @@ export function getMeta() {
 										src:'https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg'
 									},
 									{
-										component:'::div',
+										component:'div',
 										children:'您已读完所有消息'
 									}
 								]
@@ -218,28 +218,28 @@ export function getMeta() {
 							key: '3',
 							children: [{
 								name: 'tab3content',
-								component: '::div',
+								component: 'div',
 								_visible:'{{data.dbData&&data.dbData.length>0}}',
 								children: [
 									{
 										name: 'split',
-										component: '::div',
+										component: 'div',
 										className: 'list-split',
 										children:
 											{
 												name: 'list-item',
-												component: '::div',
+												component: 'div',
 												className: 'list-item',
 												onClick: '{{$onItemClick()}}',
 												key: "{{data.dbData && data.dbData[_rowIndex].id}}",
 												children: {
 													name: 'list-item-meta',
-													component: '::div',
+													component: 'div',
 													className: 'list-item-meta',
 													children: [
 													//	{
 														//	name: 'avatar',
-														//	component: '::div',
+														//	component: 'div',
 														//	className: 'list-item-meta-avatar',
 														//	_visible: '{{data.dbData[_rowIndex].avatar}}',
 														//	children:''
@@ -256,7 +256,7 @@ export function getMeta() {
 													//	},
 														{
 															name: 'meta-content',
-															component: '::div',
+															component: 'div',
 															className: 'list-item-meta-content',
 															children: [{
 																name: 'title',
@@ -264,16 +264,16 @@ export function getMeta() {
 																className: 'list-item-meta-title',
 																_visible: '{{data.dbData[_rowIndex].title}}',
 																children: {
-																	component:'::div',
+																	component:'div',
 																	children:[
 																		{
 																			component:'::span',
 																			children:'{{data.dbData[_rowIndex].title}}'},
 																		{
-																		component:'::div',
+																		component:'div',
 																		className:'extra',
 																		children:{
-																			component:'::div',
+																			component:'div',
 																			className:'tag',
 																			children:'{{data.dbData[_rowIndex].extra}}'
 																		}}
@@ -284,18 +284,18 @@ export function getMeta() {
 															},
 															{
 																name: 'description',
-																component: '::div',
+																component: 'div',
 																className: 'list-item-meta-description',
 																children: {
-																	component: '::div',
+																	component: 'div',
 																	children: [
 																		{
-																			component: '::div',
+																			component: 'div',
 																			_visible: '{{data.dbData[_rowIndex].description}}',
 																			children: '{{data.dbData[_rowIndex].description}}'
 																		},
 																		{
-																			component: '::div',
+																			component: 'div',
 																			children: '{{data.dbData[_rowIndex].datetime}}'
 																		}
 																	]
@@ -312,14 +312,14 @@ export function getMeta() {
 									},
 									{
 										name: 'qc',
-										component: '::div',
+										component: 'div',
 										className: 'clear',
 										onClick: '{{function(){$onClear("dbData")}}}',
 										children: '清除待办',
 									}
 								]
 							},{
-								component:'::div',
+								component:'div',
 								className:'notfound',
 								_visible:'{{!data.dbData||data.dbData.length==0}}',
 								children:[
@@ -328,7 +328,7 @@ export function getMeta() {
 										src:'https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg'
 									},
 									{
-										component:'::div',
+										component:'div',
 										children:'你已完成所有待办'
 									}
 								]

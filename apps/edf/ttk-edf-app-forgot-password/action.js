@@ -1,6 +1,6 @@
 import React from 'react'
-import {action as MetaAction, AppLoader} from 'edf-meta-engine'
-import {List, fromJS} from 'immutable'
+import { action as MetaAction, AppLoader } from 'edf-meta-engine'
+import { List, fromJS } from 'immutable'
 import moment from 'moment'
 import config from './config'
 import md5 from 'md5'
@@ -12,7 +12,7 @@ class action {
         this.webapi = this.config.webapi
     }
 
-    onInit = ({component, injections}) => {
+    onInit = ({ component, injections }) => {
         this.component = component
         this.injections = injections
 
@@ -52,7 +52,7 @@ class action {
             path: 'data.form.password', value: form.password
         }, {
             path: 'data.form.confirmPassword', value: form.confirmPassword
-        }],'modify')
+        }], 'modify')
 
         if (!ok) return
         let password = form.password
@@ -74,7 +74,7 @@ class action {
         this.reLoginTimer = setInterval(() => {
             t--
             this.metaAction.sf('data.reLoginTime', t)
-            if(t == 0) {
+            if (t == 0) {
                 clearInterval(this.reLoginTimer)
                 this.goLogin()
             }
@@ -101,20 +101,20 @@ class action {
     getCaptchaing = false
     getCaptcha = async () => {
         const mobile = this.metaAction.gf('data.form.mobile')
-        if(mobile && !(/^1[3|4|5|7|8][0-9]\d{8}$/.test(mobile))){
-            this.metaAction.sfs({'data.form.mobile': mobile, 'data.other.error.mobile': "请输入正确的手机号"})
+        if (mobile && !(/^1[3|4|5|7|8][0-9]\d{8}$/.test(mobile))) {
+            this.metaAction.sfs({ 'data.form.mobile': mobile, 'data.other.error.mobile': "请输入正确的手机号" })
             return false
         }
-        if(this.getCaptchaing) return
+        if (this.getCaptchaing) return
         this.getCaptchaing = true
-        this.metaAction.sf('data.timeStaus',false)
+        this.metaAction.sf('data.timeStaus', false)
         let that = this
-        this.timer = setInterval(function() {
-            if(that.countDown == 0) {
+        this.timer = setInterval(function () {
+            if (that.countDown == 0) {
                 that.clearTimer(true, '重新获取')
                 return
             }
-            that.metaAction.sf('data.time', (--that.countDown)+'s')
+            that.metaAction.sf('data.time', (--that.countDown) + 's')
         }, 1000)
         let params = {}
         params.mobile = this.metaAction.gf('data.form.mobile')
@@ -125,8 +125,8 @@ class action {
         this.metaAction.toast('success', `验证码已经发送到您的手机`)
     }
     //清除定时器
-    clearTimer = function(staus, remind) {
-        this.metaAction.sf('data.timeStaus',true)
+    clearTimer = function (staus, remind) {
+        this.metaAction.sf('data.timeStaus', true)
         this.metaAction.sf('data.time', remind)
         this.countDown = 60
         this.getCaptchaing = false
@@ -135,15 +135,12 @@ class action {
 
     fieldChange = async (fieldPath, value) => {
         this.metaAction.sf(fieldPath, value)
-        await this.check([{path: fieldPath, value}])
+        await this.check([{ path: fieldPath, value }])
     }
 
     goLogin = () => {
         clearInterval(this.reLoginTime)
         this.clearTimer(false, '获取验证码')
-        if (!this.config.apps['ttk-edf-app-login']) {
-            throw '请将ttk-edf-app-login应用加入到网站中，跳转功能才能正常使用'
-        }
         if (this.component.props.onRedirect && this.config.goLogin) {
             this.component.props.onRedirect(this.config.goLogin)
         }
@@ -156,7 +153,7 @@ class action {
         var checkResults = []
 
         for (var o of fieldPathAndValues) {
-            let r = {...o}
+            let r = { ...o }
             if (o.path == 'data.form.mobile') {
                 Object.assign(r, await this.checkMobile(o.value, action))
             }
@@ -201,7 +198,7 @@ class action {
                 let flag = await this.webapi.user.existsMobile(mobile)
                 !flag && (message = '该手机号未注册，请重新输入')
             }
-        }else {
+        } else {
             if (!mobile)
                 message
             else if (mobile.length == 1 && !(mobile == '1'))
@@ -216,7 +213,7 @@ class action {
             }
         }
 
-        return {errorPath: 'data.other.error.mobile', message}
+        return { errorPath: 'data.other.error.mobile', message }
     }
 
     checkCaptcha = async (captcha) => {
@@ -234,7 +231,7 @@ class action {
         else if (!(await this.webapi.captcha.validate(params)))
             message = '验证码输入错误'
 
-        return {errorPath: 'data.other.error.captcha', message}
+        return { errorPath: 'data.other.error.captcha', message }
     }
 
     checkPassword = async (password) => {
@@ -243,31 +240,31 @@ class action {
             message = '请录入密码'
         else if (!/(?=^.{6,20}$)((?=.*[a-zA-Z]){1})((?=.*[0-9]){1})/.test(password))
             message = '6-20位至少包含一个字母和一个数字，区分大小写'
-        return {errorPath: 'data.other.error.password', message}
+        return { errorPath: 'data.other.error.password', message }
     }
 
     checkConfirmPassword = async (confirmPassword, password, action) => {
         var message
-        if(action == 'modify'){
+        if (action == 'modify') {
             if (!confirmPassword)
                 message = '请再次输入新密码'
             else if (password != confirmPassword)
                 message = '两次密码输入不一致，请确认'
             else if (!/(?=^.{6,20}$)((?=.*[a-zA-Z]){1})((?=.*[0-9]){1})/.test(confirmPassword))
                 message = '请输入符合规范的新密码'
-        }else {
-            if(password.length < confirmPassword.length) message = '两次密码输入不一致，请确认'
-            if((password.length == confirmPassword.length) &&(password != confirmPassword)) message = '两次密码输入不一致，请确认'
+        } else {
+            if (password.length < confirmPassword.length) message = '两次密码输入不一致，请确认'
+            if ((password.length == confirmPassword.length) && (password != confirmPassword)) message = '两次密码输入不一致，请确认'
         }
-        return {errorPath: 'data.other.error.confirmPassword', message}
+        return { errorPath: 'data.other.error.confirmPassword', message }
     }
 
     checkNext = () => {
         let data = this.metaAction.gf('data').toJS()
         let step = this.metaAction.gf('data.other').toJS().step
-        if(step == 1) {
+        if (step == 1) {
             return !((data.form.mobile && !data.other.error.mobile) && (data.form.captcha && !data.other.error.captcha))
-        }else if(step == 2) {
+        } else if (step == 2) {
             return !((data.form.password && !data.other.error.password) && (data.form.confirmPassword && !data.other.error.confirmPassword))
         }
     }
@@ -275,10 +272,10 @@ class action {
 
 export default function creator(option) {
     const metaAction = new MetaAction(option),
-        o = new action({...option, metaAction}),
-        ret = {...metaAction, ...o}
+        o = new action({ ...option, metaAction }),
+        ret = { ...metaAction, ...o }
 
-    metaAction.config({metaHandlers: ret})
+    metaAction.config({ metaHandlers: ret })
 
     return ret
 }

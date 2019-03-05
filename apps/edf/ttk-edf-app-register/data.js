@@ -27,7 +27,7 @@ export function getMeta() {
 					children: '企业开发平台'
 				}, {
 					name: 'split',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-login-header-left-split',
 				}, {
 					name: 'item',
@@ -53,17 +53,17 @@ export function getMeta() {
 				children: '企业注册'
 			}, {
 				name: 'barItem',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-register-form-bar',
 				// src: '{{$getBar()}}'
 				children: [{
 					name: 'step1',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-register-form-bar-step',
 					children: [{
 						name: 'title',
 						className: 'ttk-edf-app-register-form-bar-step-icon',
-						component: '::div',
+						component: 'div',
 						style: {background: '#1EB5AD',borderColor: '#1EB5AD',color: '#fff'},
 						children: ['1']
 					}, {
@@ -79,13 +79,13 @@ export function getMeta() {
 					component: '::span',
 				}, {
 					name: 'step2',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-register-form-bar-step',
 					children: [{
 						name: 'title',
 						className: 'ttk-edf-app-register-form-bar-step-icon',
 						style: "{{data.other.step>=2? {background: '#1EB5AD',borderColor: '#1EB5AD',color: '#fff'}:{background: '#fff',borderColor: '#666666',color: '#666666'}}}",
-						component: '::div',
+						component: 'div',
 						children: ['2']
 					}, {
 						name: 'description',
@@ -100,13 +100,13 @@ export function getMeta() {
 					component: '::span',
 				}, {
 					name: 'step3',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-register-form-bar-step',
 					children: [{
 						name: 'title',
 						className: 'ttk-edf-app-register-form-bar-step-icon',
 						style: "{{data.other.step==3? {background: '#1EB5AD',borderColor: '#1EB5AD',color: '#fff'}:{background: '#fff',borderColor: '#666666',color: '#666666'}}}",
-						component: '::div',
+						component: 'div',
 						children: ['3']
 					}, {
 						name: 'description',
@@ -284,7 +284,7 @@ export function getMeta() {
 				}]
 			}, {
 				name: 'enabledDateItem',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-register-form-editDate',
 				_visible: '{{data.other.step==3 && data.other.editDate}}',
 				required: true,
@@ -306,7 +306,7 @@ export function getMeta() {
 				}]
 			}, {
 				name: 'Standard',
-				component: '::div',
+				component: 'div',
 				className: 'ttk-edf-app-register-form-editStandard',
 				_visible: '{{data.other.step==3 && data.other.editStandard}}',
 				required: true,
@@ -362,7 +362,7 @@ export function getMeta() {
 				}]
 			}, {
 				name: 'back',
-				component: '::div',
+				component: 'div',
 				_visible: '{{data.other.step >= 2}}',
 				className:'backLastStep',
 				children: {

@@ -3,7 +3,7 @@ import config from './config'
 export function getMeta() {
     return {
         name: 'root',
-        component: '::div',
+        component: 'div',
         className: 'ttk-edf-app-root',
         children: {
             name: 'currentApp',

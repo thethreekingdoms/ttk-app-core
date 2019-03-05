@@ -162,7 +162,7 @@ export function getMeta() {
                     }
                 }, {
                     name: 'name',
-                    component: '::div',
+                    component: 'div',
                     style:{width:'50px',display:'inline-block'}
                 }, {
                     name: 'taxClassificationCodeItem',

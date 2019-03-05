@@ -20,29 +20,29 @@ class action {
             }
         }*/
         this.component = component
-        let info = {mobile: '13333333333', password: '1', remember: false}
+        let info = { mobile: '13333333333', password: '1', remember: false }
         let currentTimestamp = (new Date()).getTime()
         //从cookie中读取mobile
         function getCookie(c_name) {
-            if (document.cookie.length>0) {
-                let c_start=document.cookie.indexOf(c_name + "=")
-                if (c_start!=-1) {
-                    c_start=c_start + c_name.length+1
-                    let c_end=document.cookie.indexOf(";",c_start)
-                    if (c_end==-1) c_end=document.cookie.length
-                    return unescape(document.cookie.substring(c_start,c_end))
+            if (document.cookie.length > 0) {
+                let c_start = document.cookie.indexOf(c_name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1
+                    let c_end = document.cookie.indexOf(";", c_start)
+                    if (c_end == -1) c_end = document.cookie.length
+                    return unescape(document.cookie.substring(c_start, c_end))
                 }
             }
             return ""
         }
-	    let mobileCookie = getCookie('THE_LAST_LOGIN')
-	    mobileCookie ? info.mobile = mobileCookie : ''
-        if(currentTimestamp < localStorage.remember) {
+        let mobileCookie = getCookie('THE_LAST_LOGIN')
+        mobileCookie ? info.mobile = mobileCookie : ''
+        if (currentTimestamp < localStorage.remember) {
             info.remember = true
-            if(info.mobile == localStorage['mobile']) {
+            if (info.mobile == localStorage['mobile']) {
                 info.password = localStorage['password']
             }
-        }else {
+        } else {
             localStorage.clear()
         }
         this.injections = injections
@@ -66,9 +66,9 @@ class action {
 
     bindEnter = () => {
         let that = this
-        document.onkeydown = function(e) {
+        document.onkeydown = function (e) {
             let keyCode = e.keyCode
-            if(keyCode !== 13) return
+            if (keyCode !== 13) return
             let form = that.metaAction.gf('data.form').toJS()
             that.fieldChange('data.form.mobile', form.mobile)
             that.fieldChange('data.form.password', form.password)
@@ -87,40 +87,40 @@ class action {
             path: 'data.form.password', value: form.password
         }], 'login')
         if (!basicInfo) return
-	    //预置密码生效
-	    // if(!localStorage.remember){
-        	    other.userInput = true
+        //预置密码生效
+        // if(!localStorage.remember){
+        other.userInput = true
         // }
-        if(other.userInput) {
+        if (other.userInput) {
             if (form.password) {
-	            form.password = md5(form.password + '*thethreekingdoms*')
+                form.password = md5(form.password + '*thethreekingdoms*')
             }
         }
 
         const response = await this.webapi.user.login(form)
-        if(!response.result) {
-            if(response.error.code == 50111) {
+        if (!response.result) {
+            if (response.error.code == 50111) {
                 this.metaAction.sf('data.other.error.password', '密码不正确，请重新输入')
             }
             return
         }
         //cookie中存储上次登录的用户名
-        function setCookie(c_name,value,expiredays){
-            var exdate=new Date()
-            exdate.setDate(exdate.getDate()+expiredays)
-            document.cookie=c_name+ "=" +escape(value)+
-            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date()
+            exdate.setDate(exdate.getDate() + expiredays)
+            document.cookie = c_name + "=" + escape(value) +
+                ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
         }
         setCookie('THE_LAST_LOGIN', form.mobile, 7)
 
         this.metaAction.context.set('user', response.value)
         //判断是否保存登录信息
-        if(form.remember) {
+        if (form.remember) {
             let time = (new Date()).getTime() + 7 * 24 * 60 * 60 * 1000
             localStorage.remember = time
             localStorage['mobile'] = form.mobile
             localStorage['password'] = form.password
-        }else {
+        } else {
             localStorage.clear()
         }
         sessionStorage['mobile'] = form.mobile
@@ -159,13 +159,13 @@ class action {
                                 </div>
                             </div>
                         )
-                        
+
                     })
                 }
-                
+
             </Carousel>
         )
-        
+
     }
 
     goRegisterA = () => {
@@ -182,18 +182,12 @@ class action {
 
     goRegister = () => {
         document.onkeydown = null
-        if (!this.config.apps['ttk-edf-app-register']) {
-            throw '请将这个应用加入到带ttk-edf-app-root和ttk-edf-app-register的网站中，跳转功能才能正常使用'
-        }
         if (this.component.props.onRedirect && this.config.goRegister) {
             this.component.props.onRedirect(this.config.goRegister)
         }
     }
 
     goForgot = () => {
-        if (!this.config.apps['ttk-edf-app-forgot-password']) {
-            throw '请将这个应用加入到带ttk-edf-app-root和ttk-edf-app-forgot-password的网站中，跳转功能才能正常使用'
-        }
         if (this.component.props.onRedirect && this.config.goForgot) {
             this.component.props.onRedirect(this.config.goForgot)
             //埋点
@@ -240,7 +234,7 @@ class action {
 
     checkMobile = async (mobile, action) => {
         var message
-        if(action && action == 'login') {
+        if (action && action == 'login') {
             if (!mobile)
                 message = '请输入手机号'
             else if (mobile.length != 11)
@@ -252,13 +246,13 @@ class action {
         } else {
             if (!mobile)
                 message
-            else if(mobile.length == 1 && !(mobile == '1'))
+            else if (mobile.length == 1 && !(mobile == '1'))
                 message = '请输入正确的手机号'
-            else if(mobile.length >1 && mobile.length < 11 && !/^1[3|4|5|8|7]/.test(mobile))
+            else if (mobile.length > 1 && mobile.length < 11 && !/^1[3|4|5|8|7]/.test(mobile))
                 message = '请输入正确的手机号'
-            else if(mobile.length > 11) {
+            else if (mobile.length > 11) {
                 message = '请输入正确的手机号'
-            }else if(mobile.length == 11){
+            } else if (mobile.length == 11) {
                 let flag = await this.webapi.user.existsMobile(mobile)
                 !flag && (message = '该手机号未注册，请重新输入')
             }

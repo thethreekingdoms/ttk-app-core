@@ -2,7 +2,7 @@
 export function getMeta() {
     return {
         name: 'root',
-        component: '::div',
+        component: 'div',
         className: 'ttk-tax-app-zzsjmssbmxb',
         children: [{
             name: 'title',
@@ -13,17 +13,17 @@ export function getMeta() {
         }, {
             name: 'content',
             className: 'ttk-tax-app-zzsjmssbmxb-content',
-            component: '::div',
+            component: 'div',
             children: [{
                 name: 'top',
                 className: 'ttk-tax-app-zzsjmssbmxb-content-top theader',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'top',
-                    component: '::div',
+                    component: 'div',
                     children: [{
                         name: 'nsrsbh',
-                        component: '::div',
+                        component: 'div',
                         className: 'nsrsbh',
                         children: ["纳税人识别号：", {
                             name: 'title',
@@ -32,33 +32,33 @@ export function getMeta() {
                         }]
                     }, {
                         name: 'date',
-                        component: '::div',
+                        component: 'div',
                         className: 'date',
                         children: '{{"税款所属期：" +(data.sbbhead.skssqq || "") + " 至 " + (data.sbbhead.skssqz || "")}}',
                     }]
                 },{
                     name: 'bottom',
-                    component: '::div',
+                    component: 'div',
                     children: [{
                         name: 'nsrmc',
-                        component: '::div',
+                        component: 'div',
                         className: 'nsrmc',
                         children: '{{"纳税人名称（公章）："+ (data.sbbhead.nsrmc || "")}}',
                     },  {
                         name: 'sbrq1',
-                        component: '::div',
+                        component: 'div',
                         className: 'sbrq1',
                         children: '{{"填表日期："+(data.sbbhead.sbrq1||"")}}',
                     }, {
                         name: 'unit',
-                        component: '::div',
+                        component: 'div',
                         className: 'unit',
                         children: '金额单位：元至角分'
                     }]
                 }]
             }, {
                 name: 'table',
-                component: '::div',
+                component: 'div',
                 className: 'ttk-tax-app-zzsjmssbmxb-content-body zzsjmssbmxb',
                 children: [{
                     name: 'title1',
@@ -66,7 +66,7 @@ export function getMeta() {
                     children: '一、减税项目'
                 }, {
                     name: 'zzsjmssbmxbjsxmTable',
-                    component: '::div',
+                    component: 'div',
                     className: 'zzsjmssbmxb-table',
                     children: {
                         pagination: false,
@@ -159,7 +159,7 @@ export function getMeta() {
                     children: '二、免税项目'
                 }, {
                     name: 'zzsjmssbmxbmsxmTable',
-                    component: '::div',
+                    component: 'div',
                     className: 'zzsjmssbmxb-table',
                     children: {
                         pagination: false,

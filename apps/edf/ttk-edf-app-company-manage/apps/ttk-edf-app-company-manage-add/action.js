@@ -1,13 +1,13 @@
 import React from 'react'
-import {action as MetaAction, AppLoader} from 'edf-meta-engine'
-import {List, fromJS} from 'immutable'
+import { action as MetaAction, AppLoader } from 'edf-meta-engine'
+import { List, fromJS } from 'immutable'
 import moment from 'moment'
 import config from './config'
-import {consts} from 'edf-consts'
+import { consts } from 'edf-consts'
 import fetchUtil from '../../../../../utils/fetch'
-import {LoadingMask} from 'edf-component'
+import { LoadingMask } from 'edf-component'
 
-import {FormDecorator} from 'edf-component'
+import { FormDecorator } from 'edf-component'
 
 class action {
     constructor(option) {
@@ -17,8 +17,8 @@ class action {
         this.webapi = this.config.webapi
     }
 
-    onInit = ({component, injections}) => {
-        this.voucherAction.onInit({component, injections})
+    onInit = ({ component, injections }) => {
+        this.voucherAction.onInit({ component, injections })
         this.component = component
         this.injections = injections
 
@@ -93,8 +93,8 @@ class action {
     GetPropertyList = async () => {
         return {
             list: [
-                {enumId: consts.VATTAXPAYER_generalTaxPayer, name: '一般纳税人'},
-                {enumId: consts.VATTAXPAYER_smallScaleTaxPayer, name: '小规模纳税人'}
+                { enumId: consts.VATTAXPAYER_generalTaxPayer, name: '一般纳税人' },
+                { enumId: consts.VATTAXPAYER_smallScaleTaxPayer, name: '小规模纳税人' }
             ]
         }
     }
@@ -102,7 +102,7 @@ class action {
     create = async () => {//新建企业
         let form = this.metaAction.gf('data.form').toJS()
         let user = this.metaAction.context.get('currentUser') || {}
-        form = Object.assign(form, {creator: user.id})
+        form = Object.assign(form, { creator: user.id })
         const ok = await this.check([{
             path: 'data.form.name', value: form.name
         }, {
@@ -122,9 +122,9 @@ class action {
             accountingStandards: form.accountingStandards,
             industry: 2000030001
         }
-        LoadingMask.show({background: 'rgba(230,247,255,0.5)'})
+        LoadingMask.show({ background: 'rgba(230,247,255,0.5)' })
         let response = await this.webapi.org.create(params)
-        let org = await this.webapi.org.updateCurrentOrg({orgId: response.id})
+        let org = await this.webapi.org.updateCurrentOrg({ orgId: response.id })
         if (response && org) {
             this.component.props.onPortalReload && await this.component.props.onPortalReload()
             this.metaAction.toast('success', '创建成功')
@@ -148,9 +148,7 @@ class action {
         if (e.stopPropagation) {
             e.stopPropagation()
         }
-        if (!this.config.apps['edfx-app-register'])
-            throw '不存在edfx-app-register应用，该功能不能使用'
-        this.component.props.onRedirect({appName: 'ttk-edf-app-company-manage-add'})
+        this.component.props.onRedirect({ appName: 'ttk-edf-app-company-manage-add' })
     }
     goCompanyManage = (e) => {
         if (e.preventDefault) {
@@ -159,9 +157,8 @@ class action {
         if (e.stopPropagation) {
             e.stopPropagation()
         }
-        if (!this.config.apps['ttk-edf-app-company-manage'])
-            throw 'ttk-edf-app-company-manage应用，该功能不能使用'
-        this.component.props.onRedirect({appName: 'ttk-edf-app-company-manage'})
+
+        this.component.props.onRedirect({ appName: 'ttk-edf-app-company-manage' })
     }
 
     searchVisibleToogle = () => {
@@ -172,7 +169,7 @@ class action {
         return this.metaAction.gf('data.isShowSearch')
     }
     fieldChange = async (fieldPath, value, operate) => {
-        await this.check([{path: fieldPath, value}], operate)
+        await this.check([{ path: fieldPath, value }], operate)
     }
     check = async (fieldPathAndValues, operate) => {
         if (!fieldPathAndValues)
@@ -181,7 +178,7 @@ class action {
         let checkResults = []
 
         for (let o of fieldPathAndValues) {
-            let r = {...o}
+            let r = { ...o }
             if (o.path == 'data.form.name') {
                 Object.assign(r, await this.checkName(o.value, operate))
             } else if (o.path == 'data.form.vatTaxpayer') {
@@ -208,13 +205,13 @@ class action {
     }
     checkName = async (org, operate) => {
         var message
-        if(operate && operate == 'create') {
-            if(await this.webapi.org.existsSysOrg(org)) 
-                return { errorPath: 'data.other.error.name', message:"该企业名称已注册"}  
+        if (operate && operate == 'create') {
+            if (await this.webapi.org.existsSysOrg(org))
+                return { errorPath: 'data.other.error.name', message: "该企业名称已注册" }
         }
-        if(!org)
-            message = '请输入企业名称'       
-        else if(org.length > 200)
+        if (!org)
+            message = '请输入企业名称'
+        else if (org.length > 200)
             message = "企业名称不能超过200个字"
         return { errorPath: 'data.other.error.name', message }
     }
@@ -223,29 +220,26 @@ class action {
         if (!vatTaxpayer) {
             message = '纳税人身份不能为空'
         }
-        return {errorPath: 'data.other.error.vatTaxpayer', message}
+        return { errorPath: 'data.other.error.vatTaxpayer', message }
     }
     checkEnableDate = async (enableDate) => {
         var message
         if (!enableDate) {
             message = '启用日期不能为空'
         }
-        return {errorPath: 'data.other.error.enableDate', message}
+        return { errorPath: 'data.other.error.enableDate', message }
     }
     checkAccountingStandards = async (accountingStandards) => {
         var message
         if (!accountingStandards) {
             message = '企业会计准则不能为空'
         }
-        return {errorPath: 'data.other.error.accountingStandards', message}
+        return { errorPath: 'data.other.error.accountingStandards', message }
     }
     topMenuClick = async (e) => {
 
         switch (e.key) {
             case 'mySetting':
-                if (!this.config.apps['edfx-app-my-setting'])
-                    throw '不存在edfx-app-my-setting应用，该功能不能使用'
-
                 this.setContent('个人设置', 'edfx-app-my-setting')
                 break;
             case 'logout':
@@ -268,7 +262,7 @@ class action {
         this.voucherAction.fieldChange(path, value)
     }
     checkOrg = async (option) => {
-        let res = await this.webapi.enumDetail.checkOrg({name: option})
+        let res = await this.webapi.enumDetail.checkOrg({ name: option })
     }
     changeDateState = () => {
         let state = this.metaAction.gf('data.other').toJS().editDate
@@ -293,11 +287,11 @@ class action {
 
 export default function creator(option) {
     const metaAction = new MetaAction(option),
-        voucherAction = FormDecorator.actionCreator({...option, metaAction}),
-        o = new action({...option, metaAction, voucherAction}),
-        ret = {...metaAction, ...voucherAction, ...o}
+        voucherAction = FormDecorator.actionCreator({ ...option, metaAction }),
+        o = new action({ ...option, metaAction, voucherAction }),
+        ret = { ...metaAction, ...voucherAction, ...o }
 
-    metaAction.config({metaHandlers: ret})
+    metaAction.config({ metaHandlers: ret })
 
     return ret
 }

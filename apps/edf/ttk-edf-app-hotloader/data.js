@@ -54,7 +54,7 @@ export function getMeta() {
 				},
 				extra: {
 					name: 'extra',
-					component: '::div',
+					component: 'div',
 					children: [{
 						name: 'format',
 						component: 'Button',

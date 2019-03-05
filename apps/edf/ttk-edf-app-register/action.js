@@ -30,12 +30,12 @@ class action {
 
     load = async () => {
         //行业
-        const industry = await this.webapi.enumDetail.findByEnumId({enumId:200003})
+        const industry = await this.webapi.enumDetail.findByEnumId({ enumId: 200003 })
         //纳税人身份
-        const vatTaxpayer = await this.webapi.enumDetail.findByEnumId({enumId:200001})
+        const vatTaxpayer = await this.webapi.enumDetail.findByEnumId({ enumId: 200001 })
 
         //企业会计准则
-        const accountingStandards = await this.webapi.enumDetail.findByEnumId({enumId:200002})
+        const accountingStandards = await this.webapi.enumDetail.findByEnumId({ enumId: 200002 })
         //系统时间
         const date = await this.webapi.enableDate.getServerDate()
         this.injections.reduce('load', industry, vatTaxpayer, accountingStandards, date)
@@ -45,7 +45,7 @@ class action {
         const other = this.metaAction.gf('data.other').toJS();
         const form = this.metaAction.gf('data.form').toJS();
 
-        if(other.step === 1) {
+        if (other.step === 1) {
 
             const basicInfo = await this.check([{
                 path: 'data.form.mobile', value: form.mobile
@@ -60,7 +60,7 @@ class action {
             //埋点
             _hmt && _hmt.push(['_trackEvent', '系统管理', '企业注册', '下一步'])
 
-        }else if(other.step === 2) {
+        } else if (other.step === 2) {
 
             const companyInfo = await this.check([{
                 path: 'data.form.org', value: form.org
@@ -72,15 +72,15 @@ class action {
             if (!companyInfo) return
 
             this.metaAction.sf('data.other.step', 3)
-        }else if(other.step === 3) {
+        } else if (other.step === 3) {
             const baseInfo = await this.check([{
                 path: 'data.form.enableDate', value: form.enableDate
             }, {
                 path: 'data.form.accountingStandard', value: form.accountingStandard
             }])
             if (!baseInfo) return
-            let user = { mobile: form.mobile, password: md5(form.password+'*the3Kingdom*')};
-            let sysOrg = {name: form.org, industry: form.industry, vatTaxpayer: form.vatTaxpayer}
+            let user = { mobile: form.mobile, password: md5(form.password + '*the3Kingdom*') };
+            let sysOrg = { name: form.org, industry: form.industry, vatTaxpayer: form.vatTaxpayer }
             sysOrg.enabledYear = form.enableDate.split('-')[0]
             sysOrg.enabledMonth = form.enableDate.split('-')[1]
             sysOrg.accountingStandards = form.accountingStandard
@@ -118,13 +118,13 @@ class action {
     pwdLevel = (pwd) => {
         let level = 0;
         let regCn = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im;
-        if((/[0-9]/).test(pwd)) {
+        if ((/[0-9]/).test(pwd)) {
             level++
         }
-        if((/[a-zA-Z]/).test(pwd)) {
+        if ((/[a-zA-Z]/).test(pwd)) {
             level++
         }
-        if(/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/.test(pwd) || regCn.test(pwd)) {
+        if (/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/.test(pwd) || regCn.test(pwd)) {
             level++
         }
         return level
@@ -137,16 +137,16 @@ class action {
     timer = null
     getCaptchaing = false
     getCaptcha = async () => {
-        if(this.getCaptchaing) return
+        if (this.getCaptchaing) return
         this.getCaptchaing = true
-        this.metaAction.sf('data.timeStaus',false)
+        this.metaAction.sf('data.timeStaus', false)
         let that = this
-        this.timer = setInterval(function() {
-            if(that.countDown == 0) {
+        this.timer = setInterval(function () {
+            if (that.countDown == 0) {
                 that.clearTimer(true, '重新获取')
                 return
             }
-            that.metaAction.sf('data.time', (--that.countDown)+'s')
+            that.metaAction.sf('data.time', (--that.countDown) + 's')
         }, 1000)
         let params = {}
         params.mobile = this.metaAction.gf('data.form.mobile')
@@ -157,8 +157,8 @@ class action {
         this.metaAction.toast('success', `验证码已经发送到您的手机`)
     }
     //清除定时器
-    clearTimer = function(staus, remind) {
-        this.metaAction.sf('data.timeStaus',true)
+    clearTimer = function (staus, remind) {
+        this.metaAction.sf('data.timeStaus', true)
         this.metaAction.sf('data.time', remind)
         this.countDown = 60
         this.getCaptchaing = false
@@ -171,13 +171,13 @@ class action {
     //返回上一步
     backLastStep = () => {
         let step = this.metaAction.gf('data.other.step')
-        this.metaAction.sf('data.other.step', step-1)
+        this.metaAction.sf('data.other.step', step - 1)
     }
     showAgreement = async () => {
         const ret = await this.metaAction.modal('show', {
             title: '用户协议条款',
-            width : 700,
-            bodyStyle: {height: 400, overflow: 'auto'},
+            width: 700,
+            bodyStyle: { height: 400, overflow: 'auto' },
             okText: '同意',
             cancelText: '不同意',
             className: 'userProtocol',
@@ -190,22 +190,16 @@ class action {
     }
 
     goOrgRegister = (user) => {
-        if(!this.config.apps['edfx-app-orgregister']){
-            throw '请将这个应用加入到带ttk-edf-app-root和ttk-edf-app-login的网站中，跳转功能才能正常使用'
-        }
         if (this.component.props.onRedirect && this.config.goOrgRegister) {
-            this.config.goOrgRegister.appName = 'edfx-app-orgregister?user='+ JSON.stringify(user)
+            this.config.goOrgRegister.appName = 'edfx-app-orgregister?user=' + JSON.stringify(user)
             this.component.props.onRedirect(this.config.goOrgRegister)
         }
     }
 
     goLogin = (mobile) => {
         this.clearTimer(false, '获取验证码')
-        if(!this.config.apps['ttk-edf-app-login']){
-            throw '请将这个应用加入到带ttk-edf-app-root和ttk-edf-app-login的网站中，跳转功能才能正常使用'
-        }
         if (this.component.props.onRedirect && this.config.goLogin) {
-            if(typeof mobile == 'string') {
+            if (typeof mobile == 'string') {
                 this.config.goLogin.appParams.mobile = mobile;
                 this.config.goLogin.appName = 'ttk-edf-app-login?mobile=' + mobile
             }
@@ -228,13 +222,13 @@ class action {
                 Object.assign(r, await this.checkPassword(o.value, operation))
             } else if (o.path == 'data.form.captcha') {
                 Object.assign(r, await this.checkCaptcha(o.value, operation))
-            } else if(o.path == 'data.form.org') {
+            } else if (o.path == 'data.form.org') {
                 Object.assign(r, await this.checkOrg(o.value))
-            } else if(o.path == 'data.form.vatTaxpayer') {
+            } else if (o.path == 'data.form.vatTaxpayer') {
                 Object.assign(r, await this.checkVatTaxpayer(o.value))
-            } else if(o.path == 'data.form.enableDate') {
+            } else if (o.path == 'data.form.enableDate') {
                 Object.assign(r, await this.checkEnableDate(o.value))
-            } else if(o.path == 'data.form.accountingStandard') {
+            } else if (o.path == 'data.form.accountingStandard') {
                 Object.assign(r, await this.checkAccountingStandards(o.value))
             }
 
@@ -257,7 +251,7 @@ class action {
 
     checkMobile = async (mobile, operation) => {
         var message
-        if(operation && operation == 'next') {
+        if (operation && operation == 'next') {
             if (!mobile)
                 message = '请输入手机号'
             else if (mobile.length != 11)
@@ -269,13 +263,13 @@ class action {
         } else {
             if (!mobile)
                 message
-            else if(mobile.length == 1 && !(mobile == '1'))
+            else if (mobile.length == 1 && !(mobile == '1'))
                 message = '请输入正确的手机号'
-            else if(mobile.length >1 && mobile.length < 11 && !/^1[3|4|5|8|7]/.test(mobile))
+            else if (mobile.length > 1 && mobile.length < 11 && !/^1[3|4|5|8|7]/.test(mobile))
                 message = '请输入正确的手机号'
-            else if(mobile.length > 11) {
+            else if (mobile.length > 11) {
                 message = '请输入正确的手机号'
-            }else if(mobile.length == 11){
+            } else if (mobile.length == 11) {
                 let flag = await this.webapi.user.existsMobile(mobile)
                 flag && (message = '该手机号已经注册')
             }
@@ -285,10 +279,10 @@ class action {
 
     checkPassword = async (password, operation) => {
         var message
-        if(operation && operation == 'next') {
+        if (operation && operation == 'next') {
             if (!password)
                 message = '请输入密码'
-            else if(!/(?=^.{6,20}$)((?=.*[a-zA-Z]){1})((?=.*[0-9]){1})/.test(password))
+            else if (!/(?=^.{6,20}$)((?=.*[a-zA-Z]){1})((?=.*[0-9]){1})/.test(password))
                 message = '6-20位至少包含一个字母和一个数字'
         }
         return { errorPath: 'data.other.error.password', message }
@@ -303,10 +297,10 @@ class action {
             mobile: mobile,
             captcha: captcha
         }
-        if(operation && operation == 'next') {
+        if (operation && operation == 'next') {
             if (!captcha)
                 message = '请输入验证码'
-            else if( !(await this.webapi.captcha.validate(params)))
+            else if (!(await this.webapi.captcha.validate(params)))
                 message = '验证码输入错误'
         }
 
@@ -319,7 +313,7 @@ class action {
 
         if (!org) {
             message = '请输入企业名称'
-        }else if(org.length > 200) {
+        } else if (org.length > 200) {
             message = '企业名称不要超过200个字符'
         }
         return { errorPath: 'data.other.error.org', message }
@@ -359,9 +353,9 @@ class action {
     checkNext = () => {
         let data = this.metaAction.gf('data').toJS()
         let step = this.metaAction.gf('data.other').toJS().step
-        if(step == 1) {
+        if (step == 1) {
             return !((data.form.mobile && !data.other.error.mobile) && (data.form.password && !data.other.error.password) && (data.form.captcha && !data.other.error.captcha) && data.form.agree)
-        }else if(step == 2) {
+        } else if (step == 2) {
             return !((data.form.org && !data.other.error.org) && (data.form.vatTaxpayer && !data.other.error.vatTaxpayer))
         }
     }

@@ -10,7 +10,7 @@ export function getMeta() {
             title: '菜单',
             extra: {
                 name: 'header',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'add',
                     component: 'Button',
@@ -44,7 +44,7 @@ export function getMeta() {
             title: '菜单',
             extra: {
                 name: 'header',
-                component: '::div',
+                component: 'div',
                 className: 'ttk-edf-app-portal-menu-content-header',
                 children: [{
                     name: 'add',
@@ -79,7 +79,7 @@ export function getMeta() {
             }, {
                 name: 'footer',
                 className: 'ttk-edf-app-portal-menu-content-footer',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'pagination',
                     component: 'Pagination',

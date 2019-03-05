@@ -8,21 +8,21 @@ export function getMeta() {
         style: {background: '#fff'},
         children: [{
             name: 'method',
-            component: '::div',
+            component: 'div',
             className: 'app-company-manage-add-method',
             _visible: '{{!data.showAdd}}',
             children: {
                 name: 'content',
-                component: '::div',
+                component: 'div',
                 className: 'app-company-manage-add-method-content',
                 children: [{
                     name: 'import',
-                    component: '::div',
+                    component: 'div',
                     className: 'app-company-manage-add-method-import',
                     onClick: '{{$importCompany}}',
                     children: [{
                         name: 'import',
-                        component: '::div',
+                        component: 'div',
                         children: [{
                             name: 'icon',
                             component: 'Icon',
@@ -37,17 +37,17 @@ export function getMeta() {
                         }]
                     }, {
                         name: 'explain',
-                        component: '::div',
+                        component: 'div',
                         children: '将其他财务软件的数据导入本系统，导入过程就创建了企业。'
                     }]
                 }, {
                     name: 'directCreate',
-                    component: '::div',
+                    component: 'div',
                     className: 'app-company-manage-add-method-direct',
                     onClick: '{{$toAddCompany}}',
                     children: [{
                         name: 'direct',
-                        component: '::div',
+                        component: 'div',
                         children: [{
                             name: 'icon',
                             component: 'Icon',
@@ -62,18 +62,18 @@ export function getMeta() {
                         }]
                     }, {
                         name: 'explain',
-                        component: '::div',
+                        component: 'div',
                         children: '手工新增企业，并录入初始化数据。适合之前手工帐或不需要把以前的凭证导进来的企业'
                     }]
                 }]
             }
         }, {
             name: 'directAdd',
-            component: '::div',
+            component: 'div',
             _visible: '{{data.showAdd}}',
             children: [{
                 name: 'btnGroup',
-                component: '::div',
+                component: 'div',
                 className: 'app-company-manage-add-header',
                 style: {padding: '0px 100px'},
                 children: [{
@@ -84,18 +84,18 @@ export function getMeta() {
                 }]
             }, {
                 name: 'content',
-                component: '::div',
+                component: 'div',
                 className: 'app-company-manage-add-content',
                 style: {padding: '0px 200px'},
                 children: [{
                     name: 'item1',
-                    component: '::div',
+                    component: 'div',
                     // validateStatus: "{{data.other.error.mobile?'error':'success'}}",
                     // help: '{{data.other.error.mobile}}',
                     className: 'app-company-manage-add-content-item1',
                     children: [{
                         name:'div',
-                        component:'::div',
+                        component:'div',
                         style:{width:'400px',display:'flex',alignItems:'flex-start',flexDirection:'column'},
                         children:[{
                             name: 'nameItem1',
@@ -150,7 +150,7 @@ export function getMeta() {
                             // style: {display: 'flex', width: '50%', margin: '0 auto'},
                             children: [{
                                 name: 'item',
-                                component: '::div',
+                                component: 'div',
                                 children: [{
                                     name: 'item2',
                                     component: '::span',
@@ -234,7 +234,7 @@ export function getMeta() {
                 }]
             }, {
                 name: 'btn',
-                component: '::div',
+                component: 'div',
                 className: 'app-company-manage-add-btn',
                 children: [{
                     name: 'add',

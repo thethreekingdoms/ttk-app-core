@@ -75,12 +75,12 @@ export function getMeta() {
 						count: '{{data.topForStore[_rowIndex].index}}'
 					}, {
 						name: 'name',
-						component: '::div',
+						component: 'div',
 						className: 'ttk-edf-app-sale-trend-widget-right-list-detail-name',
 						children: '{{data.topForStore[_rowIndex].storeName}}'
 					}, {
 						name: 'total',
-						component: '::div',
+						component: 'div',
 						children: '{{data.topForStore[_rowIndex].total}}'
 					}],
 					_power: 'for in data.topForStore'

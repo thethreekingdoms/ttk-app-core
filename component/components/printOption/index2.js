@@ -61,26 +61,28 @@ class PrintOptionComponent2 extends React.Component {
         return (
             <div className="printOption2">
                 <div className="printOption2-contaienr">
-                    <div style={{ padding: '5px 0', marginBottom: '9px' }} className="printOption2-title">请选择是否显示外币或数量</div>
+                    <div style={{ padding: '5px 0', marginBottom: '9px',fontSize:'12px' }} className="printOption2-title">请选择是否显示外币或数量</div>
                     <div style={{ padding: '5px 20px' }} className="printOption2-checkbox">
-                        <div style={{ marginBottom: '14px' }} clssName="printOption2-contaienr-item">
-                            <span style={{ paddingRight: '8px' }} className="printOption2-label">币别</span>
+                        <div style={{ marginBottom: '14px' ,fontSize:'12px'}} clssName="printOption2-contaienr-item">
+                            <span style={{ paddingRight: '8px',fontSize:'12px',fontFamily:'Microsoft YaHei' }} className="printOption2-label">币别</span>
                             {this.renderSelect()}
                         </div>
-                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' }}>
-                            <span style={{ paddingRight: '8px', marginBottom: '9px' }} className="printOption2-label">数量</span>
+                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' ,display:'inline',marginRight:'15px'}}>
+                            
                             <Checkbox checked={num} onChange={(e) => this.onChange(e, 'num')}></Checkbox>
+                            <span style={{ paddingRight: '8px', marginBottom: '9px',fontSize:'12px' ,fontFamily:'Microsoft YaHei'}} className="printOption2-label">数量</span>
                         </div>
-                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' }}>
-                            <span style={{ paddingRight: '8px', marginBottom: '9px' }} className="printOption2-label">只{this.props.type}末级</span>
+                        <div clssName="printOption2-contaienr-item" style={{ marginBottom: '14px' ,display:'inline',fontFamily:'Microsoft YaHei'}}>
+                            
                             <Checkbox checked={isOnlyEndNode} onChange={(e) => this.onChange(e, 'isOnlyEndNode')}></Checkbox>
+                            <span style={{ paddingRight: '8px', marginBottom: '9px' ,fontSize:'12px',fontFamily:'Microsoft YaHei'}} className="printOption2-label">只{this.props.type}末级</span>
                         </div>
                         {
                             this.props.type == '导出' ?
-                                <div clssName="printOption2-contaienr-item">
+                                <div clssName="printOption2-contaienr-item" style={{ marginTop: '14px'}}>
                                     <RadioGroup  onChange={(e) => this.radioChange(e, 'isAllInOne')} value={isAllInOne}>
-                                        <Radio value={false}>不同科目分页签导出</Radio>
-                                        <Radio value={true}>不同科目同页签连续导出</Radio>
+                                        <Radio value={false} style={{fontSize:'12px'}}>不同科目分页签导出</Radio>
+                                        <Radio value={true} style={{fontSize:'12px'}}>不同科目同页签连续导出</Radio>
                                     </RadioGroup>
                                 </div> : null
                         }
@@ -91,9 +93,9 @@ class PrintOptionComponent2 extends React.Component {
                         </span>
                     </div> */}
                 </div>
-                <div className="printOption2-bottom" style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <Button onClick={this.cancel} style={{ padding: '0 15px', height: '32px', fontSize: '14px' }}>取消</Button>
-                    <Button style={{ marginLeft: '8px', padding: '0 15px', height: '32px', fontSize: '14px' }} type='primary' onClick={this.confirm}>{this.props.type}</Button>
+                <div className="printOption2-bottom" style={{ textAlign: 'center', marginTop: '20px',fontSize:'12px' ,paddingTop:'12px'}}>
+                    <Button onClick={this.cancel} style={{ padding: '0 15px', height: '32px', fontSize: '12px' }}>取消</Button>
+                    <Button style={{ marginLeft: '8px', padding: '0 15px', height: '32px', fontSize: '12px' }} type='primary' onClick={this.confirm}>{this.props.type}</Button>
                 </div>
             </div>
         )

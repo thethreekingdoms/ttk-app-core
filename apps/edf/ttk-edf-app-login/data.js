@@ -24,7 +24,7 @@ export function getMeta() {
 					children: '企业开发平台'
 				}, {
 					name: 'split',
-					component: '::div',
+					component: 'div',
 					className: 'ttk-edf-app-login-header-left-split',
 				}, {
 					name: 'item',
@@ -46,7 +46,7 @@ export function getMeta() {
 			children: [{
 				name: 'bgs',
 				className: 'ttk-edf-app-login-content-bgs',
-				component: '::div',
+				component: 'div',
 				children: '{{$renderCal()}}'
 			}, {
 				name: 'form',

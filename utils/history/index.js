@@ -30,7 +30,7 @@ function listen(selfApp, handler) {
 
         h = handler
         let unlisten = hashHistory.listen((location, action) => {
-            const childApp = getChildApp(selfApp) || 'edfx-app-home'
+            const childApp = getChildApp(selfApp) || 'ttk-edf-app-home'
             handler(childApp, location, action)
         })
 

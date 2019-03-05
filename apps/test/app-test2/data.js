@@ -10,11 +10,11 @@ export function getMeta() {
 			children: [
 				{
 					name: 'tips',
-					component: '::div',
+					component: 'div',
 					children: '{{data.content}}'
 				}, {
 					name: 'version',
-					component: '::div',
+					component: 'div',
 					children: '{{data.version}}'
 				}
 			]

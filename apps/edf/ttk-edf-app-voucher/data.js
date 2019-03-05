@@ -10,7 +10,7 @@ export function getMeta() {
             title: '单据',
             extra: {
                 name: 'header',
-                component: '::div',
+                component: 'div',
                 children: [{
                     name: 'add',
                     component: 'Button',
@@ -47,7 +47,7 @@ export function getMeta() {
             title: '单据',
             extra: {
                 name: 'header',
-                component: '::div',
+                component: 'div',
                 className: 'edfx-app-voucher-content-header',
                 children: [{
                     name: 'add',

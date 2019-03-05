@@ -2,7 +2,7 @@ export function getMeta() {
 	return {
 		name: 'root',
 		className: 'ttk-edf-app-iframe',
-		component: '::div',
+		component: 'div',
 		children: [{
 			name: 'iframe',
 			className: 'ttk-edf-app-iframe-iframe',

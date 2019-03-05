@@ -1,20 +1,20 @@
 export function getMeta() {
 	return {
 		name: 'tax-table',
-        component: '::div',
+        component: 'div',
         className: 'ttk-tax-app-zzsxgmfjssb',
         children: [{
-            component: '::div',
+            component: 'div',
             className: 'ttk-tax-app-zzsxgmfjssb-content',
             children: [{
-                component: '::div',
+                component: 'div',
                 className: 'theader',
                 children: [{
                     name: 'top',
-                    component: '::div',
+                    component: 'div',
                     children: [{
                         name: 'nsrsbh',
-                        component: '::div',
+                        component: 'div',
                         className: 'nsrsbh',
                         children: ["纳税人识别号：", {
                             name: 'title',
@@ -23,31 +23,31 @@ export function getMeta() {
                         }]
                     }, {
                         name: 'date',
-                        component: '::div',
+                        component: 'div',
                         className: 'date align-center',
                         children: '{{"税款所属期：" +(data.sbbhead.skssqq || "") + " 至 " + (data.sbbhead.skssqz || "")}}',
                     }, {
                         name: 'empty',
-                        component: '::div',
+                        component: 'div',
                         className: 'empty',
                         children: ' '
                     }]
                 },{
                     name: 'bottom',
-                    component: '::div',
+                    component: 'div',
                     children: [{
                         name: 'nsrmc',
-                        component: '::div',
+                        component: 'div',
                         className: 'nsrmc',
                         children: '{{"纳税人名称（公章）："+ (data.sbbhead.nsrmc || "")}}',
                     },  {
                         name: 'sbrq1',
-                        component: '::div',
+                        component: 'div',
                         className: 'sbrq1 align-center',
                         children: '{{"填表日期："+(data.sbbhead.sbrq1||"")}}',
                     }, {
                         name: 'unit',
-                        component: '::div',
+                        component: 'div',
                         className: 'unit align-right',
                         children: '金额单位：元至角分'
                     }]

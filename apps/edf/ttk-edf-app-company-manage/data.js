@@ -7,7 +7,7 @@ export function getMeta() {
         children: [
             {
                 name: 'btnGroup',
-                component: '::div',
+                component: 'div',
                 _visible: '{{data.hideBackBtn}}',
                 className: 'ttk-edf-app-company-manage-back',
                 children: [{
@@ -20,16 +20,16 @@ export function getMeta() {
             },
             {
                 name: 'header2',
-                component: '::div',
+                component: 'div',
                 className: 'ttk-edf-app-company-manage-header',
                 children: [
                     {
                         name: 'btnGroup1',
-                        component: '::div',
+                        component: 'div',
                         // className: 'ttk-edf-app-company-manage-header-left',
                         children: [{
                             name: 'list',
-                            component: '::div',
+                            component: 'div',
                             children: '企业列表',
                             className: 'ttk-edf-app-company-manage-header-company-btn'
                         }]
@@ -55,7 +55,7 @@ export function getMeta() {
                     }]
             }, {
                 name: 'content',
-                component: '::div',
+                component: 'div',
                 className: 'ttk-edf-app-company-manage-content',
                 children: [{
                     name: 'dataGrid',
