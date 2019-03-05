@@ -5,7 +5,7 @@ export function getMeta() {
 		className: 'app-test2',
 		children: [{
 			name: 'img',
-			component: '::span',
+			component: 'span',
 			className: 'app-test2-div',
 			children: [
 				{

@@ -18,7 +18,7 @@ export function getMeta() {
 					name: 'tabs',
 					component: 'Tabs',
 					onChange: '{{$onTabChange}}',
-					className:'tabs',
+					className: 'tabs',
 					children: [
 						{
 							name: 'tab1',
@@ -28,60 +28,60 @@ export function getMeta() {
 							children: [{
 								name: 'tab1content',
 								component: 'div',
-								_visible:'{{data.noticedata&&data.noticedata.length>0}}',
+								_visible: '{{data.noticedata&&data.noticedata.length>0}}',
 								children: [
 									{
 										name: 'split',
 										component: 'div',
 										className: 'list-split',
 										children:
-											{
-												name: 'list-item',
+										{
+											name: 'list-item',
+											component: 'div',
+											className: 'list-item',
+											onClick: '{{$onItemClick()}}',
+											key: "{{data.noticedata && data.noticedata[_rowIndex].id }}",
+											children: {
+												name: 'list-item-meta',
 												component: 'div',
-												className: 'list-item',
-												onClick: '{{$onItemClick()}}',
-												key: "{{data.noticedata && data.noticedata[_rowIndex].id }}",
-												children: {
-													name: 'list-item-meta',
-													component: 'div',
-													className: 'list-item-meta',
-													children: [
-														{
-															name: 'avatar',
-															component: 'div',
-															className: 'list-item-meta-avatar',
+												className: 'list-item-meta',
+												children: [
+													{
+														name: 'avatar',
+														component: 'div',
+														className: 'list-item-meta-avatar',
+														children: {
+															name: 'image',
+															component: 'span',
+															className: 'avatar-image',
 															children: {
-																name: 'image',
-																component: '::span',
-																className: 'avatar-image',
-																children: {
-																	component: '::img',
-																	src: '{{data.noticedata[_rowIndex].avatar}}'
-																}
+																component: 'img',
+																src: '{{data.noticedata[_rowIndex].avatar}}'
 															}
+														}
+													},
+													{
+														name: 'meta-content',
+														component: 'div',
+														className: 'list-item-meta-content',
+														children: [{
+															name: 'title',
+															component: 'h4',
+															className: 'list-item-meta-title',
+															children: '{{data.noticedata[_rowIndex].title}}'
 														},
 														{
-															name: 'meta-content',
+															name: 'description',
 															component: 'div',
-															className: 'list-item-meta-content',
-															children: [{
-																name: 'title',
-																component: '::h4',
-																className: 'list-item-meta-title',
-																children: '{{data.noticedata[_rowIndex].title}}'
-															},
-															{
-																name: 'description',
-																component: 'div',
-																className: 'list-item-meta-description',
-																children: '{{data.noticedata[_rowIndex].datetime}}'
-															}
-															]
+															className: 'list-item-meta-description',
+															children: '{{data.noticedata[_rowIndex].datetime}}'
 														}
-													]
-												},
-												_power: 'for in data.noticedata',
-											}
+														]
+													}
+												]
+											},
+											_power: 'for in data.noticedata',
+										}
 									},
 									{
 										name: 'qc',
@@ -92,18 +92,18 @@ export function getMeta() {
 									}
 								]
 
-							},,{
-								component:'div',
-								className:'notfound',
-								_visible:'{{!data.noticedata||data.noticedata.length==0}}',
-								children:[
+							}, , {
+								component: 'div',
+								className: 'notfound',
+								_visible: '{{!data.noticedata||data.noticedata.length==0}}',
+								children: [
 									{
-										component:'::img',
-										src:'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
+										component: 'img',
+										src: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
 									},
 									{
-										component:'div',
-										children:'你已查看所有通知'
+										component: 'div',
+										children: '你已查看所有通知'
 									}
 								]
 							}]
@@ -113,78 +113,78 @@ export function getMeta() {
 							component: 'Tabs.TabPane',
 							tab: '{{data.xxData&&data.xxData.length>0?"消息("+data.xxData.length+")":"消息"}}',
 							key: '2',
-							children:[ {
+							children: [{
 								name: 'tab2content',
 								component: 'div',
-								_visible:'{{data.xxData&&data.xxData.length>0}}',
+								_visible: '{{data.xxData&&data.xxData.length>0}}',
 								children: [
 									{
 										name: 'split',
 										component: 'div',
 										className: 'list-split',
 										children:
-											{
-												name: 'list-item',
+										{
+											name: 'list-item',
+											component: 'div',
+											className: 'list-item',
+											onClick: '{{$onItemClick()}}',
+											key: "{{data.xxData && data.xxData[_rowIndex].id }}",
+											children: {
+												name: 'list-item-meta',
 												component: 'div',
-												className: 'list-item',
-												onClick: '{{$onItemClick()}}',
-												key: "{{data.xxData && data.xxData[_rowIndex].id }}",
-												children: {
-													name: 'list-item-meta',
-													component: 'div',
-													className: 'list-item-meta',
-													children: [
-														{
-															name: 'avatar',
-															component: 'div',
-															className: 'list-item-meta-avatar',
+												className: 'list-item-meta',
+												children: [
+													{
+														name: 'avatar',
+														component: 'div',
+														className: 'list-item-meta-avatar',
+														children: {
+															name: 'image',
+															component: 'span',
+															className: 'avatar-image',
 															children: {
-																name: 'image',
-																component: '::span',
-																className: 'avatar-image',
-																children: {
-																	component: '::img',
-																	src: '{{data.xxData[_rowIndex].avatar}}'
-																}
+																component: 'img',
+																src: '{{data.xxData[_rowIndex].avatar}}'
 															}
+														}
+													},
+													{
+														name: 'meta-content',
+														component: 'div',
+														className: 'list-item-meta-content',
+														children: [{
+															name: 'title',
+															component: 'h4',
+															className: 'list-item-meta-title',
+															children: '{{data.xxData[_rowIndex].title}}'
 														},
 														{
-															name: 'meta-content',
+															name: 'description',
 															component: 'div',
-															className: 'list-item-meta-content',
-															children: [{
-																name: 'title',
-																component: '::h4',
-																className: 'list-item-meta-title',
-																children: '{{data.xxData[_rowIndex].title}}'
-															},
-															{
-																name: 'description',
+															className: 'list-item-meta-description',
+															children: {
 																component: 'div',
-																className: 'list-item-meta-description',
-																children: {
-																	component: 'div',
-																	children: [
-																		{
-																			component: 'div',
-																			_visible: '{{data.xxData[_rowIndex].description}}',
-																			children: '{{data.xxData[_rowIndex].description}}'
-																		},
-																		{
-																			component: 'div',
-																			children: '{{data.xxData[_rowIndex].datetime}}'
-																		}
-																	]
-																}
-
-
+																children: [
+																	{
+																		component: 'div',
+																		_visible: '{{data.xxData[_rowIndex].description}}',
+																		children: '{{data.xxData[_rowIndex].description}}'
+																	},
+																	{
+																		component: 'div',
+																		children: '{{data.xxData[_rowIndex].datetime}}'
+																	}
+																]
 															}
-															]
+
+
 														}
-													]
-												},
-												_power: 'for in data.xxData',
-											}
+														]
+													}
+												]
+											},
+											_power: 'for in data.xxData',
+										}
 									},
 									{
 										name: 'qc',
@@ -195,18 +195,18 @@ export function getMeta() {
 									}
 								]
 							},
-							,{
-								component:'div',
-								className:'notfound',
-								_visible:'{{!data.xxData||data.xxData.length==0}}',
-								children:[
+								, {
+								component: 'div',
+								className: 'notfound',
+								_visible: '{{!data.xxData||data.xxData.length==0}}',
+								children: [
 									{
-										component:'::img',
-										src:'https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg'
+										component: 'img',
+										src: 'https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg'
 									},
 									{
-										component:'div',
-										children:'您已读完所有消息'
+										component: 'div',
+										children: '您已读完所有消息'
 									}
 								]
 							}]
@@ -219,96 +219,98 @@ export function getMeta() {
 							children: [{
 								name: 'tab3content',
 								component: 'div',
-								_visible:'{{data.dbData&&data.dbData.length>0}}',
+								_visible: '{{data.dbData&&data.dbData.length>0}}',
 								children: [
 									{
 										name: 'split',
 										component: 'div',
 										className: 'list-split',
 										children:
-											{
-												name: 'list-item',
+										{
+											name: 'list-item',
+											component: 'div',
+											className: 'list-item',
+											onClick: '{{$onItemClick()}}',
+											key: "{{data.dbData && data.dbData[_rowIndex].id}}",
+											children: {
+												name: 'list-item-meta',
 												component: 'div',
-												className: 'list-item',
-												onClick: '{{$onItemClick()}}',
-												key: "{{data.dbData && data.dbData[_rowIndex].id}}",
-												children: {
-													name: 'list-item-meta',
-													component: 'div',
-													className: 'list-item-meta',
-													children: [
+												className: 'list-item-meta',
+												children: [
 													//	{
-														//	name: 'avatar',
-														//	component: 'div',
-														//	className: 'list-item-meta-avatar',
-														//	_visible: '{{data.dbData[_rowIndex].avatar}}',
-														//	children:''
-															// children: {
-															// 	name: 'image',
-															// 	component: '::span',
-															// 	className: 'avatar-image',
-															// 	children: {
-															// 		component: '::img',
-															// 		_visible: '{{data.dbData[_rowIndex].avatar}}',
-															// 		src: '{{data.dbData[_rowIndex].avatar}}'
-															// 	}
-															// }
+													//	name: 'avatar',
+													//	component: 'div',
+													//	className: 'list-item-meta-avatar',
+													//	_visible: '{{data.dbData[_rowIndex].avatar}}',
+													//	children:''
+													// children: {
+													// 	name: 'image',
+													// 	component: 'span',
+													// 	className: 'avatar-image',
+													// 	children: {
+													// 		component: 'img',
+													// 		_visible: '{{data.dbData[_rowIndex].avatar}}',
+													// 		src: '{{data.dbData[_rowIndex].avatar}}'
+													// 	}
+													// }
 													//	},
-														{
-															name: 'meta-content',
-															component: 'div',
-															className: 'list-item-meta-content',
-															children: [{
-																name: 'title',
-																component: '::h4',
-																className: 'list-item-meta-title',
-																_visible: '{{data.dbData[_rowIndex].title}}',
-																children: {
-																	component:'div',
-																	children:[
-																		{
-																			component:'::span',
-																			children:'{{data.dbData[_rowIndex].title}}'},
-																		{
-																		component:'div',
-																		className:'extra',
-																		children:{
-																			component:'div',
-																			className:'tag',
-																			children:'{{data.dbData[_rowIndex].extra}}'
-																		}}
-																	]
-																		
-																	
-																}
-															},
-															{
-																name: 'description',
+													{
+														name: 'meta-content',
+														component: 'div',
+														className: 'list-item-meta-content',
+														children: [{
+															name: 'title',
+															component: 'h4',
+															className: 'list-item-meta-title',
+															_visible: '{{data.dbData[_rowIndex].title}}',
+															children: {
 																component: 'div',
-																className: 'list-item-meta-description',
-																children: {
-																	component: 'div',
-																	children: [
-																		{
+																children: [
+																	{
+																		component: 'span',
+																		children: '{{data.dbData[_rowIndex].title}}'
+																	},
+																	{
+																		component: 'div',
+																		className: 'extra',
+																		children: {
 																			component: 'div',
-																			_visible: '{{data.dbData[_rowIndex].description}}',
-																			children: '{{data.dbData[_rowIndex].description}}'
-																		},
-																		{
-																			component: 'div',
-																			children: '{{data.dbData[_rowIndex].datetime}}'
+																			className: 'tag',
+																			children: '{{data.dbData[_rowIndex].extra}}'
 																		}
-																	]
-																}
+																	}
+																]
 
 
 															}
-															]
+														},
+														{
+															name: 'description',
+															component: 'div',
+															className: 'list-item-meta-description',
+															children: {
+																component: 'div',
+																children: [
+																	{
+																		component: 'div',
+																		_visible: '{{data.dbData[_rowIndex].description}}',
+																		children: '{{data.dbData[_rowIndex].description}}'
+																	},
+																	{
+																		component: 'div',
+																		children: '{{data.dbData[_rowIndex].datetime}}'
+																	}
+																]
+															}
+
+
 														}
-													]
-												},
-												_power: 'for in data.dbData',
-											}
+														]
+													}
+												]
+											},
+											_power: 'for in data.dbData',
+										}
 									},
 									{
 										name: 'qc',
@@ -318,18 +320,18 @@ export function getMeta() {
 										children: '清除待办',
 									}
 								]
-							},{
-								component:'div',
-								className:'notfound',
-								_visible:'{{!data.dbData||data.dbData.length==0}}',
-								children:[
+							}, {
+								component: 'div',
+								className: 'notfound',
+								_visible: '{{!data.dbData||data.dbData.length==0}}',
+								children: [
 									{
-										component:'::img',
-										src:'https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg'
+										component: 'img',
+										src: 'https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg'
 									},
 									{
-										component:'div',
-										children:'你已完成所有待办'
+										component: 'div',
+										children: '你已完成所有待办'
 									}
 								]
 							}]
@@ -344,13 +346,13 @@ export function getMeta() {
 			onVisibleChange: '',
 			children: {
 				name: 'span',
-				component: '::span',
-				className:'noticeButton',
+				component: 'span',
+				className: 'noticeButton',
 				children: {
 					name: 'badge',
 					component: 'Badge',
-					offset:[0,0],
-					count:'{{data.noticedata&&data.xxData&&data.dbData&&(data.noticedata.length+data.xxData.length+data.dbData.length)}}',
+					offset: [0, 0],
+					count: '{{data.noticedata&&data.xxData&&data.dbData&&(data.noticedata.length+data.xxData.length+data.dbData.length)}}',
 					children: {
 						name: 'icon',
 						component: 'Icon',
@@ -366,7 +368,7 @@ export function getMeta() {
 export function getInitState() {
 	return {
 		data: {
-			
+
 		}
 	}
 }

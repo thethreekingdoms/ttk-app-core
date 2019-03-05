@@ -22,7 +22,7 @@ export function getMeta() {
 				fontFamily: 'edficon',
 			}, {
 				name: 'name',
-				component: '::span',
+				component: 'span',
 				children: '填表说明'
 			}]
 		}
@@ -62,7 +62,7 @@ export function getMeta() {
 			},
 			children: [{
 				name: 'text',
-				component: '::a',
+				component: 'a',
 				onClick: '{{$updateDeclareItem}}',
 				children: [{
 					name: 'icon',
@@ -72,7 +72,7 @@ export function getMeta() {
 					type: 'xuanzebiaodan',
 				}, {
 					name: 'text',
-					component: '::span',
+					component: 'span',
 					children: '选择表单'
 				}]
 			}]
@@ -110,7 +110,7 @@ export function getMeta() {
 							fontFamily: 'edficon',
 						}, {
 							name: 'name',
-							component: '::span',
+							component: 'span',
 							children: '填表说明',
 							style: {
 								display: 'table-cell',
@@ -179,7 +179,7 @@ export function getMeta() {
 								children: [
 									{
 										name: 'back',
-										component: '::a',
+										component: 'a',
 										_visible: '{{data.params.source!="entrance"&&(data.appId+"")=="105"}}',										
 										onClick: '{{$handleBack}}',
 										style: {

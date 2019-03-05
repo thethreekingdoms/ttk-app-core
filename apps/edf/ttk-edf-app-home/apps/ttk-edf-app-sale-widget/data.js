@@ -9,7 +9,7 @@ export function getMeta() {
 			className: 'ttk-edf-app-sale-widget-header',
 			children: [{
 				name: 'left',
-				component: '::span',
+				component: 'span',
 				children: '总销售额'
 			}, {
 				name: 'right',
@@ -20,7 +20,7 @@ export function getMeta() {
 			}]
 		}, {
 			name: 'text',
-			component: '::p',
+			component: 'p',
 			className: 'ttk-edf-app-sale-widget-text',
 			children: "{{'¥  ' + $numberFormat(data.total)}}"
 		}, {
@@ -30,11 +30,11 @@ export function getMeta() {
 
 			children: [{
 				name: 'label1',
-				component: '::span',
+				component: 'span',
 				children: '周同比'
 			}, {
 				name: 'value1',
-				component: '::h2',
+				component: 'h2',
 				children: "{{data.WoW * 100 + '%'}}"
 			}, {
 				name: 'icon1',
@@ -43,11 +43,11 @@ export function getMeta() {
 				style: "{{({color: data.WoW> 0 ? 'red': 'green'})}}"
 			}, {
 				name: 'label2',
-				component: '::span',
+				component: 'span',
 				children: '日环比'
 			}, {
 				name: 'value2',
-				component: '::h2',
+				component: 'h2',
 				children: "{{data.DoD * 100 + '%'}}"
 			}, {
 				name: 'icon2',
@@ -62,11 +62,11 @@ export function getMeta() {
 			className: 'ttk-edf-app-sale-widget-footer',
 			children: [{
 				name: 'label',
-				component: '::span',
+				component: 'span',
 				children: '日均销售额'
 			}, {
 				name: 'value',
-				component: '::h2',
+				component: 'h2',
 				children: '{{$numberFormat(data.average)}}'
 			}]
 		}]

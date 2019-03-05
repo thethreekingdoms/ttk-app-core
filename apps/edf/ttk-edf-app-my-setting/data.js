@@ -17,7 +17,7 @@ export function getMeta() {
 					className: 'ttk-edf-app-my-setting-baseInfo',
 					children: [{
 						name: 'title',
-						component: '::h1',
+						component: 'h1',
 						className: 'ttk-edf-app-my-setting-baseInfo-title',
 						children: '个人基础信息'
 					}, {
@@ -34,7 +34,7 @@ export function getMeta() {
 								component: 'div',
 								children: [{
 									name: 'photo',
-									component: '::img',
+									component: 'img',
 									src: '{{$getPhoto(data.form.sex)}}'
 								}
 								]
@@ -51,19 +51,19 @@ export function getMeta() {
 								required: true,
 								children: [{
 									name: 'male',
-									component: '::img',
+									component: 'img',
 									className: "{{data.form.sex == 1 ? 'selectImg' : 'unSelectImg'}}",
 									src: '{{$getPhoto("1")}}',
 									onClick: '{{function(e){$setField("data.form.sex", "1")}}}'
 								}, {
 									name: 'female',
-									component: '::img',
+									component: 'img',
 									className: "{{data.form.sex == 2 ? 'selectImg' : 'unSelectImg'}}",
 									src: '{{$getPhoto("2")}}',
 									onClick: '{{function(e){$setField("data.form.sex", "2")}}}'
-								},{
+								}, {
 									name: 'other',
-									component: '::img',
+									component: 'img',
 									className: "{{data.form.sex == 0 ? 'selectImg' : 'unSelectImg'}}",
 									src: '{{$getPhoto("0")}}',
 									onClick: '{{function(e){$setField("data.form.sex", "0")}}}'
@@ -115,7 +115,7 @@ export function getMeta() {
 					className: 'ttk-edf-app-my-setting-security',
 					children: [{
 						name: 'title',
-						component: '::h1',
+						component: 'h1',
 						className: 'ttk-edf-app-my-setting-baseInfo-title',
 						style: { marginTop: '12px' },
 						children: '安全设置'
@@ -123,31 +123,7 @@ export function getMeta() {
 						name: 'item',
 						component: 'div',
 						className: 'ttk-edf-app-my-setting-security-box',
-						children: [
-						// 	{
-						// 	name: 'level',
-						// 	component: 'div',
-						// 	className: '{{$getSecurityLevelClassName()}}',
-						// 	children: [{
-						// 		name: 'label',
-						// 		component: '::e',
-						// 		children: '安全等级:'
-						// 	}, {
-						// 		name: 'text',
-						// 		component: '::span',
-						// 		children: '{{$getSecurityLevelText()}}'
-						// 	}, {
-						// 		name: 'bar',
-						// 		component: 'Progress',
-						// 		percent: '{{data.form.securityLevel*20}}',
-						// 		showInfo: false
-						// 	}]
-						// }, {
-						// 	name: 'securityLevel',
-						// 	component: 'div',
-						// 	children: []
-						// },
-							{
+						children: [{
 							name: 'grid',
 							component: 'div',
 							className: 'ttk-edf-app-my-setting-security-grid',
@@ -162,23 +138,23 @@ export function getMeta() {
 									name: 'level',
 									component: 'div',
 									children: [
-									// 	{
-									// 	name: 'icon',
-									// 	component: 'Icon',
-									// 	type: '{{true ? "check" : "setting"}}'
-									// }
-									// , {
-									// 	name: 'explain',
-									// 	component: '::span',
-									// 	children: '{{true ? "已完成" : "未完成"}}'
-									// }
-								]
+										// 	{
+										// 	name: 'icon',
+										// 	component: 'Icon',
+										// 	type: '{{true ? "check" : "setting"}}'
+										// }
+										// , {
+										// 	name: 'explain',
+										// 	component: 'span',
+										// 	children: '{{true ? "已完成" : "未完成"}}'
+										// }
+									]
 								}, {
 									name: 'type',
 									component: 'div',
 									children: {
 										name: 'p',
-										component: '::p',
+										component: 'p',
 										children: '登录密码'
 									}
 								}, {
@@ -190,12 +166,12 @@ export function getMeta() {
 										className: 'pws',
 										children: [{
 											name: 'item1',
-											component: '::span',
+											component: 'span',
 											className: 'pws-title',
 											children: '密码强度'
 										}, {
 											name: 'text',
-											component: '::span',
+											component: 'span',
 											className: 'pws-level',
 											children: '{{$getPasswordStrength()}}'
 										}, {
@@ -206,14 +182,14 @@ export function getMeta() {
 												name: 'bar',
 												component: 'Progress',
 												className: "{{$getColor()}}",
-												style: {display: 'none'},
+												style: { display: 'none' },
 												percent: '{{data.form.securityLevel*20}}',
 												showInfo: false
 											}
 										}]
 									}, {
 										name: 'p',
-										component: '::p',
+										component: 'p',
 										children: '建议您设置为8个字符以上，包含数字、大小写字母、特殊字符的密码'
 									}]
 								}, {
@@ -237,23 +213,23 @@ export function getMeta() {
 									name: 'level',
 									component: 'div',
 									children: [
-									// 	{
-									// 	name: 'icon',
-									// 	component: 'Icon',
-									// 	type: '{{true ? "check" : "setting"}}'
-									// }
-									// , {
-									// 	name: 'explain',
-									// 	component: '::span',
-									// 	children: '{{true ? "已完成" : "未完成"}}'
-									// }
-								]
+										// 	{
+										// 	name: 'icon',
+										// 	component: 'Icon',
+										// 	type: '{{true ? "check" : "setting"}}'
+										// }
+										// , {
+										// 	name: 'explain',
+										// 	component: 'span',
+										// 	children: '{{true ? "已完成" : "未完成"}}'
+										// }
+									]
 								}, {
 									name: 'type',
 									component: 'div',
 									children: {
 										name: 'p',
-										component: '::p',
+										component: 'p',
 										children: '手机绑定'
 									}
 								}, {
@@ -261,7 +237,7 @@ export function getMeta() {
 									component: 'div',
 									children: {
 										name: 'p',
-										component: '::p',
+										component: 'p',
 										children: '{{"您绑定的手机为：" + data.form.mobile}}'
 									}
 								}, {
@@ -291,7 +267,7 @@ export function getMeta() {
 								// 			type: '{{true ? "check" : "setting"}}'
 								// 		}, {
 								// 			name: 'explain',
-								// 			component: '::span',
+								// 			component: 'span',
 								// 			children: '{{true ? "已完成" : "未完成"}}'
 								// 		}]
 								// 	}, {
@@ -299,7 +275,7 @@ export function getMeta() {
 								// 		component: 'div',
 								// 		children: {
 								// 			name: 'p',
-								// 			component: '::p',
+								// 			component: 'p',
 								// 			children: '邮箱绑定'
 								// 		}
 								// 	}, {
@@ -307,7 +283,7 @@ export function getMeta() {
 								// 		component: 'div',
 								// 		children: {
 								// 			name: 'p',
-								// 			component: '::p',
+								// 			component: 'p',
 								// 			children: '{{true ? "您绑定的邮箱为：y_sp_mail@163.com" : "绑定邮箱，账号安全一步到位"}}'
 								// 		}
 								// 	}, {

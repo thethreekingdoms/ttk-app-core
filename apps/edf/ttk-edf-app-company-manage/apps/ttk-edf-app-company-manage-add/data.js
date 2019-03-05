@@ -31,7 +31,7 @@ export function getMeta() {
                             type: 'daoru'
                         }, {
                             name: 'span',
-                            component: '::span',
+                            component: 'span',
                             children: '导入企业',
                             style: {color: '#47ACE1'},
                         }]
@@ -56,7 +56,7 @@ export function getMeta() {
                             type: 'chuangjianqiye'
                         }, {
                             name: 'span',
-                            component: '::span',
+                            component: 'span',
                             style: {color: '#EA9518'},
                             children: '创建企业'
                         }]
@@ -153,7 +153,7 @@ export function getMeta() {
                                 component: 'div',
                                 children: [{
                                     name: 'item2',
-                                    component: '::span',
+                                    component: 'span',
                                     children: '{{data.form.enabledDate}}'
                                 }, {
                                     name: 'item3',
@@ -192,7 +192,7 @@ export function getMeta() {
                             // style: {display: 'flex', width: '50%', margin: '0 auto'},
                             children: [{
                                 name: 'item1',
-                                component: '::span',
+                                component: 'span',
                                 children: '{{data.form.accountingStandardsName}}'
                             }, {
                                 name: 'item3',

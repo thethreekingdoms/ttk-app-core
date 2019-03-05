@@ -14,31 +14,31 @@ export function getMeta() {
 				component: 'Layout',
 				className: 'ttk-edf-app-forgot-password-header-left',
 				children: [
-				// 	{
-				// 	name: 'logo',
-				// 	component: '::img',
-				// 	className: 'ttk-edf-app-login-header-left-logo',
-				// 	src: '{{$getLogo()}}'
-				// },
-				{
-					name: 'sitename',
-					component: '::span',
-					className: 'ttk-edf-app-login-header-left-sitename',
-					children: '企业开发平台'
-				}, {
-					name: 'split',
-					component: 'div',
-					className: 'ttk-edf-app-login-header-left-split',
-				}, {
-					name: 'item',
-					className: 'ttk-edf-app-login-header-left-login',
-					component: '::span',
-					children: '重置密码'
-				}]
+					// 	{
+					// 	name: 'logo',
+					// 	component: 'img',
+					// 	className: 'ttk-edf-app-login-header-left-logo',
+					// 	src: '{{$getLogo()}}'
+					// },
+					{
+						name: 'sitename',
+						component: 'span',
+						className: 'ttk-edf-app-login-header-left-sitename',
+						children: '企业开发平台'
+					}, {
+						name: 'split',
+						component: 'div',
+						className: 'ttk-edf-app-login-header-left-split',
+					}, {
+						name: 'item',
+						className: 'ttk-edf-app-login-header-left-login',
+						component: 'span',
+						children: '重置密码'
+					}]
 			}, {
 				name: 'header-right',
 				className: 'ttk-edf-app-forgot-password-header-right',
-				component: '::a',
+				component: 'a',
 				onClick: '{{$goLogin}}',
 				children: ['登录']
 			}]
@@ -64,19 +64,19 @@ export function getMeta() {
 						name: 'title',
 						className: 'ttk-edf-app-register-form-bar-step-icon',
 						component: 'div',
-						style: {background: '#1EB5AD',borderColor: '#1EB5AD',color: '#fff'},
+						style: { background: '#1EB5AD', borderColor: '#1EB5AD', color: '#fff' },
 						children: ['1']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						className: 'ttk-edf-app-register-form-bar-step-description',
-						style: {color: '#1EB5AD'},
+						style: { color: '#1EB5AD' },
 						children: ['安全验证']
 					}]
 				}, {
 					name: 'line1',
 					className: '{{data.other.step >= 2 ? "ttk-edf-app-register-form-bar-line active" : "ttk-edf-app-register-form-bar-line"}}',
-					component: '::span',
+					component: 'span',
 				}, {
 					name: 'step2',
 					component: 'div',
@@ -89,7 +89,7 @@ export function getMeta() {
 						children: ['2']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						style: "{{data.other.step>=2?{color: '#1EB5AD'}:{color: '#666666'}}}",
 						className: 'ttk-edf-app-register-form-bar-step-description',
 						children: ['重置密码']
@@ -97,7 +97,7 @@ export function getMeta() {
 				}, {
 					name: 'line2',
 					className: '{{data.other.step >= 3 ? "ttk-edf-app-register-form-bar-line active" : "ttk-edf-app-register-form-bar-line"}}',
-					component: '::span',
+					component: 'span',
 				}, {
 					name: 'step3',
 					component: 'div',
@@ -110,7 +110,7 @@ export function getMeta() {
 						children: ['3']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						style: "{{data.other.step==3?{color: '#1EB5AD'}:{color: '#666666'}}}",
 						className: 'ttk-edf-app-register-form-bar-step-description',
 						children: ['重新登录']
@@ -132,10 +132,10 @@ export function getMeta() {
 					onChange: `{{function(e){$fieldChange('data.form.mobile',e.target.value)}}}`,
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -157,17 +157,17 @@ export function getMeta() {
 					onChange: "{{function(e){$setField('data.form.captcha',e.target.value)}}}",
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					},
 					addonAfter: {
 						name: 'suffix',
 						component: 'Button',
-						style: {width: '98px'},
+						style: { width: '98px' },
 						className: 'getCaptchaCode',
 						disabled: '{{!data.form.mobile || !!data.other.error.mobile || !data.timeStaus}}',
 						onClick: '{{$getCaptcha}}',
@@ -204,10 +204,10 @@ export function getMeta() {
 					onChange: `{{function(e){$fieldChange('data.form.password',e.target.value)}}}`,
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -223,17 +223,17 @@ export function getMeta() {
 					name: 'confirmPassword',
 					component: 'Input',
 					value: '{{data.form.confirmPassword}}',
-					className:'rePwdInput',
+					className: 'rePwdInput',
 					placeholder: "确认新密码",
 					type: 'password',
-                    onBlur: `{{function(e){data.form.confirmPassword == data.form.password ? '' : $setField('data.other.error.confirmPassword','两次密码输入不一致，请确认')}}}`,
+					onBlur: `{{function(e){data.form.confirmPassword == data.form.password ? '' : $setField('data.other.error.confirmPassword','两次密码输入不一致，请确认')}}}`,
 					onChange: `{{function(e){$fieldChange('data.form.confirmPassword',e.target.value)}}}`,
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -243,7 +243,7 @@ export function getMeta() {
 				component: 'div',
 				className: 'ttk-edf-app-forgot-password-form-relogin',
 				_visible: '{{data.other.step==3}}',
-				children:[{
+				children: [{
 					name: 'success',
 					component: 'div',
 					children: [{
@@ -253,14 +253,14 @@ export function getMeta() {
 						type: 'chenggongtishi'
 					}, {
 						name: 'text',
-						component: '::span',
-						style: {marginLeft: '8px'},
+						component: 'span',
+						style: { marginLeft: '8px' },
 						children: '密码修改成功'
 					}]
 				}, {
 					name: 'reloginBtn',
 					component: 'div',
-					children:['重新登陆（','{{data.reLoginTime}}',')']
+					children: ['重新登陆（', '{{data.reLoginTime}}', ')']
 				}]
 			}, {
 				name: 'modifyItem',
@@ -282,14 +282,14 @@ export function getMeta() {
 				_visible: '{{data.other.step!=3}}',
 				children: [{
 					name: 'prev',
-					component: '::a',
+					component: 'a',
 					children: '上一步',
 					className: 'prev',
 					onClick: '{{$prev}}',
 					_visible: '{{data.other.step==2}}'
-				},{
+				}, {
 					name: 'login',
-					component: '::a',
+					component: 'a',
 					style: { float: 'right' },
 					children: '返回登录',
 					className: 'backToLogin',
@@ -302,23 +302,23 @@ export function getMeta() {
 			component: 'Layout',
 			children: [{
 				name: 'item1',
-				component: '::p',
+				component: 'p',
 				children: [{
 					name: 'item1',
-					component: '::span',
+					component: 'span',
 					children: '企业开发平台'
 				}
-				//  ,{
-				// 	name: 'item2',
-				// 	component: '::a',
-				// 	href: 'http://www.miitbeian.gov.cn',
-				// 	children: '14007298'
-				// }, {
-				// 	name: 'item3',
-				// 	component: '::span',
-				// 	children: '号'
-				// }
-			]
+					//  ,{
+					// 	name: 'item2',
+					// 	component: 'a',
+					// 	href: 'http://www.miitbeian.gov.cn',
+					// 	children: '14007298'
+					// }, {
+					// 	name: 'item3',
+					// 	component: 'span',
+					// 	children: '号'
+					// }
+				]
 			}]
 		}]
 	}
@@ -336,7 +336,7 @@ export function getInitState(option) {
 			},
 			reLoginTime: 5,
 			time: '获取验证码',
-            timeStaus:true,
+			timeStaus: true,
 			other: {
 				step: 1,
 				error: {}

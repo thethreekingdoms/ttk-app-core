@@ -19,12 +19,12 @@ export function getMeta() {
                         // _visible: '{{data.isShowMenu}}',
                         children: [{
                             name: 'logo',
-                            component: '::img',
+                            component: 'img',
                             className: 'ttk-edf-app-portal-header-left-logo',
                             src: '{{$getLogo()}}'
                         }, {
                             name: 'siteName',
-                            component: '::h2',
+                            component: 'h2',
                             style: { color: '#fff' },
                             children: '企业开发平台'
                         }]
@@ -74,7 +74,7 @@ export function getMeta() {
                                             style: { height: '36px', overflow: 'hidden' },
                                             children: {
                                                 name: 'container',
-                                                component: '::span',
+                                                component: 'span',
                                                 children: [{
                                                     name: 'setting',
                                                     component: 'Icon',
@@ -84,7 +84,7 @@ export function getMeta() {
                                                     className: 'ttk-edf-app-portal-header-right-org-popover-icon-title'
                                                 }, {
                                                     name: 'item',
-                                                    component: '::span',
+                                                    component: 'span',
                                                     style: { display: 'inline-block', verticalAlign: 'middle', fontSize: '14px' },
                                                     children: '企业管理'
                                                 }]
@@ -112,7 +112,7 @@ export function getMeta() {
                                                     style: { fontSize: '22px', verticalAlign: 'middle' },
                                                 }, {
                                                     name: 'item',
-                                                    component: '::span',
+                                                    component: 'span',
                                                     style: { display: 'inline-block', verticalAlign: 'middle', fontSize: '14px' },
                                                     children: '创建企业'
                                                 }]
@@ -131,7 +131,7 @@ export function getMeta() {
                                 style: { margin: '0px 2px', float: 'left', height: '54px', lineHeight: '54px', padding: '0 10px' },
                                 children: [{
                                     name: 'currentOrg',
-                                    component: '::span',
+                                    component: 'span',
                                     title: "{{$getOrgName()}}",
                                     children: "{{$getOrgName()}}",
                                     className: 'currentOrgName',
@@ -153,12 +153,12 @@ export function getMeta() {
                             children: [{
                                 name: 'topSearch1',
                                 _visible: '{{data.headCtrl}}',
-                                component: '::span',
+                                component: 'span',
                                 className: 'ttk-edf-app-portal-header-right-headerSearch',
                                 style: { padding: '0px 16px 0 10px', cursor: 'pointer' },
                                 children: [{
                                     name: 'news',
-                                    component: '::span',
+                                    component: 'span',
                                     className: 'headBarBtn',
                                     children: {
                                         component: 'AppLoader',
@@ -168,7 +168,7 @@ export function getMeta() {
                                 }]
                             }, /*{
                                 name: 'myMessageTitle',
-                                component: '::span',
+                                component: 'span',
                                 _visible: '{{data.headCtrl}}',
                                 className: 'helpCenter',
                                 style: { padding: '0px 16px 0 10px', cursor: 'pointer', display: 'flex', alignItems: 'center' },
@@ -182,13 +182,13 @@ export function getMeta() {
                                     type: 'zaixianbangzhuxin',
                                 }, {
                                     name: 'helpName',
-                                    component: '::span',
+                                    component: 'span',
                                     className: 'headBarBtn',
                                     children: "{{'帮助中心'}}"
                                 }]
                             }, */{
                                 name: 'pagestyle',
-                                component: '::span',
+                                component: 'span',
                                 className: 'helpCenter',
                                 style: { padding: '0px 16px 0 10px', cursor: 'pointer', display: 'flex', alignItems: 'center' },
                                 onClick: '{{$pagestyleControl}}',
@@ -201,13 +201,13 @@ export function getMeta() {
                                     type: 'chuangjianqiye',
                                 }, {
                                     name: 'helpName',
-                                    component: '::span',
+                                    component: 'span',
                                     className: 'headBarBtn',
                                     children: '{{data.isTabsStyle ? "标准风格" : "多页签风格"}}',
                                 }]
                             }, {
                                 name: 'fullScreen',
-                                component: '::span',
+                                component: 'span',
                                 className: 'helpCenter',
                                 style: { padding: '0px 16px 0 10px', cursor: 'pointer', display: 'flex', alignItems: 'center' },
                                 onClick: '{{$fullScreenControl}}',
@@ -220,7 +220,7 @@ export function getMeta() {
                                     type: '{{data.fold  ? "shouhui" : "zhankai"}}',
                                 }, {
                                     name: 'helpName',
-                                    component: '::span',
+                                    component: 'span',
                                     className: 'headBarBtn',
                                     children: '{{data.fold ? "窗口" : "全屏"}}',
                                 }]
@@ -266,7 +266,7 @@ export function getMeta() {
                                                 type: 'bangzhuzhongxin'
                                             }, {
                                                 name: 'helpTitle1',
-                                                component: '::span',
+                                                component: 'span',
                                                 bordered: false,
                                                 className: 'ttk-edf-app-portal-header-right-help-popover-title1',
                                                 children: '帮助中心'
@@ -367,7 +367,7 @@ export function getMeta() {
                                             type: 'gerenshezhi',
                                         }, {
                                             name: 'title',
-                                            component: '::p',
+                                            component: 'p',
                                             children: "{{'推荐的文章'}}",
                                             className: 'ttk-edf-app-portal-header-right-help-title'
                                         }, {
@@ -424,7 +424,7 @@ export function getMeta() {
                                             type: 'gerenshezhi',
                                         }, {
                                             name: 'messageName',
-                                            component: '::span',
+                                            component: 'span',
                                             className: 'headBarBtn',
                                             children: "个人设置"
                                         }]
@@ -442,7 +442,7 @@ export function getMeta() {
                                             type: 'zaixianbangzhuxin',
                                         }, {
                                             name: 'messageName',
-                                            component: '::span',
+                                            component: 'span',
                                             className: 'headBarBtn',
                                             children: "在线帮助"
                                         }]
@@ -461,15 +461,15 @@ export function getMeta() {
                                             type: 'huanfu',
                                         }, {
                                             name: 'messageItem',
-                                            component: '::span',
+                                            component: 'span',
                                             className: 'headBarBtn',
                                             children: [{
                                                 name: 'messageItem2',
-                                                component: '::span',
+                                                component: 'span',
                                                 style: { display: 'flex', alignItems: 'center' },
                                                 children: [{
                                                     name: 'name',
-                                                    component: '::span',
+                                                    component: 'span',
                                                     placement: 'bottom',
                                                     title: '{{data.colors[_rowIndex].tip}}',
                                                     onClick: '{{function(){{$toggleColor(data.colors[_rowIndex].color, "change")}}}}',
@@ -495,7 +495,7 @@ export function getMeta() {
                                             type: 'huanfu',
                                         }, {
                                             name: 'themeName',
-                                            component: '::span',
+                                            component: 'span',
                                             className: 'headBarBtn',
                                             children: "显示设置"
                                         }]
@@ -514,7 +514,7 @@ export function getMeta() {
                                             type: 'tuichu',
                                         }, {
                                             name: 'messageName',
-                                            component: '::span',
+                                            component: 'span',
                                             className: 'headBarBtn',
                                             children: "退出"
                                         }]
@@ -528,14 +528,14 @@ export function getMeta() {
                                     style: { margin: '0px 2px' },
                                     children: [{
                                         name: 'icon1',
-                                        component: '::img',
+                                        component: 'img',
                                         //fontFamily: 'edficon',
                                         style: { width: '28px', verticalAlign: 'middle', margin: '-3px 5px', cursor: 'pointer', height: '28px' },
                                         src: '{{$getPhoto()}}'
                                         //type: 'yonghu'
                                     }, {
                                         name: 'userName',
-                                        component: '::span',
+                                        component: 'span',
                                         className: 'userName',
                                         title: '{{$getUserNickName()}}',
                                         children: '{{$getUserNickName()}}'
@@ -551,7 +551,7 @@ export function getMeta() {
                             }]
                         }, {
                             name: 'topSearch1',
-                            component: '::span',
+                            component: 'span',
                             _visible: '{{data.headCtrl}}',
                             className: 'ttk-edf-app-portal-header-right-headerSearch',
                             children: [{
@@ -565,7 +565,7 @@ export function getMeta() {
                                 fontFamily: 'edficon',
                             }, {
                                 name: 'searchName',
-                                component: '::span',
+                                component: 'span',
                                 className: 'headBarBtn',
                                 _visible: '{{!($getSearchVisible())}}',
                                 onClick: '{{$searchVisibleToogle}}',
@@ -766,7 +766,7 @@ export function getMeta() {
                             type: 'peizhishouye'
                         }, {
                             name: 'text',
-                            component: '::span',
+                            component: 'span',
                             children: '页面个性化设置'
                         }]
                     }, {

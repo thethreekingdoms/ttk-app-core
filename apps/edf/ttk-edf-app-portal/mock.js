@@ -62,7 +62,7 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 					"parentId": 0,
 					"showOrder": 100,
 					"isVisible": 1
-				},{
+				}, {
 					"id": 50,
 					"name": "开发",
 					"code": "50",
@@ -135,20 +135,11 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 					"parentId": 5010,
 					"showOrder": 907,
 					"isVisible": 1
-				},{
-					"id": 5020,
-					"name": "开发工具",
-					"code": "5020",
-					"appName": "ttk-edf-app-devtools",
-					"appProps": "",
-					"parentId": 50,
-					"showOrder": 907,
-					"isVisible": 1
 				}, {
 					"id": 5030,
 					"name": "基础组件API",
 					"code": "5030",
-					"appName": "ttk-edf-app-iframe?src=https://thethreekingdoms.github.io/ttk-app-component/",
+					"appName": "ttk-edf-app-iframe?src=https://thethreekingdoms.github.io/ttk-component/",
 					"appProps": "",
 					"parentId": 50,
 					"showOrder": 908,

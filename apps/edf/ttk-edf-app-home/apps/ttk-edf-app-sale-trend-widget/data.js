@@ -9,7 +9,7 @@ export function getMeta() {
 			className: 'ttk-edf-app-sale-trend-widget-left',
 			children: [{
 				name: 'title',
-				component: '::span',
+				component: 'span',
 				children: '总销售额趋势'
 			}, {
 				name: 'chart',
@@ -58,7 +58,7 @@ export function getMeta() {
 			className: 'ttk-edf-app-sale-trend-widget-right',
 			children: [{
 				name: 'title',
-				component: '::span',
+				component: 'span',
 				className: 'ttk-edf-app-sale-trend-widget-right-title',
 				children: '门店销售额排行'
 			}, {

@@ -7,7 +7,7 @@ export function getMeta() {
         children: [{
             name: 'title',
             className: 'ttk-tax-app-zzsjmssbmxb-beijing-title',
-            component: '::h2',
+            component: 'h2',
             _visible: false,
             children: '增值税减免税申报明细表'
         }, {
@@ -27,7 +27,7 @@ export function getMeta() {
                         className: 'nsrsbh',
                         children: ["纳税人识别号：", {
                             name: 'title',
-                            component: '::span',
+                            component: 'span',
                             children: '{{$renderTitle(data.sbbhead.nsrsbh)}}'
                         }]
                     }, {
@@ -36,7 +36,7 @@ export function getMeta() {
                         className: 'date',
                         children: '{{"税款所属期：" +(data.sbbhead.skssqq || "") + " 至 " + (data.sbbhead.skssqz || "")}}',
                     }]
-                },{
+                }, {
                     name: 'bottom',
                     component: 'div',
                     children: [{
@@ -44,7 +44,7 @@ export function getMeta() {
                         component: 'div',
                         className: 'nsrmc',
                         children: '{{"纳税人名称（公章）："+ (data.sbbhead.nsrmc || "")}}',
-                    },  {
+                    }, {
                         name: 'sbrq1',
                         component: 'div',
                         className: 'sbrq1',
@@ -62,7 +62,7 @@ export function getMeta() {
                 className: 'ttk-tax-app-zzsjmssbmxb-beijing-content-body zzsjmssbmxb',
                 children: [{
                     name: 'title1',
-                    component: '::h4',
+                    component: 'h4',
                     children: '一、减税项目'
                 }, {
                     name: 'zzsjmssbmxbjsxmTable',
@@ -81,74 +81,74 @@ export function getMeta() {
                         // scroll:{ x: 866 },
                         noCalculate: true,
                         columns: [{
-                                title: '减税性质代码及名称',
-                                dataIndex: 'hmc',
-                                key: 'hmc',
+                            title: '减税性质代码及名称',
+                            dataIndex: 'hmc',
+                            key: 'hmc',
+                            width: 128,
+                            align: 'center',
+                            render: "{{function(text, record, index){return $renderSelect('zzsjmssbmxbjsxm', index, 0, text)} }}"
+                        }, {
+                            title: '栏次',
+                            dataIndex: 'C02',
+                            key: 'C02',
+                            width: 41,
+                            align: 'center',
+                            render: "{{function(text, record, index){return index+1} }}"
+                        }, {
+                            title: '期初余额',
+                            children: [{
+                                title: '1',
+                                dataIndex: 'qcye',
+                                key: 'qcye',
+                                align: 'right',
                                 width: 128,
-                                align: 'center',
-                                render: "{{function(text, record, index){return $renderSelect('zzsjmssbmxbjsxm', index, 0, text)} }}"
-                            }, {
-                                title: '栏次',
-                                dataIndex: 'C02',
-                                key: 'C02',
-                                width: 41,
-                                align: 'center',
-                                render: "{{function(text, record, index){return index+1} }}"
-                            }, {
-                                title:'期初余额',
-                                children: [{
-                                    title: '1',
-                                    dataIndex: 'qcye',
-                                    key: 'qcye',
-                                    align: 'right',
-                                    width: 128,
-                                    render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'qcye', index, 0, text)} }}"
-                                }]
-                            },{
-                                title:'本期发生额',
-                                children: [{
-                                    title: '2',
-                                    dataIndex: 'bqfse',
-                                    key: 'bqfse',
-                                    align: 'right',
-                                    width: 128,
-                                    render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'bqfse', index, 0, text)} }}"
-                                }]
-                            },{
-                                title:'本期应抵减税额',
-                                children: [{
-                                    title: '3=1+2',
-                                    dataIndex: 'bqydjse',
-                                    key: 'bqydjse',
-                                    align: 'right',
-                                    width: 128,
-                                    render: "{{function(text, record, index){return $renderText('zzsjmssbmxbjsxm', 'bqydjse', index, record)}}}"
-                                }]
-                            },{
-                                title:'本期实际抵减税额',
-                                children: [{
-                                    title: '4≤3',
-                                    dataIndex: 'bqsjdjse',
-                                    key: 'bqsjdjse',
-                                    align: 'right',
-                                    width: 128,
-                                    render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'bqsjdjse', index, 0, text)} }}"
-                                }]
-                            },{
-                                title:'期末余额',
-                                children: [{
-                                    title: '5=3-4',
-                                    dataIndex: 'qmye',
-                                    key: 'qmye',
-                                    align: 'right',
-                                    width: 128,
-                                    render: "{{function(text, record, index){return $renderText('zzsjmssbmxbjsxm', 'qmye', index, record)}}}"
-                                }]
-                            }],
+                                render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'qcye', index, 0, text)} }}"
+                            }]
+                        }, {
+                            title: '本期发生额',
+                            children: [{
+                                title: '2',
+                                dataIndex: 'bqfse',
+                                key: 'bqfse',
+                                align: 'right',
+                                width: 128,
+                                render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'bqfse', index, 0, text)} }}"
+                            }]
+                        }, {
+                            title: '本期应抵减税额',
+                            children: [{
+                                title: '3=1+2',
+                                dataIndex: 'bqydjse',
+                                key: 'bqydjse',
+                                align: 'right',
+                                width: 128,
+                                render: "{{function(text, record, index){return $renderText('zzsjmssbmxbjsxm', 'bqydjse', index, record)}}}"
+                            }]
+                        }, {
+                            title: '本期实际抵减税额',
+                            children: [{
+                                title: '4≤3',
+                                dataIndex: 'bqsjdjse',
+                                key: 'bqsjdjse',
+                                align: 'right',
+                                width: 128,
+                                render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbjsxm', 'bqsjdjse', index, 0, text)} }}"
+                            }]
+                        }, {
+                            title: '期末余额',
+                            children: [{
+                                title: '5=3-4',
+                                dataIndex: 'qmye',
+                                key: 'qmye',
+                                align: 'right',
+                                width: 128,
+                                render: "{{function(text, record, index){return $renderText('zzsjmssbmxbjsxm', 'qmye', index, record)}}}"
+                            }]
+                        }],
                     }
                 }, {
                     name: 'title2',
-                    component: '::h4',
+                    component: 'h4',
                     children: '二、免税项目'
                 }, {
                     name: 'zzsjmssbmxbmsxmTable',
@@ -181,10 +181,10 @@ export function getMeta() {
                                 dataIndex: 'C02',
                                 key: 'C02',
                                 width: 41,
-                                align: 'center',                          
+                                align: 'center',
                                 render: "{{function(text, record, index){return index+1} }}"
                             }, {
-                                title:'免征增值税项目销售额',
+                                title: '免征增值税项目销售额',
                                 children: [{
                                     title: '1',
                                     dataIndex: 'mzzzsxmxse',
@@ -193,8 +193,8 @@ export function getMeta() {
                                     width: 139,
                                     render: "{{ function(text, record, index){return $renderInput('zzsjmssbmxbmsxm', 'mzzzsxmxse', index, 2, text)} }}"
                                 }]
-                            },{
-                                title:'免税销售额扣除项目本期实际扣除金额',
+                            }, {
+                                title: '免税销售额扣除项目本期实际扣除金额',
                                 children: [{
                                     title: '2',
                                     dataIndex: 'bqsjkcje',
@@ -203,8 +203,8 @@ export function getMeta() {
                                     width: 223,
                                     render: "{{ function(text, record, index){if(index == 1 || index == 2){return $renderNone()} return $renderInput('zzsjmssbmxbmsxm', 'bqsjkcje', index, 2, text)} }}"
                                 }]
-                            },{
-                                title:'扣除后免税销售额',
+                            }, {
+                                title: '扣除后免税销售额',
                                 children: [{
                                     title: '3=1-2',
                                     dataIndex: 'kchmsxse',
@@ -214,8 +214,8 @@ export function getMeta() {
                                     width: 128,
                                     render: "{{ function(text, record, index){if(index == 1 || index == 2){return $renderNone()} return $renderText('zzsjmssbmxbmsxm', 'kchmsxse', index, record) } }}"
                                 }]
-                            },{
-                                title:'免税销售额对应的进项税额',
+                            }, {
+                                title: '免税销售额对应的进项税额',
                                 children: [{
                                     title: '4',
                                     // dataIndex: 'msxsedyjxse',
@@ -225,8 +225,8 @@ export function getMeta() {
                                     width: 163,
                                     render: "{{ function(text, record, index){if(index == 1 || index == 2){return $renderNone()} return $renderInput('zzsjmssbmxbmsxm', 'msxsedyjxse', index, 2, text)} }}"
                                 }]
-                            },{
-                                title:'免税额',
+                            }, {
+                                title: '免税额',
                                 children: [{
                                     title: '5',
                                     dataIndex: 'mse',
@@ -235,8 +235,8 @@ export function getMeta() {
                                     width: 128,
                                     render: "{{ function(text, record, index){if(index == 1 || index == 2){return $renderNone()} return $renderText('zzsjmssbmxbmsxm', 'mse', index, record) } }}"
                                 }]
-                            },{
-                                title:'操作',
+                            }, {
+                                title: '操作',
                                 dataIndex: 'C08',
                                 key: 'C08',
                                 align: 'center',

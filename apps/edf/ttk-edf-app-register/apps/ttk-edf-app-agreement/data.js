@@ -4,14 +4,9 @@ export function getMeta() {
 		component: 'div',
 		children: [{
 			name: 'hello',
-			component: '::span',
+			component: 'span',
 			children: '{{data.content}}'
-		}/*,{
-			name:'ok',
-			component:'::button',
-			children:'OK',
-			onClick:'{{$btnClick}}' //btnClick在action中声明
-		}*/]
+		}]
 	}
 }
 

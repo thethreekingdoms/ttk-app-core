@@ -280,7 +280,7 @@ class action {
                             className: "{{data.width ? 'level-first show-content' : 'level-first hide-content'}}",
                             title: child.children.length !== 0 && [{
                                 name: 'title',
-                                component: '::span',
+                                component: 'span',
                                 className: 'leftNavMenu',
                                 children: [{
                                     name: 'icon',
@@ -290,7 +290,7 @@ class action {
                                     type: child.iconFont //'laptop'
                                 }, {
                                     name: 'title',
-                                    component: '::span',
+                                    component: 'span',
                                     className: 'menu-content',
                                     children: child.name
                                 }]
@@ -304,7 +304,7 @@ class action {
                                 type: child.iconFont //'link'
                             }, {
                                 name: 'title',
-                                component: '::span',
+                                component: 'span',
                                 className: 'menu-content',
                                 children: child.name
                             }] : loop(child.children, 2)
@@ -328,7 +328,7 @@ class action {
                             className: 'left-menu-itemgroup',
                             title: {
                                 name: 'title',
-                                component: '::span',
+                                component: 'span',
                                 children: child.name
                             },
                             component: 'Menu.ItemGroup',

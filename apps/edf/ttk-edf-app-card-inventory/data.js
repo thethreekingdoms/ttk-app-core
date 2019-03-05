@@ -61,12 +61,12 @@ export function getMeta() {
                     children: [{
                         name: 'info',
                         className: 'info',
-                        component: '::span',
+                        component: 'span',
                         children: '存货信息'
                     }, {
                         name: 'line',
                         className: 'line',
-                        component: '::span',
+                        component: 'span',
                         children: ''
                     }]
                 }, {

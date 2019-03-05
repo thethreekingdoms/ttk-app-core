@@ -5,7 +5,7 @@ export function getMeta() {
 		className: 'ttk-edf-app-pagestyle',
 		children: [{
 			name: 'demo',
-			component: '::span',
+			component: 'span',
 			className: 't-skin-content',
 			children: [{
 				name: 'tips1',
@@ -18,7 +18,7 @@ export function getMeta() {
 				className: 't-skin-row t-selects t-layout-selects',
 				children: [{
 					name: 'a2',
-					component: '::a',
+					component: 'a',
 					_visible: false,
 					//onClick:'{{function(){{$layOutChange("T","change")}}}}',
 					className: 't-selects-option L',
@@ -48,11 +48,11 @@ export function getMeta() {
 							},
 							{
 								name: 'childright2-2',
-								component: '::span',
+								component: 'span',
 								className: 'skin-layout-content',
 								children: [{
 									name: 'childright2-2-title',
-									component: '::span',
+									component: 'span',
 									children: 'L形'
 								}]
 							}
@@ -60,7 +60,7 @@ export function getMeta() {
 					}]
 				}, {
 					name: 'a3',
-					component: '::a',
+					component: 'a',
 					onClick: '{{function(){{$layOutChange("T","change")}}}}',
 					className: 't-selects-option top',
 					'data-skinlayout': 'top',
@@ -87,11 +87,11 @@ export function getMeta() {
 							className: 'skin-layout-top'
 						}, {
 							name: 'child32-2',
-							component: '::span',
+							component: 'span',
 							className: 'skin-layout-content',
 							children: [{
 								name: 'child2conent-title',
-								component: '::span',
+								component: 'span',
 								children: '顶端'
 							}]
 						}]
@@ -99,7 +99,7 @@ export function getMeta() {
 
 				}, {
 					name: 'a1',
-					component: '::a',
+					component: 'a',
 					_visible: true,
 					onClick: '{{function(){{$layOutChange("L","change")}}}}',
 					className: 't-selects-option left selected',
@@ -120,17 +120,17 @@ export function getMeta() {
 						},
 						{
 							name: 'child2content',
-							component: '::span',
+							component: 'span',
 							className: 'skin-layout-content',
 							children: [{
 								name: 'child2conent-title',
-								component: '::span',
+								component: 'span',
 								children: '左侧'
 							}]
 						}]
 					}, {
 						name: 'child3',
-						component: '::span',
+						component: 'span',
 						className: 'ticonfont ticonfont-selected'
 					}]
 				}]
@@ -145,24 +145,24 @@ export function getMeta() {
 				className: 't-skin-row t-color-selects',
 				children: [{
 					name: 'skin1',
-					component: "::a",
+					component: "a",
 					onClick: '{{function(){{$toggleColor("#416AAA","change")}}}}',
 					className: 'skinBtns skinBlue',
 					"data-skin": "skinBlue	",
 					children: [{
 						name: 'skin1title',
-						component: '::p',
+						component: 'p',
 						children: '商务蓝'
 					}]
 				}, {
 					name: 'skin2',
-					component: "::a",
+					component: "a",
 					className: 'skinBtns skinGray',
 					onClick: '{{function(){{$toggleColor("#414141","change")}}}}',
 					"data-skin": "skinGray",
 					children: [{
 						name: 'skin2title',
-						component: '::p',
+						component: 'p',
 						children: '经典灰'
 					}]
 				}]
@@ -177,7 +177,7 @@ export function getMeta() {
 				className: 't-skin-row t-color-selects',
 				children: [{
 					name: 'skin1',
-					component: "::a",
+					component: "a",
 					className: 'skinBtns2',
 					children: [{
 						name: 'bg1',
@@ -186,7 +186,7 @@ export function getMeta() {
 					}]
 				}, {
 					name: 'skin2',
-					component: "::a",
+					component: "a",
 					className: 'skinBtns2',
 					children: [{
 						name: 'bg2',
@@ -195,7 +195,7 @@ export function getMeta() {
 					}]
 				}, {
 					name: 'skin3',
-					component: "::a",
+					component: "a",
 					className: 'skinBtns2',
 					children: [{
 						name: 'bg3',

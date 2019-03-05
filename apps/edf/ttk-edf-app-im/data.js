@@ -5,7 +5,7 @@ export function getMeta() {
 		className: 'ttk-edf-app-im',
 		children: [{
 			name: 'demo',
-			component: '::span',
+			component: 'span',
 			className: 'ttk-edf-app-im-div',
 			children: [
 			]

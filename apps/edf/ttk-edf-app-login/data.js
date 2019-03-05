@@ -14,12 +14,12 @@ export function getMeta() {
 				className: 'ttk-edf-app-login-header-left',
 				children: [{
 					name: 'logo',
-					component: '::img',
+					component: 'img',
 					className: 'ttk-edf-app-login-header-left-logo',
 					src: '{{$getLogo()}}'
 				}, {
 					name: 'sitename',
-					component: '::span',
+					component: 'span',
 					className: 'ttk-edf-app-login-header-left-sitename',
 					children: '企业开发平台'
 				}, {
@@ -29,13 +29,13 @@ export function getMeta() {
 				}, {
 					name: 'item',
 					className: 'ttk-edf-app-login-header-left-login',
-					component: '::span',
+					component: 'span',
 					children: '企业登录'
 				}]
 			}, {
 				name: 'header-right',
 				className: 'ttk-edf-app-login-header-right',
-				component: '::a',
+				component: 'a',
 				onClick: '{{$goRegisterA}}',
 				children: ['立即注册']
 			}]
@@ -125,19 +125,19 @@ export function getMeta() {
 					}, {
 						name: 'register',
 						className: 'ttk-edf-app-login-content-form-more-register',
-						component: '::a',
+						component: 'a',
 						style: { float: 'right' },
 						onClick: '{{$goRegisterB}}',
 						children: '立即注册'
 					}, {
 						name: '',
-						component: '::i',
+						component: 'i',
 						style: { float: 'right', margin: '0 10px', fontStyle: 'normal' },
 						children: '|'
 					}, {
 						name: 'forgot',
 						className: 'ttk-edf-app-login-content-form-more-forget',
-						component: '::a',
+						component: 'a',
 						style: { float: 'right' },
 						onClick: '{{$goForgot}}',
 						children: '忘记密码'
@@ -150,10 +150,10 @@ export function getMeta() {
 			component: 'Layout',
 			children: [{
 				name: 'item1',
-				component: '::p',
+				component: 'p',
 				children: [{
 					name: 'item2',
-					component: '::a',
+					component: 'a',
 					href: 'https://github.com/thethreekingdoms/ttk-app-core',
 					children: 'ttk-app-core'
 				}]

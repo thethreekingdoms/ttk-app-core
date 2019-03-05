@@ -18,7 +18,7 @@ export function getMeta() {
                         className: 'nsrsbh',
                         children: ["纳税人识别号：", {
                             name: 'title',
-                            component: '::span',
+                            component: 'span',
                             children: '{{$renderTitle(data.sbbhead.nsrsbh)}}'
                         }]
                     }, {

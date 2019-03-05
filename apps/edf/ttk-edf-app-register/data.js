@@ -14,31 +14,31 @@ export function getMeta() {
 				component: 'Layout',
 				className: 'ttk-edf-app-register-header-left',
 				children: [
-				// 	{
-				// 	name: 'logo',
-				// 	component: '::img',
-				// 	className: 'ttk-edf-app-login-header-left-logo',
-				// 	src: '{{$getLogo()}}'
-				// },
-				{
-					name: 'sitename',
-					component: '::span',
-					className: 'ttk-edf-app-login-header-left-sitename',
-					children: '企业开发平台'
-				}, {
-					name: 'split',
-					component: 'div',
-					className: 'ttk-edf-app-login-header-left-split',
-				}, {
-					name: 'item',
-					className: 'ttk-edf-app-login-header-left-login',
-					component: '::span',
-					children: '企业注册'
-				}]
+					// 	{
+					// 	name: 'logo',
+					// 	component: 'img',
+					// 	className: 'ttk-edf-app-login-header-left-logo',
+					// 	src: '{{$getLogo()}}'
+					// },
+					{
+						name: 'sitename',
+						component: 'span',
+						className: 'ttk-edf-app-login-header-left-sitename',
+						children: '企业开发平台'
+					}, {
+						name: 'split',
+						component: 'div',
+						className: 'ttk-edf-app-login-header-left-split',
+					}, {
+						name: 'item',
+						className: 'ttk-edf-app-login-header-left-login',
+						component: 'span',
+						children: '企业注册'
+					}]
 			}, {
 				name: 'header-right',
 				className: 'ttk-edf-app-register-header-right',
-				component: '::a',
+				component: 'a',
 				onClick: '{{$goLogin}}',
 				children: ['登录']
 			}]
@@ -64,19 +64,19 @@ export function getMeta() {
 						name: 'title',
 						className: 'ttk-edf-app-register-form-bar-step-icon',
 						component: 'div',
-						style: {background: '#1EB5AD',borderColor: '#1EB5AD',color: '#fff'},
+						style: { background: '#1EB5AD', borderColor: '#1EB5AD', color: '#fff' },
 						children: ['1']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						className: 'ttk-edf-app-register-form-bar-step-description',
-						style: {color: '#1EB5AD'},
+						style: { color: '#1EB5AD' },
 						children: ['设置用户名']
 					}]
 				}, {
 					name: 'line1',
 					className: '{{data.other.step >= 2 ? "ttk-edf-app-register-form-bar-line active" : "ttk-edf-app-register-form-bar-line"}}',
-					component: '::span',
+					component: 'span',
 				}, {
 					name: 'step2',
 					component: 'div',
@@ -89,7 +89,7 @@ export function getMeta() {
 						children: ['2']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						style: "{{data.other.step>=2?{color: '#1EB5AD'}:{color: '#666666'}}}",
 						className: 'ttk-edf-app-register-form-bar-step-description',
 						children: ['企业信息']
@@ -97,7 +97,7 @@ export function getMeta() {
 				}, {
 					name: 'line2',
 					className: '{{data.other.step >= 3 ? "ttk-edf-app-register-form-bar-line active" : "ttk-edf-app-register-form-bar-line"}}',
-					component: '::span',
+					component: 'span',
 				}, {
 					name: 'step3',
 					component: 'div',
@@ -110,7 +110,7 @@ export function getMeta() {
 						children: ['3']
 					}, {
 						name: 'description',
-						component: '::span',
+						component: 'span',
 						style: "{{data.other.step==3?{color: '#1EB5AD'}:{color: '#666666'}}}",
 						className: 'ttk-edf-app-register-form-bar-step-description',
 						children: ['注册成功']
@@ -133,10 +133,10 @@ export function getMeta() {
 					onBlur: "{{function(e){$fieldChange('data.form.mobile', e.target.value, 'next')}}}",
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -159,10 +159,10 @@ export function getMeta() {
 					// onBlur: "{{function(e){$fieldChange('data.form.password',e.target.value, 'next')}}}",
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -184,17 +184,17 @@ export function getMeta() {
 					onChange: "{{function(e){$setField('data.form.captcha',e.target.value)}}}",
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					},
 					addonAfter: {
 						name: 'suffix',
 						component: 'Button',
-						style:{fontSize: "14px",color: '#999999', width: '88px'},
+						style: { fontSize: "14px", color: '#999999', width: '88px' },
 						disabled: '{{!data.form.mobile || !!data.other.error.mobile || !data.timeStaus }}',
 						onClick: '{{$getCaptcha}}',
 						children: '{{data.time}}'
@@ -216,10 +216,10 @@ export function getMeta() {
 					onBlur: `{{function(e){$fieldChange('data.form.org',e.target.value)}}}`,
 					prefix: {
 						name: 'prefix',
-						component: '::span',
+						component: 'span',
 						children: [{
 							name: 'require',
-							component: '::span',
+							component: 'span',
 							className: 'ant-form-item-required'
 						}]
 					}
@@ -231,7 +231,7 @@ export function getMeta() {
 				children: [{
 					name: 'industry',
 					component: 'Select',
-					showSearch:false,
+					showSearch: false,
 					defaultValue: '{{data.industry && data.industry[0].id}}',
 					placeholder: "行业",
 					//onFocus: '{{$industrysFocus}}',
@@ -253,7 +253,7 @@ export function getMeta() {
 				children: [{
 					name: 'vatTaxpayer',
 					component: 'Select',
-					showSearch:false,
+					showSearch: false,
 					value: '{{data.form.vatTaxpayer}}',
 					placeholder: "请选择纳税人身份",
 					onFocus: '{{function(){$setField("data.other.error.vatTaxpayer", null)}}}',
@@ -290,18 +290,18 @@ export function getMeta() {
 				required: true,
 				children: [{
 					name: 'item1',
-					component: '::span',
+					component: 'span',
 					children: '启用期间：'
 				}, {
 					name: 'item2',
-					component: '::span',
+					component: 'span',
 					children: '{{data.form.enableDate}}'
 				}, {
 					name: 'item3',
 					component: 'Icon',
 					className: 'editBtn',
 					fontFamily: 'edficon',
-                    type: 'bianji',
+					type: 'bianji',
 					onClick: '{{$changeDateState}}'
 				}]
 			}, {
@@ -312,18 +312,18 @@ export function getMeta() {
 				required: true,
 				children: [{
 					name: 'item1',
-					component: '::span',
+					component: 'span',
 					children: '会计准则：'
 				}, {
 					name: 'item1',
-					component: '::span',
+					component: 'span',
 					children: '{{data.form.accountingStandardsName}}'
 				}, {
 					name: 'item3',
 					component: 'Icon',
 					className: 'editBtn',
 					fontFamily: 'edficon',
-                    type: 'bianji',
+					type: 'bianji',
 					onClick: '{{$changeStandardState}}'
 				}]
 			}, {
@@ -335,7 +335,7 @@ export function getMeta() {
 				children: [{
 					name: 'accountingStandards',
 					component: 'Select',
-					showSearch:false,
+					showSearch: false,
 					value: '{{data.form.accountingStandard}}',
 					placeholder: "会计准则",
 					onFocus: '{{function(){$setField("data.other.error.accountingStandards", null)}}}',
@@ -364,10 +364,10 @@ export function getMeta() {
 				name: 'back',
 				component: 'div',
 				_visible: '{{data.other.step >= 2}}',
-				className:'backLastStep',
+				className: 'backLastStep',
 				children: {
 					name: 'content',
-					component: '::span',
+					component: 'span',
 					onClick: '{{$backLastStep}}',
 					children: '返回上一步'
 				}
@@ -383,20 +383,20 @@ export function getMeta() {
 					children: '同意'
 				}, {
 					name: 'agreement',
-					component: '::a',
+					component: 'a',
 					onClick: '{{$showAgreement}}',
 					className: 'protocol',
-					style: {color: '#1EB5AD'},
+					style: { color: '#1EB5AD' },
 					children: '《用户协议条款》'
 				}, {
 					name: 'login',
-					component: '::span',
+					component: 'span',
 					className: 'gologin',
 					style: { float: 'right' },
 					children: ['已有账户 ', {
 						name: 'login',
-						component: '::a',
-						style: {color: '#1EB5AD'},
+						component: 'a',
+						style: { color: '#1EB5AD' },
 						children: '请登录',
 						onClick: '{{$goLogin}}'
 					}]
@@ -408,23 +408,23 @@ export function getMeta() {
 			component: 'Layout',
 			children: [{
 				name: 'item1',
-				component: '::p',
+				component: 'p',
 				children: [{
 					name: 'item1',
-					component: '::span',
+					component: 'span',
 					children: '企业开发平台'
 				}
-				// , {
-				// 	name: 'item2',
-				// 	component: '::a',
-				// 	href: 'http://www.miitbeian.gov.cn',
-				// 	children: '14007298'
-				// }, {
-				// 	name: 'item3',
-				// 	component: '::span',
-				// 	children: '号'
-				// }
-			]
+					// , {
+					// 	name: 'item2',
+					// 	component: 'a',
+					// 	href: 'http://www.miitbeian.gov.cn',
+					// 	children: '14007298'
+					// }, {
+					// 	name: 'item3',
+					// 	component: 'span',
+					// 	children: '号'
+					// }
+				]
 			}]
 		}]
 	}
@@ -433,29 +433,29 @@ export function getMeta() {
 
 export function getInitState(option) {
 
-    let state = {
-        data: {
-            form: {
-                mobile: '',
-                password: '',
-                captcha: '',
-                org: '',
-                industry: '',
-                agree: true,
-                enableDate: '',
-                accountingStandard: '',
-                accountingStandardsName: ''
-            },
-            time: '获取验证码',
-            timeStaus:true,
-            other: {
-                sysOrg: {},
-                step: 1,
-                error: {},
-                editDate: true,
-                editStandard: true
-            }
-        }
-    }
-    return state
+	let state = {
+		data: {
+			form: {
+				mobile: '',
+				password: '',
+				captcha: '',
+				org: '',
+				industry: '',
+				agree: true,
+				enableDate: '',
+				accountingStandard: '',
+				accountingStandardsName: ''
+			},
+			time: '获取验证码',
+			timeStaus: true,
+			other: {
+				sysOrg: {},
+				step: 1,
+				error: {},
+				editDate: true,
+				editStandard: true
+			}
+		}
+	}
+	return state
 }

@@ -12,7 +12,7 @@ import edfx_app_column_setting from './ttk-edf-app-column/apps/edfx-app-column-s
 import edfx_app_column_type from './ttk-edf-app-column/apps/edfx-app-column-type'
 import ttk_edf_app_company_manage from './ttk-edf-app-company-manage'
 import ttk_edf_app_company_manage_add from './ttk-edf-app-company-manage/apps/ttk-edf-app-company-manage-add'
-import ttk_edf_app_devtools from './ttk-edf-app-devtools'
+// import ttk_edf_app_devtools from './ttk-edf-app-devtools'
 import ttk_edf_app_enum from './ttk-edf-app-enum'
 import edfx_app_tree_table_detail from './ttk-edf-app-enum/apps/edfx-app-tree-table-detail'
 import edfx_app_tree_table_type from './ttk-edf-app-enum/apps/edfx-app-tree-table-type'
@@ -62,7 +62,7 @@ const obj = {
   [edfx_app_column_type.name]: edfx_app_column_type,
   [ttk_edf_app_company_manage.name]: ttk_edf_app_company_manage,
   [ttk_edf_app_company_manage_add.name]: ttk_edf_app_company_manage_add,
-  [ttk_edf_app_devtools.name]: ttk_edf_app_devtools,
+  //[ttk_edf_app_devtools.name]: ttk_edf_app_devtools,
   [ttk_edf_app_enum.name]: ttk_edf_app_enum,
   [edfx_app_tree_table_detail.name]: edfx_app_tree_table_detail,
   [edfx_app_tree_table_type.name]: edfx_app_tree_table_type,

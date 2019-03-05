@@ -13,11 +13,11 @@ export function getMeta() {
 				className: 'ttk-edf-app-hot-search-widget-top-left',
 				children: [{
 					name: 'title',
-					component: '::span',
+					component: 'span',
 					children: '搜索用户数'
 				}, {
 					name: 'total',
-					component: '::h2',
+					component: 'h2',
 					children: '{{data.userCount.total}}'
 				}, {
 					name: 'chart',
@@ -31,11 +31,11 @@ export function getMeta() {
 				className: 'ttk-edf-app-hot-search-widget-top-right',
 				children: [{
 					name: 'title',
-					component: '::span',
+					component: 'span',
 					children: '搜索次数'
 				}, {
 					name: 'total',
-					component: '::h2',
+					component: 'h2',
 					children: '{{data.searchCount.total}}'
 				}, {
 					name: 'chart',

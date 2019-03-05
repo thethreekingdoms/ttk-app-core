@@ -9,7 +9,7 @@ export function getMeta() {
 			className: 'ttk-edf-app-visit-widget-header',
 			children: [{
 				name: 'left',
-				component: '::span',
+				component: 'span',
 				children: '总访问量'
 			}, {
 				name: 'right',
@@ -20,7 +20,7 @@ export function getMeta() {
 			}]
 		}, {
 			name: 'text',
-			component: '::p',
+			component: 'p',
 			className: 'ttk-edf-app-visit-widget-text',
 			children: '{{$numberFormat(data.total)}}'
 		}, {
@@ -75,11 +75,11 @@ export function getMeta() {
 			className: 'ttk-edf-app-visit-widget-footer',
 			children: [{
 				name: 'label',
-				component: '::span',
+				component: 'span',
 				children: '日均访问量'
 			}, {
 				name: 'value',
-				component: '::h2',
+				component: 'h2',
 				children: '{{$numberFormat(data.average)}}'
 			}]
 		}]
