@@ -6,7 +6,7 @@ import metaEngine from 'edf-meta-engine'
 import utils from 'edf-utils'
 import webapi from 'webapi'
 
-
+import { changeTheme } from '../changeTheme'
 
 window['edf-app-loader'] = appLoader
 window['edf-component'] = component
@@ -16,3 +16,6 @@ window['edf-meta-engine'] = metaEngine
 window['edf-utils'] = utils
 window['edf-webapi'] = webapi
 
+
+let origin = location.origin
+changeTheme(origin, '#1EB5AD')
