@@ -4,6 +4,7 @@
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8000 --host 0.0.0.0",
     "release:ie8": "etool-build --hash --config webpack.config.ie.js",
     "splitcss": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
     "stats": "webpack NODE_ENV=production -config webpack.config.prd.js --profile --json > stats.json",
@@ -132,7 +133,7 @@
     "url-loader": "^0.6.2",
     "vinyl-fs": "^3.0.3",
     "webpack": "^1.15.0",
-    "webpack-dev-server": "^2.11.1",
+    "webpack-dev-server": "^1.15.0",
     "webpack-manifest-plugin": "^2.0.2",
     "webpack-merge": "^4.1.4",
     "webpack-parallel-uglify-plugin": "^1.1.0"

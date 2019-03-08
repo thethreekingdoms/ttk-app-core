@@ -25,7 +25,7 @@ export function getMeta() {
 export function getInitState() {
 	return {
 		data: {
-			content: 'Hello',
+			content: 'Hello ie8',
 			input: '',
 			version: 'v1.0.0'
 		}

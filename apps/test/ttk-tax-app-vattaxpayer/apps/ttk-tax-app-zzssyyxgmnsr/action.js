@@ -298,6 +298,7 @@ class action {
     onInit = ({ component, injections }) => {
         this.component = component
         this.injections = injections
+        let addEventListener = this.component.props.addEventListener
         if (addEventListener) {
             addEventListener('click', ::this.onClick)
         }
@@ -323,9 +324,33 @@ class action {
             } else if (window.attachEvent) {
                 formData.attachEvent('onkeydown', this.keydown)
             }
-            let inputs = document.getElementsByClassName('ant-input mk-input-number')
+
+            let selectClass = document.getElementsByClassName
+            if(!selectClass) {
+                selectClass = this.id8SelectDom
+            }
+
+            let inputs = selectClass('ant-input mk-input-number')
+            if(inputs && inputs.length) {
                 inputs[0].focus()
+            }
         }, 500)  
+    }
+
+    id8SelectDom = (className, element) => {
+        var children = (element || document).getElementsByTagName('*');
+        var elements = new Array();
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            var classNames = child.className.split(' ');
+            for (var j = 0; j < classNames.length; j++) {
+                if (classNames[j] == className) {
+                    elements.push(child);
+                    break;
+                }
+            }
+        }
+        return elements;
     }
 
     componentWillUnmount = () => {
@@ -525,7 +550,13 @@ class action {
 
     handleEnter = (e, rowIndex, columnName) => {
         if (e.keyCode == 13 || e.key == 'Enter' || e.keyCode == 108) {
-            let inputs = document.getElementsByClassName('ant-input mk-input-number'),
+
+            let selectClass = document.getElementsByClassName
+            if(!selectClass) {
+                selectClass = this.id8SelectDom
+            }
+
+            let inputs = selectClass('ant-input mk-input-number'),
                 formInputs = document.querySelectorAll('.formData .ant-input'),
                 formSelect = document.querySelector('.formData .ant-select-selection'),
                 inputList = [],
@@ -621,7 +652,12 @@ class action {
         this.injections.reduce('setData' , res )
         if( focusBtnIndex !== undefined ) {
             setTimeout(() => {
-                let inputs = document.getElementsByClassName('ant-input mk-input-number'),
+                let selectClass = document.getElementsByClassName
+                if(!selectClass) {
+                    selectClass = this.id8SelectDom
+                }
+
+                let inputs = selectClass('ant-input mk-input-number'),
                 formInputs = document.querySelectorAll('.formData .ant-input'),
                 formSelect = document.querySelector('.formData .ant-select-selection'),
                 inputList = [],

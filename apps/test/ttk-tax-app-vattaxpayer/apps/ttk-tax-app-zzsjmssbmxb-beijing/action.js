@@ -78,6 +78,7 @@ class action {
     onInit = ({ component, injections }) => {
 		this.component = component
         this.injections = injections
+        let addEventListener = this.component.props.addEventListener
         if (addEventListener) {
             addEventListener('onClick', ::this.onClick)
         }

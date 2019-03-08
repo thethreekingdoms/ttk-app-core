@@ -35,6 +35,7 @@ let getSumRowCheckList = (index) => {
         needHaveName: 'zzsjmssbmxb'
     }]
 }
+
 class action {
     constructor(option) {
         this.metaAction = option.metaAction

@@ -51,7 +51,7 @@ function config(options) {
 			},
 		},
 		'ttk-edf-app-root': {
-			startAppName: _options.apps['ttk-edf-app-login'] ? 'ttk-edf-app-login' : 'app-test',
+			startAppName: _options.apps['ttk-edf-app-login'] ? 'ttk-edf-app-login' : 'ttk-tax-app-vattaxpayer',
 		}
 	})
 
