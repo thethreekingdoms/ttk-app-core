@@ -14,6 +14,10 @@ export function getMeta() {
 			className: 'ttk-tax-app-vatTaxpayer-help',
 			onClick: '{{$showHelp}}',
 			_visible: '{{!data.showHelp}}',
+			style: {
+				position: 'absolute',
+				top: '14px',
+			},
 			children: [{
 				name: 'help',
 				component: 'Icon',
@@ -36,8 +40,8 @@ export function getMeta() {
 			style: {
 				marginLeft: '96px',
 				position: 'absolute',
-				top: '13px',
-				left: '12px',
+				top: '14px',
+				left: '30px',
 				zIndex: 999
 			},
 			children: [
@@ -91,7 +95,12 @@ export function getMeta() {
 				cursor: 'e-resize'
 			},
 			pane1Style: {
-				width: 0
+				// width: 0
+				float: 'left'
+			},
+			pane2Style: {
+				overflow: 'scroll',
+				height: '100%',
 			},
 			children: [
 				{
@@ -142,7 +151,7 @@ export function getMeta() {
 						component: 'div',
 						className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv',
 						children:[
-							{
+							/*{
 								component: 'div',
 								style: {
 									float: 'left'
@@ -166,7 +175,7 @@ export function getMeta() {
 										onClick: '{{$refresh}}'
 									}
 								]
-							},
+							},*/
 							{
 								component: 'div',
 								className: 'ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv-title',

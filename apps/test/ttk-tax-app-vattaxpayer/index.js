@@ -1,6 +1,3 @@
-//
-//
-
 export default {
 	name: "ttk-tax-app-vattaxpayer",
 	version: "1.0.0",	

@@ -35,6 +35,11 @@ module.exports = function (webpackConfig) {
     loader: 'es3ify-loader',
   });
 
+  webpackConfig.module.loaders.push({
+    test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+    loader: 'url-loader?limit=10000',
+  })
+
   if (webpackConfig.UglifyJsPluginConfig) {
     webpackConfig.UglifyJsPluginConfig.output.beautify = false
     webpackConfig.UglifyJsPluginConfig.mangle = false
@@ -42,14 +47,14 @@ module.exports = function (webpackConfig) {
 
 
   // Parse all less files as css module.
-  //webpackConfig.module.loaders.forEach(function (loader, index) {
+  // webpackConfig.module.loaders.forEach(function (loader, index) {
   // if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
   //   loader.test = /\.dont\.exist\.file/;
   // }
   // if (loader.test.toString() === '/\\.module\\.less$/') {
   //   loader.test = /\.less$/;
   // }
-  //if (loader.loader && loader.loader.indexOf('babel-loader') > -1) {
+  // if (loader.loader && loader.loader.indexOf('babel-loader') > -1) {
   // if( loader.query && loader.query.presets ) {
   //   loader.query.presets.push(['es2015', { loose: true, modules: false }])
   // }else {
@@ -57,12 +62,15 @@ module.exports = function (webpackConfig) {
   //     presets: [ ['es2015', { loose: true, modules: false }] ]
   //   }
   // }
-  //}
-  //});
+  // }
+  // });
   webpackConfig.entry = {
     index: './index.js',
-    businessBlue: "./assets/styles/businessBlue.less",
-    ie: "./assets/styles/ie.less",
+    // edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils"],
+    // edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
+    businessBlue: "./assets/styles/businessBlue.css",
+    ie: "./assets/styles/ie.css",
+    icon: "./component/assets/style/iconset.css",
   }
   webpackConfig.output.path = webpackConfig.output.path
   console.log(webpackConfig.output.path)

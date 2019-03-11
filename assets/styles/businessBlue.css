@@ -1,0 +1,1428 @@
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  padding: 0px 5px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  padding-top: 4px;
+  width: 6px;
+  background: #c2c2c2;
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  background: rgba(114, 114, 114, 0.8);
+}
+.ant-select-dropdown-menu {
+  overflow: auto;
+}
+.ant-input {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+.ant-calendar-picker-icon {
+  right: 8px !important;
+}
+.ant-select-arrow {
+  right: 8px !important;
+}
+.ant-calendar-picker-clear {
+  display: none !important;
+}
+.ant-message span .ant-message-notice:first-child {
+  top: 41px;
+}
+.ant-modal-header,
+.ant-modal-body {
+  padding: 12px;
+}
+.app-test {
+  align-items: center;
+  margin: 0 auto;
+}
+.app-test-div {
+  text-align: center;
+}
+.app-test2 {
+  align-items: center;
+  margin: 0 auto;
+}
+.app-test2-div {
+  text-align: center;
+}
+.ttk-tax-app-vatTaxpayer {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+}
+.ttk-tax-app-vatTaxpayer .ant-select-selection__clear {
+  right: 22px;
+}
+.ttk-tax-app-vatTaxpayer .bg-check {
+  border: 1px solid #FF9E2A;
+}
+.ttk-tax-app-vatTaxpayer .edficon {
+  cursor: pointer;
+}
+.ttk-tax-app-vatTaxpayer-help {
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 13px;
+  padding: 0 8px 0 5px;
+}
+.ttk-tax-app-vatTaxpayer-help .edficon {
+  font-size: 24px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.ttk-tax-app-vatTaxpayer-help span {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+.ttk-tax-app-vatTaxpayer .refresh-btn {
+  padding: 0;
+  position: relative;
+}
+.ttk-tax-app-vatTaxpayer .refresh {
+  color: #45ACF7;
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+}
+.ttk-tax-app-vatTaxpayer .refresh:hover {
+  border-color: #45ACF7;
+  color: #45ACF7;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-nav-container {
+  margin-right: 94px;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-nav-container-scrolling {
+  padding-left: 24px;
+  padding-right: 15px;
+}
+.ttk-tax-app-vatTaxpayer .anticon-xuanzebiaodan {
+  font-size: 23px!important;
+  position: relative;
+  top: 3px;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-prev {
+  left: 12px;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-prev:hover,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-next:hover {
+  color: #414141;
+  border: 1px solid #414141;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-btn-disabled,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-btn-disabled:hover {
+  color: #D6D6D6;
+  border: 1px solid #D6D6D6;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-prev,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-next {
+  width: 13px;
+  border: 1px solid #ccc;
+}
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-prev .ant-tabs-tab-prev-icon,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-next .ant-tabs-tab-prev-icon,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-prev .ant-tabs-tab-next-icon,
+.ttk-tax-app-vatTaxpayer .ant-tabs-tab-next .ant-tabs-tab-next-icon {
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /* IE 9 */
+  -webkit-transform: translate(-50%, -50%);
+  /* Safari and Chrome */
+  -o-transform: translate(-50%, -50%);
+  /* Opera */
+  -moz-transform: translate(-50%, -50%);
+  /* Firefox */
+}
+.ttk-tax-app-vatTaxpayer-wraper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 6px 12px;
+  background: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-top {
+  height: 29px;
+  line-height: 28px;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 0 5px;
+  position: relative;
+  font-size: 12px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .edficon {
+  font-size: 24px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .help {
+  display: table-cell;
+  vertical-align: middle;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .close {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  color: rgba(0, 0, 0, 0.45);
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .close:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-tabs-bar {
+  margin-bottom: 5px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-menu-vertical > .ant-menu-item {
+  height: 31px;
+  line-height: 31px;
+  font-size: 12px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-tabs-nav .ant-tabs-tab {
+  height: 100%;
+  text-align: center;
+  padding: 7px 16px;
+  font-size: 12px;
+  margin: 0;
+  width: 105px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-collapse {
+  font-size: 12px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-collapse .ant-collapse-content {
+  border-top: none;
+  padding: 0;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  line-height: 22px;
+  padding: 4px 0 4px 40px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-menuName,
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-menuName1 {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-menuName,
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-menuName1 {
+  margin-right: 18px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-errorNum {
+  display: inline-block;
+  width: 32px;
+  height: 15px;
+  border-radius: 50%;
+  line-height: 15px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  margin-right: 0px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-errorNum i {
+  color: #F88459;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-errorNum span {
+  display: inline-block;
+  width: 32px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  color: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-empty {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  line-height: 15px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  margin-right: 8px;
+  color: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-downIcon {
+  position: absolute;
+  right: 3px;
+  top: 5px;
+  font-size: 20px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-downIcon:hover {
+  color: #414141;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft-lineSpan {
+  display: inline-block;
+  height: 0px;
+  border: 1px dotted #222;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable {
+  height: 100%;
+  display: inline-block;
+  background: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn.disabled .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn[disabled] .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn.disabled:hover .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn[disabled]:hover .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn.disabled:focus .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn[disabled]:focus .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn.disabled:active .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn[disabled]:active .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn.disabled.active .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-btn[disabled].active .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu {
+  background-color: #f5f5f5;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-dayin,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu {
+  text-align: center;
+  box-sizing: border-box;
+  background: #fff;
+  margin-left: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-dayin:hover {
+  color: #45acf7;
+  cursor: pointer;
+  border-color: #45acf7;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-dropdown-trigger {
+  margin-left: 8px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu {
+  border: 0px;
+  height: 28px;
+  margin-left: 0px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .daochubtn {
+  color: #00B38A;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .daochubtn:hover {
+  border: 1px solid #00B38A !important;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .daochubtn .ttk-tax-app-vatTaxpayer-daochubtn-down {
+  position: relative;
+  top: -5px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-InitBut {
+  border-color: #414141;
+  color: #414141;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-InitBut:hover {
+  background: #414141;
+  color: #fff;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-saveBut,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-declareBut,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-resetBut,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-createData,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-excel,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-InitBut,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-invoice,
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .selectTable {
+  margin-left: 8px;
+  top: -5px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .edficon-xia {
+  position: relative;
+  top: -5px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv {
+  height: 54px;
+  width: 100%;
+  padding: 12px;
+  position: relative;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formHeadDiv-title {
+  width: 150px;
+  font-size: 18px;
+  color: #333;
+  position: absolute;
+  left: 50%;
+  margin-left: -75px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable {
+  position: relative;
+  width: 100%;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .mk-table {
+  border-left: 0;
+  border-bottom: 0;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-formContentDiv {
+  height: -moz-calc(100% - 86px);
+  height: -webkit-calc(100% - 86px);
+  height: calc(100% - 86px);
+  width: 100%;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable input.ant-input.mk-input-number {
+  font-size: 12px;
+  text-align: right;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-select {
+  font-size: 12px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-select.message .ant-select-selection--single {
+  border: 1px solid #FF9E2A;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-table-tbody > tr > td {
+  position: relative;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-tabs-tab {
+  padding: 5px 16px;
+}
+.ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .ant-tabs-bar {
+  margin-bottom: 0px;
+}
+.ttk-tax-app-vatTaxpayer .theader {
+  margin: 8px 13px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.ttk-tax-app-vatTaxpayer .bg-check {
+  border: 1px solid #FF9E2A;
+}
+.ttk-tax-app-vatTaxpayer td input {
+  height: 26px;
+}
+.ttk-tax-app-vatTaxpayer .ant-menu-vertical > .ant-menu-item {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0 8px;
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse-borderless > .ant-collapse-item {
+  border-bottom: none;
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse > .ant-collapse-item {
+  border-bottom: none;
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse .ant-collapse-item .ant-collapse-header {
+  padding-left: 9px !important;
+  color: #2f2f2f;
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse .ant-collapse-item .ant-collapse-header .dashed {
+  padding-bottom: 3px;
+  margin-left: 6px;
+  display: inline-block;
+  border-top: 1px dashed #979797;
+  width: -moz-calc(100% - 77px);
+  width: -webkit-calc(100% - 77px);
+  width: calc(100% - 77px);
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse .ant-collapse-item .ant-collapse-content > .ant-collapse-content-box {
+  padding: 5px 3px 3px 9px;
+  color: #6C6B6B;
+}
+.ttk-tax-app-vatTaxpayer .ant-collapse > .ant-collapse-item > .ant-collapse-header[aria-expanded="true"] .anticon {
+  transform: rotate(180deg) !important;
+}
+.ttk-tax-app-vatTaxpayer .ant-btn-primary[disabled],
+.ttk-tax-app-vatTaxpayer .ant-btn-primary[disabled]:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+}
+.ttk-tax-app-vatTaxpayer .ant-btn[disabled],
+.ttk-tax-app-vatTaxpayer .ant-btn[disabled]:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+}
+.ttk-tax-app-vatTaxpayer .ant-btn[disabled] .edficon,
+.ttk-tax-app-vatTaxpayer .ant-btn[disabled]:hover .edficon {
+  background-color: #f5f5f5;
+}
+.ttk-tax-app-vatTaxpayer .error {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 8px;
+  line-height: 34px;
+  color: #FF9E2A;
+}
+.ttk-tax-app-vatTaxpayer .ant-table-tbody td:first-child > span {
+  padding-right: 0px;
+}
+.ttk-tax-app-vatTaxpayer .ant-table-tbody td > span {
+  padding-right: 8px;
+}
+.ttk-tax-app-vatTaxpayer .ant-table-tbody td:first-child .text-cell {
+  padding-right: 0px;
+}
+.ttk-tax-app-vatTaxpayer .ant-table-tbody td .text-cell {
+  padding-right: 8px;
+}
+.ttk-tax-app-vatTaxpayer .ant-form-item-children > div {
+  padding-right: 8px;
+}
+.ttk-tax-app-vattaxpayer-popover .ant-popover-inner-content {
+  padding: 8px;
+  font-size: 12px;
+  color: #D05A02;
+}
+.ttk-tax-app-vattaxpayer-popover .ant-popover-inner-content p {
+  margin-bottom: 5px;
+}
+.ttk-tax-app-select-modal .ant-modal-body {
+  padding: 12px !important;
+}
+.tax-hz .anticon-question-circle {
+  display: none;
+}
+.tax-pdf {
+  top: 0;
+  padding-bottom: 0px;
+}
+.hide-jkbtn .ant-modal-footer .ant-btn:last-child {
+  display: none;
+}
+.ttk-tax-app-vattaxpayer-prompt {
+  margin-left: 6px;
+  margin-right: 6px;
+  max-height: 300px;
+  overflow: auto;
+}
+.ttk-tax-app-vattaxpayer-prompt-title {
+  height: 30px;
+  margin-bottom: 14px;
+}
+.ttk-tax-app-vattaxpayer-prompt-title .anticon-check-circle {
+  color: #414141;
+  margin-right: 5px;
+  font-size: 30px;
+  float: left;
+}
+.ttk-tax-app-vattaxpayer-prompt-title .anticon-exclamation-circle {
+  color: #FA7C63;
+  margin-right: 5px;
+  font-size: 30px;
+  float: left;
+}
+.ttk-tax-app-vattaxpayer-prompt-title span {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+}
+.ttk-tax-app-vattaxpayer-prompt p {
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+.ttk-tax-app-invoicesummary-model .ant-modal-body {
+  height: 554px;
+}
+.ttk-tax-app-invoicesummary-model .ant-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -460px;
+  margin-top: -300px;
+}
+.tax-pdf .ant-modal-body {
+  padding-bottom: 0;
+}
+.tax-pdf .footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px 16px;
+  border-top: 1px solid #e8e8e8;
+  margin-top: 12px;
+}
+.tax-pdf .footer .mk-btn {
+  margin-left: 8px;
+  height: 30px;
+  padding: 0 15px;
+}
+.ttk-tax-app-select {
+  width: 100%;
+  height: 100%;
+  max-height: 260px;
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  background: #fff;
+}
+.ttk-tax-app-select .ant-table-placeholder {
+  padding: 8px;
+  border: none !important;
+}
+.ttk-tax-app-select .mk-table {
+  border-right: 1px solid #d9d9d9;
+}
+.ttk-tax-app-select-reset {
+  position: absolute;
+  bottom: 10px;
+  left: 312px;
+  width: 60px;
+  z-index: 999;
+}
+.ttk-tax-app-select .c2-text {
+  margin-bottom: 0;
+  line-height: 36px;
+}
+.c2-title {
+  color: #666;
+}
+.ttk-tax-app-select-modal .ant-modal-footer > div {
+  margin-left: 62px;
+}
+.ttk-tax-app-select-modal .ant-modal-footer > div button:first-child {
+  display: none;
+}
+.ttk-tax-app-select-modal .ant-table-body {
+  height: auto !important;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-title {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table {
+  overflow-x: auto;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbmsxm {
+  min-width: 1007px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbjsxm {
+  min-width: 866px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content {
+  font-size: 12px;
+  line-height: 16px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .edficon {
+  font-size: 24px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .add:before {
+  color: #33c2a1;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .add:hover:before {
+  color: #009875;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div {
+  overflow: hidden;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .unit {
+  text-align: right;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .sbrq1,
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .date {
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content h4 {
+  text-align: center;
+  line-height: 36px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-body {
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table {
+  border-bottom: 0;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table tr > th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table .message {
+  width: 100%;
+  display: inline-block;
+  height: 26px;
+  line-height: 24px;
+  border-radius: 4px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select {
+  display: inline-block;
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select {
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single {
+  height: 26px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
+  line-height: 24px;
+}
+.tax .ant-select-dropdown-menu-item {
+  white-space: inherit;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsjmssbmxb {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.ttk-tax-app-zzsjmssbmxb-title {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb .zzsjmssbmxb-table {
+  overflow-x: auto;
+}
+.ttk-tax-app-zzsjmssbmxb .zzsjmssbmxb-table .zzsjmssbmxbmsxm {
+  min-width: 1007px;
+}
+.ttk-tax-app-zzsjmssbmxb .zzsjmssbmxb-table .zzsjmssbmxbjsxm {
+  min-width: 866px;
+}
+.ttk-tax-app-zzsjmssbmxb-content {
+  font-size: 12px;
+  line-height: 16px;
+}
+.ttk-tax-app-zzsjmssbmxb-content .edficon {
+  font-size: 24px;
+}
+.ttk-tax-app-zzsjmssbmxb-content .add:before {
+  color: #33c2a1;
+}
+.ttk-tax-app-zzsjmssbmxb-content .add:hover:before {
+  color: #009875;
+}
+.ttk-tax-app-zzsjmssbmxb-content-top > div {
+  overflow: hidden;
+}
+.ttk-tax-app-zzsjmssbmxb-content-top > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsjmssbmxb-content-top > div .unit {
+  text-align: right;
+}
+.ttk-tax-app-zzsjmssbmxb-content-top > div .sbrq1,
+.ttk-tax-app-zzsjmssbmxb-content-top > div .date {
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb-content h4 {
+  text-align: center;
+  line-height: 36px;
+}
+.ttk-tax-app-zzsjmssbmxb-content-body {
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table {
+  border-bottom: 0;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table tr > th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table .message {
+  width: 100%;
+  display: inline-block;
+  height: 26px;
+  line-height: 24px;
+  border-radius: 4px;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table table td > .select {
+  display: inline-block;
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table table td > .select .mk-select {
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table table td > .select .mk-select .ant-select-selection--single {
+  height: 26px;
+}
+.ttk-tax-app-zzsjmssbmxb-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
+  line-height: 24px;
+}
+.tax .ant-select-dropdown-menu-item {
+  white-space: inherit;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmGrid {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.ttk-tax-app-zzsxgmGrid .ant-table-thead tr:last-child th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(15) td:first-child {
+  text-overflow: initial;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(15) td:first-child div {
+  white-space: initial;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(4) td:nth-child(3),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(5) td:nth-child(3),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(6) td:nth-child(3),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(4) td:nth-child(5),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(5) td:nth-child(5),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(6) td:nth-child(5) {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(7) td:nth-child(4),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(8) td:nth-child(4),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(7) td:nth-child(6),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(8) td:nth-child(6) {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(21) td:nth-child(5),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(22) td:nth-child(5),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(21) td:nth-child(6),
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(22) td:nth-child(6) {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(11) td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(12) td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(19) td:first-child {
+  text-overflow: initial;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child > div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(11) td:first-child > div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child > div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(12) td:first-child > div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child > div,
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:nth-child(19) td:first-child > div {
+  padding-left: 36px;
+}
+.ttk-tax-app-zzsxgmGrid .text-cell {
+  text-align: inherit !important;
+}
+.ttk-tax-app-zzsxgmGrid-wraper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft {
+  width: 213px;
+  height: 100%;
+  border: 1px solid #d9d9d9;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-menuName,
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-menuName1 {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-menuName1 {
+  margin-right: 18px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-errorNum {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  margin-right: 8px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-downIcon {
+  position: absolute;
+  right: 8px;
+  top: 15px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-treeLeft-lineSpan {
+  display: inline-block;
+  height: 0px;
+  border: 1px dotted #222;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv {
+  width: 100%;
+  height: 100%;
+  padding-left: 223px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable {
+  height: 100%;
+  display: inline-block;
+  border: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-dayin,
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-daochu {
+  text-align: center;
+  box-sizing: border-box;
+  background: #fff;
+  margin-left: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-dayin:hover {
+  color: #45acf7;
+  cursor: pointer;
+  border-color: #45acf7;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-daochu:hover {
+  color: #414141;
+  cursor: pointer;
+  border-color: #414141;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-saveBut,
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-resetBut {
+  margin-left: 8px;
+  top: -5px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-formHeadDiv {
+  height: 50px;
+  width: 100%;
+  text-align: right;
+  padding: 10px;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable {
+  position: relative;
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmGrid-wraper-rightDiv-rightTable-formContentDiv {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding-top: 50px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top {
+  clear: both;
+  height: 35px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .ant-radio-wrapper {
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .sfzxsb-box {
+  position: relative;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .sfzxsb-box .sfzxsb {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  padding-right: 112px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .sfzxsb-box .ant-radio-group {
+  margin-left: 8px;
+  width: 104px;
+  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell {
+  float: left;
+  height: 35px;
+  line-height: 27px;
+  width: 20%;
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 4px 8px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell .ant-select {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell .mk-input,
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell .ant-select-selection--single {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell .ant-select-selection__rendered {
+  line-height: 25px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Top .tform1Top-cell .message-select .ant-select-selection--single {
+  border: 1px solid #FF9E2A;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Right .mk-input {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Right .ant-form-item-control {
+  line-height: inherit;
+}
+.ttk-tax-app-zzsxgmGrid .tform1Right .ant-form-item-control-wrapper {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmGrid .bg-check {
+  border: 1px solid #FF9E2A;
+}
+.ttk-tax-app-zzsxgmGrid td input {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmGrid .ant-menu-vertical > .ant-menu-item {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0 8px;
+}
+.ttk-tax-app-zzsxgmGrid .ant-collapse-borderless > .ant-collapse-item {
+  border-bottom: none;
+}
+.ttk-tax-app-zzsxgmGrid .ant-collapse > .ant-collapse-item {
+  border-bottom: none;
+}
+.ttk-tax-app-zzsxgmGrid .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding-left: 16px !important;
+}
+.ttk-tax-app-zzsxgmGrid .ant-collapse > .ant-collapse-item > .ant-collapse-header[aria-expanded="true"] .anticon {
+  transform: rotate(180deg) !important;
+}
+.ttk-tax-app-zzsxgmGrid .theader > div {
+  overflow: hidden;
+}
+.ttk-tax-app-zzsxgmGrid .theader > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsxgmGrid .theader > div .unit {
+  text-align: right;
+}
+.ttk-tax-app-zzsxgmGrid .theader > div .sbrq1,
+.ttk-tax-app-zzsxgmGrid .theader > div .date {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmGrid .ttk-tax-app-vatTaxpayer-table {
+  height: auto;
+}
+.ttk-tax-app-zzsxgmGrid .formData {
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmGrid .formData:after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+.ttk-tax-app-zzsxgmGrid .formData .ant-form-item {
+  width: 25%;
+  float: left;
+  height: 35px;
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ttk-tax-app-zzsxgmGrid .formData .topBorder {
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmGrid .formData .colSpan4 {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmGrid .formData .rowSpan2 {
+  height: 70px;
+  line-height: 70px;
+}
+.ttk-tax-app-zzsxgmGrid .formData .tform1Left {
+  border: 1px solid #d9d9d9;
+  border-top: 0;
+  border-left: 0;
+  width: 20%;
+  float: left;
+  height: 210px;
+  display: table;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ttk-tax-app-zzsxgmGrid .formData .tform1Left .tform1LeftText {
+  display: table-cell;
+  vertical-align: middle;
+}
+.ttk-tax-app-zzsxgmGrid .formData .tform1Right {
+  width: 80%;
+  float: left;
+}
+.ttk-tax-app-vattaxpayer-popover .ant-popover-inner-content {
+  padding: 8px;
+  font-size: 12px;
+  color: #D05A02;
+}
+.ttk-tax-app-zzsxgmGrid .mk-table .ant-table-tbody .ant-table-row:first-child td:first-child div {
+  padding: 0px !important;
+}
+.ttk-tax-app-zzsxgmfjssb {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.ttk-tax-app-zzsxgmfjssb .text-cell {
+  text-align: inherit !important;
+}
+.ttk-tax-app-zzsxgmfjssb .ttk-tax-app-zzsxgmfjssb-table {
+  min-width: 1152px;
+}
+.ttk-tax-app-zzsxgmfjssb .theader > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsxgmfjssb .theader .align-center {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmfjssb .theader .align-right {
+  text-align: right;
+}
+.ttk-tax-app-zzsxgmfjssb .theader:after {
+  display: block;
+  height: 0;
+  content: '';
+  clear: both;
+}
+.ttk-tax-app-zzsxgmfjssb th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmflzl {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 5px;
+}
+.ttk-tax-app-zzsxgmflzl-content {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmflzl-content-formTitle {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+.ttk-tax-app-zzsxgmflzl-content-formHead-Div {
+  overflow: hidden;
+  line-height: 16px;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmflzl-content-formHead-Div > div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsxgmflzl-content-formHead-Div .alignRight {
+  text-align: right;
+}
+.ttk-tax-app-zzsxgmflzl-content-formHead-Div .alignCenter {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmflzl-content-formBody {
+  border-bottom: none;
+}
+.ttk-tax-app-zzsxgmflzl-content-formTableTitle {
+  height: 35px;
+  border: 1px solid #d9d9d9;
+  border-left: 0;
+  display: table;
+  text-align: center;
+  line-height: 35px;
+  width: 100%;
+  background: #eaeaea;
+  border-right: none;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv {
+  display: table;
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #333;
+}
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem,
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle {
+  display: table-cell;
+  width: 25%;
+  border-left: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItemTitle {
+  background: #eaeaea;
+}
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv-formItem {
+  border-top: 1px solid #d9d9d9;
+  border-left: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmflzl-content-formItemDiv-errorMessageCss {
+  text-align: right;
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmflzl .ant-table-body > table {
+  border-top: none;
+}
+.ttk-tax-app-zzsxgmflzl .ant-table-tbody > tr > td {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmflzl .ant-form-item-control-wrapper {
+  width: 100%;
+  padding: 0 5px;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmflzl .ant-form-item-control {
+  line-height: 34px;
+}
+.ttk-tax-app-zzsxgmflzl .mk-input-number {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmflzl .ant-form-item-control-wrapper,
+.ttk-tax-app-zzsxgmflzl .ant-form-item-control,
+.ttk-tax-app-zzsxgmflzl .ant-form-item-children {
+  height: 100%;
+}
+.ttk-tax-app-zzsxgmflzl .mk-form {
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmflzl .mk-form .mk-form-item {
+  display: table-cell;
+}
+.ttk-tax-app-zzsxgmkcxmqd {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.ttk-tax-app-zzsxgmkcxmqd-title {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmkcxmqd .zsxgmkcxmqd-table {
+  overflow-x: auto;
+}
+.ttk-tax-app-zzsxgmkcxmqd .zzsxgmkcxmqd-input {
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content {
+  font-size: 12px;
+  line-height: 16px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content .edficon {
+  font-size: 24px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content .add:before {
+  color: #33c2a1;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content .add:hover:before {
+  color: #009875;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-top > div {
+  overflow: hidden;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-top > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-top > div .unit {
+  text-align: right;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-top > div .sbrq1,
+.ttk-tax-app-zzsxgmkcxmqd-content-top > div .date {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content h4 {
+  text-align: center;
+  line-height: 36px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-body {
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table {
+  border-bottom: 0;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table tr > th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table .message {
+  width: 100%;
+  display: inline-block;
+  height: 26px;
+  line-height: 24px;
+  border-radius: 4px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table table td > .select {
+  display: inline-block;
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table table td > .select .mk-select {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table table td > .select .mk-select .ant-select-selection--single {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmkcxmqd-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
+  line-height: 24px;
+}
+.ttk-tax-app-zzsxgmkcxmqd .ant-select-selection:hover .ant-select-selection__clear {
+  right: 20px;
+}
+.tax .ant-select-dropdown-menu-item {
+  white-space: inherit;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content {
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formTitle {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formHead-Div {
+  overflow: hidden;
+  line-height: 16px;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formHead-Div > div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formHead-Div .alignRight {
+  text-align: right;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formHead-Div .alignCenter {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formBody {
+  border-bottom: none;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formTableTitle {
+  height: 35px;
+  border: 1px solid #d9d9d9;
+  display: table;
+  text-align: center;
+  line-height: 35px;
+  width: 100%;
+  background: #eaeaea;
+  border-right: none;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv {
+  display: table;
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #333;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItem,
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItemTitle {
+  display: table-cell;
+  width: 25%;
+  border-left: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItemTitle {
+  background: #eaeaea;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItem {
+  border-bottom: 1px solid #d9d9d9;
+  border-left: 1px solid #d9d9d9;
+  padding: 0 8px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv .formItem-text-left {
+  text-align: left;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv .formItem-text-indent {
+  text-indent: 24px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-errorMessageCss {
+  text-align: right;
+  width: 100%;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItem2 {
+  display: table-cell;
+  width: 33%;
+  border-left: none;
+  padding: 0 8px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb-content-formItemDiv-formItem2-last {
+  display: table-cell;
+  width: 34%;
+  border-left: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-table-body > table {
+  border-top: none;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-table-tbody > tr > td {
+  text-align: center;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-form-item-control-wrapper {
+  width: 100%;
+  padding: 0 5px;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-form-item-control {
+  line-height: 34px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .mk-input-number {
+  height: 26px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-form-item-control-wrapper,
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-form-item-control,
+.ttk-tax-app-zzsxgmxsbdcqkb .ant-form-item-children {
+  height: 100%;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .mk-form {
+  border-right: 1px solid #d9d9d9;
+  border-bottom: none;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsxgmxsbdcqkb .mk-form .mk-form-item {
+  display: table-cell;
+}
