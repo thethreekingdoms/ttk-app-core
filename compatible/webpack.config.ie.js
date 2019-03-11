@@ -66,7 +66,6 @@ module.exports = function (webpackConfig) {
   // });
   webpackConfig.entry = {
     index: './index.js',
-    // edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils"],
     // edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
     businessBlue: "./assets/styles/businessBlue.css",
     ie: "./assets/styles/ie.css",

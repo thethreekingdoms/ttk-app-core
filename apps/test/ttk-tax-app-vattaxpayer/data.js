@@ -99,7 +99,7 @@ export function getMeta() {
 				float: 'left'
 			},
 			pane2Style: {
-				overflow: 'scroll',
+				overflowY: 'scroll',
 				height: '100%',
 			},
 			children: [
