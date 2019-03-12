@@ -43,14 +43,14 @@ export function getMeta() {
                         render: "{{function(record, index, v){return $optCol(record, index, v)}}}"
                     }
                 ]
-            },{
+            }/*,{
 				name: 'resetBtn',
 				className: 'ttk-tax-app-select-reset',
                 component: 'Button',
                 onClick: "{{$resetClick}}",
 				width: 60,
 				children: '重置'
-			}
+			}*/
         ]
     }
 }

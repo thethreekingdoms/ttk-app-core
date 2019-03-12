@@ -124,12 +124,6 @@ class action {
     }
 
     refresh = () => {
-        // ie8showdemo  
-        this.metaAction.toast('success', '成功刷新数据!')
-        return 
-    }
-
-    refresh1 = () => {
         this.load()
     }
 
@@ -294,7 +288,7 @@ class action {
             })
         }
 
-        other.treeLeft = personaliseShowTable(this.component.props.initData.SS, this.component.props.initData.gdslx, other.treeLeft)
+        other.treeLeft = personaliseShowTable(this.component.props.initData.SS, this.component.props.initData.gdslx, other.treeLeft || other.treeList)
 
         if (rpt.zzssyyxgmnsrySbSbbdxxVO.zzssyyxgmnsr.slxxForm.sfzxsb == "N" && !rpt.zzssyyxgmnsrySbSbbdxxVO.zzssyyxgmnsr.slxxForm.blrysfzjlxDm) {
             failCount += 1
@@ -1442,6 +1436,7 @@ class action {
             height: 304,
             width: 750,
             okText: '保存',
+            cancelText: '重置',
             className: 'ttk-tax-app-select-modal',
             bodyStyle: { padding: '20px 30px', paddingBottom: '0' },
             children: this.metaAction.loadApp('ttk-tax-app-select', {
@@ -1454,7 +1449,7 @@ class action {
         })
 
         if (ret) {
-            this.metaAction.toast('success', '选择表单保存成功')
+            // this.metaAction.toast('success', '选择表单保存成功')
             this.load()
         }
     }

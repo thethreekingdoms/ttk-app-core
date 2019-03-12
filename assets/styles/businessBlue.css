@@ -508,6 +508,15 @@
 .ttk-tax-app-select-modal .ant-modal-body {
   padding: 12px !important;
 }
+.ttk-tax-app-select-modal .ant-modal-body .small {
+  height: 196px;
+}
+.ttk-tax-app-select-modal .ant-modal-body .small .mk-nodata-img {
+  height: 100%;
+}
+.ttk-tax-app-select-modal .ant-modal-footer {
+  text-align: center;
+}
 .tax-hz .anticon-question-circle {
   display: none;
 }
@@ -574,6 +583,303 @@
   height: 30px;
   padding: 0 15px;
 }
+.ttk-tax-app-invoicesummary {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.ttk-tax-app-invoicesummary .ant-tabs-bar {
+  margin: 0;
+}
+.ttk-tax-app-invoicesummary-tab {
+  border: 0;
+  background-color: #fff;
+  margin-bottom: -1px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  height: 45px;
+}
+.ttk-tax-app-invoicesummary-tab .ant-tabs-nav .ant-tabs-tab {
+  margin: 0;
+}
+.ttk-tax-app-invoicesummary-tab .dateRange {
+  position: absolute;
+  right: 120px;
+  top: 12px;
+  font-size: 12px;
+}
+.ttk-tax-app-invoicesummary-tab .oneKey-collect {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+.ttk-tax-app-invoicesummary-tab .oneKey-collect button {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicesummary-tab .dropdownbutton i {
+  font-size: 12px;
+  transform: scale(0.83333333) rotate(0deg);
+}
+.ttk-tax-app-invoicesummary-tab .dropdownbutton i:before {
+  content: "\E61D";
+}
+.ttk-tax-app-invoicesummary-tab .dropdownbutton button {
+  background-color: #414141;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  padding: 0 8px;
+  border: none;
+  vertical-align: top;
+}
+.ttk-tax-app-invoicesummary-tab .dropdownbutton button:hover {
+  background: rgba(65, 65, 65, 0.7);
+}
+.ttk-tax-app-invoicesummary-tab .dropdownbutton button:first-child {
+  margin-right: 2px;
+}
+.ttk-tax-app-invoicesummary-table {
+  flex: 1;
+  border: 0px solid #d9d9d9;
+}
+.ttk-tax-app-invoicesummary-content {
+  width: 100%;
+  height: 485px;
+  border: 1px solid #d9d9d9;
+  border-top: 0.2px solid #d9d9d9;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.ttk-tax-app-invoicesummary-content .invoices-group {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  bottom: 150px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.ttk-tax-app-invoicesummary-content .invoices-group .invoices-btn {
+  width: 160px;
+}
+.ttk-tax-app-invoicesummary-content .mk-nodata-img {
+  height: 200px;
+}
+.ttk-tax-app-invoicesummary-content .mk-nodata-message {
+  display: none;
+}
+.ttk-tax-app-invoicesummary-content td {
+  text-align: center;
+}
+.ttk-tax-app-invoicesummary-content td span {
+  display: block;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ttk-tax-app-invoicesummary-content .small-plan td {
+  background-color: #FFF6EA !important;
+}
+.ttk-tax-app-invoicesummary-content .small-plan td span {
+  text-align: center;
+}
+.ttk-tax-app-invoicesummary-content td .link {
+  text-align: right !important;
+}
+.ttk-tax-app-invoicesummary-content td .link:hover {
+  text-decoration: underline;
+}
+.ttk-tax-app-invoicesummary-content td .center {
+  text-align: center;
+}
+.ttk-tax-app-invoicesummary .mk-table .ant-table-header > table {
+  border-left: none;
+}
+.ttk-tax-app-invoicesummary .mk-table .ant-table-tbody tr td[rowspan] {
+  background-color: #fff;
+}
+.ttk-tax-app-invoicesummary .mk-table .ant-table-tbody tr:nth-child(odd) td[rowspan='1'] {
+  background-color: #fff;
+}
+.ttk-tax-app-invoicesummary .mk-table .ant-table-tbody tr:nth-child(even) td[rowspan='1'] {
+  background-color: #f8f8f8;
+}
+.ttk-tax-app-invoicesummary .mk-table .ant-table-tbody tr.tr_zuofei:nth-child(even) td {
+  background-color: #fff;
+}
+.ttk-tax-app-invoicedetail-model {
+  overflow-y: hidden;
+}
+.ttk-tax-app-invoicedetail-model .ant-modal-body {
+  height: 554px;
+}
+.ttk-tax-app-invoicedetail-model .ant-modal {
+  top: 50%;
+  margin-top: -300px;
+}
+.jinggao {
+  font-size: 12px;
+  text-align: center;
+}
+.jinggao i {
+  font-size: 30px;
+  color: #FA7C63;
+  padding-right: 8px;
+}
+.jinggao div {
+  position: relative;
+  bottom: 5px;
+  display: inline-block;
+}
+.jinggao span {
+  vertical-align: super;
+}
+.ttk-tax-app-invoicedetail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-select-dropdown-menu-item {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-select-selection__placeholder {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-select-selection-selected-value {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-calendar-picker {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-calendar-picker input {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail .ant-select {
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail-top {
+  height: 40px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .fplx-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 50px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .fplxl-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 42px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .sl-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 38px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .sll-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 50px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .js-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 70px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .hwlx-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 185px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .hwlx-item .ant-form-item-control-wrapper .ant-select-selection__rendered ul {
+  width: 1000px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .hwlx-item .ant-form-item-control-wrapper .ant-select-selection__rendered ul li {
+  max-width: 65px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item .ant-calendar-picker-input {
+  width: 80px;
+  height: 30px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item .ant-form-item-control-wrapper .ant-select-selection-selected-value {
+  padding-right: 8px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item .ant-form-item-control-wrapper .ant-select-selection__rendered {
+  width: 100px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item .ant-form-item-control-wrapper .ant-select-selection--single {
+  height: 30px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .invoicedetail-mounth .ant-select-selection__rendered {
+  width: 80px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .invoicedetail-mounth .ant-form-item-control {
+  width: 182px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .invoicedetail-mounth .ant-form-item-control .text {
+  margin: 0 3px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail .little-item .ant-select-selection__rendered {
+  width: 35px;
+}
+.ttk-tax-app-invoicedetail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-invoicedetail-content .mk-datagrid .fixedDataTableLayout_main {
+  border-top: none;
+}
+.ttk-tax-app-invoicedetail-content .selectCell {
+  padding: 1px 8px !important;
+  line-height: 40px;
+}
+.ttk-tax-app-invoicedetail-content .selectCell .ant-select .ant-select-selection__rendered {
+  margin: 0 8px;
+}
+.ttk-tax-app-invoicedetail-content .selectCell .ant-select-selection-selected-value {
+  line-height: 28px;
+  padding-right: 13px;
+}
+.ttk-tax-app-invoicedetail-content .ant-calendar-picker input {
+  width: 100px;
+  height: 26px;
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail-content .ant-select-selection {
+  width: 100px;
+  height: 28px;
+  font-size: 12px;
+}
+.ttk-tax-app-invoicedetail-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  height: 32px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.ttk-tax-app-invoicedetail-footer .mk-pagination {
+  margin-top: 0;
+}
+.ttk-tax-app-invoicedetail .ant-tabs-tab {
+  font-size: 13px;
+}
 .ttk-tax-app-select {
   width: 100%;
   height: 100%;
@@ -612,91 +918,6 @@
 }
 .ttk-tax-app-select-modal .ant-table-body {
   height: auto !important;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-title {
-  font-size: 18px;
-  color: #333;
-  text-align: center;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table {
-  overflow-x: auto;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbmsxm {
-  min-width: 1007px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbjsxm {
-  min-width: 866px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content {
-  font-size: 12px;
-  line-height: 16px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content .edficon {
-  font-size: 24px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content .add:before {
-  color: #33c2a1;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content .add:hover:before {
-  color: #009875;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div {
-  overflow: hidden;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div div {
-  float: left;
-  width: 33.33%;
-  height: 23px;
-  line-height: 23px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .unit {
-  text-align: right;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .sbrq1,
-.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .date {
-  text-align: center;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content h4 {
-  text-align: center;
-  line-height: 36px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-body {
-  border-top: 1px solid #d9d9d9;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table {
-  border-bottom: 0;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table tr > th {
-  text-align: center !important;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table .message {
-  width: 100%;
-  display: inline-block;
-  height: 26px;
-  line-height: 24px;
-  border-radius: 4px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select {
-  display: inline-block;
-  width: 100%;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select {
-  width: 100%;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single {
-  height: 26px;
-}
-.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
-  line-height: 24px;
-}
-.tax .ant-select-dropdown-menu-item {
-  white-space: inherit;
-  font-size: 12px;
 }
 .ttk-tax-app-zzsjmssbmxb {
   width: 100%;
@@ -777,6 +998,91 @@
   height: 26px;
 }
 .ttk-tax-app-zzsjmssbmxb-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
+  line-height: 24px;
+}
+.tax .ant-select-dropdown-menu-item {
+  white-space: inherit;
+  font-size: 12px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-title {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table {
+  overflow-x: auto;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbmsxm {
+  min-width: 1007px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing .zzsjmssbmxb-table .zzsjmssbmxbjsxm {
+  min-width: 866px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content {
+  font-size: 12px;
+  line-height: 16px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .edficon {
+  font-size: 24px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .add:before {
+  color: #33c2a1;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content .add:hover:before {
+  color: #009875;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div {
+  overflow: hidden;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div div {
+  float: left;
+  width: 33.33%;
+  height: 23px;
+  line-height: 23px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .unit {
+  text-align: right;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .sbrq1,
+.ttk-tax-app-zzsjmssbmxb-beijing-content-top > div .date {
+  text-align: center;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content h4 {
+  text-align: center;
+  line-height: 36px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-body {
+  border-top: 1px solid #d9d9d9;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table {
+  border-bottom: 0;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table tr > th {
+  text-align: center !important;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table .message {
+  width: 100%;
+  display: inline-block;
+  height: 26px;
+  line-height: 24px;
+  border-radius: 4px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select {
+  display: inline-block;
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select {
+  width: 100%;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single {
+  height: 26px;
+}
+.ttk-tax-app-zzsjmssbmxb-beijing-content-table table td > .select .mk-select .ant-select-selection--single .ant-select-selection__rendered {
   line-height: 24px;
 }
 .tax .ant-select-dropdown-menu-item {

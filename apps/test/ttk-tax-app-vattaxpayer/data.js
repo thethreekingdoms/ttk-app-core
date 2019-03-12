@@ -246,7 +246,8 @@ export function getMeta() {
 										// _visible: '{{!(!data.hasReadSJInfo || data.isDeclare || data.overdue)}}',
 										_visible: '{{!(!data.hasReadSJInfo || data.isDeclare)}}',
 										disabled: '{{$getIsDisabled()}}',//2019月报置灰																															
-										onClick: '{{function(){$initialization(undefined)}}}'
+										// onClick: '{{function(){$initialization(undefined)}}}'
+										onClick: '{{function(){$refresh()}}}'
 									},{
 										name: 'invoice',
 										component: 'Button',

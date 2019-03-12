@@ -32,6 +32,8 @@ import ttk_tax_app_zzsxgmfjssb from "./apps/test/ttk-tax-app-vattaxpayer/apps/tt
 import ttk_tax_app_zzsxgmflzl from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmflzl"
 import ttk_tax_app_zzsxgmkcxmqd from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmkcxmqd"
 import ttk_tax_app_zzsxgmxsbdcqkb from "./apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-zzsxgmxsbdcqkb"
+import ttk_tax_app_invoicesummary from  './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-invoicesummary'
+import ttk_tax_app_invoicedetail from  './apps/test/ttk-tax-app-vattaxpayer/apps/ttk-tax-app-invoicesummary/apps/ttk-tax-app-invoicedetail'
 //此文件由ttk rewrite命令工具生成
 import ttk_edf_app_card_account from  './apps/edf/ttk-edf-app-card-account'
 import ttk_edf_app_card_currency from  './apps/edf/ttk-edf-app-card-currency'
@@ -95,6 +97,8 @@ const apps = {
     [ttk_tax_app_zzsxgmflzl.name]: ttk_tax_app_zzsxgmflzl,
     [ttk_tax_app_zzsxgmkcxmqd.name]: ttk_tax_app_zzsxgmkcxmqd,
     [ttk_tax_app_zzsxgmxsbdcqkb.name]: ttk_tax_app_zzsxgmxsbdcqkb,
+    [ttk_tax_app_invoicesummary.name]: ttk_tax_app_invoicesummary,
+    [ttk_tax_app_invoicedetail.name]: ttk_tax_app_invoicedetail,
     // [ttk_edf_app_card_account.name]: ttk_edf_app_card_account,
     // [ttk_edf_app_card_currency.name]: ttk_edf_app_card_currency,
     // [ttk_edf_app_card_customer.name]: ttk_edf_app_card_customer,
