@@ -25,8 +25,8 @@ function getBrowserVersion() {
 			weibo: agent.match(/WeiBo/i) == "weibo",//微博
 			qq: agent.match(/QQ/i) == "qq",//qq
 			modesogo: agent.indexOf('metasr') > -1 && agent.indexOf('rv') == -1,//SOGOU
-			ismode360: _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && agent.indexOf("chrome") > 1,//360极速
-			slow360: _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && !agent.indexOf("chrome") > 1//360兼容
+			// ismode360: _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && agent.indexOf("chrome") > 1,//360极速
+			// slow360: _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && !agent.indexOf("chrome") > 1//360兼容
 		};
 	//检测当前浏览器内核是否是gecko内核
 	browser.gecko = (navigator.product == 'Gecko' && !browser.webkit && !browser.opera && !browser.ie);
@@ -145,15 +145,15 @@ function isClientMode() {
 	}
 	return false
 }
-function _mimeAgent(option, value) {
-	var mimeTypes = navigator.mimeTypes;
-	for (var mt in mimeTypes) {
-		if (mimeTypes[mt][option] == value) {
-			return true
-		}
-	}
-	return false
-}
+// function _mimeAgent(option, value) {
+// 	var mimeTypes = navigator.mimeTypes;
+// 	for (var mt in mimeTypes) {
+// 		if (mimeTypes[mt][option] == value) {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
 export default {
 	getBrowserVersion,
 	isDevMode,

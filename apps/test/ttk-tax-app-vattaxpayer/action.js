@@ -436,21 +436,23 @@ class action {
     }
 
     closeHelp = (e) => {
-        const panel = $(e.target).parents('.Panel')
+        var panel = $(e.target).parents('.Panel')
         this.helpWidth = panel[0].clientWidth
         this.metaAction.sf('data.showHelp', false)
-        const resize = $(panel).siblings("span")
+        var resize = $(panel).siblings("span")
         panel.css('width', '0')
         resize.css('width', '0')
+        return
     }
 
     showHelp = (e) => {
         this.metaAction.sf('data.showHelp', true)
-        const Pane1 = $(e.target).siblings("div").children(".Pane1")
-        const resize = $(e.target).siblings("div").children(".Resizer")
+        var Pane1 = $(e.target).siblings("div").children(".Pane1")
+        var resize = $(e.target).siblings("div").children(".Resizer")
         let width = this.helpWidth || 176
         Pane1.css('width', `${width}px`)
         resize.css('width', '7px')
+        return
     }
 
     download = async (e) => {

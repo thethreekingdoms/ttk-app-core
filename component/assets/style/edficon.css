@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'edficon';
-  src: url('../font/edf/iconfont.eot');
+  src: url('../font/edf/edf-iconfont.eot');
   /* IE9*/
-  src: url('../font/edf/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/edf/iconfont.woff?ts=20190121') format('woff'), /* chrome、firefox */ url('../font/edf/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/edf/iconfont.svg#iconfont') format('svg');
+  src: url('../font/edf/edf-iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/edf/edf-iconfont.woff?ts=20190121') format('woff'), /* chrome、firefox */ url('../font/edf/edf-iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/edf/edf-iconfont.svg#iconfont') format('svg');
   /* iOS 4.1- */
 }
 .edficon--disabled {

@@ -77,7 +77,8 @@
   padding: 0 8px 0 5px;
 }
 .ttk-tax-app-vatTaxpayer-help .edficon {
-  font-size: 24px;
+  font-size: 18px;
+  line-height: 24px;
   display: table-cell;
   vertical-align: middle;
 }
@@ -92,9 +93,12 @@
 }
 .ttk-tax-app-vatTaxpayer .refresh {
   color: #45ACF7;
-  width: 30px;
-  height: 30px;
-  font-size: 28px;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 .ttk-tax-app-vatTaxpayer .refresh:hover {
   border-color: #45ACF7;
@@ -178,7 +182,7 @@
 .ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .close {
   position: absolute;
   top: 2px;
-  right: 3px;
+  right: 12px;
   color: rgba(0, 0, 0, 0.45);
 }
 .ttk-tax-app-vatTaxpayer-wraper-treeLeft-top .close:hover {
@@ -266,7 +270,7 @@
 }
 .ttk-tax-app-vatTaxpayer-wraper-treeLeft-downIcon {
   position: absolute;
-  right: 3px;
+  right: 12px;
   top: 5px;
   font-size: 20px;
 }
@@ -310,7 +314,7 @@
   margin-left: 8px;
   width: 30px;
   height: 30px;
-  font-size: 28px;
+  font-size: 21px;
   border-radius: 5px;
   border: 1px solid #d9d9d9;
 }
@@ -324,11 +328,14 @@
 }
 .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable-daochu {
   border: 0px;
-  height: 28px;
+  height: 18px;
+  line-height: 18px;
   margin-left: 0px;
 }
 .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .daochubtn {
   color: #00B38A;
+  padding-bottom: 0;
+  margin-left: 10px;
 }
 .ttk-tax-app-vatTaxpayer-wraper-rightDiv-rightTable .daochubtn:hover {
   border: 1px solid #00B38A !important;

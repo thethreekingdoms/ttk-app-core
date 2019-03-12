@@ -21,7 +21,8 @@ export function getMeta() {
 			children: [{
 				name: 'help',
 				component: 'Icon',
-				type: 'bangzhutishi',
+				// type: 'bangzhutishi',
+				type: 'question-circle',
 				className: 'help',
 				fontFamily: 'edficon',
 			}, {
@@ -50,7 +51,8 @@ export function getMeta() {
 					component: 'Icon',
 					fontFamily: 'edficon',
 					className: 'refresh homeIcon',
-					type: 'shuaxin',
+					// type: 'shuaxin',
+					type: 'reload',
 					title: '刷新',
 				}
 			]
@@ -73,7 +75,8 @@ export function getMeta() {
 					component: 'Icon',
 					className: 'download-icon',
 					fontFamily: 'edficon',
-					type: 'xuanzebiaodan',
+					type: 'profile',
+					// type: 'xuanzebiaodan',
 				}, {
 					name: 'text',
 					component: 'span',
@@ -114,7 +117,8 @@ export function getMeta() {
 						children: [{
 							name: 'help',
 							component: 'Icon',
-							type: 'bangzhutishi',
+							type: 'question-circle',
+							// type: 'bangzhutishi',
 							className: 'help',
 							fontFamily: 'edficon',
 						}, {
@@ -129,7 +133,8 @@ export function getMeta() {
 							name: 'close',
 							component: 'Icon',
 							className: 'close',
-							type: 'guanbi',
+							type: 'close',
+							// type: 'guanbi',
 							fontFamily: 'edficon',
 							onClick: '{{$closeHelp}}'
 						}]
