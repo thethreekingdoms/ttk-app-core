@@ -124,6 +124,12 @@ class action {
     }
 
     refresh = () => {
+        // ie8showdemo  
+        this.metaAction.toast('success', '成功刷新数据!')
+        return 
+    }
+
+    refresh1 = () => {
         this.load()
     }
 
@@ -600,9 +606,15 @@ class action {
             //设置凭证当前单据状态，供单据页签关闭用 false：关闭不提醒 true 关闭提醒
             this.component.props.editing(this.component.props.appName, istip)
         }
+    } 
+
+    save = () => {
+        // ie8showdemo  
+        this.metaAction.toast('success', '保存成功!')
+        return 
     }
 
-    save = async () => {
+    save1 = async () => {
         if (!this.metaAction.gf('data.tableData.zzssyyxgmnsrySbSbbdxxVO')) return //如果 zzssyyxgmnsrySbSbbdxxVO 没值不能保存
         let save = this.metaAction.gf('data.button.save')
         if (!save) return false
@@ -750,8 +762,15 @@ class action {
         this.closeTip()
     }
 
+    submit = () => {
+        // ie8showdemo  
+        this.metaAction.toast('success', '申报成功!')
+        return 
+    }
+
     //申报
-    submit = async (nextSubmitParams = {}) => {
+    submit1 = async (nextSubmitParams = {}) => {
+
         let currentOrg = this.metaAction.context.get('currentOrg'),
             appKey = currentOrg ? currentOrg.appKey : '',
             appId = currentOrg ? currentOrg.appId : ''
@@ -1439,6 +1458,14 @@ class action {
             this.load()
         }
     }
+
+    // autoGetData = () => {
+    //     this.metaAction.toast('success', '自动取数成功，请核对数据！')
+    //     let ret = {
+
+    //     }
+    //     this.metaAction.sf('data', ret)
+    // }
 
     //自动取数
     autoGetData = async () => {
