@@ -8,8 +8,10 @@ import { fetch, fetchCors } from 'edf-utils'
 
 export default {
     invoicesummary: {
-        xxfptj: (option) => fetch.post('/v1/biz/core/invoiceTax/xxfptj', option), //一般纳税人销项发票
-        jxfptj: (option) => fetch.post('/v1/biz/core/invoiceTax/jxfptj', option), //一般纳税人进项发票
+        // xxfptj: (option) => fetch.post('/v1/biz/core/invoiceTax/xxfptj', option), //一般纳税人销项发票
+        // jxfptj: (option) => fetch.post('/v1/biz/core/invoiceTax/jxfptj', option), //一般纳税人进项发票
+        xxfptj: (option) => {return {result: true, value: []}}, //一般纳税人销项发票
+        jxfptj: (option) => {return {result: true, value: []}}, //一般纳税人进项发票
         dlxxhasReadSJInfo: (option) => fetch.post('/v1/edf/dlxx/hasReadSJInfo', option),
         collecteData1: (option) => fetch.post('/v1/biz/scm/invoice/collecteDataAsync', option),//采集发票第一步
         asyncRequestResult: (option,date) => fetch.post2('/v1/biz/scm/invoice/asyncRequestResult', option,date),//采集发票第二步

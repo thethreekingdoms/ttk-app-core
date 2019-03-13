@@ -84,7 +84,6 @@ import ttk_edf_app_voucher from  './apps/edf/ttk-edf-app-voucher'
 import ttk_edf_app_voucher_detail_setting from  './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-detail-setting'
 import ttk_edf_app_voucher_setting from  './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting'
 
-
 const apps = {
     [app_test2.name]: app_test2,
     [ttk_edf_app_root.name]: ttk_edf_app_root,

@@ -28,9 +28,16 @@
 <body>
     <div id="app"></div>
 </body>
-<script type="text/javascript" src="ie8/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ie8/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
     window._hmt = window._hmt || [];
+    (function(){
+        if(!window.getComputedStyle) {
+            window.getComputedStyle = function() {
+                return document.body.currentStyle
+            }
+        }
+    })()
 </script>
 
 </html>

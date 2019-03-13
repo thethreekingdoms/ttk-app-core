@@ -15,7 +15,7 @@ class reducer {
         if(initData && initData.type == 'vattaxpayer'){
             initState.data.other.tabArr = [{
                 "id":"01","name":"销项发票统计"
-            }]
+            }, {"id":"02","name":"进项发票统计"}]
             initState.data.other.isVattaxpayer = true
         }
         initState.data.other.option = initData.option
