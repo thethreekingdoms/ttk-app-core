@@ -79,6 +79,7 @@
     "lodash.clonedeep": "4.5.0",
     "lodash.debounce": "4.0.8",
     "lodash.isequal": "4.5.0",
+    "maka-fixed-data-table": "^1.0.2",
     "md5": "2.2.1",
     "media-match": "2.0.3",
     "moment": "2.22.1",

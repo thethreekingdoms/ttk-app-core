@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Column, Cell } from 'fixed-data-table-2'
+import { Table, Column, Cell } from 'maka-fixed-data-table'
 import Icon from '../icon'
 
 export default function SequenceColumn(props) {
@@ -22,7 +22,7 @@ export default function SequenceColumn(props) {
 			return (
 				<div className='mk-datagrid-sequence-cell' onClick={onClick ? () => onClick(ps) : undefined}>
 					{enableSequenceAddDelrow ? <Icon title="増行" type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null}
-					<a className = {enableSequenceAddDelrow ? 'addDelrow' : ''}>
+					<a className={enableSequenceAddDelrow ? 'addDelrow' : ''}>
 						{text}
 					</a>
 					{enableSequenceAddDelrow ? <Icon title="删行" type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null}
@@ -32,7 +32,7 @@ export default function SequenceColumn(props) {
 
 		return <div className='mk-datagrid-sequence-cell'>
 			{enableSequenceAddDelrow ? <Icon title="増行" type="plus-circle-o" className='mk-datagrid-editable-add-row' onClick={() => onAddrow ? onAddrow(ps) : undefined} /> : null}
-			<a className = {enableSequenceAddDelrow ? 'addDelrow' : ''} style={{ color: "#444444", cursor: "default" }}>
+			<a className={enableSequenceAddDelrow ? 'addDelrow' : ''} style={{ color: "#444444", cursor: "default" }}>
 				{text}
 			</a>
 			{enableSequenceAddDelrow ? <Icon title="删行" type="minus-circle-o" className='mk-datagrid-editable-remove-row' onClick={() => onDelrow ? onDelrow(ps) : undefined} /> : null}

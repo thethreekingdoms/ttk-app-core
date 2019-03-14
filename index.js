@@ -1,6 +1,5 @@
 //import 'babel-polyfill'
 import 'url-polyfill'
-//import FastClick from 'fastclick'
 import { config, start, componentFactory } from 'edf-meta-engine'
 import * as edfComponents from 'edf-component'
 import raf from 'raf'
@@ -63,4 +62,3 @@ Promise.all(arr).then((res) => {
 })
 //service worker是在后台运行的一个线程，可以用来处理离线缓存、消息推送、后台自动更新等任务
 //registerServiceWorker()
-//FastClick.attach(document.body)

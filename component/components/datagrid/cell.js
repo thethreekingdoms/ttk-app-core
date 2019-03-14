@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Cell } from 'fixed-data-table-2'
+import { Cell } from 'maka-fixed-data-table'
 import classNames from 'classnames'
 
 export default class cellComponent extends Component {
 	render() {
 		const {
-      		height,
+			height,
 			width,
 			style,
 			className,
@@ -14,7 +14,7 @@ export default class cellComponent extends Component {
 			value,
 			tip,
 			...other
-    	} = this.props
+		} = this.props
 
 		let cls = classNames({
 			'mk-datagrid-cellContent': true,
@@ -28,9 +28,9 @@ export default class cellComponent extends Component {
 			...style,
 		}
 		let title
-		
-		if(tip) {
-			title = {title: children || value}
+
+		if (tip) {
+			title = { title: children || value }
 		}
 
 		return (

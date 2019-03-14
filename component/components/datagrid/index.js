@@ -7,7 +7,7 @@ import Grid from './grid'
 import {
     Column,
     ColumnGroup
-} from 'fixed-data-table-2'
+} from 'maka-fixed-data-table'
 import Cell from './cell'
 import TextCell from './textCell'
 //import _ from 'underscore'
@@ -57,7 +57,7 @@ class DataGridComponent extends React.Component {
         })
     }
 
-    componentWillReceiveProps(prevProps, prevState){
+    componentWillReceiveProps(prevProps, prevState) {
         // console.log(prevProps)
         this.rowsCount = this.state.rowsCount;
         this.setState({
@@ -98,9 +98,9 @@ class DataGridComponent extends React.Component {
 
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         let width = ReactDOM.findDOMNode(this).offsetWidth
-        if(width !== this.state.width){
+        if (width !== this.state.width) {
             this.setState({
                 width: width
             })
@@ -108,7 +108,7 @@ class DataGridComponent extends React.Component {
     }
 
     onScrollEnd = (x, y) => {
-        if(!!this.props.rememberScrollTop){
+        if (!!this.props.rememberScrollTop) {
             window[this.props.className] = y
         }
 
@@ -116,12 +116,12 @@ class DataGridComponent extends React.Component {
     }
 
     filterChildren = () => {
-        if( !this.props.columns ) return
+        if (!this.props.columns) return
         this.props.columns.forEach((item, index) => {
-            if( item && item.props && item.props.isColumnGroup && item.props.children && item.props.children.length > 0 ) {
+            if (item && item.props && item.props.isColumnGroup && item.props.children && item.props.children.length > 0) {
                 let newChildren = []
                 item.props.children.forEach(item => {
-                    if( item && item.key != '_sequence') newChildren.push(item)
+                    if (item && item.key != '_sequence') newChildren.push(item)
                 })
                 this.props.columns[index].props.children = newChildren
             }
@@ -156,22 +156,22 @@ class DataGridComponent extends React.Component {
             if (height > this.props.height) height = this.props.height
         }
 
-        if(this.props.rememberScrollTop && window[this.props.className]) {
+        if (this.props.rememberScrollTop && window[this.props.className]) {
             let { height } = this.state
             let count = 0
-            if( height ) {
+            if (height) {
                 height = height - this.props.headerHeight - 15
-                if( height > 0 ) {
-                    count = Math.floor(height/this.props.rowHeight)
-                    if( typeof count != 'number' ) {
+                if (height > 0) {
+                    count = Math.floor(height / this.props.rowHeight)
+                    if (typeof count != 'number') {
                         count = 0
                     }
                 }
             }
-            if(this.props.searchFlag == true){
+            if (this.props.searchFlag == true) {
                 scrollToRow = scrollToRow
-            }else{
-                
+            } else {
+
                 scrollToRow = parseInt(window[this.props.className] / this.props.rowHeight) + count
             }
         }

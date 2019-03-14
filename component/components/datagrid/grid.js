@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
 	Table
-} from 'fixed-data-table-2'
+} from 'maka-fixed-data-table'
 import SequenceColumn from './sequenceColumn'
 import AddDelRow from './addDelRow'
 import UpDownRow from './upDownRow'

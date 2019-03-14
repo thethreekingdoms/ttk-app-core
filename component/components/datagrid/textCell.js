@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Cell } from 'fixed-data-table-2'
+import { Cell } from 'maka-fixed-data-table'
 import classNames from 'classnames'
 
 
 export default class textCellComponent extends Component {
     render() {
         let {
-          height,
+            height,
             width,
             style,
             className,
@@ -18,7 +18,7 @@ export default class textCellComponent extends Component {
             enableTooltip,
             enableEllipsis,
             ...other
-      } = this.props
+        } = this.props
 
         let cls = classNames({
             'mk-datagrid-cellContent': true,

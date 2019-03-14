@@ -33,7 +33,6 @@ module.exports = {
 			'md5',
 			'immutable',
 			'history',
-			'fastclick',
 			'classnames',
 			'omit.js',
 			'react-keydown',
@@ -41,7 +40,7 @@ module.exports = {
 			'react-json-tree',
 			'react-viewer',
 			'whatwg-fetch',
-			'fixed-data-table-2'
+			'maka-fixed-data-table'
 		]
 	},
 	output: {

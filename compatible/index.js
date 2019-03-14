@@ -5,7 +5,7 @@ import 'es5-shim/es5-sham'
 import 'console-polyfill'
 import 'fetch-ie8'
 import 'babel-polyfill'
-//import FastClick from 'fastclick'
+
 import { config, start, componentFactory } from 'edf-meta-engine'
 import * as edfComponents from 'edf-component'
 // import raf from 'raf'
@@ -181,4 +181,3 @@ Object.keys(edfComponents).forEach(key => {
 
 
 start()
-//FastClick.attach(document.body)
