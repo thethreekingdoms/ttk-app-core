@@ -99,7 +99,7 @@ class action {
 
         const response = await this.webapi.user.login(form)
         if (!response.result) {
-            if (response.error.code == 50111) {
+            if (response.error && response.error.code == 50111) {
                 this.metaAction.sf('data.other.error.password', '密码不正确，请重新输入')
             }
             return

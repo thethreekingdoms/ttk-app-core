@@ -48,6 +48,7 @@ export function mock(url, handler) {
 
 export function get(url, headers, option) {
 	//url增加处理参数
+	let bakUrl = url
 	if (url && url.indexOf('?') == -1) {
 		url = `${url}?appId=10001006&requestId=${getRandom()}`
 		if (getAccessToken()) {
@@ -70,7 +71,7 @@ export function get(url, headers, option) {
 								token: getAccessToken()
 							}
 					}
-					var resp = mockApi[url](headers)
+					var resp = mockApi[bakUrl](headers)
 					if (resp.then && resp.catch) {
 						resp.then(r => {
 							resp = after(resp, url, undefined, headers)
@@ -113,6 +114,7 @@ export function get(url, headers, option) {
 
 export function post(url, data, headers, option) {
 	//url增加处理参数
+	let bakUrl = url
 	if (url && url.indexOf('?') == -1) {
 		url = `${url}?appId=10001006&requestId=${getRandom()}`
 		if (getAccessToken()) {
@@ -134,7 +136,7 @@ export function post(url, data, headers, option) {
 								token: getAccessToken()
 							}
 					}
-					var resp = mockApi[url](data, headers)
+					var resp = mockApi[bakUrl](data, headers)
 					if (resp.then && resp.catch) {
 						resp.then(r => {
 							r = after(r, url, data, headers)

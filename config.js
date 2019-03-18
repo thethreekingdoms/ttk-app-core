@@ -32,7 +32,7 @@ fetch.config({
 					token: response.token
 				})
 			}
-			if (url === '/v1/edf/user/login') {
+			if (url && url.indexOf('/v1/edf/user/login') > -1) {
 				return response
 			}
 			return response.value
@@ -76,7 +76,7 @@ fetch.config({
 					}
 					//Modal.error({ title: '错误：', okText: '关闭', content: response.error.code })
 				}
-				if (url === '/v1/edf/user/login') {
+				if (url && url.indexOf('/v1/edf/user/login') > -1) {
 					return response
 				}
 				return
