@@ -49,6 +49,8 @@ import './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-detail-setting/m
 import './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting/mock.js';
 import './apps/test/app-test/mock.js';
 //note-end
+import './apps/edf/ttk-edf-app-simple-login/mock.js';
+import './apps/edf/ttk-edf-app-simple-portal/mock.js';
 
 
 import './apps/test/ttk-tax-app-vattaxpayer/mock.js';

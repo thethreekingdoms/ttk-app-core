@@ -71,6 +71,13 @@ plugins.push(new CopyWebpackPlugin([{
 }]))
 
 
+plugins.push(new CopyWebpackPlugin([{
+    from: './sso.html',
+    to: 'sso.html',
+    toType: 'file'
+}]))
+
+
 if (version_ie8_bol) {
     plugins.push(new CopyWebpackPlugin([{
         from: './compatible/dist',

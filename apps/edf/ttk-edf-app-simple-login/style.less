@@ -1,0 +1,379 @@
+.ttk-edf-app-simple-login{
+	width: 100%;
+	height: 100%;
+
+	&-header{
+	    height: 60px;
+	    flex: 0 0 60px;
+		background: #1EB5AD;
+	    border-bottom: 1px solid #34c9e0;
+    	font-size: 20px;
+    	font-weight: bold;
+    	flex-direction:row;
+    	align-items:center;
+    	overflow: hidden;
+		justify-content: space-between;
+
+    	&-left {
+			height: 60px;
+			flex-direction: row;
+			line-height: 60px;
+			color: #ffffff;
+			line-height: 60px;
+			padding-left:10px;
+			overflow: hidden;
+
+			&-logo {
+				width: 160px;
+				height: 54px;
+				margin: 4px 0 0 0;
+			}
+
+			&-sitename {
+				font-family: 'Microsoft Yahei', 'PingFang SC';
+				font-style: normal;
+				font-size: 24px;
+				color: #FFFFFF;
+				margin:0 auto;
+				margin: 0px 0px 0px 10px;
+			}
+
+			&-split {
+				width: 2px;
+				height: 22px;
+				background: #ffffff;
+				margin: 21px 15px 0 0;
+			}
+
+			&-login {
+				font-size: 18px;
+				font-weight: 400;
+			}
+		}
+
+		&-right{
+			display: block;
+			width:92px;
+			line-height:36px;
+			border:1px solid #ffffff;
+			border-radius: 5px;
+			font-size:16px;
+			font-weight:400;
+			text-align: center;
+			color:#ffffff;
+			margin-right:44px;
+			cursor: pointer;
+		}
+
+		&-right:hover{
+			color:#9ad9c2;
+			border-color:#9ad9c2;
+		}
+	}
+
+	&-content{
+		flex:1;
+		flex-direction: row;
+		justify-content: center;
+		display: flex;
+		align-items: center;
+		position: relative;
+		overflow:hidden;
+
+		&-bgs{
+			position:absolute;
+			width:100%;
+			height:100%;
+		}
+		&-bgs:hover .slick-list{
+			transform: matrix(1.05,0,0,1.05,1,1)!important;
+		}
+		.ant-carousel{
+			width:100%;
+			height:100%;
+
+			.slick-track{
+				user-select: all;
+			}
+			.slick-list{
+				transition: all .5s linear;
+			}
+			.slick-slide{
+				position: relative;
+			}
+			div{
+				height:inherit;
+			}
+			img{
+				width:100%;
+				height:100%;
+			}
+			.slick-dots li{
+				margin:0 10px;
+			}
+			.slick-dots{
+				overflow:hidden;
+			}
+			.slick-dots li button{
+				background:#1EB5AD;
+				width:30px;
+				height:5px;
+			}
+		}
+
+		&-ad{
+			position:absolute;
+			width:450px;
+			height:100px!important;
+			left:150px;
+			top:50%;
+			transform: translateY(-100%);
+
+			p:nth-of-type(1){
+				font-size:50px;
+				font-weight:650;
+				line-height:normal;
+				text-align: right;
+				margin-bottom:0;
+			}
+			p:nth-of-type(2){
+				font-size:16px;
+				font-weight:650;
+				line-height:normal;
+				text-align: right;
+				margin-bottom:0;
+			}
+		}
+
+		&-form{
+			width:488px;
+			height:362px;
+    		flex-direction: column;
+			justify-content: center;
+			align-items:center;
+			//position: absolute;
+			//top:50%;
+			//margin-top:-181px;
+			//right:90px;
+			background: #F9F8FA;
+			box-shadow: 0 0 3px 0 rgba(30,181,173,0.41), 0 0 8px 0 rgba(30,181,173,0.32);
+			border-radius: 16px;
+
+			.mk-form-item{
+            	margin-bottom: 25px
+			}
+
+			.ant-form-item-control-wrapper, .ant-input-group-wrapper{
+				width: 90%;
+				margin:0 auto;
+			}
+
+
+			.ant-form-item-control, .ant-input-wrapper{
+				height: 50px;
+			}
+
+			.mk-input{
+				height: 100%;
+			}
+			.ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled){
+				outline: 0;
+				border-color:#13a984;
+				box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+			}
+			.has-error .ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled){
+				border-color: #f5222d;
+				box-shadow:none;
+			}
+
+			.ant-form-explain{
+				margin-top: 5px;
+			}
+
+			&-title {
+				width:100%;
+				text-align: center;
+				font-size: xx-large;
+				font-size:28px;
+				font-weight:700;
+				margin-bottom:0!important;
+				height:60px;
+				margin-top:21px;
+			}
+
+			&-mobile{
+				width:100%;
+
+				.ant-input{
+					border-radius:9px;
+					padding-left: 32px !important;
+					font-size: 16px;
+					border-color:#bbbcbc;
+				}
+				.ant-input:hover, .ant-input:focus{
+					outline: 0;
+					border-color:#13a984;
+					box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2)
+				}
+				.has-error .ant-input, .has-error .ant-input:hover{
+					border-color: #f5222d;
+					box-shadow:none;
+				}
+			}
+
+			&-password {
+				width:100%;
+
+				.ant-input{
+					border-radius:9px;
+					padding-left: 32px !important;
+					font-size: 16px;
+					border-color:#bbbcbc;
+				}
+				.ant-input:hover, .ant-input:focus{
+					outline: 0;
+					border-color:#13a984;
+					box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2)
+				}
+				.has-error .ant-input, .has-error .ant-input:hover{
+					border-color: #f5222d;
+					box-shadow:none;
+				}
+			}
+
+			&-login{
+				.mk-btn{
+					width: 100%;
+					height: 100%;
+					border-radius:8px;
+				}
+				.mk-btn-softly{
+					background-color: #1EB5AD;
+					border-color: #1EB5AD;
+					color:#fff;
+					font-size:18px;
+					border:none;
+				}
+				.mk-btn-softly[disabled]{
+					color: #cccccc;
+					background-color: #ececec;
+					border-color: #ececec;
+				}
+				margin-bottom: 5px !important;
+			}
+
+			&-more{
+				&-register{
+					color:#1EB5AD;
+				}
+				&-register:hover{
+					color:#1EB5AD;
+					text-decoration: underline;
+				}
+				.ant-form-item-children{
+					display: block;
+				}
+				&-forget{
+					color:#000000;
+				}
+				&-forget:hover{
+					color:#1EB5AD;
+					text-decoration: underline;
+				}
+				.ant-checkbox-inner{
+					border-color:#1EB5AD !important;
+				}
+				.ant-checkbox-checked .ant-checkbox-inner{
+					background:#1EB5AD !important;
+				}
+			}
+
+			.ant-input-prefix{
+				font-size: 32px;
+				color: #ccc;
+				left:2px;
+			}
+
+			.ant-btn:not([disabled]):hover{
+				background:rgba(30,181,173,0.7);
+			}
+		}
+	}
+	&-footer{
+    	height: 80px;
+    	flex: 0 0 80px;;
+    	justify-content: center;
+    	align-items: center;
+		background: #f9f9f9;
+		color:#a1a1a1;
+		font-size:14px;
+		font-weight:400;
+		line-height:normal;
+		p{
+			margin:0;
+		}
+		a{
+			color:#1EB5AD;
+		}
+	}
+	&-browserCheck{
+		background: #FFECEA;
+		width:100%;
+		height:60px;
+		border: 1px solid rgba(250,124,99,0.20);
+		border-radius: 0 0 5px 5px;
+		position: absolute;
+		top:0px;
+		left:0px;
+		&-img{
+			zoom: 0.5;
+		}
+		&-middle{
+			padding: 0 10px;
+			margin-top: 15px;
+			position: absolute;
+		}
+		&-title{
+			font-size: 18px;
+			color: #E94033;
+			letter-spacing: 0;
+			text-align: center;
+			vertical-align: middle;
+			margin: 10px;
+		}
+		&-close{
+			cursor: pointer;
+			zoom: 0.5;
+		}
+	}
+	&-loading{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		z-index: 999999;
+		& > div{
+			margin:auto;
+			position:absolute;
+			top:50%;
+			margin-top:-50px;
+		}
+	}
+}
+@keyframes myanimate1 {
+	from {
+		transform: scale(1)
+	}
+	to {
+		transform: scale(1.1)
+	}
+}
+@keyframes myanimate2 {
+	from {
+		transform: scale(1.1)
+	}
+	to {
+		transform: scale(1)
+	}
+}
