@@ -20,29 +20,6 @@ function initMockData() {
 
 
 
-fetch.mock('/v1/edf/portal/init', (option, headers) => {
-    initMockData()
-    if (headers && headers.token) {
-        const segments = headers.token.split(',')
-        const [id, mobile, password, nickname, sex, birthday] = segments
-        var user = mockData.users.find(o => o.id == id)
-        //mock简单处理，因为刷新网站，mock数据会丢失，将token中的用户数据加回去
-        if (!user) {
-            user = { id, mobile, password, nickname: nickname ? nickname : mobile, sex, birthday }
-            mockData.users.push(user)
-        }
-        else {
-            user.nickname = user.nickname || user.mobile
-        }
-        return { result: true, value: { user } }
-    }
-    else {
-        return { result: true, value: {} }
-    }
-})
-
-
-
 fetch.mock('/v1/edf/mini/initPortal', (option, headers) => {
     initMockData()
     if (headers && headers.token) {
