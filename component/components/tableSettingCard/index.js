@@ -10,7 +10,7 @@ class TableSettingCard extends React.Component {
         super(props)
         this.state = {
             data: this.ininData(props.data),
-            initData: JSON.parse(JSON.stringify(props.data)),
+            initData: JSON.parse(JSON.stringify(props.data || '')),
             height: null,
             top: -2000,
             firstVisible: props.visible
@@ -20,8 +20,8 @@ class TableSettingCard extends React.Component {
 
     assitShouldComponent = (target) => {
         let obj = {}
-        for( const [key, value] of Object.entries(target) ) {
-            if( typeof(value) != 'function' ) {
+        for (const [key, value] of Object.entries(target)) {
+            if (typeof (value) != 'function') {
                 obj[key] = value
             }
         }
@@ -61,7 +61,7 @@ class TableSettingCard extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if( nextProps.visible != this.props.visible ) {
+        if (nextProps.visible != this.props.visible) {
             this.state.firstVisible = true
         }
         const data = this.ininData(nextProps.data)
@@ -88,7 +88,7 @@ class TableSettingCard extends React.Component {
     }
 
     handleChange = (e, item) => {
-        const  data =  fromJS(this.state.data).toJS()
+        const data = fromJS(this.state.data).toJS()
         const index = data.findIndex(index => {
             return index.id == item.id
         })
@@ -108,7 +108,7 @@ class TableSettingCard extends React.Component {
             let height = window.innerHeight - point.y - 10
             this.setState({
                 height,
-                top: point.y 
+                top: point.y
             })
         }
     }
@@ -194,8 +194,8 @@ class TableSettingCard extends React.Component {
         const [arrLeft, arrRight] = this.renderItem(data)
         const arr = [
             <div className="mk-tableSetting-header">
-                    <span>表头</span>
-                    <span>明细</span>
+                <span>表头</span>
+                <span>明细</span>
             </div>,
             <div className="mk-tableSetting-container">
                 <div className="mk-tableSetting-title">
@@ -224,9 +224,9 @@ class TableSettingCard extends React.Component {
     render() {
         const props = this.props
         let className = classNames({
-            'mk-tableSetting':true,
-            'mk-tableSetting1': props.showTitle?true:false,
-            'mk-tableSetting2': props.showTitle?false:true,
+            'mk-tableSetting': true,
+            'mk-tableSetting1': props.showTitle ? true : false,
+            'mk-tableSetting2': props.showTitle ? false : true,
             [props.className]: !!props.className,
             'animated': true,
             'slideInRight': this.props.visible,
@@ -244,26 +244,26 @@ class TableSettingCard extends React.Component {
         const { data, height, top } = this.state
         const [arrLeft, arrRight] = this.renderItem(data)
         return (
-            <div style={{display: `${this.state.firstVisible == false ?  'none' : 'block'}`}}>
+            <div style={{ display: `${this.state.firstVisible == false ? 'none' : 'block'}` }}>
                 <div
                     className={className}
-                    style={{ 
-                        height: `${height}px`, 
+                    style={{
+                        height: `${height}px`,
                         position: 'fixed',
                         right: '0px',
                         top: `${top}px`,
                     }}
                 >
                     <h2>栏目设置</h2>
-                    <div style={{height: '100%', overflow: 'auto'}}>{  !props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
+                    <div style={{ height: '100%', overflow: 'auto' }}>{!props.showTitle ? this.renderStyle2() : this.renderStyle1()}</div>
                     <div className={className2}>
                         <Button className="mk-tableSetting-bottom-btn" onClick={this.cancelClick}>取消</Button>
-                        
+
                         <Button className="mk-tableSetting-bottom-btn" onClick={this.reset}>重置</Button>
                         <Button className="mk-tableSetting-bottom-btn" type="primary " onClick={this.confirmClick}>确定</Button>
                     </div>
                 </div>
-                
+
             </div>
         )
     }
