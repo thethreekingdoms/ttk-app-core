@@ -1,6 +1,6 @@
 {
   "name": "ttk-app-core",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
@@ -96,7 +96,7 @@
     "react-resizable": "1.7.5",
     "react-viewer": "2.3.9",
     "redux": "3.7.2",
-    "ttk-app-init-demo": "1.0.0",
+    "ttk-app-init-demo": "*",
     "ttk-rc-intro": "1.0.4",
     "ttk-rc-select": "1.0.9",
     "upath": "1.0.5",
