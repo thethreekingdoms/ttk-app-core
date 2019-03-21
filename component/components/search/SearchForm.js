@@ -71,7 +71,7 @@ class SearchForm extends React.Component {
                 <div className="select_range_label">{label}</div>
                 <FormItem>
                     {getFieldDecorator(pre_name, {
-                        initialValue: values[pre_name],
+                        initialValue: values ? values[pre_name] : '',
                         ...more,
                         ...preMore
                     })(
@@ -81,7 +81,7 @@ class SearchForm extends React.Component {
                 <div className="select_range_content">{centerContent}</div>
                 <FormItem>
                     {getFieldDecorator(next_name, {
-                        initialValue: values[next_name],
+                        initialValue: values ? values[next_name] : '',
                         ...more,
                         ...nextMore,
                     })(
@@ -128,7 +128,7 @@ class SearchForm extends React.Component {
                         label={<span>{label}</span>}
                     >
                         {getFieldDecorator(name, {
-                            initialValue: values[name],
+                            initialValue: values ? values[name] : '',
                             ...more
                         })(
                             render ? render(data) : this.renderOption(type, data, childType, option)
