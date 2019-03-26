@@ -154,7 +154,7 @@ function mergeTheme(arr, type) {
     return newArr
 }
 module.exports = {
-    devtool: false, //devtool: 'cheap-module-eval-source-map',
+    devtool: false, //devtool: 'source-map',
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],

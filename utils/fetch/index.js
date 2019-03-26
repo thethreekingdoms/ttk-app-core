@@ -49,12 +49,12 @@ export function mock(url, handler) {
 export function get(url, headers, option) {
 	//url增加处理参数
 	let bakUrl = url
-	if (url && url.indexOf('?') == -1) {
-		url = `${url}?appId=10001006&requestId=${getRandom()}`
-		if (getAccessToken()) {
-			url = url + "&token=" + getAccessToken()
-		}
-	}
+	// if (url && url.indexOf('?') == -1) {
+	// 	url = `${url}?appId=10001006&requestId=${getRandom()}`
+	// 	if (getAccessToken()) {
+	// 		url = url + "&token=" + getAccessToken()
+	// 	}
+	// }
 	if (!option || option.ignoreAOP !== true) {
 		before()
 	}
@@ -115,12 +115,12 @@ export function get(url, headers, option) {
 export function post(url, data, headers, option) {
 	//url增加处理参数
 	let bakUrl = url
-	if (url && url.indexOf('?') == -1) {
-		url = `${url}?appId=10001006&requestId=${getRandom()}`
-		if (getAccessToken()) {
-			url = url + "&token=" + getAccessToken()
-		}
-	}
+	// if (url && url.indexOf('?') == -1) {
+	// 	url = `${url}?appId=10001006&requestId=${getRandom()}`
+	// 	if (getAccessToken()) {
+	// 		url = url + "&token=" + getAccessToken()
+	// 	}
+	// }
 	if (!option || option.ignoreAOP !== true) {
 		before(url, data, headers)
 	}
