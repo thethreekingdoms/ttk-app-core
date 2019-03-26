@@ -242,9 +242,11 @@ module.exports = {
   devServer: {
     contentBase: "./dist/",
     proxy: {
-      "/v1/*": "http://debug.aierp.cn:8085/",
-      "/share-oss/*": "http://debug.aierp.cn:8085/"
-    }
+            '/v1/*': {
+                target: 'http://10.10.10.10:8088/',
+                changeOrigin: true,
+            }
+        }
   },
   plugins: plugins
 };
