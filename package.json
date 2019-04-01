@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8081 --host 0.0.0.0",
-    "release": "cross-env NODE_ENV=single npm run build && npm run css && npm run modules:all",
+    "release": "cross-env NODE_ENV=single npm run build && npm run css && npm run modules && npm run merge:manifest",
     "packmodule": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
     "build": "cross-env NODE_ENV=production NODE_ENV=single webpack --progress --colors --display-error-details --config webpack.config.prd.js",
     "build-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.nohash.prd.js",

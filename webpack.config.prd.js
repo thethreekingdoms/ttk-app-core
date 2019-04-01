@@ -71,9 +71,9 @@ plugins.push(
 );
 
 plugins.push(new webpack.optimize.CommonsChunkPlugin({
-    names: ['bundle', 'edf'],
-    filename: '[name].[hash:8].min.js',
-    minChunks: Infinity
+  names: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
+  filename: '[name].[hash:8].min.js',
+  minChunks: Infinity
 }))
 //'bundle', 'edf', 'icon', 'businessBlueTheme'
 plugins.push(new ManifestPlugin());
@@ -242,11 +242,11 @@ module.exports = {
   devServer: {
     contentBase: "./dist/",
     proxy: {
-            '/v1/*': {
-                target: 'http://10.10.10.10:8088/',
-                changeOrigin: true,
-            }
-        }
+      '/v1/*': {
+        target: 'http://10.10.10.10:8088/',
+        changeOrigin: true,
+      }
+    }
   },
   plugins: plugins
 };
