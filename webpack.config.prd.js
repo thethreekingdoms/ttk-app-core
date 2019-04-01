@@ -69,12 +69,12 @@ plugins.push(
     }
   })
 );
-/*
+
 plugins.push(new webpack.optimize.CommonsChunkPlugin({
     names: ['bundle', 'edf'],
     filename: '[name].[hash:8].min.js',
     minChunks: Infinity
-}))*/
+}))
 //'bundle', 'edf', 'icon', 'businessBlueTheme'
 plugins.push(new ManifestPlugin());
 plugins.push(new es3ifyWebpackPlugin());
@@ -86,7 +86,7 @@ plugins.push(
     filename: "index.html", //生成的html存放路径，相对于 path
     template: "index.html", //html模板路径
     chunks: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
-    hash: true,
+    hash: false,
     inject: "body", //允许插件修改哪些内容，包括head与body`
     minify: {
       //压缩HTML文件
