@@ -13,9 +13,7 @@ var plugins = [];
 let useHash = process.env.NODE_ENV == "single" ? false : true;
 
 var defaultStyle = ["./assets/styles/businessBlue.less"];
-//var orangeStyle = ["./assets/styles/orange.less"];
-//var blueStyle = ["./assets/styles/blue.less"];
-//var yellowStyle = ["./assets/styles/yellow.less"];
+var blueStyle = ["./assets/styles/blue.less"];
 
 let isSplitCss = false;
 let start_params;
@@ -73,9 +71,7 @@ module.exports = {
   devtool: false,
   entry: {
     businessBlueTheme: defaultStyle.concat(["./assets/apps/businessBlue.less"]),
-    //orangeTheme: orangeStyle.concat(["./assets/apps/orange.less"]),
-    //blueTheme: blueStyle.concat(["./assets/apps/blue.less"]),
-    //yellowTheme: yellowStyle.concat(["./assets/apps/yellow.less"]),
+    blueTheme: blueStyle.concat(["./assets/apps/blue.less"]),
     ie: "./assets/styles/ie.less",
     icon: "./component/assets/style/iconset.less"
   },
@@ -128,8 +124,10 @@ module.exports = {
   devServer: {
     contentBase: "./dist/",
     proxy: {
-      "/v1/*": "http://debug.aierp.cn:8085/",
-      "/share-oss/*": "http://debug.aierp.cn:8085/"
+      '/v1/*': {
+        target: 'http://10.10.10.10:8088/',
+        changeOrigin: true,
+      }
     }
   },
   plugins: plugins

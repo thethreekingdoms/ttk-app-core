@@ -158,12 +158,12 @@ export function getMeta() {
 					name: 'skin2',
 					component: "a",
 					className: 'skinBtns skinGray',
-					onClick: '{{function(){{$toggleColor("#414141","change")}}}}',
+					onClick: '{{function(){{$toggleColor("#1EB5AD","change")}}}}',
 					"data-skin": "skinGray",
 					children: [{
 						name: 'skin2title',
 						component: 'p',
-						children: '经典灰'
+						children: '经典绿'
 					}]
 				}]
 			}, {

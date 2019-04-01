@@ -116,8 +116,7 @@ ${str}
 }
 
 function mergeCss() {
-    const themes = ['BusinessBlueTheme']
-    //const themes = ['YellowTheme', 'OrangeTheme', 'BusinessBlueTheme', 'BlueTheme']
+    const themes = ['BusinessBlueTheme', 'BlueTheme']
     themes.forEach(item => {
         let themeContent = ''
         moduleName.forEach(name => {

@@ -94,20 +94,6 @@ function loadCss() {
 		styleSheet.rel = "stylesheet";
 		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
-	else if (skin == '#B4A074') {
-		var styleSheet = document.createElement('link');
-		styleSheet.id = 'refSkin';
-		styleSheet.href = './orangeTheme.css';
-		styleSheet.rel = "stylesheet";
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
-	}
-	else if (skin == '#FF913A') {
-		var styleSheet = document.createElement('link');
-		styleSheet.id = 'refSkin';
-		styleSheet.href = './yellowTheme.css';
-		styleSheet.rel = "stylesheet";
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
-	}
 	else if (skin == '#1EB5AD') {
 		var styleSheet = document.createElement('link');
 		styleSheet.id = 'refSkin';
@@ -122,8 +108,6 @@ function loadCss() {
 		styleSheet.rel = "stylesheet";
 		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
-
-
 }
 
 

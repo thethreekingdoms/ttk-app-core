@@ -24,10 +24,12 @@ const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
 var businessBlue = ["./assets/styles/businessBlue.less"]
 //var orangeStyle = ["./assets/styles/orange.less"]
 //var yellowStyle = ["./assets/styles/yellow.less"]
-//var blueStyle = ["./assets/styles/blue.less"]
+var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
-const version_ie8_bol = fs.existsSync(path.resolve(projectRootPath, version_ie8))
+const version_ie8_bol = false
+
+//fs.existsSync(path.resolve(projectRootPath, version_ie8))
 
 //node环境变量，生产环境：production，开发环境：development
 plugins.push(new webpack.DefinePlugin({
@@ -159,6 +161,7 @@ module.exports = {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
         businessBlueTheme: businessBlue.concat(mergeTheme(['./assets/apps/businessBlue.less'], 'businessBlue')),
+        blueTheme: blueStyle.concat(mergeTheme(['./assets/apps/blue.less'], 'blue')),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less",
     },

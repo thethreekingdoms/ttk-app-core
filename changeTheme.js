@@ -13,23 +13,11 @@ function getTheme(color) {
     let theme = null
     //判断主题颜色
     switch (color) {
-        case '#FF913A':
-            theme = 'YellowTheme'
-            break;
-        case '#00B38A':
-            theme = 'GreenTheme'
-            break;
         case '#0066B3':
             theme = 'BlueTheme'
             break;
         case '#1EB5AD':
             theme = 'BusinessBlueTheme'
-            break;
-        case '#B4A074':
-            theme = 'OrangeTheme'
-            break;
-        case '#414141':
-            theme = 'BlackTheme'
             break;
         default:
             theme = 'BusinessBlueTheme'

@@ -201,10 +201,9 @@ export function getInitState() {
 			// manageList: [],
 			app: {
 				isOnlyContent: true,
-				name: '金财管家'
+				name: '企业开发平台'
 			},
 			menu: [],
-			// colors: [{color:'#FF913A',tip: '活力橙'}, {color:'#00B38A',tip:'荷叶绿'}, {color:'#0066B3',tip:'商务蓝'},{color:'#1EB5AD',tip:'薄荷蓝'}, {color:'#B4A074',tip:'淡雅棕'}, {color:'#414141',tip:'经典灰'}],
 			colors: [{ color: '#FF913A', tip: '活力橙' }, { color: '#1EB5AD', tip: '薄荷蓝' }, { color: '#0066B3', tip: '商务蓝' }, { color: '#B4A074', tip: '淡雅棕' }],
 			tips: ['1', '2', '3', '4', '5', '6'],
 			menuSelectedKeys: [10],

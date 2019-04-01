@@ -832,8 +832,7 @@ export function getInitState() {
         data: {
             // manageList: [],
             menu: [],
-            // colors: [{color:'#FF913A',tip: '活力橙'}, {color:'#00B38A',tip:'荷叶绿'}, {color:'#416AAA',tip:'商务蓝'},{color:'#1EB5AD',tip:'薄荷蓝'}, {color:'#B4A074',tip:'淡雅棕'}, {color:'#414141',tip:'经典灰'}],
-            colors: [{ color: '#416AAA', tip: '商务蓝' }, { color: '#414141', tip: '经典灰' }],
+            colors: [{ color: '#416AAA', tip: '商务蓝' }, { color: '#00B38A', tip: '经典绿' }],
             tips: ['1', '2', '3', '4', '5', '6'],
             menuSelectedKeys: [10],
             menuDefaultOpenKeys: [10],

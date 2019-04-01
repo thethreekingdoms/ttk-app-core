@@ -22,12 +22,11 @@ var plugins = []
 var projectRootPath = path.resolve(__dirname, './')
 
 var defaultStyle = ["./assets/styles/businessBlue.less"]
-var orangeStyle = ["./assets/styles/orange.less"]
-var yellowStyle = ["./assets/styles/yellow.less"]
 var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = './compatible/dist/index.html'
 
-const version_ie8_bol = fs.existsSync(path.resolve(projectRootPath, version_ie8))
+const version_ie8_bol = false
+//fs.existsSync(path.resolve(projectRootPath, version_ie8))
 
 
 //node环境变量，生产环境：production，开发环境：development
@@ -123,9 +122,7 @@ module.exports = {
     entry: {
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi", "./index.js"],
         businessBlueTheme: defaultStyle.concat(['./assets/apps/businessBlue.less']),
-        //orangeTheme: orangeStyle.concat(['./assets/apps/orange.less']),
-        //blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
-        //yellowTheme: yellowStyle.concat(['./assets/apps/yellow.less']),
+        blueTheme: blueStyle.concat(['./assets/apps/blue.less']),
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less"
     },
@@ -194,8 +191,10 @@ module.exports = {
     devServer: {
         contentBase: './dist/',
         proxy: {
-            '/v1/*': 'http://debug.aierp.cn:8085/',
-            '/share-oss/*': 'http://debug.aierp.cn:8085/',
+            '/v1/*': {
+                target: 'http://10.10.10.10:8088/',
+                changeOrigin: true,
+            }
         }
     },
     plugins: plugins

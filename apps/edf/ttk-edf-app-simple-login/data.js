@@ -20,7 +20,7 @@ export function getMeta() {
 					// 	name: 'sitename',
 					// 	component: '::span',
 					// 	className: 'ttk-edf-app-simple-login-header-left-sitename',
-					// 	children: '金财管家'
+					// 	children: '企业开发平台'
 				}, {
 					name: 'split',
 					component: '::div',
@@ -125,7 +125,7 @@ export function getMeta() {
 				children: [{
 					name: 'item1',
 					component: '::span',
-					children: '金财管家@2018' //版权所有 © 2018 金财互联数据服务有限公司 粤ICP备'
+					children: '企业开发平台@2018' //版权所有 © 2018 金财互联数据服务有限公司 粤ICP备'
 				}, {
 					name: 'version',
 					id: 'lbl-version',

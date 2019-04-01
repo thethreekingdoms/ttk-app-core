@@ -92,21 +92,11 @@ function loadSplitCss() {
 		if (skin == '#0066B3') {
 			theme = 'blueTheme';
 		}
-		else if (skin == '#B4A074') {
-			var styleSheet = document.createElement('link');
-			theme = 'orangeTheme';
-		}
-		else if (skin == '#FF913A') {
-			theme = 'yellowTheme';
-		}
 		else if (skin == '#1EB5AD') {
 			theme = 'businessBlueTheme';
 		}
-		else {
-			theme = 'yellowTheme';
-		}
 	} else {
-		theme = 'yellowTheme';
+		theme = 'businessBlueTheme';
 	}
 
 	for (var i = 1; i < 4; i++) {
@@ -126,20 +116,6 @@ function loadCss() {
 		var styleSheet = document.createElement('link');
 		styleSheet.id = 'refSkin';
 		styleSheet.href = './blueTheme.css';
-		styleSheet.rel = "stylesheet";
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
-	}
-	else if (skin == '#B4A074') {
-		var styleSheet = document.createElement('link');
-		styleSheet.id = 'refSkin';
-		styleSheet.href = './orangeTheme.css';
-		styleSheet.rel = "stylesheet";
-		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
-	}
-	else if (skin == '#FF913A') {
-		var styleSheet = document.createElement('link');
-		styleSheet.id = 'refSkin';
-		styleSheet.href = './yellowTheme.css';
 		styleSheet.rel = "stylesheet";
 		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}
