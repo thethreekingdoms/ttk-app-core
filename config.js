@@ -10,8 +10,6 @@ import {
 	fetch,
 	environment
 } from 'edf-utils'
-// import { websql } from './../../../mk-js/core/mk-orm/src'
-//import { websql } from 'mk-orm'
 import './mock.js' //脱离后台测试，启用mock，否则这行注释
 
 var _options = {}

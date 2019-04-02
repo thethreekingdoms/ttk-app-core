@@ -121,14 +121,5 @@ module.exports = {
       },
     ]
   },
-  devServer: {
-    contentBase: "./dist/",
-    proxy: {
-      '/v1/*': {
-        target: 'http://10.10.10.10:8088/',
-        changeOrigin: true,
-      }
-    }
-  },
   plugins: plugins
 };

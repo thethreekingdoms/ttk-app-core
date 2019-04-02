@@ -13,7 +13,7 @@ function getTheme(color) {
     let theme = null
     //判断主题颜色
     switch (color) {
-        case '#0066B3':
+        case '#416AAA':
             theme = 'BlueTheme'
             break;
         case '#1EB5AD':

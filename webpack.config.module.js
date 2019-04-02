@@ -83,11 +83,8 @@ plugins.push(
 
 let entryConfig = {
     [argName]: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi", `./apps/${argName}/index.js`],
-    // [`${argName}BlackTheme`]: `./apps/${argName}/theme/black.less`,
     [`${argName}BusinessBlueTheme`]: `./apps/${argName}/theme/businessBlue.less`,
-    // [`${argName}OrangeTheme`]: `./apps/${argName}/theme/orange.less`,
-    // [`${argName}YellowTheme`]: `./apps/${argName}/theme/yellow.less`,
-    // [`${argName}BlueTheme`]: `./apps/${argName}/theme/blue.less`,
+    [`${argName}BlueTheme`]: `./apps/${argName}/theme/blue.less`,
 }
 
 
@@ -160,15 +157,6 @@ module.exports = {
                 }
             }
         }]
-    },
-    devServer: {
-        contentBase: './dist/',
-        proxy: {
-            '/v1/*': {
-                target: 'http://10.10.10.10:8088/',
-                changeOrigin: true,
-            }
-        }
     },
     plugins: plugins
 }
