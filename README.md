@@ -12,6 +12,8 @@
 [![Join the chat at https://gitter.im/ttkteam/ttk-app-core](https://badges.gitter.im/ttkteam/ttk-app-core.svg)](https://gitter.im/ttkteam/ttk-app-core?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  
 [演示地址](https://thethreekingdoms.github.io/html/#/ttk-edf-app-root/ttk-edf-app-login)
+
+[新手入门](https://www.kancloud.cn/test001001/ttk-guide/754594)
   ### ttk-app-core是一套完整的前端工程化解决方案，涵盖项目的起始、开发、测试以及部署阶段。
   ### 
   ``` 提供可定制的脚手架、插件系统以及开发者API，可以根据业务需求搭建自己的前端工程体系。```
