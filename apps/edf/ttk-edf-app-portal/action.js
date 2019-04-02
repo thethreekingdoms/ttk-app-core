@@ -367,26 +367,14 @@ class action {
         }
         let link = this.createLink()
         switch (color) {
-            case '#FF913A':
-                link.href = origin + '/yellowTheme' + '.css'
-                break;
-            case '#00B38A':
-                link.href = origin + '/greenTheme' + '.css'
-                break;
             case '#416AAA':
                 link.href = origin + '/blueTheme' + '.css'
                 break;
             case '#1EB5AD':
                 link.href = origin + '/businessBlueTheme' + '.css'
                 break;
-            case '#B4A074':
-                link.href = origin + '/orangeTheme' + '.css'
-                break;
-            case '#414141':
-                link.href = origin + '/blackTheme' + '.css'
-                break;
             default:
-                link.href = origin + '/greenTheme' + '.css'
+                link.href = origin + '/businessBlueTheme' + '.css'
                 break;
         }
         document.head.appendChild(link)

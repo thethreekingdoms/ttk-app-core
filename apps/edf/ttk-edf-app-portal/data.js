@@ -832,7 +832,7 @@ export function getInitState() {
         data: {
             // manageList: [],
             menu: [],
-            colors: [{ color: '#416AAA', tip: '商务蓝' }, { color: '#00B38A', tip: '经典绿' }],
+            colors: [{ color: '#416AAA', tip: '商务蓝' }, { color: '#1EB5AD', tip: '经典绿' }],
             tips: ['1', '2', '3', '4', '5', '6'],
             menuSelectedKeys: [10],
             menuDefaultOpenKeys: [10],

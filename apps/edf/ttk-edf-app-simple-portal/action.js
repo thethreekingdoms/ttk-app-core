@@ -28,7 +28,6 @@ class action {
 			return;
 		}
 
-		debugger
 		let ompArgs = JSON.parse(sessionStorage.getItem('ompArgs'));
 		if (ompArgs) {
 			if (Object.keys(ompArgs).includes('isOnlyContent')) {

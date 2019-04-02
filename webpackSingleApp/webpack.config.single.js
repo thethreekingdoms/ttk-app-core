@@ -140,13 +140,10 @@ module.exports = {
             errors: true
         },
         proxy: {
-            // '/v1/*': 'http://debug.aierp.cn:8088/',
-            '/v1/*': 'http://172.16.10.22:30288/',
-            //'/v1/*': 'http://172.16.20.140:8008/',
-            // '/v1/*': 'http://erpdemo.jchl.com/',
-            '/share-oss/*': 'http://debug.aierp.cn:8085/',
-            // '/v1/*': 'http://172.16.20.239:8008/',
-            // '/v1/*': 'http://127.0.0.1:8008/',
+            '/v1/*': {
+                target: 'http://10.10.10.10:8088/',
+                changeOrigin: true,
+            }
         }
     },
     plugins: plugins

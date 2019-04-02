@@ -28,9 +28,11 @@ let useHash = process.env.NODE_ENV == "single" ? false : true;
 // var blueStyle = ["./assets/styles/blue.less"]
 var version_ie8 = "./compatible/dist/index.html";
 
-const version_ie8_bol = fs.existsSync(
-  path.resolve(projectRootPath, version_ie8)
-);
+const version_ie8_bol = false;
+
+// fs.existsSync(
+//   path.resolve(projectRootPath, version_ie8)
+// );
 
 //node环境变量，生产环境：production，开发环境：development
 plugins.push(
