@@ -30,8 +30,8 @@ class action {
             return
         }
         //更新皮肤
-        let skin = localStorage.getItem('skin') || '#B4A074'
-        if (skin != '#B4A074') {
+        let skin = localStorage.getItem('skin') || '#1EB5AD'
+        if (skin != '#1EB5AD') {
             this.toggleColor(skin)
         }
         //根据账号下企业list的情况做跳转
