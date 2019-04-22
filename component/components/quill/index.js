@@ -9,7 +9,7 @@ import htmlToDraft from 'html-to-draftjs';
 class CustomOption extends Component {
 	static propTypes = {
 		onChange: PropTypes.func,
-		editorState: PropTypes.object
+		isStatic: true
 	};
 
 	clear = () => {
@@ -28,7 +28,8 @@ export default class Quill extends Component {
 	constructor(props) {
 		super(props);
 		let store = {
-			editorState: EditorState.createEmpty()
+			editorState: EditorState.createEmpty(),
+			isStatic: true
 		};
 		if (props.dataState) {
 			const blocksFromHtml = htmlToDraft(props.dataState);
@@ -39,6 +40,23 @@ export default class Quill extends Component {
 		}
 		this.state = store;
 		this.onEditorStateChange = this.onEditorStateChange.bind(this);
+	}
+	
+	componentWillReceiveProps (newProps) {
+		if (newProps.dataState && this.state.isStatic) {
+			let store = {
+				editorState: EditorState.createEmpty()
+			};
+			const blocksFromHtml = htmlToDraft(newProps.dataState);
+			const { contentBlocks, entityMap } = blocksFromHtml;
+			const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+			const editorState = EditorState.createWithContent(contentState);
+			store.editorState = editorState
+			this.setState({
+				editorState,
+				isStatic: false
+			});
+		}
 	}
 
 	onEditorStateChange(editorState) {
