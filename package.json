@@ -4,6 +4,7 @@
   "description": "enterprise develop framework",
   "main": "index.js",
   "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch --compress --config webpack.dev.js",
     "start": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8081 --host 0.0.0.0",
     "release": "cross-env NODE_ENV=single npm run build && npm run css && npm run modules && npm run merge:manifest",
     "packmodule": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.prd.js && cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
@@ -12,6 +13,8 @@
     "splitcss": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.splitcss.js",
     "splitcss-nohash": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.nohash.splitcss.js",
     "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.js",
+    "dll:edf": "cross-env NODE_ENV=production webpack --config webpack.edf.dll.js",
+    "theme": "cross-env NODE_ENV=production webpack --config webpack.theme.js",
     "module": "cross-env NODE_ENV=production webpack --progress --colors --display-error-details --config webpack.config.module.js",
     "module:cli": "npm run build && npm run css && npm run css --split",
     "modules": "npm run module --edf && npm run module --test",
