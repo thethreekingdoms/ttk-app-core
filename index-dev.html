@@ -32,12 +32,12 @@
             overflow-y: hidden;
         }
     </style>
-    <% if(process.env.NODE_ENV !== 'production'){ %>
-    <link href="./edf-vendor/edf.css" rel="stylesheet" />
-    <link href="./edf-vendor/icon.css" rel="stylesheet" />
-    <link href="./edf-vendor/businessBlueTheme.css" rel="stylesheet" />
-    <script src="./devCheckLowBrowser.js"></script>
-    <% } else {%>
+
+    <% if(process.env.ISDEVELOPMENT === true){ %>
+    <link href="./icon.css" rel="stylesheet" />
+    <link href="./businessBlueTheme.css" rel="stylesheet" />
+    <script src="./checkLowBrowser.js"></script>
+    <% } else { %>
     <script src="./checkLowBrowser.js"></script>
     <% } %>
 </head>
@@ -48,10 +48,10 @@
     <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
     <script src='./vendor/polyfill.min.js' charset="utf-8"></script>
     <!--[if lt IE 10]>
-		<script type='text/javascript' src='./vendor/es5.min.js'></script>
+        <script type='text/javascript' src='./vendor/es5.min.js'></script>
     <![endif]-->
-    <% if(process.env.NODE_ENV !== 'production'){ %>
-    <script src='./edf-vendor/edf.dll.js' charset="utf-8"></script>
+    <% if(process.env.ISDEVELOPMENT === true){ %>
+    <script src='./edf.dll.js' charset="utf-8"></script>
     <% } else {%>
     <script src='./vendor/vendor.dll.js' charset="utf-8"></script>
     <% } %>

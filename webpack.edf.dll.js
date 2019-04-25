@@ -9,7 +9,7 @@ var env = process.env.NODE_ENV
 
 var plugins = [
     new webpack.DefinePlugin({
-        'process.env': { 'NODE_ENV': JSON.stringify('production') },
+        "process.env.NODE_ENV": JSON.stringify(env),
     }),
     new webpack.DllPlugin({
         context: __dirname,
@@ -53,6 +53,11 @@ plugins.push(new HappyPack({
     threadPool: happyThreadPool,
 }))
 
+plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress:{
+        warnings:false
+    }
+}))
 
 module.exports = {
     devtool: false, 
@@ -79,7 +84,12 @@ module.exports = {
             'react-viewer',
             'whatwg-fetch',
             'maka-fixed-data-table',
-            "edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"
+            "edf-app-loader", 
+            "edf-meta-engine", 
+            "edf-component", 
+            "edf-consts", 
+            "edf-utils", 
+            "webapi"
         ],
     },
 

@@ -56,10 +56,15 @@ plugins.push(new HappyPack({
     }],
     threadPool: happyThreadPool,
 }))
+plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress:{
+        warnings:false
+    }
+}))
 
 function mergeTheme(arr, type) {
     const newArr = [...arr]
-    const modules = ['bill']
+    const modules = ['edf'] //如果模块有增加，请在这里手动添加
 
     if (start_params && start_params.toUpperCase() == 'RUNSTART' || !start_params) {
         modules.forEach(item => {

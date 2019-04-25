@@ -24,7 +24,8 @@ const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
 //node环境变量，生产环境：production，开发环境：development
 plugins.push(new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(env),
-    "process.env.MODE_SPLIT": true
+    "process.env.MODE_SPLIT": true,
+    "process.env.ISDEVELOPMENT":true
 }))
 plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
 plugins.push(new webpack.ExtendedAPIPlugin())
@@ -35,7 +36,7 @@ plugins.push(new webpack.DllReferencePlugin({
 }))
 plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new HtmlWebpackPlugin({
-    title: '票据扫描', //标题
+    title: '企业开发平台', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index-dev.html', //html模板路径
@@ -48,8 +49,8 @@ plugins.push(new ExtractTextPlugin('[name].css'))
 
 
 plugins.push(new CopyWebpackPlugin([{
-    from: './devCheckLowBrowser.js',
-    to: 'devCheckLowBrowser.js',
+    from: './checkLowBrowser.js',
+    to: 'checkLowBrowser.js',
     toType: 'file'
 }]))
 
@@ -94,6 +95,11 @@ plugins.push(new webpack.optimize.MinChunkSizePlugin({
     minChunkSize: 102400, // ~100kb
 }))
 
+plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress:{
+        warnings:false
+    }
+}))
 
 plugins.push(new CopyWebpackPlugin([{
     from: './vendor',
@@ -103,13 +109,13 @@ plugins.push(new CopyWebpackPlugin([{
 
 plugins.push(new CopyWebpackPlugin([{
     from: './edf-vendor',
-    to: './edf-vendor',
+    to: '',
     ignore: ['.*']
 }]))
 
 module.exports = {
-    devtool: false, 
-    // devtool: 'source-map',
+    // devtool: false, 
+    devtool: 'source-map',
     entry: {
         bundle: "./index.js",
     },
