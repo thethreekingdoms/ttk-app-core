@@ -653,7 +653,7 @@ export function getMeta() {
                         children: [{
                             name: 'tab1',
                             component: 'Tabs.TabPane',
-                            closable: '{{data.openTabs[_rowIndex].name !== "我的桌面"}}',
+                            closable: '{{data.openTabs[_rowIndex].name !== "首页"}}',
                             key: '{{data.openTabs[_rowIndex].name}}',
                             tab: '{{data.openTabs[_rowIndex].name}}',
                             _power: 'for in data.openTabs'
@@ -821,6 +821,7 @@ export function getMeta() {
                 appName: 'ttk-edf-app-im',
                 groupNo: '10341037',
                 eno: 'anyone',
+                _visible: false,
                 thirdPartySession: '123'
             }]
     }

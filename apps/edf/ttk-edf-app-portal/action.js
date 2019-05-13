@@ -441,7 +441,9 @@ class action {
                 this.metaAction.sf('data.setPopoverVisible', true)
                 this.showControlPanel()
                 break;
-
+            case 'help':
+                window.open('https://www.kancloud.cn/test001001/ttk-guide/754594')
+                break;
             case 'logout':
                 if (this.component.props.onRedirect && this.config.goAfterLogout) {
                     let res = await this.webapi.user.logout()

@@ -155,7 +155,7 @@ export function getMeta() {
 					name: 'item2',
 					component: 'a',
 					href: 'https://github.com/thethreekingdoms/ttk-app-core',
-					children: 'ttk-app-core'
+					children: '企业开发平台'
 				}]
 			}]
 		}]
