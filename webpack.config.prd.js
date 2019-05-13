@@ -64,9 +64,6 @@ plugins.push(
     uglifyJS: {
       output: {
         comments: false
-      },
-      compress: {
-        warnings: false
       }
     }
   })

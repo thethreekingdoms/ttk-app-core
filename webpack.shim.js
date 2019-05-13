@@ -31,9 +31,6 @@ module.exports = {
 			uglifyJS: {
 				output: {
 					comments: false
-				},
-				compress: {
-					warnings: false
 				}
 			}
 		}),
