@@ -4,6 +4,7 @@ var fs = require("fs");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
 var ManifestPlugin = require("webpack-manifest-plugin");
 //const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // ie9 下单个的css文件超过400k 不被解析
@@ -69,11 +70,11 @@ plugins.push(
   })
 );
 
-plugins.push(new webpack.optimize.CommonsChunkPlugin({
+/*plugins.push(new webpack.optimize.CommonsChunkPlugin({
   names: ['bundle', 'edf', 'icon', 'businessBlueTheme'],
   filename: '[name].[hash:8].min.js',
   minChunks: Infinity
-}))
+}))*/
 //'bundle', 'edf', 'icon', 'businessBlueTheme'
 plugins.push(new ManifestPlugin());
 plugins.push(new es3ifyWebpackPlugin());
@@ -158,6 +159,7 @@ const { modifyVars, aliasModule } = webpackCompileParams();
 
 module.exports = {
   devtool: false,
+  mode: 'production',
   entry: {
     edf: [
       "edf-app-loader",
@@ -246,6 +248,32 @@ module.exports = {
         changeOrigin: true,
       }
     }
+  },
+  optimization: {
+        splitChunks: { // webpack 4
+            chunks: 'async',
+            minSize: 30000,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                /*vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10
+                },*/
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
+                }
+            }
+        }
+    },
+  performance: {
+    hints:false   
   },
   plugins: plugins
 };

@@ -12,6 +12,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const merge = require('webpack-merge')
 const webpackCompileParams = require('./webpackCompileParams')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
 var env = process.env.NODE_ENV
 var plugins = []
 
@@ -43,7 +44,11 @@ plugins.push(new webpack.NoEmitOnErrorsPlugin())
 
 plugins.push(new LodashModuleReplacementPlugin)
 
-plugins.push(new ExtractTextPlugin('[name].[chunkhash:8].css'))
+// plugins.push(new ExtractTextPlugin('[name].[chunkhash:8].css'))
+plugins.push(new MiniCssExtractPlugin({ // webpack 4
+    filename: '[name].[chunkhash:8].css',
+    chunkFilename: '[id].css',
+}))
 const { aliasModule } = webpackCompileParams()
 
 const argv = JSON.parse(process.env.npm_config_argv)
@@ -87,6 +92,7 @@ let entryConfig = {
 
 module.exports = {
     devtool: false,
+    mode: 'production',
     entry: entryConfig,
     output: {
         path: path.join(__dirname, `/dist/${argName}`),
@@ -120,7 +126,12 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(css|less)/,
-            use: ExtractTextPlugin.extract({
+            use: [MiniCssExtractPlugin.loader, { // webpack 4
+                loader: "css-loader"
+            },{
+                loader: "less-loader"
+            }]
+            /*use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: [{
                     loader: "css-loader",
@@ -130,7 +141,7 @@ module.exports = {
                 }, {
                     loader: "less-loader"
                 }]
-            })
+            })*/
         }, {
             test: /\.htm$/,
             exclude: /node_modules/,
@@ -154,6 +165,9 @@ module.exports = {
                 }
             }
         }]
+    },
+    performance: {
+        hints:false   
     },
     plugins: plugins
 }

@@ -2,6 +2,7 @@
 var path = require("path");
 var fs = require("fs");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
 //const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // ie9 下单个的css文件超过400k 不被解析
 var CSSSplitWebpackPlugin = require("css-split-webpack-plugin").default;
@@ -45,7 +46,11 @@ if (isSplitCss) {
   plugins.push(new CSSSplitWebpackPlugin({ size: 3000 }));
 }
 
-plugins.push(new ExtractTextPlugin(`[name].${useHash ? "[hash:8]." : ""}css`));
+// plugins.push(new ExtractTextPlugin(`[name].${useHash ? "[hash:8]." : ""}css`));
+plugins.push(new MiniCssExtractPlugin({ // webpack 4
+    filename: `[name].${useHash ? "[hash:8]." : ""}css`,
+    chunkFilename: '[id].css',
+}))
 /*
 plugins.push(new OptimizeCssAssetsPlugin(
     {
@@ -69,6 +74,7 @@ plugins.push(new OptimizeCssAssetsPlugin(
 const { modifyVars } = webpackCompileParams();
 module.exports = {
   devtool: false,
+  mode: 'production',
   entry: {
     businessBlueTheme: defaultStyle.concat(["./assets/apps/businessBlue.less"]),
     blueTheme: blueStyle.concat(["./assets/apps/blue.less"]),
@@ -87,7 +93,7 @@ module.exports = {
     rules: [
       {
         test: /\.(css|less)/,
-        use: ExtractTextPlugin.extract({
+        /*use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
             {
@@ -103,7 +109,18 @@ module.exports = {
               }
             }
           ]
-        })
+        })*/
+
+        use: [MiniCssExtractPlugin.loader, { // webpack 4
+          loader: "css-loader"
+        },
+        {
+          loader: "less-loader",
+          options: {
+            modifyVars: modifyVars,
+            javascriptEnabled: true
+          }
+        }]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
@@ -120,6 +137,9 @@ module.exports = {
         use: ['html2json-loader?id=htm']
       },
     ]
+  },
+  performance: {
+    hints:false   
   },
   plugins: plugins
 };

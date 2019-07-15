@@ -4,6 +4,7 @@ var ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 //const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+	mode: 'production',
 	devtool: false,
 	resolve: {
 		extensions: ['.js', '.jsx'],
@@ -48,6 +49,9 @@ module.exports = {
 		filename: '[name].[chunkhash:8].dll.js',
 		library: '[name]_lib',
 		// library 与 DllPlugin 中的 name 一致
+	},
+	performance: { // webpack 4 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+		hints:false   
 	},
 	plugins: [
 		//new CleanWebpackPlugin(['vendor']),

@@ -3,7 +3,8 @@ var path = require("path")
 var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin") // webpack 3
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
 //const marauderDebug = require('sinamfe-marauder-debug')
 const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
@@ -54,7 +55,14 @@ plugins.push(new HtmlWebpackPlugin({
     inject: 'body'//允许插件修改哪些内容，包括head与body`
 }))
 
-plugins.push(new ExtractTextPlugin('[name].css'))
+/*plugins.push(new ExtractTextPlugin({ // webapck 3
+    filename: '[name].css',
+    allChunks: true
+}))*/
+plugins.push(new MiniCssExtractPlugin({ // webpack 4
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+}))
 
 //plugins.push(new CSSSplitWebpackPlugin({ size: 3000 }))
 /*
@@ -110,7 +118,8 @@ plugins.push(new HappyPack({
     }, {
         loader: "less-loader",
         options: {
-            "modifyVars": modifyVars
+            "modifyVars": modifyVars,
+            "javascriptEnabled": true // webpack 4
         }
     }],
     threadPool: happyThreadPool,
@@ -122,11 +131,11 @@ plugins.push(new webpack.optimize.MinChunkSizePlugin({
     minChunkSize: 102400, // ~100kb
 }))
 
-plugins.push(new webpack.optimize.CommonsChunkPlugin({
+/*plugins.push(new webpack.optimize.CommonsChunkPlugin({  // webpack 3
     names: ['edf'],
     filename: '[name].min.js',
     minChunks: Infinity
-}))
+}))*/
 
 plugins.push(new CopyWebpackPlugin([{
     from: './vendor',
@@ -157,6 +166,7 @@ function mergeTheme(arr, type) {
 }
 module.exports = {
     devtool: false, //devtool: 'source-map',
+    mode: 'development',
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
@@ -165,13 +175,11 @@ module.exports = {
         ie: './assets/styles/ie.less',
         icon: "./component/assets/style/iconset.less",
     },
-
     output: {
         path: path.join(__dirname, "/dist/"),
         filename: '[name].min.js',
         chunkFilename: '[name].chunk.js'
     },
-
     resolve: {
         extensions: [".js"],
         alias: Object.assign({
@@ -194,9 +202,10 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(css|less)/,
-            use: ExtractTextPlugin.extract({
+            /*use: ExtractTextPlugin.extract({ // webpack 3
                 use: ['happypack/loader?id=css']
-            })
+            })*/
+            use: [MiniCssExtractPlugin.loader, 'happypack/loader?id=css'] // webpack 4
         }, {
             test: /\.js?$/,
             exclude: /node_modules/,
@@ -226,6 +235,29 @@ module.exports = {
             '/v1/*': {
                 target: 'http://10.10.10.10:8088/',
                 changeOrigin: true,
+            }
+        }
+    },
+    optimization: {
+        splitChunks: { // webpack 4
+            chunks: 'async',
+            minSize: 30000,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                /*vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10
+                },*/
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
+                }
             }
         }
     },
