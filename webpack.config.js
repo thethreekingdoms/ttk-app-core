@@ -6,7 +6,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin") // webpack 3
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
 //const marauderDebug = require('sinamfe-marauder-debug')
-const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
+//const es3ifyWebpackPlugin = require('es3ify-webpack-plugin-v2')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const HappyPack = require('happypack')
 // ie9 下单个的css文件超过400k 不被解析
@@ -44,7 +44,7 @@ plugins.push(new webpack.DllReferencePlugin({
     manifest: merge(require('./vendor/vendor.manifest.json')),
 }))
 
-plugins.push(new es3ifyWebpackPlugin())
+//plugins.push(new es3ifyWebpackPlugin())
 plugins.push(new HtmlWebpackPlugin({
     title: '企业开发平台', //标题
     favicon: './assets/img/favicon.ico', //favicon路径
