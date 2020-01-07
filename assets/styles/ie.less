@@ -1,0 +1,4998 @@
+// edfx-app-login
+.edfx-app-login {
+    display: block !important;
+    position: relative;
+
+    &-header {
+        display: block !important;
+        width: 100%;
+        height: 55px;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &-left {
+            display: block !important;
+        }
+
+        &-right {
+            position: absolute;
+            right: 0px;
+            top: 12px;
+        }
+    }
+
+    &-content {
+        display: block !important;
+        position: absolute !important;
+        top: 55px;
+        bottom: 80px;
+        left: 0px;
+        right: 0;
+
+        .container {
+            margin-left: -500px;
+            margin-top: -175px;
+            transform: translate(0, 0) !important;
+        }
+    }
+
+    &-footer {
+        display: block !important;
+        width: 100%;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        p {
+            text-align: center;
+            padding-top: 30px;
+        }
+    }
+}
+
+//edfx-app-register
+.edfx-app-register {
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+
+        &-left-split {
+            position: absolute;
+            top: 0px;
+            left: 126px;
+        }
+
+        &-left-login {
+            position: absolute;
+            top: 0px;
+            left: 158px;
+        }
+
+        &-right {
+            position: absolute;
+            right: 0px;
+            top: 10px;
+        }
+    }
+
+    &-form {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0px;
+        padding-top: 60px;
+        padding-bottom: 80px;
+        z-index: 1;
+
+        &-bar {
+            &-step {
+                position: absolute;
+                display: inline-block;
+            }
+
+            .step1 {
+                left: 0;
+            }
+
+            .step2 {
+                left: 172px;
+            }
+
+            .step3 {
+                right: 0;
+            }
+
+            &-line {
+                border-top: 1px dashed #888;
+            }
+        }
+
+        &-captcha {
+            .ant-input {
+                height: 50px;
+            }
+        }
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+
+        p {
+            text-align: center;
+            padding-top: 30px;
+        }
+    }
+}
+
+.edfx-app-home {
+    position: relative;
+}
+
+//edfx-app-forgot-password
+.edfx-app-forgot-password {
+    &-form-bar {
+        &-step {
+            position: absolute;
+            display: inline-block;
+        }
+
+        .step1 {
+            left: 0;
+        }
+
+        .step2 {
+            left: 172px;
+        }
+
+        .step3 {
+            right: 0;
+        }
+
+        &-line {
+            border-top: 1px dashed #888;
+        }
+    }
+
+    &-form-captcha {
+        .ant-input {
+            height: 50px;
+        }
+    }
+}
+
+//edfx-app-portal
+.noTop.edfx-app-portal {
+    .edfx-app-portal-content {
+        top: 0px !important;
+        width: 100%;
+    }
+}
+
+//edfx-app-portal
+.edfx-app-portal {
+    display: block !important;
+    position: relative;
+
+    &-isExpire {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        height: 36px;
+        display: block !important;
+        text-align: center;
+        padding-top: 8px !important;
+
+        .edficon-jinggao {
+            vertical-align: middle;
+        }
+
+        .edfx-app-portal-isExpire-icon {
+            top: 10px !important;
+        }
+    }
+
+    &-header {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 54px;
+
+        &-left {
+            width: 159px;
+            height: 54px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden !important;
+
+            h1 {
+                margin-top: 8px !important;
+            }
+        }
+
+        &-right {
+            width: 100%;
+            height: 54px;
+            padding-left: 159px;
+            overflow: hidden;
+        }
+    }
+
+    &-header.edfx-app-portal-header-isExpire {
+        top: 36px;
+    }
+
+    &-search-rightDiv {
+        min-width: 490px;
+        position: relative;
+
+        &>span {
+            // position: absolute;
+            // left: 0;
+            // top: 15px;
+            display: inline-block;
+            float: left;
+            padding-top: 15px !important;
+        }
+
+        &>.mk-dropdown {
+            display: inline-block;
+            float: left;
+            padding-top: 15px !important;
+        }
+
+        .basicInfo {
+            position: absolute;
+            top: 15px;
+            right: 0px;
+        }
+    }
+
+    &-content.edfx-app-portal-content-isExpire {
+        top: 90px;
+    }
+
+    &-content {
+        position: absolute !important;
+        top: 54px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        overflow: hidden !important;
+        height: auto !important;
+
+        &-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 8px !important;
+            background-color: #ffffff;
+            padding-left: 0px !important;
+            height: auto;
+            overflow: hidden;
+
+            &>div {
+                width: 100%;
+                float: left;
+            }
+
+            .menu-type {
+                float: left;
+            }
+
+            .menu-split {
+                float: left;
+            }
+
+            .menu-switch {
+                float: left;
+                width: 45px;
+                padding-left: 18px;
+                padding-top: 5px;
+
+                i {
+                    transform: none;
+                    position: static !important;
+                }
+            }
+
+            .new-guide {
+                height: 100px;
+                overflow: hidden;
+            }
+
+            .level-first .menu-icon {
+                transform: none;
+                vertical-align: middle;
+                display: inline-block;
+                margin-top: 3px;
+            }
+
+            .level-first .menu-icon+span {
+                vertical-align: middle;
+                display: inline-block;
+            }
+
+            &+div {
+                padding-left: 180px !important;
+            }
+        }
+
+        .edfx-app-portal-content-left .hide-content .menu-content {
+            display: none;
+        }
+
+        &>div {
+            width: 100%;
+            height: 100%;
+        }
+
+        &>div.edfx-app-portal-content-left {
+            height: calc(~"100% - 18px");
+            position: absolute;
+            z-index:100000;
+        }
+
+        &-main {
+            height: 100%;
+        }
+
+        .mainTop {
+            position: absolute;
+            padding-left: 180px;
+            left: 0;
+            top: 0px;
+            width: 100%;
+            z-index: 10000;
+
+            .extraMenu {
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                .panelControl {
+                    float: left;
+                }
+
+                .edfx-app-portal-content-apiLink {
+                    float: left;
+                }
+            }
+        }
+
+        .edfx-app-portal-content-main {
+            padding-top: 46px !important;
+        }
+
+        .menuPackup1 {
+            padding-left: 95px !important;
+
+            .mainTop {
+                padding-left: 95px !important;
+            }
+        }
+
+        .menuPackup2 {
+            padding-left: 115px !important;
+
+            .mainTop {
+                padding-left: 115px !important;
+            }
+        }
+    }
+
+    .hideMenuAndTabs {
+        top: 0px !important;
+
+        .contentRight {
+            padding-left: 0;
+        }
+
+        // .edfx-app-portal-content-main {
+        //padding-top: 0px !important;
+
+        //}
+        .mainTop {
+            padding-left: 10px !important;
+        }
+    }
+}
+
+//app-company-manage-add
+.app-company-manage-add {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    bottom: 0px;
+    left: 0;
+    padding: 0 !important;
+
+    &-content-item1 {
+        display: block !important;
+
+        &>div {
+            display: block !important;
+            margin: 0 auto;
+
+            &>div {
+                display: block;
+                overflow: hidden;
+
+                .ant-form-item-label {
+                    float: left;
+                }
+
+                .ant-form-item-control-wrapper {
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+//ttk-edf-app-iframe
+.ttk-edf-app-iframe {
+    top: 46px !important;
+}
+
+//ttk-taxapply-app-electronic-tax
+.ttk-edf-app-electronic-tax {
+    top: 46px !important;
+}
+
+//edfx-app-org
+.edfx-app-org {
+    top: 46px !important;
+}
+
+//ttk-taxapply-app-tax-related-query
+.ttk-edf-app-tax-related-query {
+    top: 46px !important;
+}
+
+//edfx-app-my-setting
+.edfx-app-my-setting {
+    background: #ffffff;
+
+    &-baseInfo-form {
+        display: block;
+        overflow: hidden;
+
+        &>div {
+            float: left;
+            display: block !important;
+        }
+
+        &-photo {
+            display: block !important;
+            padding-top: 30px !important;
+        }
+
+        &-detail {
+            &>div {
+                display: block !important;
+
+                .ant-form-item-label {
+                    display: inline-block;
+                }
+
+                .ant-form-item-control-wrapper {
+                    display: inline-block;
+
+                    input {
+                        height: 30px;
+                    }
+                }
+            }
+        }
+
+        &-saveBtn {
+            position: absolute !important;
+        }
+    }
+
+    &-security-grid-row {
+        overflow: hidden;
+        display: block;
+        position: relative;
+
+        &>div {
+            float: left;
+        }
+
+        &>div:nth-of-type(1) {
+            width: 60px;
+        }
+
+        &>div:nth-of-type(3) {
+            width: 418px;
+        }
+
+        .pws {
+            display: block;
+            overflow: hidden;
+
+            &>span,
+            &>div {
+                float: left;
+            }
+
+            &>div.pws-bar {
+                width: 318px;
+            }
+        }
+    }
+}
+
+//开发工具
+.ttk-edf-app-portal-menu,
+.ttk-edf-app-role-auth,
+.ttk-edf-app-enum,
+.ttk-edf-app-column,
+.edfx-app-voucher {
+    display: block !important;
+    position: relative;
+
+    &-left {
+        position: absolute !important;
+        top: 0;
+        bottom: 10px;
+        left: 0;
+        display: block !important;
+    }
+
+    &-content {
+        position: absolute !important;
+        top: 0;
+        bottom: 10px;
+        left: 210px;
+        right: 10px;
+
+        .ant-card-body {
+            display: block !important;
+
+            .mk-datagrid {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                bottom: 50px;
+                height: auto;
+            }
+        }
+
+        &-footer {
+            height: 50px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding-top: 0px;
+
+            .mk-pagination {
+                padding-top: 10px !important;
+                display: block !important;
+
+                .ant-pagination {
+                    display: inline-block !important;
+                }
+            }
+        }
+    }
+
+    .ant-card-head {
+        position: absolute !important;
+        top: 0;
+        height: 50px;
+        left: 0;
+        width: 100%;
+        padding-top: 10px !important;
+    }
+
+    .ant-card-body {
+        position: absolute !important;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.ttk-edf-app-role-auth,
+.edfx-app-voucher {
+    &-content {
+        .ant-card-body {
+            .mk-datagrid {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.ttk-edf-app-operation {
+    display: block !important;
+    position: relative;
+
+    &-header {
+        position: absolute;
+        height: 50px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 10px;
+
+        button {
+            float: right;
+        }
+    }
+
+    .mk-datagrid {
+        position: absolute !important;
+        top: 50px;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        height: auto;
+    }
+}
+
+.edfx-app-tree-table-detail-form,
+.ttk-edf-app-role-form,
+.edfx-app-enum-type-form,
+.edfx-app-enum-detail-form,
+.edfx-app-column-type-form,
+.edfx-app-column-detail-form,
+.ttk-edf-app-voucher-setting-form,
+.ttk-edf-app-voucher-detail-setting-form {
+    .mk-form-item {
+        display: block !important;
+        text-align: center;
+
+        .ant-form-item-label {
+            display: inline-block;
+
+            label {
+                top: 0px !important;
+            }
+        }
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+        }
+    }
+}
+
+.edfx-app-tree-table-detail-form,
+.edfx-app-enum-detail-form {
+    .mk-form-item .ant-form-item-label label {
+        top: 7px !important;
+    }
+}
+
+.edfx-app-setting {
+    display: block !important;
+
+    .edfx-app-setting-content {
+        display: block !important;
+        width: 100%;
+        height: 300px;
+
+        .ant-card-body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mk-datagrid {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+//edfx-deptPers
+.edfx-deptPers {
+    .edfx-deptPers-left {
+        position: relative;
+
+        .ant-card-head .ant-card-head-wrapper {
+            display: block;
+            overflow: hidden;
+
+            .ant-card-head-title {
+                display: block;
+                float: left;
+                line-height: 50px;
+            }
+
+            .ant-card-extra {
+                display: block;
+                float: right;
+                padding-top: 10px;
+            }
+        }
+
+        .ant-card-head {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+        }
+
+        .ant-card-body {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+
+    .edfx-deptPers-content {
+        .ant-card-head {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+        }
+
+        .ant-card-head .ant-card-head-wrapper {
+            display: block;
+            overflow: hidden;
+
+            .ant-card-head-title {
+                display: block;
+                float: left;
+                line-height: 50px;
+            }
+
+            .ant-card-extra {
+                display: block;
+                float: right;
+                padding-top: 10px;
+
+                .edfx-deptPers-content-header {
+                    display: block !important;
+
+                    button {
+                        display: inline-block !important;
+                        vertical-align: middle !important;
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            position: absolute !important;
+            top: 50px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            .mk-datagrid{
+                position: absolute;
+                top:0;
+                left:0;
+                bottom:50px!important;
+                right:0;
+                height:auto!important;
+            }
+
+            .edfx-deptPers-content-footer {
+                height: 50px;
+                margin-top: 0;
+
+                .mk-pagination {
+                    margin-bottom: 10px !important;
+                    //padding-top: 10px !important;
+                    //display: block !important;
+                    //
+                    //.ant-pagination {
+                    //    display: inline-block !important;
+                    //}
+                }
+            }
+        }
+    }
+}
+
+.edfx-deptPers.edfx-deptPersNoBorder {
+    padding-left: 205px !important;
+    padding-bottom: 0 !important;
+}
+
+.app-card-department {
+    .ant-row {
+        text-align: center;
+
+        &>div {
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+    }
+}
+
+//app-list-project
+.mk-layout.app-list-project {
+    padding-bottom: 50px !important;
+
+    .app-list-project-footer {
+        margin-top: 0px !important;
+        height: 50px !important;
+        padding-top: 10px !important;
+
+        .mk-pagination {
+            padding-right: 10px;
+
+            ul {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.mk-layout.app-card-project {
+    .ant-row {
+        text-align: center;
+        width: 100%;
+
+        &>div {
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+    }
+
+    .ant-row:nth-of-type(3) {
+        .ant-form-item-control {
+            text-align: left;
+        }
+    }
+}
+
+//app-list-userdefinecard
+.app-list-userdefinecard {
+    &-card {
+        margin-top: 0 !important;
+
+        &-son {
+            left: 50% !important;
+            margin-left: -250px;
+        }
+    }
+
+    .mk-pagination {
+        width: auto !important;
+    }
+}
+
+.app-card-userdefinecard {
+    .ant-row {
+        text-align: center;
+        width: 100%;
+
+        &>div {
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+    }
+}
+
+//app-proof-of-charge
+.app-proof-of-charge {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    overflow: hidden !important;
+    padding-top: 101px !important;
+    padding-bottom: 70px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 50px;
+
+        &-left {
+            width: 50%;
+            height: 40px !important;
+
+            position: relative;
+            float: left;
+
+            &>button {
+                float: left;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            height: 40px !important;
+            float: left;
+            position: relative;
+
+            &-iconbutton {
+                position: absolute;
+                top: 3px;
+                right: 140px;
+            }
+
+            &>.mk-btn {
+                position: absolute;
+                top: 3px;
+                right: 80px;
+            }
+
+            .mk-btn-group {
+                position: absolute;
+                right: 8px;
+                top: 3px;
+            }
+        }
+    }
+
+    &-title {
+        width: 100%;
+        position: absolute;
+        height: 10px;
+        top: 50px;
+        left: 0px;
+
+        &-center {
+            position: absolute;
+            top: 0;
+            left: 48%;
+        }
+    }
+
+    &-form-header {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 61px;
+        left: 0px;
+
+        &-code {
+            width: 130px;
+            height: 30px;
+            position: absolute;
+            top: 0px;
+            left: 25px;
+        }
+
+        &-date {
+            height: 30px;
+            position: absolute;
+            left: 155px;
+            top: 0px;
+        }
+
+        &-attachment {
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            right: 25px;
+            ;
+            top: 0;
+        }
+    }
+
+    .gridDiv {
+        width: 100%;
+        height: 100% !important;
+        float: left;
+
+        .app-proof-of-charge-money-cell {
+            &>div {
+                padding-top: 15px;
+                padding-left: 4px;
+            }
+        }
+    }
+
+    &-footer {
+        width: 100%;
+        height: 70px !important;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+
+        &-left {
+            width: 50%;
+            float: left;
+
+            &>h3 {
+                margin-right: 0 !important;
+                width: 40%;
+                float: left;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+
+            &>button {
+                float: right;
+            }
+        }
+    }
+
+    &-money-cell-header-bottom {
+        height: 100%;
+
+        &>span {
+            width: 8.333333333% !important;
+            height: 100%;
+            display: inline-block;
+        }
+    }
+
+    &-money-cell {
+        &>div {
+            width: 8.333333333% !important;
+            height: 100%;
+            display: block !important;
+            float: left;
+        }
+    }
+
+    .mk-datagrid-cellContent {
+        text-align: center;
+        line-height: 20px !important;
+    }
+
+    &-money-cell-header-top {
+        display: block;
+        text-align: center;
+    }
+
+    #assistDiv {
+        &>div {
+            height: auto;
+            overflow: hidden;
+
+            .mk-form-item {
+                .ant-form-item-label {
+                    width: 15%;
+                    float: left;
+                }
+
+                .ant-form-item-control-wrapper {
+                    width: 85%;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+//app-proof-of-list
+.app-proof-of-list {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .mk-normal-search {
+            width: 100%;
+            height: 40px;
+            float: right;
+
+            &-left {
+                width: 50% !important;
+                float: left;
+            }
+
+            .mk-title-otherBtn {
+                float: right;
+                overflow: hidden;
+
+                .edficon-dayin {
+                    display: inline-block;
+                }
+
+                .edficon-daochu {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-footer {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+        padding-right: 20px;
+    }
+}
+
+.mk-search .mk-normal-search {
+    display: block !important;
+}
+
+.app-proof-of-collect-rpt {
+    // height: auto;
+    overflow: hidden;
+    position: relative;
+    padding-top: 50px !important;
+
+    &-headerContent {
+        width: 99.1%;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+
+    &-header {
+        position: absolute;
+        width: 100%;
+        display: inline-block;
+
+        &-left {
+            position: relative;
+            bottom: 6px;
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        float: left;
+    }
+}
+
+//app-sumaccount-rpt
+.app-sumaccount-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: auto !important;
+
+                .mk-span {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-dateRangeMonthPicker {
+                    position: relative;
+                    bottom: 0px;
+                }
+            }
+
+            .mk-title-otherBtn {
+                // width: 40%;
+                text-align: right;
+
+                .mk-checkbox {
+                    position: relative;
+                    bottom: 4px;
+                }
+
+                .mk-btn-primary {
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &-normalSearch {
+        position: relative;
+        bottom: 0px;
+    }
+
+    &-daochuBut {
+        bottom: 1px;
+    }
+
+    &-Body {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-detailaccount-rpt
+.app-detailaccount-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+    padding-bottom: 25px !important;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: auto !important;
+                float: left;
+
+                .mk-dateRangeMonthPicker {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-span {
+                    position: relative;
+                    bottom: 0px;
+                }
+            }
+
+            .mk-title-otherBtn {
+                // width: 40%;
+                text-align: right;
+
+                .mk-checkbox {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-btn-primary {
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &-normalSearch {
+        position: relative;
+        bottom: 0px;
+    }
+
+    &-daochuBut {
+        bottom: 1px;
+    }
+
+    &-Body {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+    }
+}
+
+//app-balancesum-rpt
+.app-balancesum-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: 60%;
+                float: left;
+
+                .anticon-shuaxin {
+                    display: inline-block;
+                }
+
+                .mk-span {
+                    top: 5px;
+                }
+            }
+
+            .mk-title-otherBtn {
+                //width: 40%;
+                text-align: right;
+
+                .mk-checkbox {}
+            }
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-auxsumaccount-rpt
+.app-auxsumaccount-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: auto !important;
+                float: left;
+
+                .mk-dateRangeMonthPicker {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-span {
+                    position: relative;
+                    bottom: 0px;
+                }
+            }
+
+            .mk-title-otherBtn {
+                // width: 40%;
+                text-align: right;
+
+                .mk-btn-primary {
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &-normalSearch {
+        position: relative;
+        bottom: 0px;
+    }
+
+    &-daochuBut {
+        bottom: 1px;
+    }
+
+    &-Body {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-auxdetailaccount-rpt
+.app-auxdetailaccount-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+    padding-bottom: 140px !important;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: auto !important;
+                float: left;
+
+                .mk-dateRangeMonthPicker {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-span {
+                    position: relative;
+                    bottom: 0px;
+                }
+            }
+
+            .mk-title-otherBtn {
+                // width: 40%;
+                text-align: right;
+
+                .mk-checkbox {
+                    position: relative;
+                    bottom: 0px;
+                }
+
+                .mk-btn-primary {
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &-normalSearch {
+        position: relative;
+        bottom: 0px;
+    }
+
+    &-Body {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+    }
+}
+
+//app-auxbalancesum-rpt
+.app-auxbalancesum-rpt {
+    height: 100%;
+    overflow: hidden !important;
+    position: relative;
+    padding-bottom: 140px !important;
+
+    .mk-search {
+        width: 100%;
+        height: 51px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .mk-normal-search {
+            .mk-normal-search-left {
+                width: 60%;
+                float: left;
+
+                &>* {
+                    float: left;
+                }
+
+                .mk-activeLabelSelect {
+                    min-width: 120px;
+
+                    &-label {
+                        width: 40%;
+                        float: left;
+                    }
+
+                    &-value {
+                        width: 60%;
+                        float: left;
+                    }
+                }
+            }
+
+            .mk-title-otherBtn {
+                // width: 40%;
+                float: left;
+
+                &>* {
+                    // float: right;
+                }
+            }
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+    }
+}
+
+// 高级搜索组件
+.slideOutUp {
+    display: none !important;
+}
+
+.mk-search-high-search {
+    .search-form-contaienr {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        .mk_search_row {
+            width: 100%;
+            height: auto;
+            float: left;
+
+            &>div {
+                width: 50%;
+                float: left;
+            }
+
+            .ant-form-item {
+                .ant-form-item-label {
+                    width: 18%;
+                    float: left;
+                }
+
+                .ant-form-item-control-wrapper {
+                    width: 78%;
+                    float: left;
+                }
+            }
+
+            .select_range {
+                width: 50%;
+
+                .select_range_label {
+                    width: 18%;
+                    float: left;
+                }
+
+                .ant-form-item {
+                    width: 35%;
+                    float: left;
+
+                    .ant-form-item-control-wrapper {
+                        width: 100%;
+                    }
+                }
+
+                .select_range_content {
+                    width: 4%;
+                    float: left;
+                }
+            }
+        }
+    }
+
+    .FormList {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        .item-list {
+            width: 100%;
+            float: left;
+
+            .item-list-top {
+                width: 100%;
+                float: left;
+
+                .item-list-top-title {
+                    width: 5%;
+                    float: left;
+                }
+
+                .item-list-top-line-container {
+                    width: 90%;
+                    float: left;
+                }
+
+                .item-list-top-line-action {
+                    width: 5%;
+                    float: left;
+                }
+            }
+
+            .item-list-bottom {
+                width: 100%;
+                float: left;
+            }
+        }
+    }
+}
+
+//财务期初
+.ttk-gl-app-financeinit-enterprise {
+    overflow: auto;
+
+    &-top {
+        &-bar {
+            margin: 0 auto;
+
+            &-step {
+                display: inline-block;
+            }
+
+            &-line {
+                border: 1px dashed #aaa;
+                margin-bottom: 36px;
+                display: inline-block;
+                position: static !important;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: calc(~"100% - 70px");
+        // position: absolute;
+    }
+
+    .fixedDataTableLayout_rowsContainer {
+        height: 100% !important;
+    }
+}
+
+//导账
+.ttk-gl-app-importdata-enterprise {
+    &-top {
+        &-bar {
+            margin: 0 auto;
+
+            &-step {
+                display: inline-block;
+                &-description{
+                    white-space: nowrap;
+                }
+            }
+
+
+            &-line {
+                border: 1px dashed #aaa;
+                margin-bottom: 36px;
+                display: inline-block;
+                position: static !important;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    // .fixedDataTableLayout_rowsContainer {
+    //     height: 100% !important;
+    // }
+}
+
+.ttk-gl-app-financeinit-accountrelation {
+    &-content {
+        .mk-layout {
+            height: 100%;
+        }
+    }
+}
+
+.ttk-gl-app-finance-periodbegin {
+    &-header {
+        &-left {
+            float: left;
+
+            &-year {
+                &-search {
+                    float: left;
+                }
+
+                &-enabledPeriodChange {
+                    float: right;
+                }
+            }
+
+        }
+
+        &-right {
+            float: right;
+
+            &-isBalancePop {
+                float: left;
+            }
+
+            .daochu {
+                float: right;
+            }
+        }
+    }
+
+    &-content {
+        height: 100%;
+    }
+}
+
+.ttk-gl-app-importdata-accountrelation-grid {
+    min-height: 500px !important;
+}
+
+.ttk-gl-app-financeinit-uploaddata {
+    &-body-content-header {
+        
+        .mk-form-item {
+            display: inline-block;
+            width: 24%;
+
+            div {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        .mk-form-item:first-child{
+            width: 27%;
+        }
+    }
+
+    &-body-content-middle {
+        &-item {
+            display: inline-block;
+
+            .itemContainer,
+            .checkedResult {
+                margin: 0 auto;
+                width: 200px;
+
+                &-checkedItem-content {
+                    display: inline-block;
+                }
+            }
+
+            .formItem {
+                .mk-input {
+                    width: 291px !important;
+                }
+            }
+        }
+    }
+
+    &-footer {
+        text-align: center;
+    }
+}
+
+//app-account-monthaccount
+.app-account-monthaccount {
+    &-content {
+        overflow: hidden;
+    }
+
+    &-header {
+        &-right {
+            &-setting {
+                display: inline-block;
+            }
+        }
+    }
+
+    .month-right {
+        overflow-y: auto;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .app-account-monthaccount {
+        .month-left {
+            .menuTitle {
+                margin-top: 0px !important;
+            }
+        }
+    }
+}
+
+//app-balancesheet-rpt
+.app-balancesheet-rpt {
+    position: relative;
+    padding-top: 51px !important;
+    overflow: hidden; // height: auto;
+    width: 100%;
+    .dayin, .daochu{
+        margin-left: 0px;
+        margin-right: 8px;
+    }
+    .daochu{
+        margin-right: 0px;
+    }
+    &-headerContent {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &-header {
+        width: 100%;
+
+        &>* {
+            float: left;
+        }
+
+        &-btn {
+            width: 80px;
+
+            &>div {
+                float: left;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            float: right;
+
+            &>button,
+            &>i {
+                float: right;
+                margin-right: 8px;
+            }
+        }
+
+        &-textContent {
+            float: left;
+            width: 330px;
+
+            &>div {
+                float: left;
+
+                &>* {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+.ttk-edf-app-simple-portal {
+    &-content {
+        &>.mk-layout {
+            height: 100% !important;
+        }
+    }
+}
+
+//app-profitstatement-rpt
+.app-profitstatement-rpt {
+    position: relative;
+    padding-top: 51px !important;
+    overflow: hidden; // height: auto;
+    width: 100%;
+
+    &-headerContent {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &-header {
+        width: 100%;
+
+        &>* {
+            float: left;
+        }
+
+        &-btn {
+            width: 80px;
+
+            &>div {
+                float: left;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            float: right;
+
+            &>button,
+            &>i {
+                float: right;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-cashflowstatement-rpt
+.app-cashflowstatement-rpt {
+    position: relative;
+    padding-top: 51px !important;
+    overflow: hidden; // height: auto;
+    width: 100%;
+    .daochu, .dayin, .projectManageBtn, .shareBtn{
+        margin-right: 0px;
+    }
+    &-headerContent {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &-header {
+        width: 100%;
+
+        &>* {
+            float: left;
+        }
+
+        &-btn {
+            width: 80px;
+
+            &>div {
+                float: left;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            float: right;
+
+            &>button,
+            &>i {
+                float: right;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-table-tbody {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-list-department-personnel
+.edfx-deptPersNoBorder {
+    position: relative;
+    padding-left: 200px !important;
+    padding-bottom: 60px !important;
+
+    .edfx-deptPers-left {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .edfx-deptPers-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+        position: relative;
+        padding-top: 50px !important;
+        padding-bottom: 40px !important;
+
+        .ant-card-head {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .ant-card-body {
+            width: 100%;
+            position: relative;
+
+            .edfx-deptPers-content-content {
+                width: 100%;
+            }
+
+            .edfx-deptPers-content-footer {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom:0;
+                z-index: 99999999;
+            }
+        }
+    }
+}
+
+//app-list-customer
+.app-list-customer {
+    padding-bottom: 50px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .app-list-currency-content {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: 10px;
+    }
+}
+
+//app-list-supplier
+.app-list-supplier {
+    padding-bottom: 50px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: 10px;
+    }
+}
+
+//app-list-project
+.app-list-project {
+    padding-bottom: 40px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+}
+
+//app-list-inventory
+.app-list-inventory {
+    padding-bottom: 40px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+}
+
+//app-list-account
+.app-list-account {
+    padding-bottom: 40px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+}
+
+//app-list-currency
+.app-list-currency {
+    padding-bottom: 40px !important;
+    position: relative;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+
+            &>button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+}
+
+//app-list-userdefinecard
+.app-list-userdefinecard {
+    &-grid {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 40px !important;
+        position: relative;
+
+        &-header {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            &-left {
+                float: left;
+            }
+
+            &-right {
+                float: right;
+
+                &>button {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &-content {
+            width: 100%;
+            height: 100%;
+        }
+
+        &-footer {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+
+            .mk-pagination {
+                width: 100%;
+
+                .ant-pagination {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-backgroundColor {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px !important;
+        position: relative;
+    }
+
+    &-card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &-son {
+            position: absolute;
+            top: 150px;
+            left: 40%;
+        }
+    }
+}
+
+//app-card-person
+.app-card-person {
+    &-form {
+        height: auto;
+        overflow: hidden;
+
+        .mk-form-item {
+            float: left;
+
+            .ant-form-item-control-wrapper {
+                display: inline-block;
+                width: 220px;
+            }
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-inventory
+.app-card-inventory {
+    &-form {
+        height: auto;
+        overflow: hidden;
+
+        .mk-form-item {
+            float: left;
+
+            .ant-form-item-control-wrapper {
+                display: inline-block;
+                width: 220px;
+            }
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-customer
+.app-card-customer {
+    height: auto;
+    overflow: hidden;
+
+    .mk-form-item {
+        float: left;
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+            width: 220px;
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-vendor
+.app-card-vendor {
+    height: auto;
+    overflow: hidden;
+
+    .mk-form-item {
+        float: left;
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+            width: 220px;
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-project
+.app-card-project {
+    height: auto;
+    overflow: hidden;
+
+    .mk-form-item {
+        float: left;
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+            width: 220px;
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-bankaccount
+.app-card-bankaccount {
+    height: auto;
+    overflow: hidden;
+
+    .mk-form-item {
+        float: left;
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+            width: 220px;
+        }
+    }
+
+    &>.mk-layout {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        .mk-form-item {
+            width: 100%;
+
+            .ant-form-item-label {
+                width: 110px;
+                display: inline-block;
+            }
+
+            .ant-form-item-control-wrapper {
+                width: 200px;
+                display: inline-block;
+            }
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-currency
+.app-card-currency {
+    height: auto;
+    overflow: hidden;
+
+    .mk-form-item {
+        float: left;
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+            width: 220px;
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-card-userdefinecard
+.app-card-userdefinecard {
+    .archives-name {
+        height: auto;
+        overflow: hidden;
+
+        .mk-form-item {
+            float: left;
+
+            .ant-form-item-control-wrapper {
+                display: inline-block;
+                width: 220px;
+            }
+
+            .ant-form-item-children {
+                float: left;
+            }
+        }
+    }
+
+    .ant-row {
+        width: initial !important;
+    }
+}
+
+//app-account-subjects
+.app-account-subjects {
+    position: relative;
+    width: 100%;
+    height: 100%; // padding-top: 51px !important;
+    // padding-bottom: 30px !important;
+    &-search{
+        height: 32px;
+        overflow-x: auto; 
+    }
+    &-header {
+        &-container {
+            top: 40px;
+        }
+    }
+
+    &-tabs {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+}
+
+//app-proof-of-charge-new-subjects
+.app-proof-of-charge-new-subjects {
+    &-form {
+        height: auto;
+        overflow: hidden;
+
+        .mk-form-item {
+            width: 100%;
+            float: left;
+
+            .ant-form-item-label {
+                width: 20%;
+                display: inline-block;
+            }
+
+            .ant-form-item-control-wrapper {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+//edfx-app-org
+.edfx-app-org {
+    &-content {
+        width: 100%;
+        height: 100%;
+
+        .block {
+            .formline {
+                .mk-form-item {
+                    .ant-form-item-control-wrapper {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//app-account-beginbalance
+.app-account-beginbalance {
+    position: relative;
+    padding-top: 95px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            width: 50%;
+            float: left;
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+
+            &>* {
+                float: right;
+            }
+        }
+    }
+
+    &-tabHeaderWrapDiv {
+        position: absolute;
+        left: 0;
+        top: 50px;
+    }
+
+    &-content {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+//app-asset-list
+.app-asset-list {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.mk-search {
+    width: 100%;
+    height: 51px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .mk-normal-search {
+        .mk-normal-search-left {
+            width: 60%;
+            float: left;
+        }
+
+        .mk-title-otherBtn {
+            // width: 40%;
+            float: left;
+
+            &>* {
+                // float: right;
+            }
+        }
+    }
+}
+
+//app-asset-card
+.app-asset-card {
+    &-title {
+        width: 100%;
+        float: left;
+    }
+
+    &-more {
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
+
+    &-item {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        float: left;
+
+        .mk-form-item {
+            width: 50%;
+            float: left;
+
+            .ant-form-item-label {
+                width: 25%;
+                display: inline-block;
+            }
+
+            .ant-form-item-control-wrapper {
+                width: 70%;
+                display: inline-block;
+            }
+        }
+    }
+
+    &-footer-btnGroup {
+        text-align: center;
+    }
+}
+
+//app-asset-depreciation
+.app-asset-depreciation {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-left {
+            width: 50%;
+            float: left;
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+
+            &>* {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+//app-asset-statrpt
+.app-asset-statrpt {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    // padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-assetProperty {
+            float: left;
+        }
+
+        &-left {
+            width: 50%;
+            float: left;
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+
+            &>* {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    .app-list-account-footer {
+        position: absolute;
+        left: 0;
+        bottom: 60px;
+
+        .mk-pagination {
+            &>* {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+//app-asset-detailrpt
+.app-depr-detail-rpt {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &-assetProperty {
+            float: left;
+        }
+
+        &-left {
+            width: 50%;
+            float: left;
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+
+            &>* {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.ttk-access-app-tranreport {
+    &-step0content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        background: #fff;
+
+        .ant-spin-container {
+            position: relative;
+            height: 100%;
+        }
+
+        &-form {
+            .ant-row {
+                width: 590px;
+                margin: 8px auto;
+                white-space: nowrap;
+            }
+
+            .ant-form-item-children {
+                position: relative;
+            }
+
+            .ant-form-explain {
+                position: relative;
+            }
+        }
+    }
+}
+
+.ttk-gl-app-period-expense-rpt {
+    position: relative;
+    padding-top: 50px !important;
+
+    &-head {
+        position: relative;
+        top: -50px;
+        border-top-style: solid;
+        border-top-color: #d9d9d9;
+        border-top-width: 1px;
+    }
+
+    &-headerContent {
+        height: 50px;
+    }
+
+    &-header {
+        background-color: #ffffff;
+        position: relative;
+        left: 0;
+        top: -8px;
+        width: 100%;
+
+        &-left {
+            width: 50%;
+            float: left;
+
+            .anticon-shuaxin {
+                position: relative;
+                top: 5px;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            float: left;
+            margin-top: 8px;
+            position: relative;
+
+            &>* {
+                display: inline-block;
+                float: right;
+                margin-left: 8px;
+            }
+        }
+
+        &-reload {
+            margin-top: 5px;
+        }
+    }
+
+    .mk-datagrid {
+        position: relative;
+        top: -50px;
+    }
+}
+
+//ttk-gl-app-accountagefx-rpt
+.ttk-gl-app-accountagefx-rpt {
+    &-header {
+        display: block;
+        overflow: hidden;
+
+        &-left {
+            float: left;
+
+            &-endMonth {
+                display: inline;
+            }
+        }
+
+        &-right {
+            float: right;
+
+            .edficon-dayin,
+            .edficon-daochu {
+                display: inline-block !important;
+            }
+        }
+    }
+}
+
+.ttk-scm-app-sa-invoice-card {
+    position: relative;
+    width: 100%;
+
+    .ttk-scm-app-sa-invoice-card-header {
+        &-left {
+            width: 50%;
+            float: left;
+            display: inline-block !important;
+
+            .mk-btn-group {
+                top: -4px !important;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            overflow: hidden;
+            text-align: right;
+        }
+    }
+
+    .ttk-scm-app-sa-invoice-card-title {
+        display: block !important;
+        width: 99% !important;
+        div {
+            display: inline-block !important;
+        }
+
+        &-left {
+            width: 33%;
+            text-align: left;
+        }
+
+        &-center {
+            width: 34%;
+            text-align: center;
+        }
+
+        &-right {
+            width: 33%;
+            text-align: right;
+        }
+    }
+    .ttk-scm-app-sa-invoice-card-form-header,.ttk-scm-app-sa-invoice-card-form-footer,.app-sa-delivery-card-form-footer-balance-signRight,.ttk-scm-app-sa-invoice-card-footer{
+        width: 99% !important;
+    }
+
+    &-form-header {
+        &>div {
+            float: left;
+        }
+
+        .ant-form-item-label {
+            float: left;
+        }
+
+        .ant-form-item-control-wrapper {
+            float: left;
+        }
+    }
+
+    &-form-footer {
+        &-settlement {
+            text-align: right;
+
+            div {
+                display: inline-block !important;
+            }
+
+            .ant-form-item-control-wrapper {
+                display: inline-block !important;
+
+                .ant-select-selection--single {
+                    width: 150px !important;
+                }
+            }
+        }
+    }
+}
+
+.ttk-scm-app-sa-invoice-list {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 0px !important;
+
+    .mk-search {
+        width: 99.2%;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+
+        .mk-title-otherBtn {
+            &>* {
+                float: left !important;
+            }
+
+            position: absolute;
+            right: 10px;
+            text-align: right;
+            display: inline-table;
+        }
+
+        .dropdownbutton2 {
+            // margin-left: 8px;
+            margin-left: 0px;
+        }
+    }
+
+    .ttk-scm-app-pu-invoice-list-FormSearch {
+        margin-top: -8px;
+        width: 99.2%;
+    }
+
+    .mk-normal-search-left {
+        .selectRangeDate {
+            top: -3px !important;
+        }
+    }
+
+    .mk-span {
+        position: relative;
+        top: -3px;
+        margin-right: 8px !important;
+    }
+
+    .mk-dateRangeDatePicker {
+        position: relative;
+        top: 1px;
+    }
+
+    &-Body {
+        width: 99.2%;
+        height: 100%;
+    }
+
+    &-footer {
+        width: 99.2%;
+        position: absolute !important;
+        bottom: 5px;
+        left: 0px;
+        text-align: right;
+        line-height: 40px;
+        padding-top: 0px !important;
+
+        .mk-pagination {
+            display: block !important;
+
+            >ul {
+                display: inline-block;
+            }
+        }
+    }
+
+}
+
+.ttk-scm-app-sa-invoice-card {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 52px !important;
+    padding-right: 0px !important;
+
+    .ttk-scm-app-sa-invoice-card-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 52px !important;
+
+        &-left {
+            height: 100%;
+        }
+
+        &-right {
+            height: 100%;
+            position: relative;
+
+            &>* {
+                display: inline-block; // float: right;
+            }
+
+            .edficon-jianpan {
+                position: absolute;
+                right: 295px;
+                top: -7px;
+                display: inline-block;
+
+                &::before {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .app-sa-arrival-card-content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        overflow-x: hidden !important;
+        position: relative;
+
+        &>* {
+            width: 100%;
+            float: left;
+        }
+
+        .ttk-scm-app-sa-invoice-card-form-details {
+            width: 98% !important;
+            float: left;
+        }
+
+        .ttk-scm-app-sa-invoice-card-form-details {
+            margin-right: 0px !important;
+
+            .mk-datagrid {
+                display: block !important;
+            }
+
+            &>div {
+                display: block;
+
+                .fixedDataTableLayout_main {
+                    width: auto !important;
+                    margin-right: 0px !important;
+                    display: block !important;
+                    text-align: center;
+                    line-height: 35px;
+                }
+
+                .fixedDataTableLayout_rowsContainer {
+                    width: 100% !important;
+                }
+
+                .fixedDataTableLayout_header {
+                    .public_fixedDataTableCell_cellContent {
+                        padding: 0px !important;
+                    }
+                }
+            }
+
+            min-height: 320px !important;
+        }
+
+        .ttk-scm-app-sa-invoice-card-form-footer {
+            .app-sa-invoice-card-form-footer-top {
+                width: 50%;
+                height: auto;
+                overflow: hidden;
+                float: left;
+
+                .ttk-scm-app-sa-invoice-card-form-footer-billing {
+                    width: 50%;
+                    height: auto;
+                    overflow: hidden;
+                    float: left;
+
+                    &>* {
+                        display: inline-block;
+                        float: left;
+                    }
+                }
+
+                .ttk-scm-app-sa-invoice-card-form-footer-settlement {
+                    width: 50%;
+                    height: auto !important;
+                    overflow: hidden;
+                    float: left;
+
+                    &>* {
+                        display: inline-block;
+                        float: left;
+                    }
+                }
+            }
+
+            .app-sa-invoice-card-form-footers {
+                width: 50%;
+                height: auto !important;
+                overflow: hidden;
+                float: left;
+
+                .app-sa-invoice-card-form-footers-settlement {
+                    width: 100%;
+                    height: auto !important;
+                    overflow: hidden;
+
+                    .app-sa-invoice-card-form-footers-settlement-payDiv {
+                        width: 100%;
+                        height: auto !important;
+                        overflow: hidden;
+                        float: left;
+                    }
+                }
+
+                .app-pu-arrival-card-form-footer-settlement {
+                    width: 100%;
+                    height: auto;
+                    overflow: hidden;
+
+                    &>* {
+                        display: inline-block !important;
+                        float: left;
+
+                        &>* {
+                            display: inline-block !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ttk-scm-app-sa-invoice-card-footer {
+            .ttk-scm-app-sa-invoice-card-footer-left {
+                width: 30%;
+                height: auto !important;
+                overflow: hidden;
+                float: left;
+            }
+
+            .ttk-scm-app-sa-invoice-card-footer-right {
+                width: 70%;
+                height: auto !important;
+                overflow: hidden;
+                float: left;
+
+                &>button {
+                    float: right !important;
+                }
+            }
+        }
+    }
+}
+
+.ttk-scm-app-pu-invoice-card {
+    width: 100%;
+    height: 96% !important;
+    overflow: auto;
+    padding-top: 52px !important;
+    padding-right: 0px !important;
+
+    .ttk-scm-app-pu-invoice-card-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 52px !important;
+
+        &-left {
+            height: 100%;
+        }
+
+        &-right {
+            height: 100%;
+            position: relative;
+
+            &>* {
+                display: inline-block; // float: right;
+            }
+
+            .edficon-jianpan {
+                position: absolute;
+                right: 295px;
+                top: -7px;
+                display: inline-block;
+
+                &::before {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .ttk-scm-app-pu-invoice-card-content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+
+        &>* {
+            width: 100%;
+            float: left;
+        }
+
+        .ttk-scm-app-pu-invoice-card-form-details {
+            width: 99% !important;
+            float: left;
+        }
+
+        .ttk-scm-app-pu-invoice-card-form-details {
+            .mk-datagrid {
+                display: block !important;
+            }
+
+            &>div {
+                display: block;
+
+                .fixedDataTableLayout_main {
+                    width: auto !important;
+                    margin-right: 0px !important;
+                    display: block !important;
+                    text-align: center;
+                    line-height: 35px;
+                }
+
+                .fixedDataTableLayout_rowsContainer {
+                    width: 100% !important;
+                }
+
+                .fixedDataTableLayout_header {
+                    .public_fixedDataTableCell_cellContent {
+                        padding: 0px !important;
+                    }
+                }
+            }
+
+            min-height: 320px !important;
+        }
+
+        .ttk-scm-app-pu-invoice-card-form-footerBottom {
+            &>* {
+                width: 100%;
+                float: left;
+            }
+
+            .ttk-scm-app-pu-invoice-card-form-footer {}
+
+            .app-pu-invoice-card-form-footer-settlement-payDiv {
+                width: 100%;
+                height: auto !important;
+                overflow: hidden;
+                padding-left: 50%;
+
+                &>div {
+                    width: 100%;
+                    float: left;
+
+                    .app-pu-arrival-card-form-footer-settlement {
+                        width: 100%;
+                        height: auto !important;
+                        overflow: hidden;
+
+                        &>* {
+                            display: inline-block;
+
+                            &>* {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ttk-scm-app-pu-invoice-card-footer {
+                width: 100%; // float: left;
+
+                &>* {
+                    width: 50%;
+                    float: left !important;
+                }
+
+                &-right {
+                    &>button {
+                        float: right !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ttk-scm-app-pu-invoice-list {
+    // height: 100%;
+    // overflow: hidden !important;
+    // position: relative;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 0px !important;
+
+    .mk-search {
+        width: 99.2%;
+        height: 51px;
+        position: absolute !important;
+        left: 0;
+        top: 0;
+
+        .mk-title-otherBtn {
+            // width: 55% !important;
+            position: absolute;
+            right: 10px;
+            text-align: right !important;
+            display: inline-table;
+
+            &>* {
+                float: left !important;
+            }
+
+            .mk-btn {
+                margin-right: 0px !important;
+                margin-left: 8px !important;
+            }
+
+            .ant-dropdown-button {
+                margin-left: 8px !important;
+            }
+        }
+    }
+
+    .ttk-scm-app-pu-invoice-list-FormSearch {
+        margin-top: -8px;
+        width: 99.2%;
+    }
+
+    .mk-span {
+        position: relative;
+        top: -3px;
+        margin-right: 8px !important;
+    }
+
+    .mk-dateRangeDatePicker {
+        position: relative;
+        top: 1px;
+    }
+
+    &-Body {
+        width: 99.2%;
+        height: 100%;
+    }
+
+    &-footer {
+        width: 99.2%;
+        position: absolute !important;
+        bottom: 5px;
+        left: 0px;
+        text-align: right;
+        line-height: 40px;
+        padding-top: 0px !important;
+
+        .mk-pagination {
+            display: block !important;
+
+            >ul {
+                display: inline-block;
+            }
+        }
+    }
+
+}
+
+.ttk-scm-app-pu-invoice-card {
+    position: relative;
+    width: 100%;
+
+    .ttk-scm-app-pu-invoice-card-header {
+        &-left {
+            width: 50%;
+            float: left;
+            display: inline-block !important;
+
+            .mk-btn-group {
+                top: -4px !important;
+            }
+        }
+
+        &-right {
+            width: 50%;
+            overflow: hidden;
+            text-align: right;
+        }
+    }
+
+    .ttk-scm-app-pu-invoice-card-title {
+        display: block !important;
+
+        div {
+            display: inline-block !important;
+        }
+
+        &-left {
+            width: 33%;
+            text-align: left;
+        }
+
+        &-center {
+            width: 34%;
+            text-align: center;
+        }
+
+        &-right {
+            width: 33%;
+            text-align: right;
+        }
+    }
+
+    &-form-header {
+        &>div {
+            float: left;
+        }
+
+        .ant-form-item-label {
+            float: left;
+        }
+
+        .ant-form-item-control-wrapper {
+            float: left;
+        }
+    }
+
+    .app-pu-invoice-card-form-footer {
+        &-settlement {
+            text-align: right;
+            height: auto !important;
+
+            >div {
+                display: inline-block !important;
+            }
+
+            .mk-form-item {
+                display: inline-block !important;
+            }
+
+            .ant-form-item-control-wrapper {
+                display: inline-block !important;
+
+                .ant-select-selection--single {
+                    width: 150px !important;
+                }
+            }
+        }
+
+        &-paymentAmount-iconDiv {
+            display: inline-block !important;
+            line-height: 50px !important;
+        }
+    }
+}
+
+.ttk-tax-app-generalvattaxpayer {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.ttk-tax-app-vatTaxpayer {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.ttk-tax-app-income {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.ttk-tax-app-additional {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.ttk-tax-app-culture {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.ttk-tax-app-stampDuty {
+    padding-bottom: 46px !important;
+
+    .Pane1 {
+        float: left;
+    }
+
+    .Pane2 {
+        height: 100%;
+    }
+
+    &-wraper-treeLeft {
+        margin: 12px 0px 6px 0px;
+    }
+}
+
+.tax-pdf {
+    .ant-modal-close {
+        display: none;
+    }
+}
+
+.ttk-scm-app-warehouse-beginning {
+    padding-bottom: 46px !important;
+
+    .ttk-scm-app-warehouse-beginning-header-right {
+        position: absolute;
+        right: 20px;
+        top: 52px;
+
+        .print {
+            display: inline-block !important;
+        }
+
+        .export {
+            display: inline-block !important;
+        }
+    }
+
+    .ttk-scm-app-warehouse-beginning-content {
+        height: 100%;
+    }
+}
+
+.ttk-scm-app-inventory-documents {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 52px !important; // padding-right: 0px !important;
+    position: relative;
+
+    &-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 52px !important;
+
+        &-left {
+            height: 100%;
+            width: 50%;
+            display: inline-block !important;
+
+            .mk-btn-group {
+                top: -4px !important;
+            }
+        }
+
+        &-right {
+            height: 100%;
+            position: relative;
+            width: 50%;
+            overflow: hidden;
+            text-align: right;
+            display: inline-block;
+            padding-right: 10px !important;
+
+            &>* {
+                display: inline-block; // float: right;
+            }
+
+            .edficon-jianpan {
+                position: absolute;
+                right: 295px;
+                top: -7px;
+                display: inline-block;
+
+                &::before {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-title {
+        display: block !important;
+
+        div {
+            display: inline-block !important;
+        }
+
+        &-left {
+            width: 33%;
+            text-align: left;
+        }
+
+        &-center {
+            width: 34%;
+            text-align: center;
+        }
+
+        &-right {
+            width: 33%;
+            text-align: right;
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+
+        &>* {
+            width: 100%;
+            float: left;
+        }
+
+        .ttk-scm-app-inventory-documents-form-details {
+            width: 99% !important;
+            float: left;
+        }
+
+        .ttk-scm-app-inventory-documents-form-details {
+            .mk-datagrid {
+                display: block !important;
+            }
+
+            &>div {
+                display: block;
+
+                .fixedDataTableLayout_main {
+                    width: auto !important;
+                    margin-right: 0px !important;
+                    display: block !important;
+                    text-align: center;
+                    line-height: 35px;
+                }
+
+                .fixedDataTableLayout_rowsContainer {
+                    width: 100% !important;
+                }
+
+                .fixedDataTableLayout_header {
+                    .public_fixedDataTableCell_cellContent {
+                        padding: 0px !important;
+                    }
+                }
+            }
+
+            min-height: 320px !important;
+        }
+    }
+
+    &-form-header {
+        &>div {
+            float: left;
+        }
+
+        .ant-form-item-label {
+            float: left;
+        }
+
+        .ant-form-item-control-wrapper {
+            float: left;
+        }
+    }
+
+    &-footer {
+        position: relative;
+        top: 5px;
+
+        &-left {
+            width: 40%;
+            display: inline-block;
+        }
+
+        &-right {
+            width: 60%;
+            display: inline-block;
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
+}
+
+.ttk-scm-tj-init-setting {
+    .ttk-scm-tj-init-setting-form-bar {
+        .ttk-scm-tj-init-setting-form-bar-step {
+            display: inline-block;
+            position: absolute;
+        }
+
+        .step1 {
+            left: 0;
+        }
+
+        .step2 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .step3 {
+            right: 0;
+        }
+
+        .ttk-scm-tj-init-setting-form-bar-line {
+            display: inline-block;
+            border-top: dashed 1px #888;
+            width: 95px;
+        }
+    }
+
+    .software-row,
+    .ipport-row,
+    .test-row {
+        height: 53px;
+
+        .ant-row.ant-form-item.mk-form-item {
+            float: left;
+        }
+    }
+
+    .ant-form-item-label {
+        display: inline-block;
+    }
+
+    .ant-form-item-control-wrapper {
+        display: inline-block;
+        padding: 7px 0;
+    }
+
+    .word {
+        float: left;
+    }
+
+    .download {
+        float: right
+    }
+
+    .step-container {
+        margin: 0 auto !important;
+        clear: both;
+    }
+
+    .app-asset-card-more-ico {
+        margin: 0 auto;
+        display: block !important;
+        clear: both;
+    }
+
+    .ant-spin-nested-loading,
+    .ant-spin-container,
+    .ttk-scm-tj-init-setting-form {
+        height: 100%;
+    }
+
+    .ttk-scm-tj-init-setting-footer {
+        clear: both;
+        position: relative;
+        height: 50px;
+
+        .ttk-scm-tj-init-setting-footer-btnGroup {
+            height: 30px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+}
+
+.ttk-taxapply-app-taxlist {
+    &-header {
+        background: #fff;
+        padding-top: 10px !important;
+        border-top: 1px solid #d9d9d9 !important;
+        border-left: 1px solid #d9d9d9 !important;
+        border-right: 1px solid #d9d9d9 !important; //display: inline-block !important;
+        width: 100%;
+
+        &-left {
+            margin-left: 10px !important;
+            position: absolute !important;
+            height: auto;
+            display: inline-block;
+
+            .ant-calendar-picker {
+                position: relative;
+                top: -6px;
+                display: inline-block;
+                margin-top: 4px !important;
+            }
+
+            .ant-calendar-picker-input {
+                height: 30px !important;
+            }
+
+            &-declareMonth {
+                display: inline-block;
+                position: relative;
+                top: -8px;
+            }
+
+            &-refresh {
+                display: inline-block;
+                margin-left: 8px;
+                position: relative;
+                top: 3px;
+
+                .edficon-shuaxin {
+                    top: -2px;
+                    position: relative;
+                    display: inline-block;
+
+                    &::before {
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .edficon {
+                width: 30px;
+                height: 30px;
+                font-size: 28px;
+                border-radius: 5px;
+                border: 1px solid #D9D9D9;
+                cursor: pointer;
+            }
+
+            &-wanshan {
+                position: relative;
+                top: -7px;
+                display: inline-block;
+
+                &-content {
+                    display: inline-block;
+                }
+            }
+
+            &-description {
+                margin-bottom: 4px !important;
+            }
+        }
+
+        &-right {
+            float: right;
+
+            &-declaretaxbtn {
+                bottom: 4px; //margin-right: 8px;
+                margin-top: 1px !important;
+            }
+
+            &-queryAllDeclare {
+                margin-bottom: 4px !important;
+            }
+
+            &-cutpayment {
+                //margin-right: 10px;
+                margin-bottom: 4px !important;
+            }
+
+            &-printBankDoc {
+                margin-bottom: 4px !important;
+            }
+        }
+    }
+
+    .first {
+        display: inline-block !important;
+    }
+
+    .asset-name-edit-cell-a {
+        display: inline-block !important;
+    }
+}
+
+.ttk-scm-app-inventory {
+    .mk-normal-search-left {
+        width: 50%;
+    }
+
+    .ttk-scm-app-inventory-normalSearch {
+        display: inline-block;
+    }
+
+    .mk-title-otherBtn {
+        // width: 49% !important;
+        position: absolute;
+        right: 0px;
+
+        .ant-btn.mk-btn {
+            float: left;
+        }
+
+        .ant-btn-group {
+            float: left;
+        }
+
+        i {
+            float: right;
+        }
+
+        .anticon-bangzhutishi {
+            float: left !important;
+        }
+    }
+}
+
+.ttk-scm-app-warehouseDetail {
+    &-normalSearch {
+        display: inline-block;
+    }
+}
+
+.ttk-scm-app-estimate-list {
+    &-header {
+        padding: 10px !important;
+    }
+
+    &-header-leftBtn {
+        width: 50%;
+        display: inline-block;
+    }
+
+    &-header-rightBtn {
+        float: right;
+
+        .ant-btn.mk-btn {
+            position: absolute;
+            right: 115px;
+        }
+
+        .daochu {
+            line-height: 30px;
+            display: inline-block;
+        }
+
+        .dayin {
+            display: inline-block;
+        }
+    }
+
+    &-container {
+        height: 100%;
+    }
+}
+
+.ttk-scm-home-invoice {
+    .ttk-scm-home-invoice-header {
+        .ttk-scm-home-invoice-header-left {
+            width: 120px;
+            float: left;
+
+            span {
+                display: block;
+                float: left;
+            }
+        }
+    }
+
+    .ttk-scm-home-invoice-header-right {
+        width: 150px;
+        float: right;
+    }
+
+    .ant-tabs-line {
+        padding-left: 0px;
+    }
+
+    .ttk-scm-home-invoice-text {
+        span {
+            margin-right: 10px;
+        }
+    }
+}
+
+.edfx-app-home-voucher {
+    .edfx-app-home-voucher-header-left {
+        width: 120px;
+        float: left;
+
+        span {
+            display: block;
+            float: left;
+        }
+    }
+
+    .edfx-app-home-voucher-header-right {
+        float: right
+    }
+}
+
+.edfx-app-home-capital-account {
+    .edfx-app-home-capital-account-header-left {
+        width: 150px;
+        float: left;
+
+        span {
+            display: block;
+            float: left;
+        }
+    }
+
+    .edfx-app-home-capital-account-header-right {
+        float: right;
+    }
+}
+
+.edfx-app-home-business-state {
+    .edfx-app-home-business-state-header {
+        height: 30px;
+
+        span {
+            display: block;
+            float: left;
+        }
+    }
+
+    .edfx-app-home-business-state-header-right {
+        float: right;
+        height: inherit;
+    }
+
+    .ant-radio-group {
+        label {
+            display: block;
+            float: left;
+        }
+
+        i {
+            display: block;
+            float: left;
+        }
+    }
+}
+
+.edfx-app-home-receive-pay {
+    .edfx-app-home-receive-pay-header-left {
+        width: 150px;
+        float: left;
+
+        span {
+            display: block;
+            float: left;
+        }
+    }
+
+    .edfx-app-home-receive-pay-header-right {
+        float: right;
+    }
+}
+
+.ttk-scm-get-voucher-to-tj {
+    .ttk-scm-get-voucher-to-tj-form-bar {
+        .ttk-scm-get-voucher-to-tj-form-bar-step {
+            display: inline-block;
+            position: absolute;
+        }
+
+        .step1 {
+            left: 0;
+        }
+
+        .step2 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .step3 {
+            right: 0;
+        }
+
+        .ttk-scm-get-voucher-to-tj-form-bar-line {
+            display: inline-block;
+            border-top: dashed 1px #888;
+            width: 95px;
+        }
+    }
+
+    .ttk-scm-get-voucher-to-tj-footer-btnGroup {
+        text-align: center;
+    }
+}
+
+.ttk-gl-app-arap-statrpt {
+    &-header {
+        display: inline-block;
+        width: 100%;
+
+        &-left {
+            display: inline-block;
+            position: relative;
+            width: 60%;
+            // float: left;
+            .mk-dateRangeMonthPicker {
+                position: relative;
+                bottom: 6px;
+            }
+            .ant-input-group{
+                width: 235px !important;
+                .ant-input-affix-wrapper{
+                    display: inline;
+                    width: auto;
+                }
+            }
+            .mk-select {
+                bottom: 4px;
+            }
+
+            .anticon-shuaxin {
+                position: relative;
+                bottom: 2px;
+            }
+
+            .mk-checkbox {
+                position: relative;
+                bottom: 6px;
+            }
+        }
+
+        &-right {
+            display: inline-block;
+            width: 40%;
+            text-align: right;
+            float: right;
+            &-btn {
+                position: relative;
+                top: -6px;
+            }
+
+            .mk-btn-primary {
+                position: relative;
+                top: -6px;
+            }
+
+            .dayin {
+                display: inline-block !important;
+                position: relative;
+            }
+
+            .daochu {
+                display: inline-block !important;
+                position: relative;
+            }
+        }
+    }
+}
+
+.ttk-edf-app-article {
+    .ttk-edf-app-article-body {
+        width: 100%;
+    }
+
+    .imgBox {
+        opacity: 1 !important;
+    }
+
+    .refresh {
+        font-size: 23px !important;
+    }
+}
+
+.ttk-scm-app-expense-list {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-header {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        left: 0;
+        top: 0;
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+        }
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.ant-modal-wrap.settleClass {
+    .ant-modal-body {
+        width: 100%;
+
+        >div {
+            width: 100%;
+        }
+    }
+
+    .mk-form {
+        width: 100%;
+
+        >div {
+            display: inline-block;
+
+            >div {
+                display: inline-block;
+            }
+        }
+
+        .IconDiv {
+            position: relative;
+            top: 13px;
+        }
+    }
+
+    .amount {
+        width: 100%;
+    }
+}
+
+.ttk-scm-app-exchange-accounts {
+    &-main {
+        .ant-form-item {
+            display: inline-block;
+            width: 50%;
+
+            >div {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.ttk-scm-app-incomeexpenses-rpt,
+.ttk-scm-add-bank-statement-list {
+    height: 100%;
+    overflow: hidden !important;
+    padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+
+    &-accountQuery {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .mk-search {
+        width: 99.2%;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+
+    .mk-search .mk-normal-search .mk-title-otherBtn {
+        text-align: right;
+        float: right;
+    }
+
+    .mk-search .mk-normal-search .mk-title-otherBtn>* {
+        float: none;
+    }
+
+    &-list,
+    &-table {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.ttk-scm-app-incomeexpenses-rpt {
+    .ttk-scm-app-incomeexpenses-rpt-footer {
+        padding-top: 0px;
+    }
+    .app-sumaccount-rpt-normalSearch {
+        margin-top: 3px;
+    }
+}
+
+.ttk-scm-add-bank-statement-list {
+    .app-sumaccount-rpt-normalSearch {
+        margin-top: 3px;
+    }
+}
+
+.ttk-tax-app-invoicedetail {
+    &-top {
+        .invoicedetail-item {
+            float: left;
+        }
+
+        .mk-select {
+            width: 144px;
+        }
+    }
+
+    &-content {
+        height: 100%;
+    }
+}
+
+.ttk-scm-app-proceeds-card,
+.ttk-scm-app-payment-card {
+    position: relative;
+    padding-bottom: 10px !important;
+
+    &-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 51px !important;
+
+        &-left {
+            width: 50%;
+            display: inline-block;
+        }
+
+        &-right {
+            width: 50%;
+            display: inline-block;
+            text-align: right;
+        }
+    }
+    
+    &-content {
+        height: 100%;
+        padding-top: 52px;
+
+        .ttk-scm-app-proceeds-card-title,
+        .ttk-scm-app-payment-card-title {
+            >div {
+                display: inline-block;
+                width: 33.3%;
+            }
+
+            &-center {
+                text-align: center;
+            }
+
+            &-right {
+                text-align: right;
+            }
+        }
+
+        .ttk-scm-app-proceeds-card-form-header,
+        .ttk-scm-app-payment-card-form-header {
+            .ant-form-item {
+                display: inline-block;
+                width: 25%;
+
+                >div {
+                    display: inline-block;
+                }
+            }
+            .account {
+                .ant-form-item-label {
+                    line-height: 32px;
+                }
+            }
+
+            .ttk-scm-app-proceeds-card-businessDate {
+                .ant-form-item-label {
+                    line-height: 32px;
+                }
+            }
+
+            .ant-form-item.settlement {
+                width: 50%;
+                position: relative;
+                padding-left: 70px;
+
+                .ant-form-item-label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 70px;
+                }
+            }
+        }
+    }
+}
+
+.ttk-scm-app-payment-card {
+    .ttk-scm-app-payment-card-content {
+        .ttk-scm-app-payment-card-form-header {
+            .ttk-scm-app-payment-card-businessDate {
+                .ant-form-item-label {
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}
+
+.ant-checkbox-inner:after {
+    -webkit-transform: rotate(45deg) scale(0);
+    -ms-transform: rotate(45deg) scale(0);
+    transform: rotate(45deg) scale(0);
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    display: table;
+    width: 5px;
+    height: 8px;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-left: 0;
+    content: ' ';
+    -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+    transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+}
+
+.ttk-scm-incomeexpenses-setting {
+    position: relative !important;
+
+    .ttk-scm-incomeexpenses-setting-tab-container {
+        height: 100%;
+
+        .ttk-scm-incomeexpenses-setting-tabs {
+            height: 100%;
+
+            .ant-table-body {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.edfx-business-subject-manage {
+    height: 100%;
+    overflow: hidden;
+    //padding-top: 51px !important;
+    padding-bottom: 50px !important;
+    position: relative;
+    padding-right: 10px !important;
+    padding-left: 203px;
+
+    &-left {
+        // width: 20%;
+        // float: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &-right {
+        width: 100% !important;
+        float: left;
+    }
+
+    .topSelect {
+        display: inline-block;
+        line-height: 66px;
+    }
+
+    // &-content {
+    //position: absolute;
+    //top: 100px;
+    //height: 100%;
+    // overflow: hidden;
+    //padding-top: 51px !important;
+    //padding-bottom: 50px !important;
+    // position: relative;
+    //padding-right: 10px !important;
+    //}
+    // &-table {
+    //     .ant-table-content {
+    //         .ant-table-body {
+    //             max-height: 315px !important;
+    //         }
+    //     }
+    // }
+    &-footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        padding-right: 10px;
+
+        .mk-pagination {
+            //width: 100%;
+            text-align: right;
+
+            .ant-pagination {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.ttk-scm-app-sa-invoice-card-header-left-jianpan,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan {
+    .ant-popover-content {
+        .ant-popover-inner {
+            .ant-popover-inner-content {
+                .mk-shortCut {
+                    .container {
+                        width: 418px !important;
+
+                        .key_container {
+                            .key_container_left {
+                                li {
+                                    float: left !important;
+
+                                    span {
+                                        display: block !important;
+                                        line-height: 1 !important;
+                                    }
+                                }
+                            }
+
+                            .key_container_center {
+                                li {
+                                    float: left !important;
+
+                                    span {
+                                        display: block !important;
+                                        line-height: 1 !important;
+                                    }
+                                }
+                            }
+
+                            .key_container_right {
+                                li {
+                                    float: left !important;
+
+                                    span {
+                                        display: block !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ttk-edf-app-org-activate {
+    &-leftContent {
+        .ant-form-item-label {
+            display: inline-block;
+        }
+
+        .ant-form-item-control-wrapper {
+            display: inline-block;
+        }
+    }
+
+    &-rightContent {
+        float: right;
+    }
+}
+
+.ttk-edf-app-buy {
+    &-backgroundColor {
+        position: relative;
+        background-color: #fff;
+        height: 100%;
+    }
+
+    &-header {
+        position: relative;
+
+        &-left {
+            display: inline-block;
+            float: left;
+        }
+
+        &-center {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &-bar-step {
+                display: inline-block;
+
+                &:nth-child(1) {
+                    float: left;
+                }
+
+                ;
+
+                &:nth-child(3) {
+                    float: right;
+                }
+            }
+        }
+
+        &-right {
+            display: inline-block;
+            float: right;
+            text-align: center;
+            line-height: 28px
+        }
+    }
+
+    &-content {
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right
+        }
+    }
+
+    .ant-form-item-control-wrapper {
+        display: inline-block
+    }
+}
+
+//ttk-gl-app-auxiliary-setting
+.ttk-gl-app-auxiliary-setting {
+    .operateheader {
+        .operateheader-codeAndName {
+            float: left;
+        }
+
+        .operateheader-customerArchBtn {
+            float: right;
+        }
+    }
+}
+.ttk-gl-app-arap-statrpt{
+    &-header{
+        &-right{
+            display: inline-block !important;
+        }
+    }
+}
+.singleCopyDoc-modal{
+    .app-proof-of-charge{
+        height: 400px !important;
+        padding-top: 40px !important;
+        &-form{
+            &-header{
+                top: 0px !important
+            }
+        }
+        // .gridDiv{
+        //     height: 300px;
+        // }
+    }
+}
+.batchCopyDoc-modal{
+    .app-proof-of-charge{
+        height: 400px !important;
+        padding-top: 40px !important;
+        &-form{
+            &-header{
+                top: 0px !important
+            }
+        }
+    }
+}
+.ttk-stock-pz-modal{
+    .app-proof-of-charge{
+        height: 400px !important;
+        padding-top: 40px !important;
+        &-form{
+            &-header{
+                top: 0px !important
+            }
+        }
+    }
+}
+.app-cashflowstatement-distribution{
+    tr{
+        td:nth-child(4){
+            .text-cell{
+                padding-right: 8px;
+            }
+
+        }
+    }
+}
+@media screen and (max-width: 1366px){
+    .mk-search .FormList .item-list .item-list-top .item-list-top-line-container{
+        width: 82%;
+    }
+    .mk-search .FormList .item-list .item-list-top .item-list-top-line-action{
+        width: 11%;
+    }
+}

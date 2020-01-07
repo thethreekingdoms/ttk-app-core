@@ -1,0 +1,171 @@
+.mk-attachment-popover {
+    // z-index: 1 !important;
+    // top: 190px !important;
+    left: auto !important;
+    right: 10.5px !important;
+	font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    .ant-popover-arrow {
+        left: auto !important;
+        right: 12% !important;
+        top: -4px;
+        transform: translateX(-50%) rotate(-135deg) !important;
+    }
+    .fixedDataTableLayout_horizontalScrollbar.public_fixedDataTable_horizontalScrollbar{
+       display: none;
+    }
+    .ant-popover-title {
+        padding: 0px 10px;
+        height: 36px;
+        line-height: 36px;
+        .attachment-title {
+            font-size: 12px;
+            line-height: 36px;
+            display: flex;
+            justify-content: space-between;
+            .upload {
+                font-size: 12px;
+                cursor: pointer;
+                display: inline-block;
+                line-height: 25px;
+                &:hover {
+                    color: @primary-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .ant-popover-inner-content {
+        padding: 0px;
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.mk-attachment-popover.isFromDocList {
+    z-index: 9999999 !important;
+    top: 87px !important;
+    right: 29px !important;
+}
+
+.attachment-title {
+    .upload {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .mk-upload {
+        float: right;
+    }
+}
+
+.mk-attachment>i {
+    margin-left: 35px;
+}
+
+.mk-attachment:hover {
+    // .edficon-fujian{
+    //     &:hover{
+    color: @primary-color;
+    cursor: pointer; // }
+    // }
+}
+
+.mk-attachment>span:hover {
+    color: @link-color;
+    cursor: pointer;
+}
+
+.mk-attachment-content {
+    width: 250px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    .mk-datagrid .fixedDataTableLayout_main {
+        border-top: none;
+    }
+    .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header {
+        border: none;
+    }
+    .mk-datagrid-cellContent-left {
+        padding-left: 10px;
+    }
+    .fixedDataTableCellLayout_main {
+        border-bottom-style: dashed;
+        border-width: 0 0 1px 0;
+        text-align: left;
+        .edficon {
+            font-size: 24px;
+            height: 35px;
+            line-height: 35px;
+            vertical-align: sub;
+            &.del {
+                font-size: 20px;
+                vertical-align: sub;
+            }
+            &.download {
+                &:before {
+                    color: #33C2A1;
+                }
+                &:hover {
+                    &:before {
+                        color: #009875;
+                    }
+                }
+            }
+        }
+    }
+    &-link-cell {
+        justify-content: flex-start;
+        padding-left: 10px;
+        font-size: 12px;
+        display: flex !important;
+        a {
+            height: 100%; // float: left;
+        }
+        span {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 145px;
+            overflow: hidden;
+            // display: inline-block;
+        }
+    }
+    .picture {
+        font-size: 20px;
+        margin-right: 5px;
+        color: #3eabe8;
+    }
+    &-footer {
+        flex: 0 0 35px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        .anticon {
+            margin-right: 4px;
+        }
+    }
+}
+
+.upload-content {
+    flex-direction: row;
+    justify-content: center; //无附件显示图片加文字，2018/2/8 myf
+    // line-height: 100px;
+    height: 220px;
+}
+
+.react-viewer-mask {
+    z-index: 99991 !important
+}
+
+.react-viewer-close {
+    z-index: 99995 !important
+}
+
+.react-viewer-canvas {
+    z-index: 99993 !important
+}
+
+.react-viewer-footer {
+    z-index: 99994 !important
+}

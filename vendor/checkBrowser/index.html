@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>浏览器升级推荐</title>
+    <meta name="spm-id" content="a21bo">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="stylesheet" href="./index-min.css" />
+    <script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="lowertips" class="container">
+            <h1>
+                <span>
+                    <i class="sprite warn"></i>您正使用的浏览器版本过低，将不能正常使用本产品，请升级至ie11或更换浏览器～</span>
+                <div style="margin-top: 10px; color:#FA954C;font-size: 14px;">
+                    推荐以下浏览器
+                </div>
+
+            </h1>
+
+            <div class="pc-box">
+                <ul>
+                    <li>
+                        <i class="sprite uc"></i>
+                        <div style="padding:5px 0">ie11浏览器</div>
+                        <div>
+                            <a target="_blank" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">
+                                <span class="download" lang-zh="ie11浏览器" lang-en="ie11">点击下载</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li id="qihu-style">
+                        <i class="sprite ff"></i>
+                        <div style="padding:5px 0">360浏览器</div>
+                        <div>
+                            <a target="_blank" href="https://browser.360.cn/se/">
+                                <span class="ztip download" lang-zh="360浏览器" title="#divInfo" lang-en="360">点击下载</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="sprite chrome"></i>
+                        <div style="padding:5px 0">谷歌浏览器</div>
+                        <div>
+                            <a target="_blank" href="https://ttk-prod.oss-cn-beijing.aliyuncs.com/DOWNLOAD/70.0.3538.102_chrome_installer.exe">
+                                <span class="download" lang-zh="谷歌浏览器" lang-en="Chrome">点击下载</span>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div id='soft' style="display: none;">
+            <p>
+                <h4 style="text-align:center;margin:0 auto;padding-top: 20px;color:#FA954C;">客户端安装</h4>
+            </p>
+            <div class="pc-box" style="padding-top:10px;">
+                <ul>
+                    <li>
+                        <i class="windown"></i>
+                        <div style="padding:5px 0">企业开发平台</div>
+                        <div>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <i class="windown"></i>
+                        <div style="padding:5px 0">演示版</div>
+                        <div>
+                          
+                        </div>
+                    </li>
+                    <li>
+                        <i class="macdown"></i>
+                        <div style="padding:5px 0">演示版</div>
+                        <div>
+                       
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        var currentLocation = location.href;
+        if (currentLocation) {
+            if (currentLocation.indexOf('?client') > -1) {
+                var softObject = document.getElementById('soft');
+                if (softObject) {
+                    softObject.style.display = 'block';
+                }
+            }
+        }
+    </script>
+
+    <div id="divInfo" style="display:none;">
+        <b>使用360浏览器，为了更好的体验，请切换至极速模式</b><br>
+        <div id='tooltip' style='text-align:center' className='browTips'><img src='./360.gif' /></div>
+    </div>
+
+    <script>
+        $(function () {
+            var ztipEl = null;
+            $('.ztip').hover(function () {
+                // 显示tooltip
+
+                // 创建显示对象
+                if (!ztipEl) {
+                    ztipEl = $('<div id="ztip"></div>');
+                    $('body').append(ztipEl);
+                }
+
+                // 获取内容
+                var tip = $(this).data('ztip');
+                if (tip == '') return;
+                if (tip.indexOf('#') === 0) {
+                    tip = $(tip).html();
+                }
+                else {
+                    tip = tip.replace(/\\n/, '<br>');
+                    tip = tip.replace(/\n/, '<br>');
+                }
+                ztipEl.html(tip);
+
+                // 是否鼠标跟随
+                if ($(this).hasClass('ztip-track')) {
+                    ztipEl.addClass('track');
+                }
+                else {
+                    ztipEl.removeClass('track');
+                    var arrowClass = $(this).data('ztip-arrow') || 'bottom';
+                    ztipEl.removeClass('top').removeClass('bottom').removeClass('left').removeClass('right');
+                    ztipEl.addClass(arrowClass);
+                    var top = 0, left = 0;
+                    if (arrowClass == 'top') {
+                        top = $(this).offset().top - ztipEl.outerHeight() - 5;
+                        left = $(this).offset().left + $(this).width() / 2 - ztipEl.outerWidth() / 2;
+                    }
+                    else if (arrowClass == 'bottom') {
+                        top = $(this).offset().top + $(this).height() + 5;
+                        left = $(this).offset().left + $(this).width() / 2 - ztipEl.outerWidth() / 2;
+                    }
+                    else if (arrowClass == 'left') {
+                        top = $(this).offset().top + $(this).height() / 2 - ztipEl.outerHeight() / 2;
+                        left = $(this).offset().left - ztipEl.outerWidth() - 5;
+                    }
+                    else if (arrowClass == 'right') {
+                        top = $(this).offset().top + $(this).height() / 2 - ztipEl.outerHeight() / 2;
+                        left = $(this).offset().left + $(this).width() + 5;
+                    }
+                    ztipEl.css({
+                        'top': Math.round(top) + 'px',
+                        'left': Math.round(left) + 'px',
+                    });
+                    ztipEl.show();
+                }
+            }, function () {
+                // 隐藏
+                ztipEl.hide();
+            }).mousemove(function (e) {
+                // 跟随鼠标移动
+                if (!ztipEl.hasClass('track')) return;
+                e = e || window.event;
+                var x = e.pageX || e.clientX + document.body.scroolLeft;
+                var y = e.pageY || e.clientY + document.body.scrollTop;
+                var top = y + 10;
+                var left = x + 5;
+                ztipEl.css('top', top + 'px');
+                ztipEl.css('left', left + 'px');
+                ztipEl.show();
+            }).each(function () {
+                // 获取显示内容，并移除title
+                $(this).data('ztip', $(this).attr('title'));
+                $(this).attr('title', '');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+.ttk-edf-app-card-inventory{
+    &-form{
+        display: flex;
+        flex-wrap: wrap;
+        overflow:hidden;
+
+        .mk-form-item {
+            width: 50%;
+        }
+
+        .ant-form-explain {
+            position: absolute;
+            top: 36px;
+            line-height: 18px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .ant-form-item-label{
+            width:130px;
+            padding:3px 0;
+        }
+
+        .ant-form-item-control-wrapper{
+            width: 240px;
+        }
+
+        .mk-datepicker,.mk-select{
+            width:100%
+        }
+        //警告字体12px，行间距22px
+        margin-bottom: 0px;
+        .ant-form-item-control {
+            min-height: 55px;
+        }
+        .ant-form-item-label {
+            min-height: 55px;
+        }
+    }
+    .title {
+        width: 100%;
+        display: flex;
+        .ant-form-item-control-wrapper {
+            width: auto;
+        }
+
+        .info {
+            width: 75px;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .line {
+            flex: 1;
+            height: 1px;
+            border-bottom: 1px dashed #E8E8E8;
+            position: relative;
+            bottom: 12px;
+        }
+    }
+    &-taxCode{
+	    .ant-select-selection__clear{
+		    right: 22px;
+	    }
+    }&-taxCodeDropdown{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 575px)  {
+    .card-archive {
+        .cards {
+            left: 0px;
+            margin-left: 0px;
+        }
+        .ant-form-item-label {
+            text-align: right !important;
+            line-height: 35px;
+            vertical-align: middle;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 4px 0  !important;
+        }
+        .ant-form-item-label:after {
+            content: ":";
+            margin: 0 8px 0 2px;
+            position: relative;
+            top: -0.5px;
+        }
+    }
+}

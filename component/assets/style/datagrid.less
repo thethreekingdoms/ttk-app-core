@@ -1,0 +1,379 @@
+.mk-datagrid {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+	font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    .ant-spin-nested-loading > div > .ant-spin{
+        max-height: 100%;
+        left: 0;
+        top: 0;
+    }
+    &-cellContent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-cellContent-left {    //ued 要求把颜色改为#333
+	    color: #333;
+        //justify-content: flex-start;
+        text-align: left !important;
+        margin-left: 8px;
+    }
+    &-cellContent-center {    //ued 要求把颜色改为#333
+	    color: #333;
+        justify-content: center;
+    }
+    &-cellContent-right {    //ued 要求把颜色改为#333
+	    color: #333;
+        text-align: right !important;
+        //justify-content: flex-end;
+    }
+    &-cellContent-text {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    &-sequence-cell, &-addDelRow-cell, &-upDownRow-cell {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    //表格边框颜色透明
+    .fixedDataTableLayout_main {
+        border: none;
+        border-right: 1px solid #d9d9d9;
+        border-top: 1px solid #d9d9d9;
+        //border-top-color: transparent;
+        z-index: 2;
+    }
+    .mk-nodata {
+        z-index: 1;
+    }
+    .public_fixedDataTableCell_main {
+        border-bottom: 1px solid #d9d9d9;
+    }
+    .public_fixedDataTable_hasBottomBorder {
+        border-color: #e9e9e9;
+        border-bottom: 0;
+    }
+    //cell内容居中
+    .public_fixedDataTableCell_cellContent {
+        text-align: center;
+    }
+    .public_fixedDataTable_footer .public_fixedDataTableCell_main {
+        .fixedDataTableCellGroupLayout_cellGroup{
+            background-color: #fff6ea !important;
+        }
+        background-color: #fff6ea !important;
+        background-image: linear-gradient(#fff6ea, #fff6ea);
+        font-weight: bold;
+    }
+    /**
+	 * 设置列头央视
+	 * 字号：14px
+	 * 默认状态字体色值：#454545
+	 * 当前状态色值：#eaeaea，加粗
+	 */
+    .public_fixedDataTable_header,
+    .public_fixedDataTable_header .public_fixedDataTableCell_main {
+        /* background-color: #f6f7f8; */
+        /* background-image: -webkit-linear-gradient(#fff,#efefef); */
+        //background-image: linear-gradient(#e6e6e7,#e6e6e7);
+        // background-image: linear-gradient(#eaeaea, #eaeaea);
+        background: #eaeaea !important;
+        color: #333;
+        font-size: 12px;
+        font-weight: normal;
+        // border-bottom-width: 0px;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .fixedDataTableLayout_rowsContainer {
+        .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+            background: #eaeaea !important;
+            text-align: center;
+        }
+        .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_footer{
+            text-align: center;
+        }
+    }
+    .public_fixedDataTable_scrollbarSpacer{
+        top: 0px;
+        background: #eaeaea;
+    }
+
+    .fixedDataTableRowLayout_rowWrapper:hover{
+        .public_fixedDataTableRow_highlighted, .fixedDataTableCellGroupLayout_cellGroup{
+            background: #fff;
+        }
+        .public_fixedDataTableCell_main {
+            background-color: @item-hover-bg;
+        }
+    }
+
+    // .public_fixedDataTableRow_highlighted,
+    // .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+    //     background-color: #f8f8f8;
+    // }
+    .fixedDataTableRowLayout_fixedColumnsDivider {
+        border: 0px
+    }
+    // 兼容ie11上表格的表頭是白色的缺陷
+	.fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header{
+		background: #eaeaea;
+	}
+    .fixedDataTableRowLayout_rowWrapper .fixedDataTableRowLayout_main {
+        overflow: visible;
+    }
+    .fixedDataTableRowLayout_rowWrapper:focus {
+        border:1px solid black;
+    }
+
+    .public_fixedDataTable_main {
+        outline: none;
+        overflow: hidden;
+    }
+    .fixedDataTableLayout_rowsContainer>div:nth-child(4) .fixedDataTableCellGroupLayout_cellGroupWrapper {
+        .fixedDataTableCellGroupLayout_cellGroup{
+            background-color: #fff6ea !important;
+        }
+        background-color: #fff6ea;
+    }
+    .edfx-app-proof-of-charge-money-cell > div{
+        border-top: 0;
+    }
+    .public_Scrollbar_main {
+        // border-left: 0;
+        z-index: 1 !important;
+        // border-left: 1px solid #d9d9d9 !important;
+    }
+    //grid表格头加粗显示
+    .public_fixedDataTable_header .public_fixedDataTableCell_main{
+        font-weight: bold;
+    }
+    .total {
+        background-color: #fff6ea;
+        font-weight: bold;
+    }
+    //字体12px
+    .mk-datagrid-cellContent {
+        padding: 0 8px;
+        display: block;
+        font-size: 12px;
+        white-space: nowrap;
+        line-height: 36px;
+        // text-align: center;
+    }
+
+    //去掉拖动时的蓝色线和修改拖动光标样式
+    .fixedDataTableCellLayout_columnResizerContainer {
+        cursor: col-resize !important;
+    }
+    .public_fixedDataTableCell_columnResizerKnob {
+        background-color: transparent !important;
+        cursor: col-resize !important;
+    }
+    .fixedDataTableColumnResizerLineLayout_mouseArea {
+        cursor: col-resize !important;
+    }
+    .fixedDataTableColumnResizerLineLayout_main.public_fixedDataTableColumnResizerLine_main {
+        border-color: transparent;
+    }
+}
+
+//可编辑特殊样式
+.mk-datagrid-editable {
+    background-color: #fff;
+    &-add-row, &-up-row, &-down-row {
+        display: none!important;
+        font-size: 16px;
+        color: #666;
+        &:hover {
+            cursor: pointer;
+            color: @link-color;
+        }
+    }
+    &-remove-row{
+        display: none!important;
+        font-size: 16px;
+        color: #666;
+        &:hover {
+            cursor: pointer;
+            color: red;
+        }
+    }
+    .fixedDataTableLayout_main,
+    .public_fixedDataTable_main {
+        .fixedDataTableLayout_rowsContainer > div:nth-child(3) > div:hover {
+            .mk-datagrid-addDelRow-cell, .mk-datagrid-upDownRow-cell, .mk-datagrid-sequence-cell {
+                a.addDelrow {
+                    display: none;
+                }
+                .anticon {
+                    display: block!important;
+                }
+            }
+        }
+    }
+}
+
+.mk-addDel, .mk-upDown {
+    //border: none;
+    overflow: hidden;
+    .public_fixedDataTable_main {
+        margin: 0 25px;
+        //display: block;
+        overflow: visible;
+        border-top: 0;
+        border-bottom: 0;
+        .fixedDataTableLayout_rowsContainer {
+            overflow: visible;
+            //margin-left: -1px;
+        }
+    }
+    .mk-datagrid-cellContent {
+        display: flex;
+    }
+
+    .mk-datagrid-addDelRow-cell {
+        background: #fff;
+        width: 24px;
+        margin-left: -25px;
+        border-color: transparent;
+    }
+
+    .mk-datagrid-upDownRow-cell {
+        background: #fff;
+        width: 24px;
+        border-color: transparent;
+    }
+
+    .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper {
+        //margin-left: -1px;
+        .fixedDataTableCellGroupLayout_cellGroupWrapper:first-child {
+            .fixedDataTableCellGroupLayout_cellGroup {
+                overflow: visible;
+                .public_fixedDataTableCell_main {
+                    overflow: visible;
+                }
+            }
+        }
+        .fixedDataTableCellGroupLayout_cellGroupWrapper:nth-child(2) {
+            overflow: hidden;
+        }
+
+        .public_fixedDataTable_header {
+            background-color: #f6f7f8;
+        }
+
+        .public_fixedDataTable_footer {
+            .fixedDataTableCellGroupLayout_cellGroup{
+                background-color: #fff6ea !important;
+            }
+            background-color: #fff6ea !important;
+        }
+    }
+    //增行减行遮挡
+    // .fixedDataTableLayout_rowsContainer>div:nth-child(2), .fixedDataTableLayout_rowsContainer>div:nth-child(4) {
+    //     overflow: hidden;
+    // }
+    .fixedDataTableLayout_rowsContainer>div:nth-child(4) {
+          .public_fixedDataTableCell_main:first-child {
+              overflow: visible;
+              z-index: 1;
+          }
+    }
+    .public_fixedDataTable_horizontalScrollbar {
+        margin-left: -1px;
+    }
+}
+
+.public_fixedDataTable_bottomShadow{
+    background-image:none !important;
+    height: 65px;
+    margin-left: -25px;
+    margin-right: -25px;
+    overflow: hidden;
+}
+
+.public_fixedDataTable_topShadow{
+    background-image:none !important;
+}
+.mk-ellipsis {
+    text-align: center;
+    .fixedDataTableLayout_rowsContainer > div:nth-child(3) {
+        border-bottom: 1px solid #e9e9e9;
+        div.mk-datagrid-cellContent {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-left: 0;
+            padding: 0 8px;
+            display: block;
+        }
+    }
+}
+//滚动条
+// .fixedDataTableLayout_horizontalScrollbar {
+//     height: 8px !important;
+//     & > div {
+//         height: 8px !important;
+//     }
+//     .ScrollbarLayout_mainHorizontal {
+//         height: 8px;
+//         width: 8px;
+//     }
+//     .ScrollbarLayout_faceHorizontal {
+//         height: 8px;
+//     }
+//     .ScrollbarLayout_faceHorizontal:after {
+//         bottom:0px!important;
+//         top:0px!important;
+//     }
+//     .ScrollbarLayout_mainHorizontal:hover {
+//         height: 8px !important;
+//     }
+//     .public_Scrollbar_mainActive {
+//         height: 8px !important;
+//     }
+// }
+// .fixedDataTableCellLayout_main:last-child {
+//     border-right: none;
+// }
+// .mk-datagrid .fixedDataTableRowLayout_rowWrapper .fixedDataTableRowLayout_main {
+//     border-bottom: 1px solid #e9e9e9;
+// }
+// .mk-datagrid .public_fixedDataTableRow_odd:hover {
+//     background-color: rgb(234, 250, 247) !important;
+// }
+// .fixedDataTableRowLayout_main:hover {
+//     background-color: rgb(234, 250, 247);
+// }
+// .public_fixedDataTable_scrollbarSpacer {
+//     right: 0px !important;
+//     left: auto !important;
+//     width: 8px !important;
+// }
+// .ScrollbarLayout_main {
+//     width: 8px;
+//     background: #eaeaea;
+//     .ScrollbarLayout_faceVertical:after {
+//         left:0px!important;
+//         right:0px!important;
+//     }
+// }
+// .fixedDataTableLayout_main {
+//     border-right: 0;
+// }
+// .fixedDataTableLayout_rowsContainer {
+//     height: calc(100%)!important;
+// }
+// .fixedDataTableLayout_main {
+//     border-right: 1px solid #d3d3d3 !important;
+// }

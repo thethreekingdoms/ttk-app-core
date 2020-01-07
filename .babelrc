@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    // [
+    //   "import",
+    //   {
+    //     "libraryName": "antd",
+    //     "style": true //引入less，如果使用css文件就改为'css'
+    //   }
+    // ],
+    "transform-runtime",
+    "transform-object-assign",
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-es3-member-expression-literals",
+    "transform-es3-property-literals"
+  ],
+  "ignore": [
+    "jquery.js",
+    "jquery.min.js",
+    "bootstrap.js",
+    "bootstrap.min.js"
+  ]
+}

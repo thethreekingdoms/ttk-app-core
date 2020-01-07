@@ -1,0 +1,3826 @@
+.edfx-app-login {
+  display: block !important;
+  position: relative;
+}
+.edfx-app-login-header {
+  display: block !important;
+  width: 100%;
+  height: 55px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.edfx-app-login-header-left {
+  display: block !important;
+}
+.edfx-app-login-header-right {
+  position: absolute;
+  right: 0px;
+  top: 12px;
+}
+.edfx-app-login-content {
+  display: block !important;
+  position: absolute !important;
+  top: 55px;
+  bottom: 80px;
+  left: 0px;
+  right: 0;
+}
+.edfx-app-login-content .container {
+  margin-left: -500px;
+  margin-top: -175px;
+  transform: translate(0, 0) !important;
+}
+.edfx-app-login-footer {
+  display: block !important;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.edfx-app-login-footer p {
+  text-align: center;
+  padding-top: 30px;
+}
+.edfx-app-register {
+  position: relative;
+}
+.edfx-app-register-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-register-header-left-split {
+  position: absolute;
+  top: 0px;
+  left: 126px;
+}
+.edfx-app-register-header-left-login {
+  position: absolute;
+  top: 0px;
+  left: 158px;
+}
+.edfx-app-register-header-right {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.edfx-app-register-form {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  z-index: 1;
+}
+.edfx-app-register-form-bar-step {
+  position: absolute;
+  display: inline-block;
+}
+.edfx-app-register-form-bar .step1 {
+  left: 0;
+}
+.edfx-app-register-form-bar .step2 {
+  left: 172px;
+}
+.edfx-app-register-form-bar .step3 {
+  right: 0;
+}
+.edfx-app-register-form-bar-line {
+  border-top: 1px dashed #888;
+}
+.edfx-app-register-form-captcha .ant-input {
+  height: 50px;
+}
+.edfx-app-register-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.edfx-app-register-footer p {
+  text-align: center;
+  padding-top: 30px;
+}
+.edfx-app-home {
+  position: relative;
+}
+.edfx-app-forgot-password-form-bar-step {
+  position: absolute;
+  display: inline-block;
+}
+.edfx-app-forgot-password-form-bar .step1 {
+  left: 0;
+}
+.edfx-app-forgot-password-form-bar .step2 {
+  left: 172px;
+}
+.edfx-app-forgot-password-form-bar .step3 {
+  right: 0;
+}
+.edfx-app-forgot-password-form-bar-line {
+  border-top: 1px dashed #888;
+}
+.edfx-app-forgot-password-form-captcha .ant-input {
+  height: 50px;
+}
+.noTop.edfx-app-portal .edfx-app-portal-content {
+  top: 0px !important;
+  width: 100%;
+}
+.edfx-app-portal {
+  display: block !important;
+  position: relative;
+}
+.edfx-app-portal-isExpire {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 36px;
+  display: block !important;
+  text-align: center;
+  padding-top: 8px !important;
+}
+.edfx-app-portal-isExpire .edficon-jinggao {
+  vertical-align: middle;
+}
+.edfx-app-portal-isExpire .edfx-app-portal-isExpire-icon {
+  top: 10px !important;
+}
+.edfx-app-portal-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 54px;
+}
+.edfx-app-portal-header-left {
+  width: 159px;
+  height: 54px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden !important;
+}
+.edfx-app-portal-header-left h1 {
+  margin-top: 8px !important;
+}
+.edfx-app-portal-header-right {
+  width: 100%;
+  height: 54px;
+  padding-left: 159px;
+  overflow: hidden;
+}
+.edfx-app-portal-header.edfx-app-portal-header-isExpire {
+  top: 36px;
+}
+.edfx-app-portal-search-rightDiv {
+  min-width: 490px;
+  position: relative;
+}
+.edfx-app-portal-search-rightDiv > span {
+  display: inline-block;
+  float: left;
+  padding-top: 15px !important;
+}
+.edfx-app-portal-search-rightDiv > .mk-dropdown {
+  display: inline-block;
+  float: left;
+  padding-top: 15px !important;
+}
+.edfx-app-portal-search-rightDiv .basicInfo {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+}
+.edfx-app-portal-content.edfx-app-portal-content-isExpire {
+  top: 90px;
+}
+.edfx-app-portal-content {
+  position: absolute !important;
+  top: 54px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  overflow: hidden !important;
+  height: auto !important;
+}
+.edfx-app-portal-content-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 8px !important;
+  background-color: #ffffff;
+  padding-left: 0px !important;
+  height: auto;
+  overflow: hidden;
+}
+.edfx-app-portal-content-left > div {
+  width: 100%;
+  float: left;
+}
+.edfx-app-portal-content-left .menu-type {
+  float: left;
+}
+.edfx-app-portal-content-left .menu-split {
+  float: left;
+}
+.edfx-app-portal-content-left .menu-switch {
+  float: left;
+  width: 45px;
+  padding-left: 18px;
+  padding-top: 5px;
+}
+.edfx-app-portal-content-left .menu-switch i {
+  transform: none;
+  position: static !important;
+}
+.edfx-app-portal-content-left .new-guide {
+  height: 100px;
+  overflow: hidden;
+}
+.edfx-app-portal-content-left .level-first .menu-icon {
+  transform: none;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 3px;
+}
+.edfx-app-portal-content-left .level-first .menu-icon + span {
+  vertical-align: middle;
+  display: inline-block;
+}
+.edfx-app-portal-content-left + div {
+  padding-left: 180px !important;
+}
+.edfx-app-portal-content .edfx-app-portal-content-left .hide-content .menu-content {
+  display: none;
+}
+.edfx-app-portal-content > div {
+  width: 100%;
+  height: 100%;
+}
+.edfx-app-portal-content > div.edfx-app-portal-content-left {
+  height: calc(100% - 18px);
+  position: absolute;
+  z-index: 100000;
+}
+.edfx-app-portal-content-main {
+  height: 100%;
+}
+.edfx-app-portal-content .mainTop {
+  position: absolute;
+  padding-left: 180px;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  z-index: 10000;
+}
+.edfx-app-portal-content .mainTop .extraMenu {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.edfx-app-portal-content .mainTop .extraMenu .panelControl {
+  float: left;
+}
+.edfx-app-portal-content .mainTop .extraMenu .edfx-app-portal-content-apiLink {
+  float: left;
+}
+.edfx-app-portal-content .edfx-app-portal-content-main {
+  padding-top: 46px !important;
+}
+.edfx-app-portal-content .menuPackup1 {
+  padding-left: 95px !important;
+}
+.edfx-app-portal-content .menuPackup1 .mainTop {
+  padding-left: 95px !important;
+}
+.edfx-app-portal-content .menuPackup2 {
+  padding-left: 115px !important;
+}
+.edfx-app-portal-content .menuPackup2 .mainTop {
+  padding-left: 115px !important;
+}
+.edfx-app-portal .hideMenuAndTabs {
+  top: 0px !important;
+}
+.edfx-app-portal .hideMenuAndTabs .contentRight {
+  padding-left: 0;
+}
+.edfx-app-portal .hideMenuAndTabs .mainTop {
+  padding-left: 10px !important;
+}
+.app-company-manage-add {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  bottom: 0px;
+  left: 0;
+  padding: 0 !important;
+}
+.app-company-manage-add-content-item1 {
+  display: block !important;
+}
+.app-company-manage-add-content-item1 > div {
+  display: block !important;
+  margin: 0 auto;
+}
+.app-company-manage-add-content-item1 > div > div {
+  display: block;
+  overflow: hidden;
+}
+.app-company-manage-add-content-item1 > div > div .ant-form-item-label {
+  float: left;
+}
+.app-company-manage-add-content-item1 > div > div .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-edf-app-iframe {
+  top: 46px !important;
+}
+.ttk-edf-app-electronic-tax {
+  top: 46px !important;
+}
+.edfx-app-org {
+  top: 46px !important;
+}
+.ttk-edf-app-tax-related-query {
+  top: 46px !important;
+}
+.edfx-app-my-setting {
+  background: #ffffff;
+}
+.edfx-app-my-setting-baseInfo-form {
+  display: block;
+  overflow: hidden;
+}
+.edfx-app-my-setting-baseInfo-form > div {
+  float: left;
+  display: block !important;
+}
+.edfx-app-my-setting-baseInfo-form-photo {
+  display: block !important;
+  padding-top: 30px !important;
+}
+.edfx-app-my-setting-baseInfo-form-detail > div {
+  display: block !important;
+}
+.edfx-app-my-setting-baseInfo-form-detail > div .ant-form-item-label {
+  display: inline-block;
+}
+.edfx-app-my-setting-baseInfo-form-detail > div .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.edfx-app-my-setting-baseInfo-form-detail > div .ant-form-item-control-wrapper input {
+  height: 30px;
+}
+.edfx-app-my-setting-baseInfo-form-saveBtn {
+  position: absolute !important;
+}
+.edfx-app-my-setting-security-grid-row {
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+.edfx-app-my-setting-security-grid-row > div {
+  float: left;
+}
+.edfx-app-my-setting-security-grid-row > div:nth-of-type(1) {
+  width: 60px;
+}
+.edfx-app-my-setting-security-grid-row > div:nth-of-type(3) {
+  width: 418px;
+}
+.edfx-app-my-setting-security-grid-row .pws {
+  display: block;
+  overflow: hidden;
+}
+.edfx-app-my-setting-security-grid-row .pws > span,
+.edfx-app-my-setting-security-grid-row .pws > div {
+  float: left;
+}
+.edfx-app-my-setting-security-grid-row .pws > div.pws-bar {
+  width: 318px;
+}
+.ttk-edf-app-portal-menu,
+.ttk-edf-app-role-auth,
+.ttk-edf-app-enum,
+.ttk-edf-app-column,
+.edfx-app-voucher {
+  display: block !important;
+  position: relative;
+}
+.ttk-edf-app-portal-menu-left,
+.ttk-edf-app-role-auth-left,
+.ttk-edf-app-enum-left,
+.ttk-edf-app-column-left,
+.edfx-app-voucher-left {
+  position: absolute !important;
+  top: 0;
+  bottom: 10px;
+  left: 0;
+  display: block !important;
+}
+.ttk-edf-app-portal-menu-content,
+.ttk-edf-app-role-auth-content,
+.ttk-edf-app-enum-content,
+.ttk-edf-app-column-content,
+.edfx-app-voucher-content {
+  position: absolute !important;
+  top: 0;
+  bottom: 10px;
+  left: 210px;
+  right: 10px;
+}
+.ttk-edf-app-portal-menu-content .ant-card-body,
+.ttk-edf-app-role-auth-content .ant-card-body,
+.ttk-edf-app-enum-content .ant-card-body,
+.ttk-edf-app-column-content .ant-card-body,
+.edfx-app-voucher-content .ant-card-body {
+  display: block !important;
+}
+.ttk-edf-app-portal-menu-content .ant-card-body .mk-datagrid,
+.ttk-edf-app-role-auth-content .ant-card-body .mk-datagrid,
+.ttk-edf-app-enum-content .ant-card-body .mk-datagrid,
+.ttk-edf-app-column-content .ant-card-body .mk-datagrid,
+.edfx-app-voucher-content .ant-card-body .mk-datagrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 50px;
+  height: auto;
+}
+.ttk-edf-app-portal-menu-content-footer,
+.ttk-edf-app-role-auth-content-footer,
+.ttk-edf-app-enum-content-footer,
+.ttk-edf-app-column-content-footer,
+.edfx-app-voucher-content-footer {
+  height: 50px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding-top: 0px;
+}
+.ttk-edf-app-portal-menu-content-footer .mk-pagination,
+.ttk-edf-app-role-auth-content-footer .mk-pagination,
+.ttk-edf-app-enum-content-footer .mk-pagination,
+.ttk-edf-app-column-content-footer .mk-pagination,
+.edfx-app-voucher-content-footer .mk-pagination {
+  padding-top: 10px !important;
+  display: block !important;
+}
+.ttk-edf-app-portal-menu-content-footer .mk-pagination .ant-pagination,
+.ttk-edf-app-role-auth-content-footer .mk-pagination .ant-pagination,
+.ttk-edf-app-enum-content-footer .mk-pagination .ant-pagination,
+.ttk-edf-app-column-content-footer .mk-pagination .ant-pagination,
+.edfx-app-voucher-content-footer .mk-pagination .ant-pagination {
+  display: inline-block !important;
+}
+.ttk-edf-app-portal-menu .ant-card-head,
+.ttk-edf-app-role-auth .ant-card-head,
+.ttk-edf-app-enum .ant-card-head,
+.ttk-edf-app-column .ant-card-head,
+.edfx-app-voucher .ant-card-head {
+  position: absolute !important;
+  top: 0;
+  height: 50px;
+  left: 0;
+  width: 100%;
+  padding-top: 10px !important;
+}
+.ttk-edf-app-portal-menu .ant-card-body,
+.ttk-edf-app-role-auth .ant-card-body,
+.ttk-edf-app-enum .ant-card-body,
+.ttk-edf-app-column .ant-card-body,
+.edfx-app-voucher .ant-card-body {
+  position: absolute !important;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.ttk-edf-app-role-auth-content .ant-card-body .mk-datagrid,
+.edfx-app-voucher-content .ant-card-body .mk-datagrid {
+  height: 100%;
+}
+.ttk-edf-app-operation {
+  display: block !important;
+  position: relative;
+}
+.ttk-edf-app-operation-header {
+  position: absolute;
+  height: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 10px;
+}
+.ttk-edf-app-operation-header button {
+  float: right;
+}
+.ttk-edf-app-operation .mk-datagrid {
+  position: absolute !important;
+  top: 50px;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: auto;
+}
+.edfx-app-tree-table-detail-form .mk-form-item,
+.ttk-edf-app-role-form .mk-form-item,
+.edfx-app-enum-type-form .mk-form-item,
+.edfx-app-enum-detail-form .mk-form-item,
+.edfx-app-column-type-form .mk-form-item,
+.edfx-app-column-detail-form .mk-form-item,
+.ttk-edf-app-voucher-setting-form .mk-form-item,
+.ttk-edf-app-voucher-detail-setting-form .mk-form-item {
+  display: block !important;
+  text-align: center;
+}
+.edfx-app-tree-table-detail-form .mk-form-item .ant-form-item-label,
+.ttk-edf-app-role-form .mk-form-item .ant-form-item-label,
+.edfx-app-enum-type-form .mk-form-item .ant-form-item-label,
+.edfx-app-enum-detail-form .mk-form-item .ant-form-item-label,
+.edfx-app-column-type-form .mk-form-item .ant-form-item-label,
+.edfx-app-column-detail-form .mk-form-item .ant-form-item-label,
+.ttk-edf-app-voucher-setting-form .mk-form-item .ant-form-item-label,
+.ttk-edf-app-voucher-detail-setting-form .mk-form-item .ant-form-item-label {
+  display: inline-block;
+}
+.edfx-app-tree-table-detail-form .mk-form-item .ant-form-item-label label,
+.ttk-edf-app-role-form .mk-form-item .ant-form-item-label label,
+.edfx-app-enum-type-form .mk-form-item .ant-form-item-label label,
+.edfx-app-enum-detail-form .mk-form-item .ant-form-item-label label,
+.edfx-app-column-type-form .mk-form-item .ant-form-item-label label,
+.edfx-app-column-detail-form .mk-form-item .ant-form-item-label label,
+.ttk-edf-app-voucher-setting-form .mk-form-item .ant-form-item-label label,
+.ttk-edf-app-voucher-detail-setting-form .mk-form-item .ant-form-item-label label {
+  top: 0px !important;
+}
+.edfx-app-tree-table-detail-form .mk-form-item .ant-form-item-control-wrapper,
+.ttk-edf-app-role-form .mk-form-item .ant-form-item-control-wrapper,
+.edfx-app-enum-type-form .mk-form-item .ant-form-item-control-wrapper,
+.edfx-app-enum-detail-form .mk-form-item .ant-form-item-control-wrapper,
+.edfx-app-column-type-form .mk-form-item .ant-form-item-control-wrapper,
+.edfx-app-column-detail-form .mk-form-item .ant-form-item-control-wrapper,
+.ttk-edf-app-voucher-setting-form .mk-form-item .ant-form-item-control-wrapper,
+.ttk-edf-app-voucher-detail-setting-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.edfx-app-tree-table-detail-form .mk-form-item .ant-form-item-label label,
+.edfx-app-enum-detail-form .mk-form-item .ant-form-item-label label {
+  top: 7px !important;
+}
+.edfx-app-setting {
+  display: block !important;
+}
+.edfx-app-setting .edfx-app-setting-content {
+  display: block !important;
+  width: 100%;
+  height: 300px;
+}
+.edfx-app-setting .edfx-app-setting-content .ant-card-body {
+  width: 100%;
+  height: 100%;
+}
+.edfx-app-setting .edfx-app-setting-content .mk-datagrid {
+  width: 100%;
+  height: 100%;
+}
+.edfx-deptPers .edfx-deptPers-left {
+  position: relative;
+}
+.edfx-deptPers .edfx-deptPers-left .ant-card-head .ant-card-head-wrapper {
+  display: block;
+  overflow: hidden;
+}
+.edfx-deptPers .edfx-deptPers-left .ant-card-head .ant-card-head-wrapper .ant-card-head-title {
+  display: block;
+  float: left;
+  line-height: 50px;
+}
+.edfx-deptPers .edfx-deptPers-left .ant-card-head .ant-card-head-wrapper .ant-card-extra {
+  display: block;
+  float: right;
+  padding-top: 10px;
+}
+.edfx-deptPers .edfx-deptPers-left .ant-card-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+}
+.edfx-deptPers .edfx-deptPers-left .ant-card-body {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head .ant-card-head-wrapper {
+  display: block;
+  overflow: hidden;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head .ant-card-head-wrapper .ant-card-head-title {
+  display: block;
+  float: left;
+  line-height: 50px;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head .ant-card-head-wrapper .ant-card-extra {
+  display: block;
+  float: right;
+  padding-top: 10px;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head .ant-card-head-wrapper .ant-card-extra .edfx-deptPers-content-header {
+  display: block !important;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-head .ant-card-head-wrapper .ant-card-extra .edfx-deptPers-content-header button {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-body {
+  position: absolute !important;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-body .mk-datagrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 50px!important;
+  right: 0;
+  height: auto!important;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-footer {
+  height: 50px;
+  margin-top: 0;
+}
+.edfx-deptPers .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-footer .mk-pagination {
+  margin-bottom: 10px !important;
+}
+.edfx-deptPers.edfx-deptPersNoBorder {
+  padding-left: 205px !important;
+  padding-bottom: 0 !important;
+}
+.app-card-department .ant-row {
+  text-align: center;
+}
+.app-card-department .ant-row > div {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+.mk-layout.app-list-project {
+  padding-bottom: 50px !important;
+}
+.mk-layout.app-list-project .app-list-project-footer {
+  margin-top: 0px !important;
+  height: 50px !important;
+  padding-top: 10px !important;
+}
+.mk-layout.app-list-project .app-list-project-footer .mk-pagination {
+  padding-right: 10px;
+}
+.mk-layout.app-list-project .app-list-project-footer .mk-pagination ul {
+  display: inline-block;
+}
+.mk-layout.app-card-project .ant-row {
+  text-align: center;
+  width: 100%;
+}
+.mk-layout.app-card-project .ant-row > div {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+.mk-layout.app-card-project .ant-row:nth-of-type(3) .ant-form-item-control {
+  text-align: left;
+}
+.app-list-userdefinecard-card {
+  margin-top: 0 !important;
+}
+.app-list-userdefinecard-card-son {
+  left: 50% !important;
+  margin-left: -250px;
+}
+.app-list-userdefinecard .mk-pagination {
+  width: auto !important;
+}
+.app-card-userdefinecard .ant-row {
+  text-align: center;
+  width: 100%;
+}
+.app-card-userdefinecard .ant-row > div {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+.app-proof-of-charge {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  overflow: hidden !important;
+  padding-top: 101px !important;
+  padding-bottom: 70px !important;
+}
+.app-proof-of-charge-header {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+}
+.app-proof-of-charge-header-left {
+  width: 50%;
+  height: 40px !important;
+  position: relative;
+  float: left;
+}
+.app-proof-of-charge-header-left > button {
+  float: left;
+}
+.app-proof-of-charge-header-right {
+  width: 50%;
+  height: 40px !important;
+  float: left;
+  position: relative;
+}
+.app-proof-of-charge-header-right-iconbutton {
+  position: absolute;
+  top: 3px;
+  right: 140px;
+}
+.app-proof-of-charge-header-right > .mk-btn {
+  position: absolute;
+  top: 3px;
+  right: 80px;
+}
+.app-proof-of-charge-header-right .mk-btn-group {
+  position: absolute;
+  right: 8px;
+  top: 3px;
+}
+.app-proof-of-charge-title {
+  width: 100%;
+  position: absolute;
+  height: 10px;
+  top: 50px;
+  left: 0px;
+}
+.app-proof-of-charge-title-center {
+  position: absolute;
+  top: 0;
+  left: 48%;
+}
+.app-proof-of-charge-form-header {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 61px;
+  left: 0px;
+}
+.app-proof-of-charge-form-header-code {
+  width: 130px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  left: 25px;
+}
+.app-proof-of-charge-form-header-date {
+  height: 30px;
+  position: absolute;
+  left: 155px;
+  top: 0px;
+}
+.app-proof-of-charge-form-header-attachment {
+  width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+.app-proof-of-charge .gridDiv {
+  width: 100%;
+  height: 100% !important;
+  float: left;
+}
+.app-proof-of-charge .gridDiv .app-proof-of-charge-money-cell > div {
+  padding-top: 15px;
+  padding-left: 4px;
+}
+.app-proof-of-charge-footer {
+  width: 100%;
+  height: 70px !important;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+}
+.app-proof-of-charge-footer-left {
+  width: 50%;
+  float: left;
+}
+.app-proof-of-charge-footer-left > h3 {
+  margin-right: 0 !important;
+  width: 40%;
+  float: left;
+}
+.app-proof-of-charge-footer-right {
+  width: 50%;
+  float: left;
+}
+.app-proof-of-charge-footer-right > button {
+  float: right;
+}
+.app-proof-of-charge-money-cell-header-bottom {
+  height: 100%;
+}
+.app-proof-of-charge-money-cell-header-bottom > span {
+  width: 8.33333333% !important;
+  height: 100%;
+  display: inline-block;
+}
+.app-proof-of-charge-money-cell > div {
+  width: 8.33333333% !important;
+  height: 100%;
+  display: block !important;
+  float: left;
+}
+.app-proof-of-charge .mk-datagrid-cellContent {
+  text-align: center;
+  line-height: 20px !important;
+}
+.app-proof-of-charge-money-cell-header-top {
+  display: block;
+  text-align: center;
+}
+.app-proof-of-charge #assistDiv > div {
+  height: auto;
+  overflow: hidden;
+}
+.app-proof-of-charge #assistDiv > div .mk-form-item .ant-form-item-label {
+  width: 15%;
+  float: left;
+}
+.app-proof-of-charge #assistDiv > div .mk-form-item .ant-form-item-control-wrapper {
+  width: 85%;
+  float: left;
+}
+.app-proof-of-list {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+.app-proof-of-list .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.app-proof-of-list .mk-search .mk-normal-search {
+  width: 100%;
+  height: 40px;
+  float: right;
+}
+.app-proof-of-list .mk-search .mk-normal-search-left {
+  width: 50% !important;
+  float: left;
+}
+.app-proof-of-list .mk-search .mk-normal-search .mk-title-otherBtn {
+  float: right;
+  overflow: hidden;
+}
+.app-proof-of-list .mk-search .mk-normal-search .mk-title-otherBtn .edficon-dayin {
+  display: inline-block;
+}
+.app-proof-of-list .mk-search .mk-normal-search .mk-title-otherBtn .edficon-daochu {
+  display: inline-block;
+}
+.app-proof-of-list-footer {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  padding-right: 20px;
+}
+.mk-search .mk-normal-search {
+  display: block !important;
+}
+.app-proof-of-collect-rpt {
+  overflow: hidden;
+  position: relative;
+  padding-top: 50px !important;
+}
+.app-proof-of-collect-rpt-headerContent {
+  width: 99.1%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-proof-of-collect-rpt-header {
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+}
+.app-proof-of-collect-rpt-header-left {
+  position: relative;
+  bottom: 6px;
+}
+.app-proof-of-collect-rpt-table-tbody {
+  width: 100%;
+  float: left;
+}
+.app-sumaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-sumaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: auto !important;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-span {
+  position: relative;
+  bottom: 0px;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-dateRangeMonthPicker {
+  position: relative;
+  bottom: 0px;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-checkbox {
+  position: relative;
+  bottom: 4px;
+}
+.app-sumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-btn-primary {
+  bottom: 0px;
+}
+.app-sumaccount-rpt-normalSearch {
+  position: relative;
+  bottom: 0px;
+}
+.app-sumaccount-rpt-daochuBut {
+  bottom: 1px;
+}
+.app-sumaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-detailaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 25px !important;
+}
+.app-detailaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: auto !important;
+  float: left;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-dateRangeMonthPicker {
+  position: relative;
+  bottom: 0px;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-span {
+  position: relative;
+  bottom: 0px;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-checkbox {
+  position: relative;
+  bottom: 0px;
+}
+.app-detailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-btn-primary {
+  bottom: 0px;
+}
+.app-detailaccount-rpt-normalSearch {
+  position: relative;
+  bottom: 0px;
+}
+.app-detailaccount-rpt-daochuBut {
+  bottom: 1px;
+}
+.app-detailaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-detailaccount-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.app-balancesum-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-balancesum-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .anticon-shuaxin {
+  display: inline-block;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-span {
+  top: 5px;
+}
+.app-balancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+}
+.app-balancesum-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxsumaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+.app-auxsumaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: auto !important;
+  float: left;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-dateRangeMonthPicker {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-span {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+}
+.app-auxsumaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-btn-primary {
+  bottom: 0px;
+}
+.app-auxsumaccount-rpt-normalSearch {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxsumaccount-rpt-daochuBut {
+  bottom: 1px;
+}
+.app-auxsumaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxdetailaccount-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 140px !important;
+}
+.app-auxdetailaccount-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: auto !important;
+  float: left;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-dateRangeMonthPicker {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-span {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-checkbox {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxdetailaccount-rpt .mk-search .mk-normal-search .mk-title-otherBtn .mk-btn-primary {
+  bottom: 0px;
+}
+.app-auxdetailaccount-rpt-normalSearch {
+  position: relative;
+  bottom: 0px;
+}
+.app-auxdetailaccount-rpt-Body {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxdetailaccount-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.app-auxbalancesum-rpt {
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding-bottom: 140px !important;
+}
+.app-auxbalancesum-rpt .mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left > * {
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect {
+  min-width: 120px;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect-label {
+  width: 40%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-normal-search-left .mk-activeLabelSelect-value {
+  width: 60%;
+  float: left;
+}
+.app-auxbalancesum-rpt .mk-search .mk-normal-search .mk-title-otherBtn {
+  float: left;
+}
+.app-auxbalancesum-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-auxbalancesum-rpt-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+.slideOutUp {
+  display: none !important;
+}
+.mk-search-high-search .search-form-contaienr {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row > div {
+  width: 50%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .ant-form-item .ant-form-item-label {
+  width: 18%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .ant-form-item .ant-form-item-control-wrapper {
+  width: 78%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range {
+  width: 50%;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .select_range_label {
+  width: 18%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .ant-form-item {
+  width: 35%;
+  float: left;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .ant-form-item .ant-form-item-control-wrapper {
+  width: 100%;
+}
+.mk-search-high-search .search-form-contaienr .mk_search_row .select_range .select_range_content {
+  width: 4%;
+  float: left;
+}
+.mk-search-high-search .FormList {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mk-search-high-search .FormList .item-list {
+  width: 100%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top {
+  width: 100%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-title {
+  width: 5%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-line-container {
+  width: 90%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-top .item-list-top-line-action {
+  width: 5%;
+  float: left;
+}
+.mk-search-high-search .FormList .item-list .item-list-bottom {
+  width: 100%;
+  float: left;
+}
+.ttk-gl-app-financeinit-enterprise {
+  overflow: auto;
+}
+.ttk-gl-app-financeinit-enterprise-top-bar {
+  margin: 0 auto;
+}
+.ttk-gl-app-financeinit-enterprise-top-bar-step {
+  display: inline-block;
+}
+.ttk-gl-app-financeinit-enterprise-top-bar-line {
+  border: 1px dashed #aaa;
+  margin-bottom: 36px;
+  display: inline-block;
+  position: static !important;
+  margin-top: 15px;
+}
+.ttk-gl-app-financeinit-enterprise-content {
+  width: 100%;
+  height: calc(100% - 70px);
+}
+.ttk-gl-app-financeinit-enterprise .fixedDataTableLayout_rowsContainer {
+  height: 100% !important;
+}
+.ttk-gl-app-importdata-enterprise-top-bar {
+  margin: 0 auto;
+}
+.ttk-gl-app-importdata-enterprise-top-bar-step {
+  display: inline-block;
+}
+.ttk-gl-app-importdata-enterprise-top-bar-line {
+  border: 1px dashed #aaa;
+  margin-bottom: 36px;
+  display: inline-block;
+  position: static !important;
+}
+.ttk-gl-app-importdata-enterprise-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.ttk-gl-app-financeinit-accountrelation-content .mk-layout {
+  height: 100%;
+}
+.ttk-gl-app-finance-periodbegin-header-left {
+  float: left;
+}
+.ttk-gl-app-finance-periodbegin-header-left-year-search {
+  float: left;
+}
+.ttk-gl-app-finance-periodbegin-header-left-year-enabledPeriodChange {
+  float: right;
+}
+.ttk-gl-app-finance-periodbegin-header-right {
+  float: right;
+}
+.ttk-gl-app-finance-periodbegin-header-right-isBalancePop {
+  float: left;
+}
+.ttk-gl-app-finance-periodbegin-header-right .daochu {
+  float: right;
+}
+.ttk-gl-app-finance-periodbegin-content {
+  height: 100%;
+}
+.ttk-gl-app-importdata-accountrelation-grid {
+  min-height: 500px !important;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-header .mk-form-item {
+  display: inline-block;
+  width: 24%;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-header .mk-form-item div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-header .mk-form-item:first-child {
+  width: 27%;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item {
+  display: inline-block;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item .itemContainer,
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item .checkedResult {
+  margin: 0 auto;
+  width: 200px;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item .itemContainer-checkedItem-content,
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item .checkedResult-checkedItem-content {
+  display: inline-block;
+}
+.ttk-gl-app-financeinit-uploaddata-body-content-middle-item .formItem .mk-input {
+  width: 291px !important;
+}
+.ttk-gl-app-financeinit-uploaddata-footer {
+  text-align: center;
+}
+.app-account-monthaccount-content {
+  overflow: hidden;
+}
+.app-account-monthaccount-header-right-setting {
+  display: inline-block;
+}
+.app-account-monthaccount .month-right {
+  overflow-y: auto;
+}
+@media screen and (min-height: 900px) {
+  .app-account-monthaccount .month-left .menuTitle {
+    margin-top: 0px !important;
+  }
+}
+.app-balancesheet-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-balancesheet-rpt .dayin,
+.app-balancesheet-rpt .daochu {
+  margin-left: 0px;
+  margin-right: 8px;
+}
+.app-balancesheet-rpt .daochu {
+  margin-right: 0px;
+}
+.app-balancesheet-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-balancesheet-rpt-header {
+  width: 100%;
+}
+.app-balancesheet-rpt-header > * {
+  float: left;
+}
+.app-balancesheet-rpt-header-btn {
+  width: 80px;
+}
+.app-balancesheet-rpt-header-btn > div {
+  float: left;
+}
+.app-balancesheet-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-balancesheet-rpt-header-right > button,
+.app-balancesheet-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-balancesheet-rpt-header-textContent {
+  float: left;
+  width: 330px;
+}
+.app-balancesheet-rpt-header-textContent > div {
+  float: left;
+}
+.app-balancesheet-rpt-header-textContent > div > * {
+  display: inline-block;
+}
+.app-balancesheet-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.ttk-edf-app-simple-portal-content > .mk-layout {
+  height: 100% !important;
+}
+.app-profitstatement-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-profitstatement-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-profitstatement-rpt-header {
+  width: 100%;
+}
+.app-profitstatement-rpt-header > * {
+  float: left;
+}
+.app-profitstatement-rpt-header-btn {
+  width: 80px;
+}
+.app-profitstatement-rpt-header-btn > div {
+  float: left;
+}
+.app-profitstatement-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-profitstatement-rpt-header-right > button,
+.app-profitstatement-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-profitstatement-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-cashflowstatement-rpt {
+  position: relative;
+  padding-top: 51px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.app-cashflowstatement-rpt .daochu,
+.app-cashflowstatement-rpt .dayin,
+.app-cashflowstatement-rpt .projectManageBtn,
+.app-cashflowstatement-rpt .shareBtn {
+  margin-right: 0px;
+}
+.app-cashflowstatement-rpt-headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-cashflowstatement-rpt-header {
+  width: 100%;
+}
+.app-cashflowstatement-rpt-header > * {
+  float: left;
+}
+.app-cashflowstatement-rpt-header-btn {
+  width: 80px;
+}
+.app-cashflowstatement-rpt-header-btn > div {
+  float: left;
+}
+.app-cashflowstatement-rpt-header-right {
+  width: 50%;
+  float: right;
+}
+.app-cashflowstatement-rpt-header-right > button,
+.app-cashflowstatement-rpt-header-right > i {
+  float: right;
+  margin-right: 8px;
+}
+.app-cashflowstatement-rpt-table-tbody {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.edfx-deptPersNoBorder {
+  position: relative;
+  padding-left: 200px !important;
+  padding-bottom: 60px !important;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-left {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: relative;
+  padding-top: 50px !important;
+  padding-bottom: 40px !important;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-head {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body {
+  width: 100%;
+  position: relative;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-content {
+  width: 100%;
+}
+.edfx-deptPersNoBorder .edfx-deptPers-content .ant-card-body .edfx-deptPers-content-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 99999999;
+}
+.app-list-customer {
+  padding-bottom: 50px !important;
+  position: relative;
+}
+.app-list-customer-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-customer-header-left {
+  float: left;
+}
+.app-list-customer-header-right {
+  float: right;
+}
+.app-list-customer-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-customer .app-list-currency-content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+.app-list-customer-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-customer-footer {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+.app-list-supplier {
+  padding-bottom: 50px !important;
+  position: relative;
+}
+.app-list-supplier-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-supplier-header-left {
+  float: left;
+}
+.app-list-supplier-header-right {
+  float: right;
+}
+.app-list-supplier-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-supplier-content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+.app-list-supplier-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-supplier-footer {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+.app-list-project {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-project-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-project-header-left {
+  float: left;
+}
+.app-list-project-header-right {
+  float: right;
+}
+.app-list-project-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-project-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-project-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-project-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-inventory {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-inventory-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-inventory-header-left {
+  float: left;
+}
+.app-list-inventory-header-right {
+  float: right;
+}
+.app-list-inventory-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-inventory-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-inventory-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-inventory-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-account {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-account-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-account-header-left {
+  float: left;
+}
+.app-list-account-header-right {
+  float: right;
+}
+.app-list-account-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-account-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-account-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-account-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-currency {
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-currency-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-currency-header-left {
+  float: left;
+}
+.app-list-currency-header-right {
+  float: right;
+}
+.app-list-currency-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-currency-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-currency-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-currency-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-userdefinecard-grid {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px !important;
+  position: relative;
+}
+.app-list-userdefinecard-grid-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-list-userdefinecard-grid-header-left {
+  float: left;
+}
+.app-list-userdefinecard-grid-header-right {
+  float: right;
+}
+.app-list-userdefinecard-grid-header-right > button {
+  display: inline-block;
+  vertical-align: middle;
+}
+.app-list-userdefinecard-grid-content {
+  width: 100%;
+  height: 100%;
+}
+.app-list-userdefinecard-grid-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.app-list-userdefinecard-grid-footer .mk-pagination {
+  width: 100%;
+}
+.app-list-userdefinecard-grid-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.app-list-userdefinecard-backgroundColor {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px !important;
+  position: relative;
+}
+.app-list-userdefinecard-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.app-list-userdefinecard-card-son {
+  position: absolute;
+  top: 150px;
+  left: 40%;
+}
+.app-card-person-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-person-form .mk-form-item {
+  float: left;
+}
+.app-card-person-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-person .ant-row {
+  width: initial !important;
+}
+.app-card-inventory-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-inventory-form .mk-form-item {
+  float: left;
+}
+.app-card-inventory-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-inventory .ant-row {
+  width: initial !important;
+}
+.app-card-customer {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-customer .mk-form-item {
+  float: left;
+}
+.app-card-customer .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-customer .ant-row {
+  width: initial !important;
+}
+.app-card-vendor {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-vendor .mk-form-item {
+  float: left;
+}
+.app-card-vendor .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-vendor .ant-row {
+  width: initial !important;
+}
+.app-card-project {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-project .mk-form-item {
+  float: left;
+}
+.app-card-project .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-project .ant-row {
+  width: initial !important;
+}
+.app-card-bankaccount {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-bankaccount .mk-form-item {
+  float: left;
+}
+.app-card-bankaccount .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-bankaccount > .mk-layout {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item {
+  width: 100%;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item .ant-form-item-label {
+  width: 110px;
+  display: inline-block;
+}
+.app-card-bankaccount > .mk-layout .mk-form-item .ant-form-item-control-wrapper {
+  width: 200px;
+  display: inline-block;
+}
+.app-card-bankaccount .ant-row {
+  width: initial !important;
+}
+.app-card-currency {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-currency .mk-form-item {
+  float: left;
+}
+.app-card-currency .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-currency .ant-row {
+  width: initial !important;
+}
+.app-card-userdefinecard .archives-name {
+  height: auto;
+  overflow: hidden;
+}
+.app-card-userdefinecard .archives-name .mk-form-item {
+  float: left;
+}
+.app-card-userdefinecard .archives-name .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+  width: 220px;
+}
+.app-card-userdefinecard .archives-name .mk-form-item .ant-form-item-children {
+  float: left;
+}
+.app-card-userdefinecard .ant-row {
+  width: initial !important;
+}
+.app-account-subjects {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.app-account-subjects-search {
+  height: 32px;
+  overflow-x: auto;
+}
+.app-account-subjects-header-container {
+  top: 40px;
+}
+.app-account-subjects-tabs {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-account-subjects-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-proof-of-charge-new-subjects-form {
+  height: auto;
+  overflow: hidden;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item {
+  width: 100%;
+  float: left;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item .ant-form-item-label {
+  width: 20%;
+  display: inline-block;
+}
+.app-proof-of-charge-new-subjects-form .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.edfx-app-org-content {
+  width: 100%;
+  height: 100%;
+}
+.edfx-app-org-content .block .formline .mk-form-item .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.app-account-beginbalance {
+  position: relative;
+  padding-top: 95px !important;
+}
+.app-account-beginbalance-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-account-beginbalance-header-left {
+  width: 50%;
+  float: left;
+}
+.app-account-beginbalance-header-right {
+  width: 50%;
+  float: left;
+}
+.app-account-beginbalance-header-right > * {
+  float: right;
+}
+.app-account-beginbalance-tabHeaderWrapDiv {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+.app-account-beginbalance-content {
+  height: 100%;
+  width: 100%;
+}
+.app-asset-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.app-asset-list-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-list-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-list-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.app-asset-list-footer .mk-pagination {
+  text-align: right;
+}
+.app-asset-list-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.mk-search {
+  width: 100%;
+  height: 51px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.mk-search .mk-normal-search .mk-normal-search-left {
+  width: 60%;
+  float: left;
+}
+.mk-search .mk-normal-search .mk-title-otherBtn {
+  float: left;
+}
+.app-asset-card-title {
+  width: 100%;
+  float: left;
+}
+.app-asset-card-more {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.app-asset-card-item {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.app-asset-card-item .mk-form-item {
+  width: 50%;
+  float: left;
+}
+.app-asset-card-item .mk-form-item .ant-form-item-label {
+  width: 25%;
+  display: inline-block;
+}
+.app-asset-card-item .mk-form-item .ant-form-item-control-wrapper {
+  width: 70%;
+  display: inline-block;
+}
+.app-asset-card-footer-btnGroup {
+  text-align: center;
+}
+.app-asset-depreciation {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.app-asset-depreciation-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-depreciation-header-left {
+  width: 50%;
+  float: left;
+}
+.app-asset-depreciation-header-right {
+  width: 50%;
+  float: left;
+}
+.app-asset-depreciation-header-right > * {
+  margin-right: 8px;
+}
+.app-asset-depreciation-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-depreciation-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.app-asset-depreciation-footer .mk-pagination {
+  text-align: right;
+}
+.app-asset-depreciation-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.app-asset-statrpt {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.app-asset-statrpt-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-asset-statrpt-header-assetProperty {
+  float: left;
+}
+.app-asset-statrpt-header-left {
+  width: 50%;
+  float: left;
+}
+.app-asset-statrpt-header-right {
+  width: 50%;
+  float: left;
+}
+.app-asset-statrpt-header-right > * {
+  margin-right: 8px;
+}
+.app-asset-statrpt-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-asset-statrpt .app-list-account-footer {
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
+.app-asset-statrpt .app-list-account-footer .mk-pagination > * {
+  display: inline-block;
+}
+.app-depr-detail-rpt {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.app-depr-detail-rpt-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.app-depr-detail-rpt-header-assetProperty {
+  float: left;
+}
+.app-depr-detail-rpt-header-left {
+  width: 50%;
+  float: left;
+}
+.app-depr-detail-rpt-header-right {
+  width: 50%;
+  float: left;
+}
+.app-depr-detail-rpt-header-right > * {
+  margin-right: 8px;
+}
+.app-depr-detail-rpt-content {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.app-depr-detail-rpt-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.app-depr-detail-rpt-footer .mk-pagination {
+  text-align: right;
+}
+.app-depr-detail-rpt-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.ttk-access-app-tranreport-step0content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: #fff;
+}
+.ttk-access-app-tranreport-step0content .ant-spin-container {
+  position: relative;
+  height: 100%;
+}
+.ttk-access-app-tranreport-step0content-form .ant-row {
+  width: 590px;
+  margin: 8px auto;
+  white-space: nowrap;
+}
+.ttk-access-app-tranreport-step0content-form .ant-form-item-children {
+  position: relative;
+}
+.ttk-access-app-tranreport-step0content-form .ant-form-explain {
+  position: relative;
+}
+.ttk-gl-app-period-expense-rpt {
+  position: relative;
+  padding-top: 50px !important;
+}
+.ttk-gl-app-period-expense-rpt-head {
+  position: relative;
+  top: -50px;
+  border-top-style: solid;
+  border-top-color: #d9d9d9;
+  border-top-width: 1px;
+}
+.ttk-gl-app-period-expense-rpt-headerContent {
+  height: 50px;
+}
+.ttk-gl-app-period-expense-rpt-header {
+  background-color: #ffffff;
+  position: relative;
+  left: 0;
+  top: -8px;
+  width: 100%;
+}
+.ttk-gl-app-period-expense-rpt-header-left {
+  width: 50%;
+  float: left;
+}
+.ttk-gl-app-period-expense-rpt-header-left .anticon-shuaxin {
+  position: relative;
+  top: 5px;
+}
+.ttk-gl-app-period-expense-rpt-header-right {
+  width: 50%;
+  float: left;
+  margin-top: 8px;
+  position: relative;
+}
+.ttk-gl-app-period-expense-rpt-header-right > * {
+  display: inline-block;
+  float: right;
+  margin-left: 8px;
+}
+.ttk-gl-app-period-expense-rpt-header-reload {
+  margin-top: 5px;
+}
+.ttk-gl-app-period-expense-rpt .mk-datagrid {
+  position: relative;
+  top: -50px;
+}
+.ttk-gl-app-accountagefx-rpt-header {
+  display: block;
+  overflow: hidden;
+}
+.ttk-gl-app-accountagefx-rpt-header-left {
+  float: left;
+}
+.ttk-gl-app-accountagefx-rpt-header-left-endMonth {
+  display: inline;
+}
+.ttk-gl-app-accountagefx-rpt-header-right {
+  float: right;
+}
+.ttk-gl-app-accountagefx-rpt-header-right .edficon-dayin,
+.ttk-gl-app-accountagefx-rpt-header-right .edficon-daochu {
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card {
+  position: relative;
+  width: 100%;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-left {
+  width: 50%;
+  float: left;
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-left .mk-btn-group {
+  top: -4px !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-right {
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-title {
+  display: block !important;
+  width: 99% !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-title div {
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-title-left {
+  width: 33%;
+  text-align: left;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-title-center {
+  width: 34%;
+  text-align: center;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-title-right {
+  width: 33%;
+  text-align: right;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-form-header,
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-form-footer,
+.ttk-scm-app-sa-invoice-card .app-sa-delivery-card-form-footer-balance-signRight,
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-footer {
+  width: 99% !important;
+}
+.ttk-scm-app-sa-invoice-card-form-header > div {
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-form-header .ant-form-item-label {
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-form-header .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card-form-footer-settlement {
+  text-align: right;
+}
+.ttk-scm-app-sa-invoice-card-form-footer-settlement div {
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card-form-footer-settlement .ant-form-item-control-wrapper {
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card-form-footer-settlement .ant-form-item-control-wrapper .ant-select-selection--single {
+  width: 150px !important;
+}
+.ttk-scm-app-sa-invoice-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-sa-invoice-list .mk-search {
+  width: 99.2%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+.ttk-scm-app-sa-invoice-list .mk-search .mk-title-otherBtn {
+  position: absolute;
+  right: 10px;
+  text-align: right;
+  display: inline-table;
+}
+.ttk-scm-app-sa-invoice-list .mk-search .mk-title-otherBtn > * {
+  float: left !important;
+}
+.ttk-scm-app-sa-invoice-list .mk-search .dropdownbutton2 {
+  margin-left: 0px;
+}
+.ttk-scm-app-sa-invoice-list .ttk-scm-app-pu-invoice-list-FormSearch {
+  margin-top: -8px;
+  width: 99.2%;
+}
+.ttk-scm-app-sa-invoice-list .mk-normal-search-left .selectRangeDate {
+  top: -3px !important;
+}
+.ttk-scm-app-sa-invoice-list .mk-span {
+  position: relative;
+  top: -3px;
+  margin-right: 8px !important;
+}
+.ttk-scm-app-sa-invoice-list .mk-dateRangeDatePicker {
+  position: relative;
+  top: 1px;
+}
+.ttk-scm-app-sa-invoice-list-Body {
+  width: 99.2%;
+  height: 100%;
+}
+.ttk-scm-app-sa-invoice-list-footer {
+  width: 99.2%;
+  position: absolute !important;
+  bottom: 5px;
+  left: 0px;
+  text-align: right;
+  line-height: 40px;
+  padding-top: 0px !important;
+}
+.ttk-scm-app-sa-invoice-list-footer .mk-pagination {
+  display: block !important;
+}
+.ttk-scm-app-sa-invoice-list-footer .mk-pagination > ul {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 52px !important;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px !important;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-left {
+  height: 100%;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-right {
+  height: 100%;
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-right > * {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-right .edficon-jianpan {
+  position: absolute;
+  right: 295px;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card .ttk-scm-app-sa-invoice-card-header-right .edficon-jianpan::before {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden !important;
+  position: relative;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details {
+  width: 98% !important;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details {
+  margin-right: 0px !important;
+  min-height: 320px !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details .mk-datagrid {
+  display: block !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details > div {
+  display: block;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details > div .fixedDataTableLayout_main {
+  width: auto !important;
+  margin-right: 0px !important;
+  display: block !important;
+  text-align: center;
+  line-height: 35px;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details > div .fixedDataTableLayout_rowsContainer {
+  width: 100% !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-details > div .fixedDataTableLayout_header .public_fixedDataTableCell_cellContent {
+  padding: 0px !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-billing {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-billing > * {
+  display: inline-block;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-settlement {
+  width: 50%;
+  height: auto !important;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footer-top .ttk-scm-app-sa-invoice-card-form-footer-settlement > * {
+  display: inline-block;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers {
+  width: 50%;
+  height: auto !important;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-sa-invoice-card-form-footers-settlement {
+  width: 100%;
+  height: auto !important;
+  overflow: hidden;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-sa-invoice-card-form-footers-settlement .app-sa-invoice-card-form-footers-settlement-payDiv {
+  width: 100%;
+  height: auto !important;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement > * {
+  display: inline-block !important;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-form-footer .app-sa-invoice-card-form-footers .app-pu-arrival-card-form-footer-settlement > * > * {
+  display: inline-block !important;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer .ttk-scm-app-sa-invoice-card-footer-left {
+  width: 30%;
+  height: auto !important;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer .ttk-scm-app-sa-invoice-card-footer-right {
+  width: 70%;
+  height: auto !important;
+  overflow: hidden;
+  float: left;
+}
+.ttk-scm-app-sa-invoice-card .app-sa-arrival-card-content .ttk-scm-app-sa-invoice-card-footer .ttk-scm-app-sa-invoice-card-footer-right > button {
+  float: right !important;
+}
+.ttk-scm-app-pu-invoice-card {
+  width: 100%;
+  height: 96% !important;
+  overflow: auto;
+  padding-top: 52px !important;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-left {
+  height: 100%;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-right {
+  height: 100%;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-right > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-right .edficon-jianpan {
+  position: absolute;
+  right: 295px;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-right .edficon-jianpan::before {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details {
+  width: 99% !important;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details {
+  min-height: 320px !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details .mk-datagrid {
+  display: block !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details > div {
+  display: block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details > div .fixedDataTableLayout_main {
+  width: auto !important;
+  margin-right: 0px !important;
+  display: block !important;
+  text-align: center;
+  line-height: 35px;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details > div .fixedDataTableLayout_rowsContainer {
+  width: 100% !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-details > div .fixedDataTableLayout_header .public_fixedDataTableCell_cellContent {
+  padding: 0px !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv {
+  width: 100%;
+  height: auto !important;
+  overflow: hidden;
+  padding-left: 50%;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement {
+  width: 100%;
+  height: auto !important;
+  overflow: hidden;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .app-pu-invoice-card-form-footer-settlement-payDiv > div .app-pu-arrival-card-form-footer-settlement > * > * {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer {
+  width: 100%;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer > * {
+  width: 50%;
+  float: left !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-content .ttk-scm-app-pu-invoice-card-form-footerBottom .ttk-scm-app-pu-invoice-card-footer-right > button {
+  float: right !important;
+}
+.ttk-scm-app-pu-invoice-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 0px !important;
+}
+.ttk-scm-app-pu-invoice-list .mk-search {
+  width: 99.2%;
+  height: 51px;
+  position: absolute !important;
+  left: 0;
+  top: 0;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-title-otherBtn {
+  position: absolute;
+  right: 10px;
+  text-align: right !important;
+  display: inline-table;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-title-otherBtn > * {
+  float: left !important;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-title-otherBtn .mk-btn {
+  margin-right: 0px !important;
+  margin-left: 8px !important;
+}
+.ttk-scm-app-pu-invoice-list .mk-search .mk-title-otherBtn .ant-dropdown-button {
+  margin-left: 8px !important;
+}
+.ttk-scm-app-pu-invoice-list .ttk-scm-app-pu-invoice-list-FormSearch {
+  margin-top: -8px;
+  width: 99.2%;
+}
+.ttk-scm-app-pu-invoice-list .mk-span {
+  position: relative;
+  top: -3px;
+  margin-right: 8px !important;
+}
+.ttk-scm-app-pu-invoice-list .mk-dateRangeDatePicker {
+  position: relative;
+  top: 1px;
+}
+.ttk-scm-app-pu-invoice-list-Body {
+  width: 99.2%;
+  height: 100%;
+}
+.ttk-scm-app-pu-invoice-list-footer {
+  width: 99.2%;
+  position: absolute !important;
+  bottom: 5px;
+  left: 0px;
+  text-align: right;
+  line-height: 40px;
+  padding-top: 0px !important;
+}
+.ttk-scm-app-pu-invoice-list-footer .mk-pagination {
+  display: block !important;
+}
+.ttk-scm-app-pu-invoice-list-footer .mk-pagination > ul {
+  display: inline-block;
+}
+.ttk-scm-app-pu-invoice-card {
+  position: relative;
+  width: 100%;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-left {
+  width: 50%;
+  float: left;
+  display: inline-block !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-left .mk-btn-group {
+  top: -4px !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-header-right {
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-title {
+  display: block !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-title div {
+  display: inline-block !important;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-title-left {
+  width: 33%;
+  text-align: left;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-title-center {
+  width: 34%;
+  text-align: center;
+}
+.ttk-scm-app-pu-invoice-card .ttk-scm-app-pu-invoice-card-title-right {
+  width: 33%;
+  text-align: right;
+}
+.ttk-scm-app-pu-invoice-card-form-header > div {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-form-header .ant-form-item-label {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card-form-header .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-settlement {
+  text-align: right;
+  height: auto !important;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-settlement > div {
+  display: inline-block !important;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-settlement .mk-form-item {
+  display: inline-block !important;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-settlement .ant-form-item-control-wrapper {
+  display: inline-block !important;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-settlement .ant-form-item-control-wrapper .ant-select-selection--single {
+  width: 150px !important;
+}
+.ttk-scm-app-pu-invoice-card .app-pu-invoice-card-form-footer-paymentAmount-iconDiv {
+  display: inline-block !important;
+  line-height: 50px !important;
+}
+.ttk-tax-app-generalvattaxpayer {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-generalvattaxpayer .Pane1 {
+  float: left;
+}
+.ttk-tax-app-generalvattaxpayer .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-generalvattaxpayer-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.ttk-tax-app-vatTaxpayer {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-vatTaxpayer .Pane1 {
+  float: left;
+}
+.ttk-tax-app-vatTaxpayer .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-vatTaxpayer-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.ttk-tax-app-income {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-income .Pane1 {
+  float: left;
+}
+.ttk-tax-app-income .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-income-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.ttk-tax-app-additional {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-additional .Pane1 {
+  float: left;
+}
+.ttk-tax-app-additional .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-additional-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.ttk-tax-app-culture {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-culture .Pane1 {
+  float: left;
+}
+.ttk-tax-app-culture .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-culture-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.ttk-tax-app-stampDuty {
+  padding-bottom: 46px !important;
+}
+.ttk-tax-app-stampDuty .Pane1 {
+  float: left;
+}
+.ttk-tax-app-stampDuty .Pane2 {
+  height: 100%;
+}
+.ttk-tax-app-stampDuty-wraper-treeLeft {
+  margin: 12px 0px 6px 0px;
+}
+.tax-pdf .ant-modal-close {
+  display: none;
+}
+.ttk-scm-app-warehouse-beginning {
+  padding-bottom: 46px !important;
+}
+.ttk-scm-app-warehouse-beginning .ttk-scm-app-warehouse-beginning-header-right {
+  position: absolute;
+  right: 20px;
+  top: 52px;
+}
+.ttk-scm-app-warehouse-beginning .ttk-scm-app-warehouse-beginning-header-right .print {
+  display: inline-block !important;
+}
+.ttk-scm-app-warehouse-beginning .ttk-scm-app-warehouse-beginning-header-right .export {
+  display: inline-block !important;
+}
+.ttk-scm-app-warehouse-beginning .ttk-scm-app-warehouse-beginning-content {
+  height: 100%;
+}
+.ttk-scm-app-inventory-documents {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 52px !important;
+  position: relative;
+}
+.ttk-scm-app-inventory-documents-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px !important;
+}
+.ttk-scm-app-inventory-documents-header-left {
+  height: 100%;
+  width: 50%;
+  display: inline-block !important;
+}
+.ttk-scm-app-inventory-documents-header-left .mk-btn-group {
+  top: -4px !important;
+}
+.ttk-scm-app-inventory-documents-header-right {
+  height: 100%;
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+  display: inline-block;
+  padding-right: 10px !important;
+}
+.ttk-scm-app-inventory-documents-header-right > * {
+  display: inline-block;
+}
+.ttk-scm-app-inventory-documents-header-right .edficon-jianpan {
+  position: absolute;
+  right: 295px;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-scm-app-inventory-documents-header-right .edficon-jianpan::before {
+  display: inline-block;
+}
+.ttk-scm-app-inventory-documents-title {
+  display: block !important;
+}
+.ttk-scm-app-inventory-documents-title div {
+  display: inline-block !important;
+}
+.ttk-scm-app-inventory-documents-title-left {
+  width: 33%;
+  text-align: left;
+}
+.ttk-scm-app-inventory-documents-title-center {
+  width: 34%;
+  text-align: center;
+}
+.ttk-scm-app-inventory-documents-title-right {
+  width: 33%;
+  text-align: right;
+}
+.ttk-scm-app-inventory-documents-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.ttk-scm-app-inventory-documents-content > * {
+  width: 100%;
+  float: left;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details {
+  width: 99% !important;
+  float: left;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details {
+  min-height: 320px !important;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details .mk-datagrid {
+  display: block !important;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details > div {
+  display: block;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details > div .fixedDataTableLayout_main {
+  width: auto !important;
+  margin-right: 0px !important;
+  display: block !important;
+  text-align: center;
+  line-height: 35px;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details > div .fixedDataTableLayout_rowsContainer {
+  width: 100% !important;
+}
+.ttk-scm-app-inventory-documents-content .ttk-scm-app-inventory-documents-form-details > div .fixedDataTableLayout_header .public_fixedDataTableCell_cellContent {
+  padding: 0px !important;
+}
+.ttk-scm-app-inventory-documents-form-header > div {
+  float: left;
+}
+.ttk-scm-app-inventory-documents-form-header .ant-form-item-label {
+  float: left;
+}
+.ttk-scm-app-inventory-documents-form-header .ant-form-item-control-wrapper {
+  float: left;
+}
+.ttk-scm-app-inventory-documents-footer {
+  position: relative;
+  top: 5px;
+}
+.ttk-scm-app-inventory-documents-footer-left {
+  width: 40%;
+  display: inline-block;
+}
+.ttk-scm-app-inventory-documents-footer-right {
+  width: 60%;
+  display: inline-block;
+  text-align: right;
+  padding-right: 10px;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form-bar .ttk-scm-tj-init-setting-form-bar-step {
+  display: inline-block;
+  position: absolute;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form-bar .step1 {
+  left: 0;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form-bar .step2 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form-bar .step3 {
+  right: 0;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form-bar .ttk-scm-tj-init-setting-form-bar-line {
+  display: inline-block;
+  border-top: dashed 1px #888;
+  width: 95px;
+}
+.ttk-scm-tj-init-setting .software-row,
+.ttk-scm-tj-init-setting .ipport-row,
+.ttk-scm-tj-init-setting .test-row {
+  height: 53px;
+}
+.ttk-scm-tj-init-setting .software-row .ant-row.ant-form-item.mk-form-item,
+.ttk-scm-tj-init-setting .ipport-row .ant-row.ant-form-item.mk-form-item,
+.ttk-scm-tj-init-setting .test-row .ant-row.ant-form-item.mk-form-item {
+  float: left;
+}
+.ttk-scm-tj-init-setting .ant-form-item-label {
+  display: inline-block;
+}
+.ttk-scm-tj-init-setting .ant-form-item-control-wrapper {
+  display: inline-block;
+  padding: 7px 0;
+}
+.ttk-scm-tj-init-setting .word {
+  float: left;
+}
+.ttk-scm-tj-init-setting .download {
+  float: right;
+}
+.ttk-scm-tj-init-setting .step-container {
+  margin: 0 auto !important;
+  clear: both;
+}
+.ttk-scm-tj-init-setting .app-asset-card-more-ico {
+  margin: 0 auto;
+  display: block !important;
+  clear: both;
+}
+.ttk-scm-tj-init-setting .ant-spin-nested-loading,
+.ttk-scm-tj-init-setting .ant-spin-container,
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-form {
+  height: 100%;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-footer {
+  clear: both;
+  position: relative;
+  height: 50px;
+}
+.ttk-scm-tj-init-setting .ttk-scm-tj-init-setting-footer .ttk-scm-tj-init-setting-footer-btnGroup {
+  height: 30px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.ttk-taxapply-app-taxlist-header {
+  background: #fff;
+  padding-top: 10px !important;
+  border-top: 1px solid #d9d9d9 !important;
+  border-left: 1px solid #d9d9d9 !important;
+  border-right: 1px solid #d9d9d9 !important;
+  width: 100%;
+}
+.ttk-taxapply-app-taxlist-header-left {
+  margin-left: 10px !important;
+  position: absolute !important;
+  height: auto;
+  display: inline-block;
+}
+.ttk-taxapply-app-taxlist-header-left .ant-calendar-picker {
+  position: relative;
+  top: -6px;
+  display: inline-block;
+  margin-top: 4px !important;
+}
+.ttk-taxapply-app-taxlist-header-left .ant-calendar-picker-input {
+  height: 30px !important;
+}
+.ttk-taxapply-app-taxlist-header-left-declareMonth {
+  display: inline-block;
+  position: relative;
+  top: -8px;
+}
+.ttk-taxapply-app-taxlist-header-left-refresh {
+  display: inline-block;
+  margin-left: 8px;
+  position: relative;
+  top: 3px;
+}
+.ttk-taxapply-app-taxlist-header-left-refresh .edficon-shuaxin {
+  top: -2px;
+  position: relative;
+  display: inline-block;
+}
+.ttk-taxapply-app-taxlist-header-left-refresh .edficon-shuaxin::before {
+  display: inline-block;
+}
+.ttk-taxapply-app-taxlist-header-left .edficon {
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+  border-radius: 5px;
+  border: 1px solid #D9D9D9;
+  cursor: pointer;
+}
+.ttk-taxapply-app-taxlist-header-left-wanshan {
+  position: relative;
+  top: -7px;
+  display: inline-block;
+}
+.ttk-taxapply-app-taxlist-header-left-wanshan-content {
+  display: inline-block;
+}
+.ttk-taxapply-app-taxlist-header-left-description {
+  margin-bottom: 4px !important;
+}
+.ttk-taxapply-app-taxlist-header-right {
+  float: right;
+}
+.ttk-taxapply-app-taxlist-header-right-declaretaxbtn {
+  bottom: 4px;
+  margin-top: 1px !important;
+}
+.ttk-taxapply-app-taxlist-header-right-queryAllDeclare {
+  margin-bottom: 4px !important;
+}
+.ttk-taxapply-app-taxlist-header-right-cutpayment {
+  margin-bottom: 4px !important;
+}
+.ttk-taxapply-app-taxlist-header-right-printBankDoc {
+  margin-bottom: 4px !important;
+}
+.ttk-taxapply-app-taxlist .first {
+  display: inline-block !important;
+}
+.ttk-taxapply-app-taxlist .asset-name-edit-cell-a {
+  display: inline-block !important;
+}
+.ttk-scm-app-inventory .mk-normal-search-left {
+  width: 50%;
+}
+.ttk-scm-app-inventory .ttk-scm-app-inventory-normalSearch {
+  display: inline-block;
+}
+.ttk-scm-app-inventory .mk-title-otherBtn {
+  position: absolute;
+  right: 0px;
+}
+.ttk-scm-app-inventory .mk-title-otherBtn .ant-btn.mk-btn {
+  float: left;
+}
+.ttk-scm-app-inventory .mk-title-otherBtn .ant-btn-group {
+  float: left;
+}
+.ttk-scm-app-inventory .mk-title-otherBtn i {
+  float: right;
+}
+.ttk-scm-app-inventory .mk-title-otherBtn .anticon-bangzhutishi {
+  float: left !important;
+}
+.ttk-scm-app-warehouseDetail-normalSearch {
+  display: inline-block;
+}
+.ttk-scm-app-estimate-list-header {
+  padding: 10px !important;
+}
+.ttk-scm-app-estimate-list-header-leftBtn {
+  width: 50%;
+  display: inline-block;
+}
+.ttk-scm-app-estimate-list-header-rightBtn {
+  float: right;
+}
+.ttk-scm-app-estimate-list-header-rightBtn .ant-btn.mk-btn {
+  position: absolute;
+  right: 115px;
+}
+.ttk-scm-app-estimate-list-header-rightBtn .daochu {
+  line-height: 30px;
+  display: inline-block;
+}
+.ttk-scm-app-estimate-list-header-rightBtn .dayin {
+  display: inline-block;
+}
+.ttk-scm-app-estimate-list-container {
+  height: 100%;
+}
+.ttk-scm-home-invoice .ttk-scm-home-invoice-header .ttk-scm-home-invoice-header-left {
+  width: 120px;
+  float: left;
+}
+.ttk-scm-home-invoice .ttk-scm-home-invoice-header .ttk-scm-home-invoice-header-left span {
+  display: block;
+  float: left;
+}
+.ttk-scm-home-invoice .ttk-scm-home-invoice-header-right {
+  width: 150px;
+  float: right;
+}
+.ttk-scm-home-invoice .ant-tabs-line {
+  padding-left: 0px;
+}
+.ttk-scm-home-invoice .ttk-scm-home-invoice-text span {
+  margin-right: 10px;
+}
+.edfx-app-home-voucher .edfx-app-home-voucher-header-left {
+  width: 120px;
+  float: left;
+}
+.edfx-app-home-voucher .edfx-app-home-voucher-header-left span {
+  display: block;
+  float: left;
+}
+.edfx-app-home-voucher .edfx-app-home-voucher-header-right {
+  float: right;
+}
+.edfx-app-home-capital-account .edfx-app-home-capital-account-header-left {
+  width: 150px;
+  float: left;
+}
+.edfx-app-home-capital-account .edfx-app-home-capital-account-header-left span {
+  display: block;
+  float: left;
+}
+.edfx-app-home-capital-account .edfx-app-home-capital-account-header-right {
+  float: right;
+}
+.edfx-app-home-business-state .edfx-app-home-business-state-header {
+  height: 30px;
+}
+.edfx-app-home-business-state .edfx-app-home-business-state-header span {
+  display: block;
+  float: left;
+}
+.edfx-app-home-business-state .edfx-app-home-business-state-header-right {
+  float: right;
+  height: inherit;
+}
+.edfx-app-home-business-state .ant-radio-group label {
+  display: block;
+  float: left;
+}
+.edfx-app-home-business-state .ant-radio-group i {
+  display: block;
+  float: left;
+}
+.edfx-app-home-receive-pay .edfx-app-home-receive-pay-header-left {
+  width: 150px;
+  float: left;
+}
+.edfx-app-home-receive-pay .edfx-app-home-receive-pay-header-left span {
+  display: block;
+  float: left;
+}
+.edfx-app-home-receive-pay .edfx-app-home-receive-pay-header-right {
+  float: right;
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-form-bar .ttk-scm-get-voucher-to-tj-form-bar-step {
+  display: inline-block;
+  position: absolute;
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-form-bar .step1 {
+  left: 0;
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-form-bar .step2 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-form-bar .step3 {
+  right: 0;
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-form-bar .ttk-scm-get-voucher-to-tj-form-bar-line {
+  display: inline-block;
+  border-top: dashed 1px #888;
+  width: 95px;
+}
+.ttk-scm-get-voucher-to-tj .ttk-scm-get-voucher-to-tj-footer-btnGroup {
+  text-align: center;
+}
+.ttk-gl-app-arap-statrpt-header {
+  display: inline-block;
+  width: 100%;
+}
+.ttk-gl-app-arap-statrpt-header-left {
+  display: inline-block;
+  position: relative;
+  width: 60%;
+}
+.ttk-gl-app-arap-statrpt-header-left .mk-dateRangeMonthPicker {
+  position: relative;
+  bottom: 6px;
+}
+.ttk-gl-app-arap-statrpt-header-left .ant-input-group {
+  width: 235px !important;
+}
+.ttk-gl-app-arap-statrpt-header-left .ant-input-group .ant-input-affix-wrapper {
+  display: inline;
+  width: auto;
+}
+.ttk-gl-app-arap-statrpt-header-left .mk-select {
+  bottom: 4px;
+}
+.ttk-gl-app-arap-statrpt-header-left .anticon-shuaxin {
+  position: relative;
+  bottom: 2px;
+}
+.ttk-gl-app-arap-statrpt-header-left .mk-checkbox {
+  position: relative;
+  bottom: 6px;
+}
+.ttk-gl-app-arap-statrpt-header-right {
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+  float: right;
+}
+.ttk-gl-app-arap-statrpt-header-right-btn {
+  position: relative;
+  top: -6px;
+}
+.ttk-gl-app-arap-statrpt-header-right .mk-btn-primary {
+  position: relative;
+  top: -6px;
+}
+.ttk-gl-app-arap-statrpt-header-right .dayin {
+  display: inline-block !important;
+  position: relative;
+}
+.ttk-gl-app-arap-statrpt-header-right .daochu {
+  display: inline-block !important;
+  position: relative;
+}
+.ttk-edf-app-article .ttk-edf-app-article-body {
+  width: 100%;
+}
+.ttk-edf-app-article .imgBox {
+  opacity: 1 !important;
+}
+.ttk-edf-app-article .refresh {
+  font-size: 23px !important;
+}
+.ttk-scm-app-expense-list {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.ttk-scm-app-expense-list-header {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: 0;
+}
+.ttk-scm-app-expense-list-header-left {
+  float: left;
+}
+.ttk-scm-app-expense-list-header-right {
+  float: right;
+}
+.ttk-scm-app-expense-list-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.ttk-scm-app-expense-list-footer .mk-pagination {
+  text-align: right;
+}
+.ttk-scm-app-expense-list-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.ant-modal-wrap.settleClass .ant-modal-body {
+  width: 100%;
+}
+.ant-modal-wrap.settleClass .ant-modal-body > div {
+  width: 100%;
+}
+.ant-modal-wrap.settleClass .mk-form {
+  width: 100%;
+}
+.ant-modal-wrap.settleClass .mk-form > div {
+  display: inline-block;
+}
+.ant-modal-wrap.settleClass .mk-form > div > div {
+  display: inline-block;
+}
+.ant-modal-wrap.settleClass .mk-form .IconDiv {
+  position: relative;
+  top: 13px;
+}
+.ant-modal-wrap.settleClass .amount {
+  width: 100%;
+}
+.ttk-scm-app-exchange-accounts-main .ant-form-item {
+  display: inline-block;
+  width: 50%;
+}
+.ttk-scm-app-exchange-accounts-main .ant-form-item > div {
+  display: inline-block;
+}
+.ttk-scm-app-incomeexpenses-rpt,
+.ttk-scm-add-bank-statement-list {
+  height: 100%;
+  overflow: hidden !important;
+  padding-top: 51px !important;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+}
+.ttk-scm-app-incomeexpenses-rpt-accountQuery,
+.ttk-scm-add-bank-statement-list-accountQuery {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ttk-scm-app-incomeexpenses-rpt .mk-search,
+.ttk-scm-add-bank-statement-list .mk-search {
+  width: 99.2%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+.ttk-scm-app-incomeexpenses-rpt .mk-search .mk-normal-search .mk-title-otherBtn,
+.ttk-scm-add-bank-statement-list .mk-search .mk-normal-search .mk-title-otherBtn {
+  text-align: right;
+  float: right;
+}
+.ttk-scm-app-incomeexpenses-rpt .mk-search .mk-normal-search .mk-title-otherBtn > *,
+.ttk-scm-add-bank-statement-list .mk-search .mk-normal-search .mk-title-otherBtn > * {
+  float: none;
+}
+.ttk-scm-app-incomeexpenses-rpt-list,
+.ttk-scm-add-bank-statement-list-list,
+.ttk-scm-app-incomeexpenses-rpt-table,
+.ttk-scm-add-bank-statement-list-table {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.ttk-scm-app-incomeexpenses-rpt-footer,
+.ttk-scm-add-bank-statement-list-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.ttk-scm-app-incomeexpenses-rpt-footer .mk-pagination,
+.ttk-scm-add-bank-statement-list-footer .mk-pagination {
+  text-align: right;
+}
+.ttk-scm-app-incomeexpenses-rpt-footer .mk-pagination .ant-pagination,
+.ttk-scm-add-bank-statement-list-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.ttk-scm-app-incomeexpenses-rpt .ttk-scm-app-incomeexpenses-rpt-footer {
+  padding-top: 0px;
+}
+.ttk-scm-app-incomeexpenses-rpt .app-sumaccount-rpt-normalSearch {
+  margin-top: 3px;
+}
+.ttk-scm-add-bank-statement-list .app-sumaccount-rpt-normalSearch {
+  margin-top: 3px;
+}
+.ttk-tax-app-invoicedetail-top .invoicedetail-item {
+  float: left;
+}
+.ttk-tax-app-invoicedetail-top .mk-select {
+  width: 144px;
+}
+.ttk-tax-app-invoicedetail-content {
+  height: 100%;
+}
+.ttk-scm-app-proceeds-card,
+.ttk-scm-app-payment-card {
+  position: relative;
+  padding-bottom: 10px !important;
+}
+.ttk-scm-app-proceeds-card-header,
+.ttk-scm-app-payment-card-header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 51px !important;
+}
+.ttk-scm-app-proceeds-card-header-left,
+.ttk-scm-app-payment-card-header-left {
+  width: 50%;
+  display: inline-block;
+}
+.ttk-scm-app-proceeds-card-header-right,
+.ttk-scm-app-payment-card-header-right {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+}
+.ttk-scm-app-proceeds-card-content,
+.ttk-scm-app-payment-card-content {
+  height: 100%;
+  padding-top: 52px;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-title > div,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-title > div,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-title > div,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-title > div {
+  display: inline-block;
+  width: 33.3%;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-title-center,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-title-center,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-title-center,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-title-center {
+  text-align: center;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-title-right,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-title-right,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-title-right,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-title-right {
+  text-align: right;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .ant-form-item,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ant-form-item {
+  display: inline-block;
+  width: 25%;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item > div,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item > div,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .ant-form-item > div,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ant-form-item > div {
+  display: inline-block;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .account .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .account .ant-form-item-label,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .account .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .account .ant-form-item-label {
+  line-height: 32px;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .ttk-scm-app-proceeds-card-businessDate .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .ttk-scm-app-proceeds-card-businessDate .ant-form-item-label,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .ttk-scm-app-proceeds-card-businessDate .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ttk-scm-app-proceeds-card-businessDate .ant-form-item-label {
+  line-height: 32px;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item.settlement,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item.settlement,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .ant-form-item.settlement,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ant-form-item.settlement {
+  width: 50%;
+  position: relative;
+  padding-left: 70px;
+}
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item.settlement .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-proceeds-card-form-header .ant-form-item.settlement .ant-form-item-label,
+.ttk-scm-app-proceeds-card-content .ttk-scm-app-payment-card-form-header .ant-form-item.settlement .ant-form-item-label,
+.ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ant-form-item.settlement .ant-form-item-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+}
+.ttk-scm-app-payment-card .ttk-scm-app-payment-card-content .ttk-scm-app-payment-card-form-header .ttk-scm-app-payment-card-businessDate .ant-form-item-label {
+  line-height: 30px;
+}
+.ant-checkbox-inner:after {
+  -webkit-transform: rotate(45deg) scale(0);
+  -ms-transform: rotate(45deg) scale(0);
+  transform: rotate(45deg) scale(0);
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  display: table;
+  width: 5px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-left: 0;
+  content: ' ';
+  -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+  transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+}
+.ttk-scm-incomeexpenses-setting {
+  position: relative !important;
+}
+.ttk-scm-incomeexpenses-setting .ttk-scm-incomeexpenses-setting-tab-container {
+  height: 100%;
+}
+.ttk-scm-incomeexpenses-setting .ttk-scm-incomeexpenses-setting-tab-container .ttk-scm-incomeexpenses-setting-tabs {
+  height: 100%;
+}
+.ttk-scm-incomeexpenses-setting .ttk-scm-incomeexpenses-setting-tab-container .ttk-scm-incomeexpenses-setting-tabs .ant-table-body {
+  height: 100%;
+}
+.edfx-business-subject-manage {
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 50px !important;
+  position: relative;
+  padding-right: 10px !important;
+  padding-left: 203px;
+}
+.edfx-business-subject-manage-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.edfx-business-subject-manage-right {
+  width: 100% !important;
+  float: left;
+}
+.edfx-business-subject-manage .topSelect {
+  display: inline-block;
+  line-height: 66px;
+}
+.edfx-business-subject-manage-footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  padding-right: 10px;
+}
+.edfx-business-subject-manage-footer .mk-pagination {
+  text-align: right;
+}
+.edfx-business-subject-manage-footer .mk-pagination .ant-pagination {
+  display: inline-block;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container {
+  width: 418px !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_left li,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_left li {
+  float: left !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_left li span,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_left li span {
+  display: block !important;
+  line-height: 1 !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_center li,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_center li {
+  float: left !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_center li span,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_center li span {
+  display: block !important;
+  line-height: 1 !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_right li,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_right li {
+  float: left !important;
+}
+.ttk-scm-app-sa-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_right li span,
+.ttk-scm-app-pu-invoice-card-header-left-jianpan .ant-popover-content .ant-popover-inner .ant-popover-inner-content .mk-shortCut .container .key_container .key_container_right li span {
+  display: block !important;
+}
+.ttk-edf-app-org-activate-leftContent .ant-form-item-label {
+  display: inline-block;
+}
+.ttk-edf-app-org-activate-leftContent .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.ttk-edf-app-org-activate-rightContent {
+  float: right;
+}
+.ttk-edf-app-buy-backgroundColor {
+  position: relative;
+  background-color: #fff;
+  height: 100%;
+}
+.ttk-edf-app-buy-header {
+  position: relative;
+}
+.ttk-edf-app-buy-header-left {
+  display: inline-block;
+  float: left;
+}
+.ttk-edf-app-buy-header-center {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ttk-edf-app-buy-header-center-bar-step {
+  display: inline-block;
+}
+.ttk-edf-app-buy-header-center-bar-step:nth-child(1) {
+  float: left;
+}
+.ttk-edf-app-buy-header-center-bar-step:nth-child(3) {
+  float: right;
+}
+.ttk-edf-app-buy-header-right {
+  display: inline-block;
+  float: right;
+  text-align: center;
+  line-height: 28px;
+}
+.ttk-edf-app-buy-content-left {
+  float: left;
+}
+.ttk-edf-app-buy-content-right {
+  float: right;
+}
+.ttk-edf-app-buy .ant-form-item-control-wrapper {
+  display: inline-block;
+}
+.ttk-gl-app-auxiliary-setting .operateheader .operateheader-codeAndName {
+  float: left;
+}
+.ttk-gl-app-auxiliary-setting .operateheader .operateheader-customerArchBtn {
+  float: right;
+}
+.ttk-gl-app-arap-statrpt-header-right {
+  display: inline-block !important;
+}
+.singleCopyDoc-modal .app-proof-of-charge {
+  height: 400px !important;
+  padding-top: 40px !important;
+}
+.singleCopyDoc-modal .app-proof-of-charge-form-header {
+  top: 0px !important;
+}
+.batchCopyDoc-modal .app-proof-of-charge {
+  height: 400px !important;
+  padding-top: 40px !important;
+}
+.batchCopyDoc-modal .app-proof-of-charge-form-header {
+  top: 0px !important;
+}
+.ttk-stock-pz-modal .app-proof-of-charge {
+  height: 400px !important;
+  padding-top: 40px !important;
+}
+.ttk-stock-pz-modal .app-proof-of-charge-form-header {
+  top: 0px !important;
+}
+.app-cashflowstatement-distribution tr td:nth-child(4) .text-cell {
+  padding-right: 8px;
+}
+@media screen and (max-width: 1366px) {
+  .mk-search .FormList .item-list .item-list-top .item-list-top-line-container {
+    width: 82%;
+  }
+  .mk-search .FormList .item-list .item-list-top .item-list-top-line-action {
+    width: 11%;
+  }
+}
