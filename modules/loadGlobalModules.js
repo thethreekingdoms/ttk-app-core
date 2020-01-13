@@ -42,7 +42,7 @@ class moduleGlobal {
 
     }
 
-    moduleName = ['edf']
+    moduleName = ['edf', 'originalStyle']
     // moduleName = ['edf']
 
     loadGlobal = () => {

@@ -50,6 +50,8 @@ import './apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting/mock.js'
 import './apps/edf/ttk-edf-app-simple-login/mock.js';
 import './apps/edf/ttk-edf-app-simple-portal/mock.js';
 
+import './apps/originalStyle/ttk-table/mock.js';
+
 
 
 

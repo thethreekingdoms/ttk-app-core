@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Map } from 'immutable';
@@ -9,6 +9,7 @@ import appMiddleware from './appMiddleware';
 import reducer from './reducer';
 import config from './config';
 import AppFactory from './appFactory';
+import './resetImmutable'
 
 const appFactory = AppFactory.getInstance();
 
@@ -26,10 +27,8 @@ export default function start() {
 		mw = mw.concat(currentConfig.middlewares);
     }
 
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(...mw)));
-    // const store = createStore(reducer, Map(), applyMiddleware(...mw));
-
+		const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+		const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(...mw)))
     window.reduxStore = store;
 	//window.__mk_store__ = store;
 
@@ -39,12 +38,11 @@ export default function start() {
 		};
 	}
 
-	render(
-		currentConfig.rootWrapper((
+	ReactDOM.render(
 			<Provider store={store}>
-				<AppLoader name={currentConfig.startAppName} />
+				<AppLoader store={store} name={currentConfig.startAppName} />
 			</Provider>
-		)),
+		,
 		document.getElementById(currentConfig.targetDomId)
 	)
 }

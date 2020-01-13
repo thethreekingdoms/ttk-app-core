@@ -155,6 +155,15 @@ fetch.mock('/v1/edf/portal/getPortalDto', (option) => {
                 "parentId": 50,
                 "showOrder": 908,
                 "isVisible": 1
+            },{
+                "id": 5040,
+                "name": "原生",
+                "code": "5040",
+                "appName": "original-style-table",
+                "appProps": "",
+                "parentId": 50,
+                "showOrder": 909,
+                "isVisible": 1
             }]
         }
     }

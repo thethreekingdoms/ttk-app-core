@@ -16,7 +16,8 @@ import './global/global.js'
 //note-start
 //note-start和note-end之间的内容用脚手架匹配，请不要再该区域书写内容，在执行ttk delmodule过程中会被删除
 import useEDF from 'useEDF'
-const arr = [useEDF]
+import originalStyle from 'originalStyle'
+const arr = [useEDF, originalStyle]
 Promise.all(arr).then((res) => {
     let apps = {}
     //console.log('index.js', res)

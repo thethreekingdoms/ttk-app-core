@@ -64,7 +64,7 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 					"isVisible": 1
 				}, {
 					"id": 50,
-					"name": "开发",
+					"name": "开发111",
 					"code": "50",
 					"appName": "",
 					"appProps": "",
@@ -143,6 +143,37 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 					"appProps": "",
 					"parentId": 50,
 					"showOrder": 908,
+					"isVisible": 1
+				},
+				{
+					"id": 51,
+					"name": "原生样式",
+					"code": "51",
+					"appName": "",
+					"appProps": "",
+					"iconFont": "bianji",
+					"parentId": 0,
+					"showOrder": 900,
+					"isVisible": 1
+				},
+				{
+					"id": 5101,
+					"name": "原生表格",
+					"code": "5101",
+					"appName": "original-style-table",
+					"appProps": "",
+					"parentId": 51,
+					"showOrder": 909,
+					"isVisible": 1
+				},
+				{
+					"id": 5102,
+					"name": "原生TTK表格",
+					"code": "5102",
+					"appName": "original-style-ttk-table",
+					"appProps": "",
+					"parentId": 51,
+					"showOrder": 910,
 					"isVisible": 1
 				}]
 			}
