@@ -1,52 +1,70 @@
-.original-style-table {
-    width         : 100%;
-    height        : 100%;
-    padding       : 10px;
-    // flex-direction: row;
+.original-style-table{
+    width: 100%;
+    height: 100%;
 
-    .ant-row{
+    .header{
         line-height: 50px;
+	    height: 50px;
+		flex: 0 0 50px;
+        padding: 0 10px;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+        background: #FFFFFF;
     }
-    .ttk-edf-app-operation-header {
-        width: 100%;
+    
+    .button{
+        padding-top: 10px;
+    }
+    // &-tableHeader{
+    //     border-top: 1px solid #D9D9D9;
+    //     background: #f8f8f8;
+    //     color:#333333;
+    // }
+    // &-tableHeaderNoBoder{
+    //     border-left: none !important;
+    // }
+
+    .fixedDataTableLayout_rowsContainer>div:nth-of-type(2)>div>div>div>div>div:nth-of-type(2)>div{
+        background: #f8f8f8;
+        color:#333333;
+        border: 1px solid #D9D9D9;
+        //border-left: none;
+    }
+    .mk-datagrid-sequence-cell{
+        border-left: 1px solid #D9D9D9;
     }
 
+    
+    // .mk-addDel .public_fixedDataTable_main, .mk-upDown .public_fixedDataTable_main{
+    //     border-right: 0px;
+    // }
+    // &-cell{
+    //     width: 100%;
+    //     height: 100%;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     & > div {
+    //         width: 100%;
+    //         height: 100%;
+    //         input{
+    //             height: 100%;
+    //         }
+    //     }
 
-    &-left {
-        width       : 200px;
-        flex        : 0 0 200px;
-        margin-right: 10px;
-    }
+    //     .ant-select-selection{
+    //         height: 100%
+    //     }
 
-    &-content {
-        flex: 1;
+    //     .ant-select-selection__rendered{
+    //         height: 100%
+    //     }
 
-        &-footer {
-            height         : 58px;
-            flex           : 0 0 58px;
-            justify-content: center;
-            align-items    : flex-end;
-        }
-    }
+    //     .ant-select-selection-selected-value{
+    //         line-height: 40px;
+    //     }
 
-    .mk-card {
-        display       : flex;
-        flex-direction: column;
-
-        .ant-card-head {
-            padding: 0 10px;
-            flex   : 0 0 50px;
-
-            .mk-btn {
-                margin-right: 4px;
-            }
-        }
-
-        .ant-card-body {
-            padding       : 4px;
-            flex          : 1;
-            display       : flex;
-            flex-direction: column;
-        }
-    }
+    // }
 }

@@ -4,8 +4,8 @@
 export default {
 	name: 'original-style-table',
 	version: "3.0",
-	moduleName: '原生表格',
-	description: "原生表格",
+	moduleName: '原生交互表格',
+	description: "原生交互表格",
 	meta: null,
 	components: [],
 	config: null,

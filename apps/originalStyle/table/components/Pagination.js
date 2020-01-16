@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pagination } from 'antd'
+import { Pagination } from 'edf-component'
 import { useData, useActions, useCommit } from 'edf-app-loader'
 
 export default function (props) {
@@ -23,13 +23,15 @@ export default function (props) {
     commit([props, 'showState'], false)
   }
 
-  return <Pagination
-    pageSize={pageSize}
-    total={totalCount}
-    defaultCurrent={currentPage}
-    pageSizeOptions={['20', '50', '100', '200', '300', '400']}
-    onChange={onChange}
-    showSizeChanger
-    onShowSizeChange={onShowSizeChange}
-  />
+  return <div className="button">
+    <Pagination
+      pageSize={pageSize}
+      total={totalCount}
+      current={currentPage}
+      pageSizeOptions={['20', '50', '100', '200', '300', '400', '1000']}
+      onChange={onChange}
+      showSizeChanger
+      onShowSizeChange={onShowSizeChange}
+    />
+  </div>
 }

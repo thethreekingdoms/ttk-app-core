@@ -4,10 +4,10 @@
  */
 
 import { fetch } from 'edf-utils'
-const mockproxy = '/v1/original-style'
+const mockproxy = '/v1/original-style/ttk-table'
 export default {
-    queryDate: (option) => fetch.post(`${mockproxy}/table/queryDate`, option),
-    thead: (option) => fetch.post(`${mockproxy}/table/thead`, option),
-    tableBody: (option) => fetch.post(`${mockproxy}/table/tableBody`, option),
-    addRow: (option)=>fetch.post(`${mockproxy}/table/addRow`, option)
+    queryDate: (option) => fetch.post(`${mockproxy}/queryDate`, option),
+    thead: (option) => fetch.post(`${mockproxy}/thead`, option),
+    tableBody: (option) => fetch.post(`${mockproxy}/tableBody`, option),
+    addRow: (option)=>fetch.post(`${mockproxy}/addRow`, option)
 }

@@ -25,13 +25,13 @@ export default function (props) {
 
   return <div className="button">
     <Pagination
-    pageSize={pageSize}
-    total={totalCount}
-    defaultCurrent={currentPage}
-    pageSizeOptions={['20', '50', '100', '200', '300', '400']}
-    onChange={onChange}
-    showSizeChanger
-    onShowSizeChange={onShowSizeChange}
-  />
-    </div>
+      pageSize={pageSize}
+      total={totalCount}
+      current={currentPage}
+      pageSizeOptions={['20', '50', '100', '200', '300', '400']}
+      onChange={onChange}
+      showSizeChanger
+      onShowSizeChange={onShowSizeChange}
+    />
+  </div>
 }

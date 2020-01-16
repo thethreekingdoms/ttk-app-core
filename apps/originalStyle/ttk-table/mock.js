@@ -10,8 +10,8 @@ import Mock from 'mockjs'
 const mockData = fetch.mockData
 
 
-const mockproxy = '/v1/original-style'
-fetch.mock(`${mockproxy}/table/queryDate`, (option) => {
+const mockproxy = '/v1/original-style/ttk-table'
+fetch.mock(`${mockproxy}/queryDate`, (option) => {
     return mockData.queryDate = {
         value: {
             EnableDate: "2019-01-01",
@@ -21,16 +21,15 @@ fetch.mock(`${mockproxy}/table/queryDate`, (option) => {
     }
 })
 
-fetch.mock(`${mockproxy}/table/thead`, (option) => {
+fetch.mock(`${mockproxy}/thead`, (option) => {
     return thead
 })
 
-fetch.mock(`${mockproxy}/table/tableBody`, (option) => {
+fetch.mock(`${mockproxy}/tableBody`, (option) => {
     const totalCount = 506
     const { currentPage, pageSize } = option.page
     const totalPage = Math.ceil(totalCount / pageSize)
-    const list = table_data.list.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-
+    const list = mockList().list.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     return {
         value: {
             list,
@@ -45,35 +44,76 @@ fetch.mock(`${mockproxy}/table/tableBody`, (option) => {
     }
 })
 
-const table_data = Mock.mock({
-    page: {
-        currentPage: 1,
-        pageSize: 50,
-        totalCount: 128,
-        totalPage: 3
-    },
-    'list|506': [{
-        attachments: [],
-        balance: '@integer(-100000, 100000)',
-        details: [],
-        isGenDoc: 0,
-        memo: "",
-        positionFlag: "first",
-        remark: "期初",
-        seq: "@increment",
-        voucherCode: "",
-        voucherStatus: 0,
-        voucherTypeName: "",
-
-        id: '@id',
-        title: '@sentence(10, 20)',
-        'status|1': ['published', 'draft', 'deleted'],
-        author: 'name',
-        display_time: '@datetime',
-        pageviews: '@integer(300, 5000)'
-    }]
-})
-
+function mockList() {
+    return Mock.mock({
+        page: {
+            currentPage: 1,
+            pageSize: 50,
+            totalCount: 128,
+            totalPage: 3
+        },
+        'list|1006': [{
+            sourceVoucherType: '@ctitle(4)',
+            sourceVoucherTypeId: '@integer(-100000, 100000)',
+            sourceVoucherId: '@integer(-10000000, 10000000)',
+            inMount: '@integer(-100000, 100000)',
+            outMount: 0,
+            balance: '@integer(-100000, 100000)',
+            voucherCode: "SK2019020003",
+            voucherTypeName: '收款单',
+            voucherTypeId: '@integer(-100000, 100000)',
+            supplierOrCustomerOrPerson: '@cparagraph',
+            docSourceType: '@integer(-100000, 100000)',
+            docSourceTypeName: '@cparagraph(4)',
+            voucherStatus: 0,
+            isGenDoc: 0,
+            bankAccountId: "4",
+            inAmount: 250856,
+            reciprocalAccountName: '@cname',
+            seq: `@increment`,
+            code: "SK2019020003",
+            status: 1000020001,
+            remark: '@cparagraph(1, 2)',
+            id: 7061996489837568,
+            ts: "@datetime",
+            defaultSupplier: {
+                isGenerateAccount: false,
+                id: 246033953304704,
+                name: "艾恩博德（天津）科技有限公司",
+                isEnable: true,
+                isLoadingDefaultAccount: true,
+                includingDisabledAccount: false
+            },
+            defaultCustomer: {
+                isGenerateAccount: false,
+                id: 6909262483517449,
+                name: "艾恩博德（天津）科技有限公司",
+                isLoadingDefaultAccount: true,
+                includingDisabledAccount: false
+            },
+            defaultPerson: {
+                id: 6947337455026179,
+                name: "艾恩博德（天津）科技有限公司",
+                isLoadingDefaultAccount: true,
+                includingDisabledAccount: false
+            },
+            bankReconciliatioDetailDtos: [{
+                businessTypeId: 3001002001001,
+                calcObj: "customer",
+                businessTypeName: "收回应收账款",
+                customerId: 6909262483517449,
+                customerName: "艾恩博德（天津）科技有限公司",
+                amount: 250856,
+                seq: 1,
+                id: 7061996635786241,
+                ts: "@datetime"
+            }],
+            businessDate: "@datetime(yyyy-MM-dd)",
+            attachments: [],
+            details: []
+        }]
+    })
+}
 
 
 const thead = {

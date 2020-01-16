@@ -158,7 +158,7 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 				},
 				{
 					"id": 5101,
-					"name": "原生表格",
+					"name": "原生编辑表格",
 					"code": "5101",
 					"appName": "original-style-table",
 					"appProps": "",

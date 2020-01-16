@@ -34,9 +34,6 @@ export function fetchThead(reduce, gf, data) {
         title: item.caption,
         key: index,
         dataIndex: item.fieldName,
-        isMustSelect: item.isMustSelect,
-        editable: index === 0 ? false : true,
-        width: index === 0 ? 60 : index === 1 ? 130 : index === 2 ? 280 : index === 3 ? 300 : index === 5 ? 180 : index === 8 ? 120 : 100,
       })
     })
 
@@ -53,38 +50,4 @@ export function fetchTableBody(reduce, gf, data) {
     reduce('tableData', { type: 'rpt_update_list', data: res.list })
     return res
   }
-}
-
-export function updateSelectedRow(reduce, gf, data) {
-  return async () => {
-    reduce('tableCheckbox', data)
-  }
-}
-
-export function deleteTableRow(reduce, gf, data) {
-  return async (dispatch, getState) => {
-    // 通过接口修改记录后更新本地记录
-    // const res =  await deleteReceive()
-    reduce('tableData', { type: 'rpt_remove_item', data })
-  }
-}
-export function addRow(reduce, gf, data) {
-  return async (dispatch, getState) => {
-    const row = {
-      ...data,
-      businessDate: moment().format('YYYY-MM-DD')
-    }
-    const res = await webapi.addRow(row)
-    if (res) {
-      reduce('tableData', { type: 'rpt_insert_item', data:row })
-    }
-  }
-}
-
-
-// 这不是一个action函数，不会注册到action列表。没有export的函数并不是一个action
-async function updateTableRow(reduce, gf, data) {
-  // 通过接口修改记录后更新本地记录
-  // const res = await   batchUpdateColumn()
-  reduce('tableData', { type: 'rpt_update_item', data })
 }

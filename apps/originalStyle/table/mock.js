@@ -10,39 +10,6 @@ import Mock from 'mockjs'
 const mockData = fetch.mockData
 
 
-let data = [{
-    "id": 100001,
-    "name": "文件类型",
-    "code": "fileType",
-    "data": [{
-        "id": 1000020001,
-        "name": "未审核",
-        "code": "NotApprove",
-        "enumId": 100002
-    }, {
-        "id": 1000020002,
-        "name": "已审核",
-        "code": "Approved",
-        "enumId": 100002
-    }, {
-        "id": 1000020003,
-        "name": "已驳回",
-        "code": "Rejected",
-        "enumId": 100002
-    }]
-}, {
-    "id": 100002,
-    "name": "单据状态",
-    "code": "voucherStatus",
-    "data": []
-}, {
-    "id": 100003,
-    "name": "单据类型",
-    "code": "voucherType",
-    "data": []
-}]
-
-window.data = data
 const mockproxy = '/v1/original-style'
 fetch.mock(`${mockproxy}/table/queryDate`, (option) => {
     return mockData.queryDate = {
@@ -60,7 +27,7 @@ fetch.mock(`${mockproxy}/table/thead`, (option) => {
 
 fetch.mock(`${mockproxy}/table/tableBody`, (option) => {
     const totalCount = 506
-    const { currentPage, pageSize } = {currentPage: 1, pageSize:50} // req.body.page
+    const { currentPage, pageSize } = option.page
     const totalPage = Math.ceil(totalCount / pageSize)
     const list = table_data.list.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
@@ -85,25 +52,66 @@ const table_data = Mock.mock({
         totalCount: 128,
         totalPage: 3
     },
-    'list|506': [{
-        attachments: [],
+    'list|1006': [ {
+        sourceVoucherType: '@ctitle(4)',
+        sourceVoucherTypeId: '@integer(-100000, 100000)',
+        sourceVoucherId: '@integer(-10000000, 10000000)',
+        inMount: '@integer(-100000, 100000)',
+        outMount: 0,
         balance: '@integer(-100000, 100000)',
-        details: [],
-        isGenDoc: 0,
-        memo: "",
-        positionFlag: "first",
-        remark: "期初",
-        seq: "@increment",
-        voucherCode: "",
+        voucherCode: "SK2019020003",
+        voucherTypeName: '收款单',
+        voucherTypeId: '@integer(-100000, 100000)',
+        supplierOrCustomerOrPerson: '@cparagraph',
+        docSourceType: '@integer(-100000, 100000)',
+        docSourceTypeName: '@cparagraph(4)',
         voucherStatus: 0,
-        voucherTypeName: "",
-
-        id: '@id',
-        title: '@sentence(10, 20)',
-        'status|1': ['published', 'draft', 'deleted'],
-        author: 'name',
-        display_time: '@datetime',
-        pageviews: '@integer(300, 5000)'
+        isGenDoc: 0,
+        bankAccountId: "4",
+        inAmount: 250856,
+        reciprocalAccountName: '@cname',
+        seq: "@increment(1)",
+        code: "SK2019020003",
+        status: 1000020001,
+        remark: '@cparagraph(1, 2)',
+        id: '@integer(-10000000, 10000000)',
+        ts: "@datetime",
+        defaultSupplier: {
+            isGenerateAccount: false,
+            id: 246033953304704,
+            name: "艾恩博德（天津）科技有限公司",
+            isEnable: true,
+            isLoadingDefaultAccount: true,
+            includingDisabledAccount: false
+        },
+        defaultCustomer: {
+            isGenerateAccount: false,
+            id: 6909262483517449,
+            name: "艾恩博德（天津）科技有限公司",
+            isLoadingDefaultAccount: true,
+            includingDisabledAccount: false
+        },
+        defaultPerson: {
+            id: 6947337455026179,
+            name: "艾恩博德（天津）科技有限公司",
+            isLoadingDefaultAccount: true,
+            includingDisabledAccount: false
+        },
+        bankReconciliatioDetailDtos: [{
+            businessTypeId: 3001002001001,
+            calcObj: "customer",
+            businessTypeName: "收回应收账款",
+            customerId: 6909262483517449,
+            customerName: "艾恩博德（天津）科技有限公司",
+            amount: 250856,
+            seq: 1,
+            id: 7061996635786241,
+            ts: "@datetime"
+        }],
+        businessDate: "@datetime",
+        'businessTypeName|1-2': true,
+        attachments: [],
+        details: []
     }]
 })
 

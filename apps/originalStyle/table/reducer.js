@@ -68,7 +68,7 @@ export function tableData(state = List(), action) {
     case 'rpt_insert_item':
       state = state.insert(parseInt(action.data.seq), fromJS({
         ...action.data,
-        // seq: parseInt(action.data.seq) + 1 + '',
+        id: action.data.seq
       }))
       state = updataSeq(state)
       return state
@@ -83,6 +83,11 @@ export function tableData(state = List(), action) {
       })
       state = state.update(index, record => record = fromJS(action.data))
       return state
+    case 'selectall':
+      return state.map(item=>{
+        return item.sf(['selected'], action.data)
+      })
+      // return state
     default:
       return state
   }
@@ -98,10 +103,10 @@ export function tableData(state = List(), action) {
 //   return state
 // }
 
-export function tableCheckbox(state = Map(fromJS([])), action) {
-  state = state.sfs(fromJS(action))
-  return state
-}
+// export function tableCheckbox(state = Map(fromJS([])), action) {
+//   state = state.sfs(fromJS(action))
+//   return state
+// }
 
 
 function updataSeq(state) {

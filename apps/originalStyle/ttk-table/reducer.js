@@ -65,38 +65,28 @@ export function tableData(state = List(), action) {
     case 'rpt_update_list':
       state = List(fromJS(action.data))
       return state
-    case 'rpt_insert_item':
-      state = state.insert(parseInt(action.data.seq), fromJS({
-        ...action.data,
-        // seq: parseInt(action.data.seq) + 1 + '',
-      }))
-      state = updataSeq(state)
-      return state
-    case 'rpt_remove_item':
-      index = state.findIndex((item, index, array) => {
-        return item.get('id') === action.data.id
-      })
-      return state.slice(0, index).concat(state.slice(index + 1, state.count()))
-    case 'rpt_update_item':
-      index = state.findIndex((item, index, array) => {
-        return item.get('id') === action.data.id
-      })
-      state = state.update(index, record => record = fromJS(action.data))
-      return state
+    // case 'rpt_insert_item':
+    //   state = state.insert(parseInt(action.data.seq), fromJS({
+    //     ...action.data,
+    //     // seq: parseInt(action.data.seq) + 1 + '',
+    //   }))
+    //   state = updataSeq(state)
+    //   return state
+    // case 'rpt_remove_item':
+    //   index = state.findIndex((item, index, array) => {
+    //     return item.get('id') === action.data.id
+    //   })
+    //   return state.slice(0, index).concat(state.slice(index + 1, state.count()))
+    // case 'rpt_update_item':
+    //   index = state.findIndex((item, index, array) => {
+    //     return item.get('id') === action.data.id
+    //   })
+    //   state = state.update(index, record => record = fromJS(action.data))
+    //   return state
     default:
       return state
   }
 }
-
-// export function pageInfo(state = Map(fromJS({
-//   currentPage: 1,
-//   pageSize: 100,
-//   totalCount: 0,
-//   totalPage: 0
-// })), action) {
-//   state = state.sfs(fromJS(action))
-//   return state
-// }
 
 export function tableCheckbox(state = Map(fromJS([])), action) {
   state = state.sfs(fromJS(action))
@@ -104,8 +94,8 @@ export function tableCheckbox(state = Map(fromJS([])), action) {
 }
 
 
-function updataSeq(state) {
-  return state.map((item, index) => {
-    return item.setIn(['seq'], `${index + 1}`)
-  })
-}
+// function updataSeq(state) {
+//   return state.map((item, index) => {
+//     return item.setIn(['seq'], `${index + 1}`)
+//   })
+// }

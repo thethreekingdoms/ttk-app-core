@@ -27,47 +27,21 @@ export function fetchThead(reduce, gf, data) {
     entity.beginDate = entity.beginDate.format('YYYY-MM')
     entity.endDate = entity.endDate.format('YYYY-MM')
     const res = await webapi.thead(searchOption)
-    const columns = []
+    // 添加Checkbox列
+    const columns = [{
+      title: 'checkbox',
+      dataIndex: 'selected'
+    }]
     res.column.columnDetails.map((item, index) => {
       if (!item.isVisible) return
       columns.push({
         title: item.caption,
-        key: index,
-        dataIndex: item.fieldName,
-        isMustSelect: item.isMustSelect,
-        editable: index === 0 ? false : true,
-        width: index === 0 ? 60 : index === 1 ? 130 : index === 2 ? 280 : index === 3 ? 300 : index === 5 ? 180 : index === 8 ? 120 : 100,
+        dataIndex: item.fieldName
       })
     })
-    // 添加操作列
-    columns.push({
-      title: '操作',
-      key: Math.random(),
-      dataIndex: '操作',
-      editable: false,
-      isMustSelect: false,
-      fixed: 'right',
-      width: 180,
-      // 渲染函数由页面传递过来
-      render: data.operationRender
-    })
-    // 根据editabl属性设置可编辑列
-    const resultColumns = columns.map(col => {
-      if (!col.editable) return col
-      return {
-        ...col,
-        onCell: record => ({
-          record,
-          editable: col.editable,
-          dataIndex: col.dataIndex,
-          isMustSelect: col.isMustSelect,
-          title: col.title,
-          handleSave: row => updateTableRow(reduce, gf, row)
-        })
-      }
-    })
-    reduce('tableThead', resultColumns)
-    return resultColumns
+
+    reduce('tableThead', columns)
+    return columns
   }
 }
 
@@ -75,17 +49,17 @@ export function fetchTableBody(reduce, gf, data) {
   return async (dispatch, getState) => {
     const searchOption = gf(['searchParam'])
     const res = await webapi.tableBody(searchOption)
-    reduce('searchParam', {type: 'update_search_page', data: res.page})
+    reduce('searchParam', { type: 'update_search_page', data: res.page })
     reduce('tableData', { type: 'rpt_update_list', data: res.list })
     return res
   }
 }
 
-export function updateSelectedRow(reduce, gf, data) {
-  return async () => {
-    reduce('tableCheckbox', data)
-  }
-}
+// export function updateSelectedRow(reduce, gf, data) {
+//   return async () => {
+//     reduce('tableCheckbox', data)
+//   }
+// }
 
 export function deleteTableRow(reduce, gf, data) {
   return async (dispatch, getState) => {
@@ -100,17 +74,19 @@ export function addRow(reduce, gf, data) {
       ...data,
       businessDate: moment().format('YYYY-MM-DD')
     }
-    const res = await webapi.addRow(row)
-    if (res) {
-      reduce('tableData', { type: 'rpt_insert_item', data:row })
-    }
+    // 根据实际情况，调用接口更新数据
+    // const res = await webapi.addRow(row)
+    // if (res) {
+    reduce('tableData', { type: 'rpt_insert_item', data: row })
+    // }
   }
 }
 
 
-// 这不是一个action函数，不会注册到action列表。没有export的函数并不是一个action
-async function updateTableRow(reduce, gf, data) {
+export function updateTableRow(reduce, gf, data) {
   // 通过接口修改记录后更新本地记录
   // const res = await   batchUpdateColumn()
-  reduce('tableData', { type: 'rpt_update_item', data })
+  return async (dispatch, getState) => {
+    reduce('tableData', { type: 'rpt_update_item', data })
+  }
 }
