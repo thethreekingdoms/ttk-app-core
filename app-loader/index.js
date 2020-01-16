@@ -6,12 +6,14 @@ import config from './config';
 import start from './start';
 import AppFactory from './appFactory';
 import init from './init';
-
+import loadApp from './loadApp'
+import {commit} from './action'
+import {useGetAction, useInitReducersData, useActions, useData, useAppData, useCommit} from './hookReducer'
 const { registerApp, registerApps, getApp, getApps } = AppFactory.getInstance();
 
-const loadApp = (name, props) => {
-	return <AppLoader {...props} name={name} />;
-};
+// const loadApp = (name, props) => {
+// 	return <AppLoader {...props} name={name} />;
+// };
 
 export {
 	AppLoader,
@@ -24,5 +26,7 @@ export {
 	registerApps,
 	getApp,
 	getApps,
-	loadApp
+	loadApp,
+	commit,
+	useGetAction, useInitReducersData, useActions,useData, useAppData, useCommit
 }

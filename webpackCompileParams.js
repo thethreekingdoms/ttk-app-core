@@ -20,6 +20,11 @@ const moduleConfig = {
         path: './apps/edf/',
         name: 'edf',
         less: 'edf'
+    },
+    originalStyle:{
+        path: './apps/originalStyle/',
+        name: 'originalStyle',
+        less: 'originalStyle'
     }
 }
 

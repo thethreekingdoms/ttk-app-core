@@ -4,7 +4,6 @@ import * as actions from './action';
 import { geneUUID } from '../utils/uuid';
 import { deepEqualWithoutFunc } from '../utils/equal';
 import AppContainer from './appContainer';
-import { connect } from 'react-redux';
 
 class AppLoader extends React.Component {
     constructor(props, context) {
@@ -23,9 +22,10 @@ class AppLoader extends React.Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return !deepEqualWithoutFunc(this.props, nextProps);
-    }
+    // 原生的跨app获取和更新state数据时这个深度对比函数会溢出，暂时注释
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return !equal.deepEqualWithoutFunc(this.props, nextProps);
+    // }
 
     componentWillUnmount() {
         this.store.dispatch(actions.clearAppState(this.props.name, this.appDataId));

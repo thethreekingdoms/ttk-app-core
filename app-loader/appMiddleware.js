@@ -25,16 +25,32 @@ export default (actionInjections, reducerInjections) => (store) => {
         } = store;
 
         if (typeof action === 'function') {
-            const {
-                fullName,
-                name,
-                query,
-                params,
-                actionCreator,
-                args,
-                reducer
-            } = action();
-
+            function getData(value) {
+                const [appName, ...args] = value.split('/')
+                let appDataId, state = getState()
+                const temp = state.getIn([appName]).filter((value, key) => {
+                    if (/^AppLoader_/.test(key)) {
+                        appDataId = key
+                        return value
+                    } else {
+                        return null
+                    }
+                })
+                return temp?temp.getIn([appDataId, 'data', ...args]):null
+            }
+            const result = action(dispatch, getData);
+            if (!result) return
+            // 如果是一个promise， 返回
+            if (!!result && typeof result.then === "function") return result
+            const { fullName, name, query, params, actionCreator, args,
+                reducer, type, data } = result
+            // if(type&& type==='@@originAction'){
+            //     dispatch(actionCreator({reducer, dispatch, fullName, data}))
+            // }
+            if (type) { // 如果返回的类型带有type，派发事件调用reducer
+                dispatch({ type, data })
+                return
+            }
             const reduce = (type, ...args) => {
                 dispatch({
                     type: '@@reduce',
@@ -71,6 +87,7 @@ export default (actionInjections, reducerInjections) => (store) => {
             if (typeof realAction === 'function') {
                 realAction(injections);
             }
+            return result
 
         } else if (action.type && action.type == '@@loadApp') {
             try {
@@ -81,6 +98,7 @@ export default (actionInjections, reducerInjections) => (store) => {
                 let appInfo = appFactory.getApp(parsedName.name);
 
                 let appRequire = getState().getIn([fullName, '@@require']);
+                // 如果store中已经保存了这个App
                 if (appRequire) {
                     return next({
                         type: '@@addAppContainor',

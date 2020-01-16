@@ -124,7 +124,7 @@ plugins.push(new LodashModuleReplacementPlugin)
 
 function mergeTheme(arr, type) {
     const newArr = [...arr]
-    const modules = ['edf']
+    const modules = ['edf', 'originalStyle']
 
     if (start_params && start_params.toUpperCase() == 'RUNSTART' || !start_params) {
         modules.forEach(item => {

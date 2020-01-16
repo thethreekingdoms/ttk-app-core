@@ -18,3 +18,15 @@ export function clearAppState(fullName, appDataId) {
         }
     }
 }
+
+export function commit(target, action){
+    return (dispatch, getState)=>{
+        dispatch({
+            type: '@@updateState',
+            payload:{
+                target,
+                action
+            }
+        })
+    }
+}

@@ -29,9 +29,6 @@ class reducer {
 	};
 
 	load = (state) => {
-		debugger
-
-
 		const childApp = history.getChildApp('ttk-edf-app-simple-portal');
 		if (childApp) {
 			return this.setContent(state, '', childApp, {});

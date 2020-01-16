@@ -9,6 +9,7 @@ class AppFactory {
     constructor() {
         this.instance = null;
         this.apps = {};
+        this.actions = {};
     }
 
     registerApp = (name, app) => {
@@ -16,17 +17,11 @@ class AppFactory {
             return;
         }
         //throw `已经注册过这个app，不能重复注册. name: ${name}`
-
         this.apps[name] = app;
     };
 
     registerApps = (apps) => {
-        // this.apps = {
-        //     ...this.apps,
-        //     ...apps
-        // }
         Object.assign(this.apps, apps);
-        //window.__mk_apps__ = this.apps
     };
 
     getApp = (name, showError = true) => {
@@ -53,6 +48,16 @@ class AppFactory {
     getApps = () => {
         return this.apps;
     };
+
+    getActions() {
+        return this.actions
+    }
+    getAction(actionName) {
+        return this.actions[actionName]
+    }
+    registerAction(action) {
+        this.actions = Object.assign( this.actions, action)
+    }
 
 }
 

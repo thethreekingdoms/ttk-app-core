@@ -625,7 +625,6 @@ class action {
         }
     }
     popoverVisible = (e) => {
-        debugger
         this.metaAction.sf('data.selectedKeys', fromJS([]))
     }
     foldMenu = () => {
