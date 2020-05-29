@@ -114,3 +114,14 @@ function updataSeq(state) {
     return item.setIn(['seq'], `${index + 1}`)
   })
 }
+
+export function searchFlag(state, action) {
+  switch(action.type) {
+    case 'flag_true':
+      return true
+    case 'flag_false':
+      return false
+    default: 
+      return true
+  }
+}

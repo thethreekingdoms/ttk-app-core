@@ -1,0 +1,53 @@
+.ttk-tax72-demo {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #F6F6F6;
+    &-main{
+        display: flex;
+        margin: 20px;
+    }
+    &-left {
+        width: 228px;
+        border: 1px solid #dcdee2;
+        background-color: #fff;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        .ant-menu.mk-menu.ant-menu-root{
+            max-height: none;
+        }
+    }
+    &-right {
+        flex: 1;
+        margin-left: 22px;
+        padding: 28px;
+        border: 1px solid #dcdee2;
+        background-color: #fff;
+    }
+    &-logo {
+        background-color: #1d82d8;
+        display: inline-block;
+        padding: 10px 10px;
+        border-radius: 6px;
+        margin: 5px 5px;
+    }
+    &-png {
+        display: flex;
+        flex-wrap: wrap;
+        &-layout {
+            width: 20%;
+            text-align: center;
+        }
+    }
+    &-font {
+        display: flex;
+        flex-wrap: wrap;
+        &-layout {
+            width: 16.66%;
+            text-align: center;
+            & i {
+                font-size: 42px;
+            }
+        }
+    }
+}

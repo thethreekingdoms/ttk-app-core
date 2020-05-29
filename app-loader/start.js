@@ -14,35 +14,37 @@ import './resetImmutable'
 const appFactory = AppFactory.getInstance();
 
 export default function start() {
-	const currentConfig = config.current;
+    const currentConfig = config.current;
 
-	appFactory.registerApps(currentConfig.apps);
+    appFactory.registerApps(currentConfig.apps);
 
-	var mw = [
+    var mw = [
         // detectMiddleware(currentConfig.actionInjections || {}, currentConfig.reducerInjections || {}), // 页面app、js、css探测中间件
         appMiddleware(currentConfig.actionInjections || {}, currentConfig.reducerInjections || {})
     ];
 
-	if (currentConfig.middlewares) {
-		mw = mw.concat(currentConfig.middlewares);
+    if (currentConfig.middlewares) {
+        mw = mw.concat(currentConfig.middlewares);
     }
 
-		const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-		const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(...mw)))
+    // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    // const store = createStore(reducer, Map(), composeEnhancers(applyMiddleware(...mw)))
+    const store = createStore(reducer, Map(), applyMiddleware(...mw))
     window.reduxStore = store;
-	//window.__mk_store__ = store;
+    //window.__mk_store__ = store;
 
-	if (!currentConfig.rootWrapper) {
-		currentConfig.rootWrapper = (child) => {
-			return child;
-		};
-	}
+    if (!currentConfig.rootWrapper) {
+        currentConfig.rootWrapper = (child) => {
+            return child;
+        };
+    }
 
-	ReactDOM.render(
-			<Provider store={store}>
-				<AppLoader store={store} name={currentConfig.startAppName} />
-			</Provider>
-		,
-		document.getElementById(currentConfig.targetDomId)
-	)
+    ReactDOM.render(
+        currentConfig.rootWrapper((
+            <Provider store={store}>
+                <AppLoader store={store} name={currentConfig.startAppName} />
+            </Provider>
+        )),
+        document.getElementById(currentConfig.targetDomId)
+    )
 }

@@ -56,7 +56,7 @@ class action {
         }
         else {
             if (!this.metaAction.focusByEvent(e)) return
-            setTimeout(this.cellAutoFocus, 16)
+            this.metaAction.setTimeout(this.cellAutoFocus, 16)
         }
     }
 
@@ -85,7 +85,7 @@ class action {
             'data.other.scrollToColumn': position.x
         })
 
-        setTimeout(this.cellAutoFocus, 16)
+        this.metaAction.setTimeout(this.cellAutoFocus, 16)
     }
 
     cellAutoFocus = () => {

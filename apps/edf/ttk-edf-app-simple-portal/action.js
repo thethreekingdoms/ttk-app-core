@@ -407,7 +407,7 @@ class action {
 		let content = this.metaAction.gf('data.content');
 		let openTabs = this.metaAction.gf('data.openTabs');
 		this.injections.reduce('closeAll');
-		setTimeout(() => {
+		this.metaAction.setTimeout(() => {
 			this.injections.reduce('reInit', content, openTabs);
 		}, 0);
 	};
@@ -426,7 +426,7 @@ class action {
 
 	foldMenu = () => {
 		this.metaAction.sf('data.isShowMenu', !this.metaAction.gf('data.isShowMenu'));
-		setTimeout(function () {
+		this.metaAction.setTimeout(function () {
 			var event = document.createEvent('HTMLEvents');
 			event.initEvent('resize', true, true);
 			window.dispatchEvent(event);

@@ -28,6 +28,11 @@ class reducer {
         return state.setIn([this.appDataId, 'data'], data);
     };
 
+    setDataChangeKeysManager = (state, dataChangeKeysManager) => {
+        this.dataChangeKeysManager = dataChangeKeysManager;
+        return state;
+    }
+
     getMeta = common.getMeta;
 
     getField = (state, fieldPath) => {
@@ -45,19 +50,15 @@ class reducer {
         } else {
             keys.push(fieldPath);
         }
-        return this.setTempDataChangeKeys(common.setField(state, fieldPath, value, this.appDataId), keys);
+        this.dataChangeKeysManager && this.dataChangeKeysManager.setDataKeys(keys);
+        return common.setField(state, fieldPath, value, this.appDataId);
     };
 
     setFields = (state, values) => {
         let keys = Object.keys(values)
-        return this.setTempDataChangeKeys(common.setFields(state, values, this.appDataId), keys);
+        this.dataChangeKeysManager && this.dataChangeKeysManager.setDataKeys(keys);
+        return common.setFields(state, values, this.appDataId);
     };
-
-    // 设置data改变的key数组
-    setTempDataChangeKeys = (state, keys = []) => {
-        let oldKey = state.get('DataChange');
-        return state.set('DataChange', oldKey ? oldKey.concat(keys) : keys)
-    }
 
     setChildMeta = common.setChildMeta;
 

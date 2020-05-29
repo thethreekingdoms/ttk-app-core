@@ -8,7 +8,7 @@ if (window.XMLHttpRequest) {
     xhr = new ActiveXObject('Microsoft.XMLHTTP');
 }
 
-xhr.open('post', '/v1/app/queryConfigByAppDomain', true);
+// xhr.open('post', '/v1/app/queryConfigByAppDomain', true);
 xhr.setRequestHeader('Accept', 'application/json');
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.onreadystatechange = function () {

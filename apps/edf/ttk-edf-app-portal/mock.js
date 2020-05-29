@@ -175,6 +175,16 @@ fetch.mock('/v1/edf/portal/init', (option, headers) => {
 					"parentId": 51,
 					"showOrder": 910,
 					"isVisible": 1
+				},
+				{
+					"id": 5103,
+					"name": "原生树表与Dialog",
+					"code": "5103",
+					"appName": "original-style-tree-dialog",
+					"appProps": "",
+					"parentId": 51,
+					"showOrder": 911,
+					"isVisible": 1
 				}]
 			}
 		}

@@ -12,7 +12,7 @@ class reducer {
     init = (state, option) => {
         const initState = getInitState()
         if (option && option.src) {
-            initState.data.src = option.src
+            initState.data.src = decodeURIComponent(src)
         }
         return this.metaReducer.init(state, initState)
     }

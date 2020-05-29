@@ -11,8 +11,9 @@ export default function TableArea(props) {
   const { loading } = useData([props, 'showState']).toJS()
   const tableData = useData([props, 'tableData']).toJS()
   const tableThead = useData([props, 'tableThead']).toJS()
+  const searchFlag = useData([props, 'searchFlag'])
   // const [cellSelectState, setCellSelectState] = useState()
-  const [selectAll, setSelectAll] = useState(true)
+  const [selectAll, setSelectAll] = useState(false)
   const [cellTarget, setCellTarget] = useState([-1, -1])
 
   function onSelectAll(value) {
@@ -78,7 +79,7 @@ export default function TableArea(props) {
     }
     document.addEventListener('keydown', onKeydown)
     return () => document.removeEventListener('keydown', onKeydown)
-  }, [tableData, tableThead])
+  }, [tableData, tableThead, searchFlag])
 
   return (
     <DataGrid
@@ -88,6 +89,10 @@ export default function TableArea(props) {
       rowHeight={40}
       headerHeight={40}
       readonly={false}
+      align="center"
+      className="alex-table" // 记录table滚动高度时，为必须属性
+      rememberScrollTop={true} // 记录table滚动高度时，为必须属性
+      searchFlag={searchFlag} // 记录table滚动高度时，为必须属性
       // enableSequence={true}
       // startSequence={1}
       enableAddDelrow={true}
@@ -100,6 +105,8 @@ export default function TableArea(props) {
           width={index === 0 ? 60 : index === 2 ? 130 : index === 3 ? 350 : index === 4 ? 100 : index === 6 ? 380 : index === 9 ? 120 : 100}
           flexGrow={1}
           columnKey={item.dataIndex}
+          // 固定左边2列
+          fixed={index>1? false: true}
           header={<DataGrid.Cell key={index}>{
             item.title === 'checkbox' ?
               (<Checkbox onChange={(e) => onSelectAll(e.target.checked)} checked={selectAll}></Checkbox>)

@@ -18,4 +18,4 @@ window['edf-webapi'] = webapi
 
 
 let origin = location.origin
-changeTheme(origin, '#0066B3', 'global')
+changeTheme(origin, '#0066B3')

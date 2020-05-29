@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as actions from './action';
-import { geneUUID } from '../utils/uuid';
-import { deepEqualWithoutFunc } from '../utils/equal';
+import { geneUUID } from 'edf-utils';
 import AppContainer from './appContainer';
 
 class AppLoader extends React.Component {

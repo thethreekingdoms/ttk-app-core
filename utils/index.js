@@ -1,67 +1,20 @@
-import beautify from './beautify'
-import json from './json'
-import fetch from './fetch'
-import number from './number'
-import moment from './moment'
-import path from './path'
-import expression from './expression'
-import matrix from './matrix'
-import dom from './dom'
-import password from './password'
-import string from './string'
-import exception from './exception'
-import tree from './tree'
-import history from './history'
-import less from './less'
-import environment from './environment'
-import date from './date'
-import eventUtil from './eventUtil'
-import { Base64ForDelphi, Base64 } from './base64'
-import { CryptoJS } from './des'
-import parseHtml from './html2json'
-import request from './request'
-import xml from './xml'
-import sortSearchOption from './sortSearchOption'
-import math from './math'
-import calculate from './calculate'
-import formulaCalc from './formulaCalc'
-import form from './form'
-import { throttle }  from './throttle'
-import {geneUUID} from './uuid/index'
-import equal from './equal'
+import ReactDom from 'react-dom';
+import ttkUtils from '@ttk/utils';
+import {
+    Toast,
+    Message
+} from '@ttk/component'
+/**--------------------项目工具类--------------------start--------------------**/
+import MyUtil from './myUtil';
 
-const { FetchRequest } = request;
+/**--------------------项目工具类--------------------end--------------------**/
+
+// 增加初始化函数，将antd组件、ReactDom作为参数，减少ttk-utils对上述包的依赖
+ttkUtils.form.init(Message);
+ttkUtils.dom.init(ReactDom)
+ttkUtils.fetchCors.init(Toast);
+ttkUtils.fetch.init(Message);
 export default {
-	beautify,
-	json,
-	fetch,
-	number,
-	string,
-	moment,
-	path,
-	expression,
-	matrix,
-	dom,
-	password,
-	exception,
-	tree,
-	history,
-	less,
-	environment,
-	date,
-	eventUtil,
-	Base64ForDelphi,
-	Base64,
-	CryptoJS,
-	parseHtml,
-	fetchCors: FetchRequest,
-	xml,
-	sortSearchOption,
-	math,
-	calculate,
-	formulaCalc,
-	form,
-	throttle,
-	geneUUID,
-  equal
+    ...ttkUtils,
+    MyUtil
 }

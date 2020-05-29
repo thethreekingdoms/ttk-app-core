@@ -31,6 +31,9 @@ function getTheme(color) {
         case '#414141':
             theme = 'BlackTheme'
             break;
+        case '#0994DC':
+            theme = 'Tax72Theme'
+            break;
         default:
             theme = 'BlueTheme'
             break;

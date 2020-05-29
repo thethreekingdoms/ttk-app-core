@@ -23,7 +23,7 @@ var plugins = []
 var projectRootPath = path.resolve(__dirname, './')
 const happyThreadPool = HappyPack.ThreadPool({ size: 12 });
 var blueStyle = ["./assets/styles/blue.less"]
-
+var tax72Style = ["./assets/styles/tax72.less"]
 
 //node环境变量，生产环境：production，开发环境：development
 plugins.push(new webpack.DefinePlugin({
@@ -44,7 +44,7 @@ plugins.push(new HtmlWebpackPlugin({
     // favicon: './assets/img/favicon.ico', //favicon路径
     filename: 'index.html', //生成的html存放路径，相对于 path
     template: 'index-dev.html', //html模板路径
-    chunks: ['bundle', 'edf', 'icon', 'blueTheme'],
+    chunks: ['bundle', 'edf', 'icon', 'tax72Theme'],
     hash: false,
     inject: 'body'//允许插件修改哪些内容，包括head与body`
 }))
@@ -151,7 +151,8 @@ module.exports = {
     entry: {
         bundle: "./index.js",
         edf: ["edf-app-loader", "edf-meta-engine", "edf-component", "edf-consts", "edf-utils", "webapi"],
-        blueTheme: blueStyle.concat(mergeTheme(['./assets/apps/blue.less'], 'blue'),"./component/assets/style/iconset.less"),
+        // tax72Theme: tax72Style.concat(mergeTheme([], 'tax72')),
+        blueTheme: blueStyle.concat(mergeTheme([], 'blue')),
         ie: './assets/styles/ie.less'
     },
 
@@ -195,7 +196,7 @@ module.exports = {
             'edf-constant': path.resolve(projectRootPath, './constant/index.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
             'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js'),
-            'Theme': path.resolve(projectRootPath, './component/assets/theme')
+            'Theme': '@ttk/component/dist/theme'
         }, aliasModule)
     },
     externals: {
@@ -223,8 +224,12 @@ module.exports = {
             use: {
                 loader: 'url-loader',
                 options: {
-                    name: '[name].[ext]',
-                    limit: 1000
+                    name: 'img/[name].[ext]',
+                    limit: 0,
+                    // 'imageCDN-webpack?': imageCDN,
+                    // publicPath: __webpack_public_path__,
+                    // runtimePublicPath: () => { window.assetsRoot },
+                    // RuntimePublicPathPlugin: () => { return window.assetsRoot },
                 }
             }
         }],

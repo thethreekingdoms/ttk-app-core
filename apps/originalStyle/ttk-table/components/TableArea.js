@@ -32,6 +32,7 @@ export default function TableArea(props) {
         rowHeight={40}
         headerHeight={40}
         readonly={false}
+        align="center"
         // enableSequence={true}
         // startSequence={1}
         // enableAddDelrow={true}
@@ -43,6 +44,8 @@ export default function TableArea(props) {
             width={index === 0 ? 60 : index === 1 ? 130 : index === 2 ? 350 : index === 3 ? 100 : index === 5 ? 380 : index === 8 ? 120 : 100}
             flexGrow={1}
             columnKey={item.dataIndex}
+            // 固定左边2列
+            fixed={index>1? false: true}
             header={<DataGrid.Cell key={index}>{item.title}</DataGrid.Cell>}
             cell={({ rowIndex, ...props }) => {
               return (<DataGrid.TextCell height={40} key={index+rowIndex} value={tableData[rowIndex][item.dataIndex]} />)

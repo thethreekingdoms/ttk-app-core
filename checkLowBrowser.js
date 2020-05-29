@@ -15,9 +15,9 @@ function getBrowserVersion() {
 			//检测当前浏览器是否处于“怪异模式”下  
 			quirks: (document.compatMode == 'BackCompat'),
 			//检查当前浏览器是否为360
-			'360': this._mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true,
-			'360fast': this._mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true && (agent.indexOf("chrome") > -1 == true),
-			'360slow': this._mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true && (agent.indexOf("chrome") > -1 == false)
+			'360': _mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true,
+			'360fast': _mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true && (agent.indexOf("chrome") > -1 == true),
+			'360slow': _mimeAgent("type", "application/vnd.chromium.remoting-viewer") == true && (agent.indexOf("chrome") > -1 == false)
 		};
 	//检测当前浏览器内核是否是gecko内核  
 	browser.gecko = (navigator.product == 'Gecko' && !browser.webkit && !browser.opera && !browser.ie);
@@ -61,9 +61,9 @@ function getBrowserVersion() {
 			version = geckoRelease[0] * 10000 + (geckoRelease[1] || 0) * 100 + (geckoRelease[2] || 0) * 1;
 		}
 	}
-	if (this._mimeAgent("type", "application/vnd.chromium.remoting-viewer")) {
-		browser['360fast'] = this._mimeAgent("type", "application/vnd.chromium.remoting-viewer") && browser.ischrome;//360极速
-		browser['360slow'] = this._mimeAgent("type", "application/vnd.chromium.remoting-viewer") && !browser.ischrome;//360兼容
+	if (_mimeAgent("type", "application/vnd.chromium.remoting-viewer")) {
+		browser['360fast'] = _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && browser.ischrome;//360极速
+		browser['360slow'] = _mimeAgent("type", "application/vnd.chromium.remoting-viewer") && !browser.ischrome;//360兼容
 	}
 
 	//检测当前浏览器是否为Chrome, 如果是，则返回Chrome的大版本号  
@@ -92,9 +92,11 @@ function loadSplitCss() {
 		skin = skin.toUpperCase();
 		if (skin == '#0066B3') {
 			theme = 'blueTheme';
+        }
+        else if (skin == '#0994DC') {
+			theme = 'tax72Theme';
 		}
 		else if (skin == '#B4A074') {
-			var styleSheet = document.createElement('link');
 			theme = 'orangeTheme';
 		}
 		else if (skin == '#FF913A') {
@@ -127,6 +129,13 @@ function loadCss() {
 		var styleSheet = document.createElement('link');
 		styleSheet.id = 'refSkin';
 		styleSheet.href = './blueTheme.css';
+		styleSheet.rel = "stylesheet";
+		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
+    }
+    else if (skin == '#0994DC') {
+		var styleSheet = document.createElement('link');
+		styleSheet.id = 'refSkin';
+		styleSheet.href = './tax72Theme.css';
 		styleSheet.rel = "stylesheet";
 		document.getElementsByTagName('HEAD').item(0).appendChild(styleSheet);
 	}

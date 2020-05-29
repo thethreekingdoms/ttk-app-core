@@ -52,18 +52,31 @@ config.getApps = () => apps
 config.getPopconfirm = () => popconfirm
 config.getAlert = () => alert
 
-// 用于optimal-meta-engine, 配置children不包裹connect层的组件
 const CHILDREN_NO_CONNECT_COMPONENTS = [
     'Select',
     'Menu',
     'Tabs',
-    'DataGrid',
-	'Radio.Group',
+    'Radio.Group',
 ];
 
 // 用于optimal-meta-engine, 根据组件名称判断是否children不包裹connect层的组件
 config.isChildrenNoWrapperComponent = (component) => {
     return CHILDREN_NO_CONNECT_COMPONENTS.includes(component);
+}
+
+// 用于optimal-meta-engine, 配置children(或其他自定义props，如DataGrid的columns)不包裹connect层的组件
+const NO_CONNECT_COMPONENTS_PROPS = {
+    'Select': 'children',
+    'Menu': 'children',
+    'Tabs': 'children',
+    'Radio.Group': 'children',
+    'DataGrid': 'columns', // DataGrid的columns属性返回必须是FixedData组件，因此也不包裹connect
+    'SearchCard': 'moreSearchItem',
+}
+
+// 用于optimal-meta-engine, 获取不包裹connect层的子组件props（children或其他自定义props）
+config.getNoConnectProp = (component) => {
+    return NO_CONNECT_COMPONENTS_PROPS[component];
 }
 
 export default config

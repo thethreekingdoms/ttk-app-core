@@ -8,8 +8,10 @@ import componentFactory from './componentFactory'
 import templateFactory from './templateFactory'
 import defaultComponent from './defaultComponent'
 //新增的optiaml-meta-engine的action和wrapper
-// import optimalAction from './optimal/action'
-// import optimalWrapper from './optimal/wrapper'
+import optimalAction from './optimal/action'
+import optimalWrapper from './optimal/wrapper'
+
+
 
 export default {
 	start,
@@ -20,5 +22,7 @@ export default {
 	componentFactory,
 	templateFactory,
 	defaultComponent,
-    AppLoader
+	AppLoader,
+	optimalAction,
+	optimalWrapper
 }

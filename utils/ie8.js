@@ -1,43 +1,16 @@
-import beautify from './beautify'
-import json from './json'
-import fetch from './fetch'
-import number from './number'
-import moment from './moment'
-import path from './path'
-import expression from './expression'
-import matrix from './matrix'
-import dom from './dom'
-import password from './password'
-import string from './string'
-import exception from './exception'
-import tree from './tree'
-import history from './history'
-import less from './less'
-import environment from './environment'
-import date from './date'
-import eventUtil from './eventUtil'
-import { Base64ForDelphi, Base64 } from './base64/ie8'
-import { CryptoJS } from './des'
+import ReactDom from 'react-dom';
+import ttkUtils from '@ttk/utils/dist/ie8.esm';
+import { Message } from '@ttk/component'
+/**--------------------项目工具类--------------------start--------------------**/
+import MyUtil from './myUtil';
+
+/**--------------------项目工具类--------------------end--------------------**/
+
+// 增加初始化函数，将antd组件、ReactDom作为参数，减少ttk-utils对上述包的依赖
+ttkUtils.dom.init(ReactDom)
+ttkUtils.fetch.init(Message);
+
 export default {
-	beautify,
-	json,
-	fetch,
-	number,
-	string,
-	moment,
-	path,
-	expression,
-	matrix,
-	dom,
-	password,
-	exception,
-	tree,
-	history,
-	less,
-	environment,
-	date,
-	eventUtil,
-	Base64ForDelphi,
-	Base64,
-	CryptoJS
+    ...ttkUtils,
+    MyUtil
 }

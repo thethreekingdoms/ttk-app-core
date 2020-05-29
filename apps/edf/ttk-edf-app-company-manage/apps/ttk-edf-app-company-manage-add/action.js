@@ -4,7 +4,7 @@ import { List, fromJS } from 'immutable'
 import moment from 'moment'
 import config from './config'
 import { consts } from 'edf-consts'
-import fetchUtil from '../../../../../utils/fetch'
+import { fetch as fetchUtil } from 'edf-utils'
 import { LoadingMask } from 'edf-component'
 
 import { FormDecorator } from 'edf-component'

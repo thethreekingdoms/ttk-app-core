@@ -49,7 +49,7 @@
                         var getParams = getCurrentUrl.substr(getCurrentUrl.indexOf('?') + 1);
                         var pathName = location.origin;
                         if (pathName && getParams) {
-                            window.location.href = pathName + "/#/ttk-edf-app-root/edfx-app-login?" + getParams;
+                            window.location.href = pathName + "/#/ttk-edf-app-root/ttk-edf-app-login?" + getParams;
                         }
                     }
                 }
@@ -91,21 +91,6 @@
         }
     </style>
 
-    <!-- <link href="icon.css" rel="stylesheet" /> -->
-    <script type="text/javascript" rel="prefetch" src="./checkLowBrowser.js"></script>
-    <!-- GrowingIO Analytics code version 2.1 -->
-    <!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
-    <!-- <script type='text/javascript'>
-        if (location.href.indexOf('dev.aierp.cn') == -1) {
-            !function (e, t, n, g, i) { e[i] = e[i] || function () { (e[i].q = e[i].q || []).push(arguments) }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag) }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
-            gio('init', 'abdb2c0c41d9f158', {});
-            //custom page code begin here
-            gio('config', { 'hashtag': true });
-            //custom page code end here
-            gio('send');
-        }
-    </script> -->
-    <!-- End GrowingIO Analytics code version: 2.1 -->
 </head>
 
 <body>
@@ -118,7 +103,6 @@
     <![endif]-->
     <script src='./vendor/polyfill.min.js' rel="prefetch" charset="utf-8"></script>
     <script src='./vendor/vendor.dll.js' rel="prefetch" charset="utf-8"></script>
-    <script src='./edf.min.js' rel="prefetch" charset="utf-8"></script>
     <script>if (window.module) module = window.module;</script>
 </body>
 <script id='jqscript' src='./vendor/jquery.min.js' rel="prefetch" charset="utf-8"></script>

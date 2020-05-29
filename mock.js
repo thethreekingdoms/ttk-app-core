@@ -52,6 +52,7 @@ import './apps/edf/ttk-edf-app-simple-portal/mock.js';
 
 import './apps/originalStyle/table/mock.js';
 import './apps/originalStyle/ttk-table/mock.js';
+import './apps/originalStyle/tree-dialog/mock.js';
 
 
 

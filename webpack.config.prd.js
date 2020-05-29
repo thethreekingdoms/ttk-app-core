@@ -83,7 +83,7 @@ plugins.push(
         // favicon: "./assets/img/favicon.ico", //favicon路径
         filename: "index.html", //生成的html存放路径，相对于 path
         template: "index.html", //html模板路径
-        chunks: [],
+        chunks: ['checkLowBrowser', 'edf'],
         hash: false,
         inject: "body", //允许插件修改哪些内容，包括head与body`
         minify: {
@@ -122,10 +122,11 @@ plugins.push(
 
 plugins.push(
     new CopyWebpackPlugin([{
-        from: "./checkLowBrowser.js",
-        to: `checkLowBrowser.${useHash ? "[hash:8]." : ""}js`,
-        toType: "template"
-    },{
+    //     from: "./checkLowBrowser.js",
+    //     to: `checkLowBrowser.${useHash ? "[hash:8]." : ""}js`,
+    //     toType:'file'
+    //     // toType: "template"
+    // },{
         from: './vendor',
         to: './vendor',
         ignore: ['.*']
@@ -152,6 +153,7 @@ module.exports = {
     devtool: false,
     mode: 'production',
     entry: {
+        checkLowBrowser: './checkLowBrowser.js',
         edf: [
             "edf-app-loader",
             "edf-meta-engine",
@@ -234,8 +236,8 @@ module.exports = {
             use: {
                 loader: "url-loader",
                 options: {
-                    name: "[name].[hash:8].[ext]",
-                    limit: 8192
+                    name: "img/[name].[hash:8].[ext]",
+                    limit: 0,
                 }
             }
         }]

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import monkeyKing from './monkeyKing';
 import { exception, equal } from 'edf-utils';
 import { is } from 'immutable';
@@ -106,7 +106,7 @@ export default function wrapper(option) {
 					//return <div style={{ color: 'red' }}>{this.state.error}</div>
 					return <div style={{ color: 'red' }}>{this.state.error && this.state.error.message}</div>
                 }
-				// this.props.notRender = true
+
 				if (this.props.notRender === true || this.props._notRender === true)
 					return null;
 
@@ -117,9 +117,11 @@ export default function wrapper(option) {
 					return null;
 
 				if (this.props.payload.getIn(['_notRender']) === true)
-                    return null;
-                
-				return <WrappedComponent {...this.props} monkeyKing={monkeyKing} />
+					return null;
+
+				return <Fragment>
+					<WrappedComponent {...this.props} monkeyKing={monkeyKing} />
+				</Fragment>
 			}
 		}
 	}

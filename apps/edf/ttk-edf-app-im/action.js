@@ -28,6 +28,7 @@ class action {
         let openIndex = 0;
         //关闭页面索引
         let closeIndex;
+        let eventListener;
         //页面初始化函数	
         $(function () {
             if (window.addEventListener) {
@@ -36,7 +37,7 @@ class action {
                 $('#starConversation').click(function () {
                     onclickZxkf()
                 })
-                window.addEventListener('message', function (e) {
+                window.addEventListener('message', eventListener = function (e) {
                     let user = JSON.parse(e.data);
                     let openUrl = user.url;
                     switch (user.method) {
@@ -59,11 +60,12 @@ class action {
                     }
                 }, false);
             } else if (window.attachEvent) {
-                window.attachEvent("onmessage", function (e) {
+                window.attachEvent("onmessage", eventListener = function (e) {
                     let user = JSON.parse(e.data);
                 });
             }
         })
+        this.eventListener = eventListener;
 
         //在线客服弹窗方法
         function onclickZxkf() {
@@ -116,6 +118,15 @@ class action {
             });
         }
 
+    }
+
+    componentWillUnmount = () => {
+        if (window.removeEventListener) {
+            $('#starConversation').unbind();
+            window.removeEventListener('message', this.eventListener);
+        } else if (window.detachEvent) {
+            window.detachEvent("onmessage", this.eventListener);
+        }
     }
 
     render = () => {

@@ -5,18 +5,21 @@ export function fetchDateAcion(reduce, gf, data) {
   return async (dispatch, getState) => {
     const res = await webapi.queryDate()
     reduce('dateRange', res)
+    reduce('searchFlag', { type: 'flag_true' })
   }
 }
 
 export function updateSearchParam(reduce, gf, data) {
   return async (dispatch, getState) => {
     reduce('searchParam', { type: 'update_search_param', data })
+    reduce('searchFlag', { type: 'flag_true' })
   }
 }
 
 export function updateSearchPage(reduce, gf, data) {
   return async (dispatch, getState) => {
     reduce('searchParam', { type: 'update_search_page', data })
+    reduce('searchFlag', { type: 'flag_true' })
   }
 }
 export function fetchThead(reduce, gf, data) {
@@ -66,6 +69,7 @@ export function deleteTableRow(reduce, gf, data) {
     // 通过接口修改记录后更新本地记录
     // const res =  await deleteReceive()
     reduce('tableData', { type: 'rpt_remove_item', data })
+    reduce('searchFlag', { type: 'flag_false' })
   }
 }
 export function addRow(reduce, gf, data) {
@@ -78,6 +82,7 @@ export function addRow(reduce, gf, data) {
     // const res = await webapi.addRow(row)
     // if (res) {
     reduce('tableData', { type: 'rpt_insert_item', data: row })
+    reduce('searchFlag', { type: 'flag_false' })
     // }
   }
 }

@@ -11,6 +11,7 @@ const appInstances = {};
 
 class action {
     constructor(option) {
+        this.timerIds = [];
         this.appInfo = option.appInfo;
         this.appDataId = option.appDataId;
         this.meta = fromJS(option.appInfo.meta);
@@ -47,64 +48,72 @@ class action {
         this.metaHandlers && this.metaHandlers['onInit'] && this.metaHandlers['onInit']({ component, injections });
     };
 
-    unmount = () => {
-        delete appInstances[this.component.appFullName]
+    unmount = () => {        
+        // 统一clearTimeout
+        this.timerIds.length && this.timerIds.forEach(id => clearTimeout(id));
+        delete appInstances[this.component.props.appFullName];
     };
+    
+    setTimeout = function () {
+        let id = setTimeout.apply(null, arguments);
+        this.timerIds.push(id);
+        return id;
+    }
 
     componentWillMount = () => {
         this.metaHandlers
-        && this.metaHandlers['componentWillMount']
-        && this.metaHandlers['componentWillMount'] != this.componentWillMount
-        && this.metaHandlers['componentWillMount']();
+            && this.metaHandlers['componentWillMount']
+            && this.metaHandlers['componentWillMount'] != this.componentWillMount
+            && this.metaHandlers['componentWillMount']();
     };
 
     componentDidMount = () => {
         this.metaHandlers
-        && this.metaHandlers['componentDidMount']
-        && this.metaHandlers['componentDidMount'] != this.componentDidMount
-        && this.metaHandlers['componentDidMount']();
+            && this.metaHandlers['componentDidMount']
+            && this.metaHandlers['componentDidMount'] != this.componentDidMount
+            && this.metaHandlers['componentDidMount']();
     };
 
     shouldComponentUpdate = (nextProps, nextState) => {
         this.metaHandlers
-        && this.metaHandlers['shouldComponentUpdate']
-        && this.metaHandlers['shouldComponentUpdate'] != this.shouldComponentUpdate
-        && this.metaHandlers['shouldComponentUpdate'](nextProps, nextState);
+            && this.metaHandlers['shouldComponentUpdate']
+            && this.metaHandlers['shouldComponentUpdate'] != this.shouldComponentUpdate
+            && this.metaHandlers['shouldComponentUpdate'](nextProps, nextState);
     };
 
     componentWillReceiveProps = (nextProps) => {
         this.metaHandlers
-        && this.metaHandlers['componentWillReceiveProps']
-        && this.metaHandlers['componentWillReceiveProps'] != this.componentWillReceiveProps
-        && this.metaHandlers['componentWillReceiveProps'](nextProps);
+            && this.metaHandlers['componentWillReceiveProps']
+            && this.metaHandlers['componentWillReceiveProps'] != this.componentWillReceiveProps
+            && this.metaHandlers['componentWillReceiveProps'](nextProps);
     };
 
     componentWillUpdate = (nextProps, nextState) => {
         this.metaHandlers
-        && this.metaHandlers['componentWillUpdate']
-        && this.metaHandlers['componentWillUpdate'] != this.componentWillUpdate
-        && this.metaHandlers['componentWillUpdate'](nextProps, nextState);
+            && this.metaHandlers['componentWillUpdate']
+            && this.metaHandlers['componentWillUpdate'] != this.componentWillUpdate
+            && this.metaHandlers['componentWillUpdate'](nextProps, nextState);
     };
 
     componentDidCatch = (error, info) => {
         this.metaHandlers
-        && this.metaHandlers['componentDidCatch']
-        && this.metaHandlers['componentDidCatch'] != this.componentDidCatch
-        && this.metaHandlers['componentDidCatch'](error, info);
+            && this.metaHandlers['componentDidCatch']
+            && this.metaHandlers['componentDidCatch'] != this.componentDidCatch
+            && this.metaHandlers['componentDidCatch'](error, info);
     };
 
     componentWillUnmount = () => {
         this.metaHandlers
-        && this.metaHandlers['componentWillUnmount']
-        && this.metaHandlers['componentWillUnmount'] != this.componentWillUnmount
-        && this.metaHandlers['componentWillUnmount']();
+            && this.metaHandlers['componentWillUnmount']
+            && this.metaHandlers['componentWillUnmount'] != this.componentWillUnmount
+            && this.metaHandlers['componentWillUnmount']();
     };
 
     componentDidUpdate = () => {
         this.metaHandlers
-        && this.metaHandlers['componentDidUpdate']
-        && this.metaHandlers['componentDidUpdate'] != this.componentDidUpdate
-        && this.metaHandlers['componentDidUpdate']();
+            && this.metaHandlers['componentDidUpdate']
+            && this.metaHandlers['componentDidUpdate'] != this.componentDidUpdate
+            && this.metaHandlers['componentDidUpdate']();
     };
 
     getAppInstances = () => {
@@ -149,6 +158,7 @@ class action {
         var params = this.cache.expressionParams;
 
         var body = utils.expression.getExpressionBody(v);
+        body = body.replace('$$', '$'); // optimal中新渲染方式增加$$表达式，旧渲染方式同$
         const functionReg = /\$\w+\s*\(.*\)/;
         if (functionReg.test(body)) {
             this.cache.renderHasExecuteFunc = true;
@@ -171,13 +181,9 @@ class action {
     }
 
     execExpression = (expressContent, data, path, rowIndex, vars, ctrlPath) => {
-
         let browserType = /(msie\s|trident.*rv:)([\w.]+)/.test(navigator.userAgent.toLowerCase());
-        // console.log(browserType)
-        // let browserType = utils.environment.getBrowserVersion()
         if (browserType) {
             if (expressContent && expressContent.indexOf('=>') > -1) {
-                //console.log('ie兼容exception:' + expressContent)
                 if (window.Babel) {
                     expressContent = window.Babel.transform(expressContent, { presets: ['es2015'] }).code;
                     expressContent = expressContent.replace(`"use strict";`, "");
@@ -188,7 +194,6 @@ class action {
             }
         }
         let _express = this.parseExpreesion(expressContent);
-
         if (typeof (_express) != 'undefined') {
             let values = [data];
 
@@ -202,15 +207,19 @@ class action {
             });
             values = values.concat([path, rowIndex, vars, ctrlPath, vars && vars[vars.length - 1]]);
             try {
-                return _express.apply(this, values);
+                // console.log("execute:", { _express }, { values })
+                const result = _express.apply(this, values);
+                values = null;
+                return result;
             }
             catch (e) {
                 this.metaHandlers
-                && this.metaHandlers['componentDidCatch']
-                && this.metaHandlers['componentDidCatch'] != this.componentDidCatch
-                && this.metaHandlers['componentDidCatch'](e);
+                    && this.metaHandlers['componentDidCatch']
+                    && this.metaHandlers['componentDidCatch'] != this.componentDidCatch
+                    && this.metaHandlers['componentDidCatch'](e);
                 console.error(`error:${expressContent}`);
-                utils.exception.error(e);
+                return;
+                // utils.exception.error(e);
             }
         }
 
@@ -233,10 +242,10 @@ class action {
         }
 
         return !(t != 'object'
-        || !!meta['$$typeof']
-        || !!meta['_isAMomentObject']
-        || !!meta["_power"]
-        || meta["_visible"] === false);
+            || !!meta['$$typeof']
+            || !!meta['_isAMomentObject']
+            || !!meta["_power"]
+            || meta["_visible"] === false);
     };
 
     updateMeta = (meta, path, rowIndex, vars, data, ctrlPath) => {
@@ -403,9 +412,7 @@ class action {
         return meta;
     }
 
-    setMetaForce = (appName, meta) => {
-        common.setMetaForce(appName, meta);
-    }
+
 
     focus = (path) => {
         if (this.isFocus(path)) return false;
@@ -482,11 +489,11 @@ class action {
         Alert[args[0]](...args.slice(1));
     };
 
-    clearToast = (Toast) => {
-        window.setTimeout(function () {
+    // clearToast = (Toast) => {
+    //     window.setTimeout(function () {
 
-        }, 0);
-    };
+    //     }, 0);
+    // };
 
     notification = (...args) => {
         const Notification = config.getNotification();
@@ -510,9 +517,14 @@ class action {
         return <AppLoader {...props} name={name} />
     };
 
+    // setMetaForce = (appName, meta) => {
+    //     common.setMetaForce(appName, meta);
+    // }
+
+
     gm = this.getMeta;
 
-    sm = this.setMeta;
+    // sm = this.setMeta;
 
     gf = this.getField;
 
@@ -530,7 +542,7 @@ class action {
 
     addThousPos = utils.number.addThousPos;
 
-    fromJS = fromJS;
+    // fromJS = fromJS;
 
     context = contextManager;
 }

@@ -1,201 +1,203 @@
-﻿// //全局APP样式引入
-// //note-start
-// //note-start和note-end之间的内容用脚手架匹配，请不要再该区域书写内容，在执行ttk reset过程中会被删除
-// //档案模块
-// @import '../../apps/test/app-test/style.less';
-// @import '../../apps/edf/ttk-edf-app-root/style.less';
-// @import '../../apps/edf/edfx-app-portal/style.less';
-// @import '../../apps/edf/edfx-app-forgot-password/style.less';
-// @import '../../apps/edf/edfx-app-register/style.less';
-// @import '../../apps/edf/edfx-app-login/style.less';
-// @import '../../apps/edf/ttk-edf-app-dzgl-portal/style.less';
-// @import '../../apps/edf/ttk-dzgl-app-login/style.less';
-// @import '../../apps/edf/ttk-dzgl-app-forget-password/style.less';
-// @import '../../apps/edf/ttk-dzgl-app-register/style.less';
-// @import '../../apps/edf/ttk-dzgl-app-login/apps/ttk-dzgl-app-no-company/style.less';
-// @import '../../apps/operation/ttk-edf-app-simple-login/style.less';
-// @import '../../apps/operation/ttk-edf-app-simple-portal/style.less';
-// @import '../../apps/ba/app-card-assets/style.less';
-// @import '../../apps/ba/app-card-bankaccount/style.less';
-// @import '../../apps/ba/app-card-customer/style.less';
-// @import '../../apps/ba/app-card-currency/style.less';
-// @import '../../apps/ba/app-card-department/style.less';
-// @import '../../apps/ba/app-card-inventory/style.less';
-// @import '../../apps/ba/app-card-person/style.less';
-// @import '../../apps/ba/app-card-project/style.less';
-// @import '../../apps/ba/app-card-unit/style.less';
-// @import '../../apps/ba/app-card-vendor/style.less';
-// @import '../../apps/ba/app-card-userdefinecard/style.less';
-// @import '../../apps/ba/app-setting/style.less';
-// @import '../../apps/ba/app-card-import/style.less';
-// @import '../../apps/ba/app-archives-list/style.less';
-// @import '../../apps/ba/app-weixin-share/style.less';
-// @import '../../apps/ba/app-mail-share/style.less';
-// @import '../../apps/ba/app-list-customer/style.less';
-// @import '../../apps/ba/app-list-supplier/style.less';
-// @import '../../apps/ba/app-list-inventory/style.less';
-// @import '../../apps/ba/app-list-project/style.less';
-// @import '../../apps/ba/app-list-currency/style.less';
-// @import '../../apps/ba/app-list-account/style.less';
-// @import '../../apps/ba/app-list-unit/style.less';
-// @import '../../apps/ba/app-list-department-personnel/style.less';
-// @import '../../apps/ba/app-list-userdefinecard/style.less';
-// @import '../../apps/ba/app-card-revenueType/style.less';
-// //系统管理
-// @import '../../apps/edf/ttk-edf-app-column/apps/ttk-edf-app-column-detail/style.less';
-// @import '../../apps/edf/ttk-edf-app-column/apps/ttk-edf-app-column-setting/style.less';
-// @import '../../apps/edf/ttk-edf-app-column/apps/ttk-edf-app-column-type/style.less';
-// @import '../../apps/edf/ttk-edf-app-column/style.less';
-// @import '../../apps/edf/ttk-edf-app-enum/apps/ttk-edf-app-tree-table-detail/style.less';
-// @import '../../apps/edf/ttk-edf-app-enum/apps/ttk-edf-app-tree-table-type/style.less';
-// @import '../../apps/edf/ttk-edf-app-enum/style.less';
-// @import '../../apps/edf/edfx-app-home/style.less';
-// @import '../../apps/edf/edfx-app-my-setting/style.less';
-// @import '../../apps/edf/ttk-edf-app-operation/style.less';
-// @import '../../apps/edf/edfx-app-org/style.less';
-// // @import '../../apps/edf/ttk-edf-app-im/style.less';
-// @import '../../apps/edf/ttk-edf-app-message/style.less';
-// @import '../../apps/edf/ttk-edf-app-history/style.less';
-// @import '../../apps/edf/ttk-edf-app-article/style.less';
-// @import '../../apps/edf/ttk-edf-app-beginner-guidance/style.less';
-// @import '../../apps/edf/ttk-edf-app-portal-menu/apps/ttk-edf-app-portal-menu-detail/style.less';
-// @import '../../apps/edf/ttk-edf-app-portal-menu/style.less';
+﻿@import './old.less';
 
-// @import '../../apps/edf/edfx-app-register/apps/edfx-app-agreement/style.less';
-// @import '../../apps/edf/ttk-edf-app-html2json/style.less';
-// @import '../../apps/edf/ttk-edf-app-devtools/style.less';
-// //@import '../../apps/edf/edfx-app-register/apps/edf/edfx-app-orgregister/style.less';
-// //@import '../../apps/edf/edfx-app-register/apps/edf/edfx-app-success/style.less';
-// @import '../../apps/edf/ttk-edf-app-role-auth/apps/ttk-edf-app-role/style.less';
-// @import '../../apps/edf/ttk-edf-app-role-auth/style.less';
-// @import '../../apps/edf/ttk-edf-app-root/apps/ttk-edf-app-root-about/style.less';
-// @import '../../apps/edf/ttk-edf-app-root/apps/ttk-edf-app-root-helloWorld/style.less';
-// @import '../../apps/edf/edf-company-manage/style.less';
-// @import '../../apps/edf/edf-company-manage/apps/edf-company-manage-add/style.less';
-// @import '../../apps/edf/edfx-app-org/apps/edfx-app-org-reinit/style.less';
-// @import '../../apps/edf/edfx-app-my-setting/apps/edfx-app-my-setting-change-mobile/style.less';
-// @import '../../apps/edf/edfx-app-my-setting/apps/edfx-app-my-setting-change-password/style.less';
-// @import '../../apps/edf/ttk-edf-app-iframe-master/style.less';
-// @import '../../apps/edf/ttk-edf-app-desktop-init/style.less';
-// @import '../../apps/edf/ttk-edf-app-voucher/style.less';
-// @import '../../apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting/style.less';
-// @import '../../apps/edf/ttk-edf-app-voucher/apps/ttk-edf-app-voucher-detail-setting/style.less';
-// @import '../../apps/edf/edfx-business-subject-manage/style.less';
-// @import '../../apps/edf/edfx-business-subject-manage/apps/edfx-business-subject-card/style.less';
-// //财务模块
-// @import '../../apps/gl/app-account-report/style.less';
-// @import '../../apps/gl/app-sumaccount-rpt/style.less';
-// @import '../../apps/gl/app-auxsumaccount-rpt/style.less';
-// @import '../../apps/gl/app-auxdetailaccount-rpt/style.less';
-// @import '../../apps/gl/app-auxbalancesum-rpt/style.less';
-// @import '../../apps/gl/app-account-subjects/style.less';
-// @import '../../apps/gl/app-proof-of-charge/apps/app-proof-of-charge-assistitem/style.less';
-// @import '../../apps/gl/app-proof-of-charge/apps/app-proof-of-charge-common/style.less';
-// @import '../../apps/gl/app-proof-of-charge/apps/app-proof-of-charge-common-add/style.less';
-// @import '../../apps/gl/app-proof-of-charge/apps/app-proof-of-charge-subjects-add/style.less';
-// @import '../../apps/gl/app-proof-of-charge/apps/app-proof-of-charge-selectPeriod/style.less';
-// @import '../../apps/gl/app-proof-of-charge/style.less';
-// @import '../../apps/gl/app-proof-of-list/style.less';
-// @import '../../apps/gl/app-balancesheet-rpt/style.less';
-// @import '../../apps/gl/app-account-beginbalance/style.less';
-// @import '../../apps/gl/app-profitstatement-rpt/style.less';
-// @import '../../apps/gl/app-cashflowstatement-rpt/style.less';
-// @import '../../apps/gl/app-detailaccount-rpt/style.less';
-// @import '../../apps/gl/app-balancesum-rpt/style.less';
-// @import '../../apps/gl/app-proof-of-collect-rpt/style.less';
-// @import '../../apps/gl/app-account-addmultiauxitem/style.less';
-// @import '../../apps/gl/app-cashflowstatement-card/style.less';
-// @import '../../apps/gl/app-balancesheet-formula/style.less';
-// @import '../../apps/gl/app-account-subjects/apps/app-account-subjects-code/style.less';
-// @import '../../apps/gl/app-account-subjects/apps/app-account-subjects-accounting/style.less';
-// @import '../../apps/gl/app-account-monthaccount/style.less';
-// @import '../../apps/gl/app-account-beginbalance/apps/app-account-beginbalance-leadIn/style.less';
-// @import '../../apps/gl/app-account-beginbalance/apps/app-account-beginbalance-changePeriod/style.less';
-// @import '../../apps/gl/app-home-business-state/style.less';
-// @import '../../apps/gl/app-home-voucher/style.less';
-// @import '../../apps/gl/app-home-receive-pay/style.less';
-// @import '../../apps/gl/app-home-capital-account/style.less';
-// @import '../../apps/gl/app-account-subjects/apps/app-account-subjects-batch-add/style.less';
-// @import '../../apps/gl/app-cashflowstatement-distribution/style.less';
-// @import '../../apps/gl/app-account-final-cerficate/style.less';
-// @import '../../apps/gl/app-account-final-cerficate/apps/app-account-cerficate-add/style.less';
-// @import '../../apps/gl/ttk-gl-app-period-expense-rpt/style.less';
-// @import '../../apps/gl/app-common-iframe/style.less';
-// //资产模块
-// @import '../../apps/asset/app-asset-depreciation/style.less';
-// @import '../../apps/asset/app-asset-management/style.less';
-// @import '../../apps/asset/app-asset-management-list/style.less';
-// @import '../../apps/asset/app-asset-list/style.less';
-// @import '../../apps/asset/app-asset-card/style.less';
-// @import '../../apps/asset/app-asset-import/style.less';
-// @import '../../apps/asset/app-asset-record/style.less';
-// @import '../../apps/asset/app-asset-statrpt/style.less';
-// @import '../../apps/asset/app-asset-detailrpt/style.less';
-// @import '../../apps/gl/ttk-gl-app-financeinit/ttk-gl-app-financeinit-accountrelation/style.less';
-// @import '../../apps/gl/ttk-gl-app-financeinit/ttk-gl-app-financeinit-enterprise/style.less';
-// @import '../../apps/gl/ttk-gl-app-financeinit/ttk-gl-app-financeinit-success/style.less';
-// @import '../../apps/gl/ttk-gl-app-financeinit/ttk-gl-app-financeinit-uploaddata/style.less';
-// //业务模块
-// @import '../../apps/scm/ttk-scm-app-funds-account-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-incomeexpenses-rpt/style.less';
-// @import '../../apps/scm/ttk-scm-app-import/style.less';
-// @import '../../apps/scm/ttk-scm-app-expense-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-expense-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-pu-invoice-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-sa-invoice-list/style.less';
-// @import '../../apps/scm/ttk-scm-add-bank-statement-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-payment-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-proceeds-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-payment-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-proceeds-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-collect/style.less';
-// @import '../../apps/scm/ttk-scm-app-collect-result/style.less';
-// @import '../../apps/scm/ttk-scm-app-exchange-accounts/style.less';
-// @import '../../apps/scm/ttk-scm-app-inventory/style.less';
-// @import '../../apps/scm/ttk-scm-app-warehouse-detail/style.less';
-// @import '../../apps/scm/ttk-scm-app-inventory-documents/style.less';
-// @import '../../apps/scm/ttk-scm-app-matching-unit/style.less';
-// @import '../../apps/scm/ttk-scm-app-split-sheet/style.less';
-// @import '../../apps/scm/ttk-scm-app-warehouse-beginning/style.less';
-// @import '../../apps/scm/ttk-scm-app-warehouse-import/style.less';
-// @import '../../apps/scm/ttk-scm-app-inventory/ttk-scm-app-inventory-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-inventory/ttk-scm-app-inventory-setting/style.less';
-// @import '../../apps/scm/ttk-scm-voucherHabit-card/style.less';
-// @import '../../apps/scm/ttk-scm-fileRules-card/style.less';
-// @import '../../apps/scm/ttk-scm-matchInventory-card/style.less';
-// @import '../../apps/scm/ttk-scm-supplyData-card/style.less';
-// @import '../../apps/scm/ttk-scm-currentAccount-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-pu-invoice-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-sa-invoice-card/style.less';
-// @import '../../apps/scm/ttk-scm-app-invoice-summary/style.less';
-// @import '../../apps/scm/ttk-scm-app-error-list/style.less';
-// @import '../../apps/scm/ttk-scm-app-set-bookkeeping/style.less';
-// @import '../../apps/scm/ttk-scm-app-estimate-list/style.less';
-// @import '../../apps/scm/ttk-scm-incomeexpenses-setting/style.less';
-// @import '../../apps/scm/ttk-scm-incomeexpenses-setting/apps/scm-incomeexpenses-setting-card/style.less';
-// @import '../../apps/scm/ttk-scm-incomeexpenses-setting/apps/scm-incomeexpenses-type-list/style.less';
-// @import '../../apps/scm/ttk-scm-incomeexpenses-setting/apps/scm-incomeexpenses-type-card/style.less';
-// @import '../../apps/scm/ttk-scm-collect-set/style.less';
-// @import '../../apps/scm/ttk-scm-app-batch-orders/style.less';
-// @import '../../apps/scm/ttk-scm-app-unauthorized-list/style.less';
-// @import '../../apps/access/ttk-access-app-tranreport/style.less';
-// @import '../../apps/access/ttk-access-app-tranreport/apps/ttk-access-app-tranreport-projectadjust/style.less';
-// @import '../../apps/access/ttk-access-app-tranreport/apps/ttk-access-app-tranreport-import/style.less';
-// @import '../../apps/access/ttk-access-app-tranreport/apps/ttk-access-app-tranreport-rptselect/style.less';
-// //税务模块
-// @import '../../apps/taxapply/ttk-taxapply-app-taxlist/style.less';
-// @import '../../apps/taxapply/ttk-taxapply-app-batchchargeback/style.less';
-// @import '../../apps/taxapply/ttk-taxapply-app-declare-cancel/style.less';
-// //运营管理
-// @import '../../apps/operation/ttk-edf-app-simple-login/style.less';
-// @import '../../apps/operation/ttk-edf-app-simple-portal/style.less';
-// @import '../../apps/operation/ttk-omp-app-list-org/style.less';
-// @import '../../apps/operation/ttk-omp-app-list-user/style.less';
-// @import '../../apps/operation/ttk-omp-app-message/style.less';
-// @import '../../apps/operation/ttk-omp-app-message-list/style.less';
-// @import '../../apps/operation/ttk-omp-app-list-applyorg/style.less';
-// // @import '../../../../tax-sbzs/website/apps/fxsm/index.less';
-// // @import '../../../../tax-zzfw/website/apps/fxsm/index.less';
-// 
+// 左边有树组件页面的容器, 容器只有一行
+.ttk-menu-container {
+  width         : 100%;
+  height        : 100%;
+  flex-direction: row;
 
-//note-end
+  // 设置左边car组件的宽度
+  .ttk-card-tree {
+    width       : 200px;
+    flex        : 0 0 200px;
+    margin-right: 6px;
+
+    .ant-card-head {
+      padding: 0 10px;
+    }
+
+    .ant-card-body {
+      padding   : 0;
+      overflow-y: auto;
+    }
+  }
+}
+
+// 表格顶部的搜索容器, 该容器必须是一个Form组件
+.mk-form.ttk-search-container {
+  width     : 100%;
+  padding   : 12px;
+  margin    : 0;
+  background: #fff;
+
+  .mk-form-item {
+    display: flex;
+  }
+
+  .ant-form-item-label {
+    padding: 5px 0;
+  }
+
+  .ant-form-item-control-wrapper,
+  .ant-calendar-picker {
+    flex: 1;
+  }
+}
+
+// 普通的上下结构容器
+.ttk-table-container {
+  width   : 100%;
+  height  : 100%;
+  overflow: hidden;
+
+  .custom-pagination {
+    padding-top  : 10px;
+    // text-align: right;
+  }
+}
+
+// 原生表单 默认样式1
+.ttk-card-form {
+  width: 100%;
+
+  .header {}
+
+  .content {
+    .mk-form {
+
+      .mk-form-item {
+        padding-right: 10px;
+
+        .ant-form-item-label {
+          padding: 10px 0;
+          flex   : 0 0 100px;
+          width  : 100px;
+        }
+
+        .ant-form-item-control-wrapper,
+        .ant-calendar-picker {
+          width  : 100%;
+          padding: 10px 0;
+
+          .ant-select {
+            width: 100%
+          }
+
+          textarea {
+            height: 60px;
+          }
+        }
+
+        .ant-form-explain {
+          margin-top: 5px;
+        }
+      }
+
+      .form-footer {
+        padding   : 10px 0;
+        text-align: center;
+
+        .ant-btn {
+          margin-right: 10px;
+        }
+      }
+      
+      .mk-form-item.label50 {
+        .ant-form-item-label {
+          flex : 0 0 50px;
+          width: 50px;
+        }
+      }
+      .mk-form-item.label60 {
+        .ant-form-item-label {
+          flex : 0 0 60px;
+          width: 60px;
+        }
+      }
+      .mk-form-item.label70 {
+        .ant-form-item-label {
+          flex : 0 0 70px;
+          width: 70px;
+        }
+      }
+      .mk-form-item.label80 {
+        .ant-form-item-label {
+          flex : 0 0 80px;
+          width: 80px;
+        }
+      }
+
+      .mk-form-item.label90 {
+        .ant-form-item-label {
+          flex : 0 0 90px;
+          width: 90px;
+        }
+      }
+
+      .mk-form-item.label100 {
+        .ant-form-item-label {
+          flex : 0 0 100px;
+          width: 100px;
+        }
+      }
+
+      .mk-form-item.label110 {
+        .ant-form-item-label {
+          flex : 0 0 110px;
+          width: 110px;
+        }
+      }
+
+      .mk-form-item.label120 {
+        .ant-form-item-label {
+          flex : 0 0 120px;
+          width: 120px;
+        }
+      }
+
+      .mk-form-item.label130 {
+        .ant-form-item-label {
+          flex : 0 0 130px;
+          width: 130px;
+        }
+      }
+
+      .mk-form-item.label140 {
+        .ant-form-item-label {
+          flex : 0 0 140px;
+          width: 140px;
+        }
+      }
+
+      .mk-form-item.label150 {
+        .ant-form-item-label {
+          flex : 0 0 150px;
+          width: 150px;
+        }
+      }
+
+      .mk-form-item.label160 {
+        .ant-form-item-label {
+          flex : 0 0 160px;
+          width: 160px;
+        }
+      }
+
+      .mk-form-item.label170 {
+        .ant-form-item-label {
+          flex : 0 0 170px;
+          width: 170px;
+        }
+      }
+
+      .mk-form-item.label180 {
+        .ant-form-item-label {
+          flex : 0 0 180px;
+          width: 180px;
+        }
+      }
+    }
+  }
+
+  .footer {}
+}

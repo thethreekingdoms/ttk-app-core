@@ -7,17 +7,13 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 //const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // ie9 下单个的css文件超过400k 不被解析
 var CSSSplitWebpackPlugin = require("css-split-webpack-plugin").default;
+const EnrichHtmlWebpackPlugin = require('./plugins/enrich-html-webpack-plugin')
 
 const webpackCompileParams = require("./webpackCompileParams");
 var env = process.env.NODE_ENV;
 var plugins = [];
 
 let useHash = process.env.NODE_ENV == "single" ? false : true;
-
-var defaultStyle = ["./assets/styles/businessBlue.less"];
-var orangeStyle = ["./assets/styles/orange.less"];
-var blueStyle = ["./assets/styles/blue.less"];
-var yellowStyle = ["./assets/styles/yellow.less"];
 
 let isSplitCss = false;
 let start_params;
@@ -52,7 +48,8 @@ if (isSplitCss) {
 
 // plugins.push(new ExtractTextPlugin(`[name].${useHash ? "[hash:8]." : ""}css`)); //webpack 3
 plugins.push(new MiniCssExtractPlugin({ // webpack 4
-    filename: `[name].${useHash ? "[hash:8]." : ""}css`,
+    //filename: `[name].${useHash ? "[hash:8]." : ""}css`,
+    filename: '[name].css',
     chunkFilename: '[id].css',
 }))
 /*
@@ -82,15 +79,20 @@ module.exports = {
     devtool: false,
     mode: 'production',
     entry: {
-        businessBlueTheme: defaultStyle.concat(["./assets/apps/businessBlue.less"], "./component/assets/style/iconset.less"),
-        orangeTheme: orangeStyle.concat(["./assets/apps/orange.less"], "./component/assets/style/iconset.less"),
-        blueTheme: blueStyle.concat(["./assets/apps/blue.less"], "./component/assets/style/iconset.less"),
-        yellowTheme: yellowStyle.concat(["./assets/apps/yellow.less"], "./component/assets/style/iconset.less"),
+        businessBlueTheme: "./assets/styles/businessBlue.less",
+        orangeTheme: "./assets/styles/orange.less",
+        blueTheme: "./assets/styles/blue.less",
+        yellowTheme: "./assets/styles/yellow.less",
+        tax72Theme: "./assets/styles/tax72.less",
         ie: "./assets/styles/ie.less",
-        // icon: "./component/assets/style/iconset.less"
     },
     optimization: {
-        minimizer: [new OptimizeCSSAssetsPlugin({})],
+        minimizer: [new OptimizeCSSAssetsPlugin({
+            cssProcessorOptions: {
+                // 避免 cssnano 重新计算 z-index
+                safe: true
+            }
+        })],
     },
     performance: {
         hints: false
@@ -105,24 +107,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(css|less)/,
-            /*use: ExtractTextPlugin.extract({ //webpack 3
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    minimize: true
-                  }
-                },
-                {
-                  loader: "less-loader",
-                  options: {
-                    modifyVars: modifyVars
-                  }
-                }
-              ]
-            })*/
-            use: [MiniCssExtractPlugin.loader, { // webpack 4
+            use: [MiniCssExtractPlugin.loader, {
                 loader: "css-loader"
             }, {
                 loader: "less-loader",
@@ -136,18 +121,12 @@ module.exports = {
             use: {
                 loader: "url-loader",
                 options: {
-                    name: "[name].[hash:8].[ext]",
-                    limit: 8192
+                    name: "img/[name].[hash:8].[ext]",
+                    limit: 0,
+                    // publicPath: '//static-erpdemo.jchl.com'
                 }
             }
         }]
-    },
-    devServer: {
-        contentBase: "./dist/",
-        proxy: {
-            "/v1/*": "http://debug.aierp.cn:8085/",
-            "/share-oss/*": "http://debug.aierp.cn:8085/"
-        }
     },
     plugins: plugins
 };

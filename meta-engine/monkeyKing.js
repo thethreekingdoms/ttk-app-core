@@ -200,10 +200,7 @@ function metaToComponent(meta, props, data) {
                 }
                 allProps.key = allProps.appName
                 allProps.name = allProps.appName
-                console.log('1')
-                
-
-                return React.createElement(component, allProps);
+                return React.createElement(component, allProps)
             }
             // if (allProps && allProps.className == 'app-proof-of-charge') {
             // }

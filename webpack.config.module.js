@@ -11,9 +11,9 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 //const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 const webpackCompileParams = require('./webpackCompileParams')
-// const ExtractTextPlugin = require("extract-text-webpack-plugin") // webpack 3
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // webpack 4
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+const PublicPathWebpackPlugin = require('./plugins/public-path-webpack-plugin')
 
 var env = process.env.NODE_ENV
 var plugins = []
@@ -55,8 +55,6 @@ const { aliasModule } = webpackCompileParams()
 
 const argv = JSON.parse(process.env.npm_config_argv)
 let argName = null
-// console.log(process.env.npm_config_argv)
-// console.log(argv, argv.original)
 
 switch (argv.original[2]) {
     case '--edf': argName = 'edf'
@@ -92,6 +90,7 @@ let entryConfig = {
     [`${argName}OrangeTheme`]: `./apps/${argName}/theme/orange.less`,
     [`${argName}YellowTheme`]: `./apps/${argName}/theme/yellow.less`,
     [`${argName}BlueTheme`]: `./apps/${argName}/theme/blue.less`,
+    [`${argName}Tax72Theme`]: `./apps/${argName}/theme/tax72.less`,
 }
 
 
@@ -120,7 +119,7 @@ module.exports = {
             'edf-constant': path.resolve(projectRootPath, './global/edf-constant.js'),
             'eharts': path.resolve(projectRootPath, './vendor/echarts.min.js'),
             'zrender': path.resolve(projectRootPath, './vendor/zrender.min.js'),
-            'Theme': path.resolve(projectRootPath, './component/assets/theme')
+            'Theme': '@ttk/component/dist/theme'
         }, aliasModule)
     },
     externals: {
@@ -160,18 +159,11 @@ module.exports = {
             use: {
                 loader: 'url-loader',
                 options: {
-                    name: '[name].[hash:8].[ext]',
-                    limit: 8192
+                    name: 'img/[name].[hash:8].[ext]',
+                    limit: 0
                 }
             }
         }]
-    },
-    devServer: {
-        contentBase: './dist/',
-        proxy: {
-            '/v1/*': 'http://debug.aierp.cn:8085/',
-            '/share-oss/*': 'http://debug.aierp.cn:8085/',
-        }
     },
     optimization: {
         splitChunks: { // webpack 4
@@ -191,9 +183,6 @@ module.exports = {
                 }
             }
         },
-        // minimizer: [
-        //     new UglifyJsPlugin({})
-        // ],
         usedExports: true,
     },
     performance: {

@@ -1,0 +1,609 @@
+/* 样式缺少1 */
+.mk-app-tree-table-detail {
+  width : 100%;
+  height: 100%;
+
+  h2 {
+      /*margin-top : 20px;*/
+      border-bottom: 1px dotted #dedede;
+      font-size    : 16px;
+  }
+
+  &-form {
+      /*display      : flex;
+      flex-direction : column;*/
+      justify-content: center;
+      align-items    : center;
+      /* overflow    :hidden; */
+
+      .ant-form-item-label {
+          width  : 110px;
+          padding: 10px 0px;
+      }
+
+      .ant-form-explain {
+          margin-top: 5px;
+      }
+
+      .ant-form-item-control {
+          /* text-align: center */
+      }
+
+      .ant-form-item-control-wrapper {
+          width: 300px;
+      }
+
+      .mk-datepicker,
+      .mk-select {
+          width: 100%
+      }
+
+
+      .form-item {
+          float: left;
+          width: 50%;
+      }
+
+      .form-item2 {
+          float        : left;
+          width        : 100%;
+          margin-bottom: 15px;
+
+          textarea {
+              height: 60px;
+          }
+      }
+  }
+
+  .ttk-table-app-simplelist-form-table1,
+  .ttk-table-app-simplelist-form-table2 {
+      margin-top   : 10px;
+      margin-bottom: 15px;
+  }
+
+  .ant-select {
+      min-width: 100px;
+  }
+}
+
+.allRow2 {
+  max-width: 350% !important;
+  width    : 745px !important;
+}
+
+/* 样式缺少2 */
+.ttk-table-app-simplelist {
+  width : 100%;
+  height: 100%;
+
+  &-header {
+      /*height     : 50px;
+       flex        : 0 0 50px; 
+      padding      : 0 10px;*/
+      /* padding   :  0 !important; */
+      padding      : 10px;
+      background   : #fff;
+      border       : 1px solid #d9d9d9;
+      border-bottom: none;
+
+      &-left {
+          /* flex-direction:row;
+          align-items      :center; */
+          float            : left;
+
+          .mk-input {
+              width : 200px;
+              margin: 0px 10px 0px 5px;
+          }
+
+          .mk-select {
+              width : 100px;
+              margin: 0px 10px 0px 5px;
+          }
+
+          .ant-calendar-picker {
+              width : 230px;
+              margin: 0px 10px 0px 5px;
+          }
+      }
+
+      button {
+          margin-left: 10px;
+      }
+
+      &-right {
+          /* float  : right; */
+          text-align: right;
+
+      }
+  }
+
+  /* &-btn-box{
+      float         : right;
+          text-align: right;
+          button{
+              margin-left: 10px;
+          }
+  } */
+  .table-cell-text-left {
+      padding        : 0 5px;
+      justify-content: start;
+  }
+
+  .table-cell-text-right {
+      padding        : 0 5px;
+      justify-content: flex-end;
+  }
+
+  &-content {
+      flex: 1;
+
+      .mk-datagrid .public_fixedDataTable_main {
+          border-left: none;
+      }
+
+      .mk-datagrid .public_fixedDataTable_header .public_fixedDataTableCell_main {
+          background: #e4e4e4 !important;
+          color     : #333333;
+
+      }
+
+      .public_fixedDataTableCell_main {
+          .anticon-youcezhankailanmushezhi {
+              font-size : 28px;
+              cursor    : pointer;
+              margin-top: 4px;
+          }
+
+          /* a{
+                          margin-right: 10px;
+          } */
+      }
+
+      .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header {
+          background: #e4e4e4 !important;
+      }
+
+      .public_fixedDataTable_scrollbarSpacer {
+          top: 0px;
+      }
+  }
+
+  &-footer {
+      height         : 58px;
+      flex           : 0 0 58px;
+      justify-content: center;
+      align-items    : flex-end;
+  }
+}
+
+/* 原生表单 默认样式1 */
+.ttk-form-app-default {
+  width: 100%;
+
+  .ant-card-head {
+      border-bottom: 0;
+
+      .ant-card-head-title {
+          font-weight: 500;
+          font-size  : 21px;
+      }
+  }
+
+  .header {}
+
+  .content {
+      .mk-form {
+
+          .mk-form-item {
+              padding-right: 10px;
+
+              .ant-form-item-label {
+                  padding: 10px 0;
+                  flex   : 0 0 100px;
+                  width  : 100px;
+              }
+
+              .ant-form-item-control-wrapper {
+                  width  : 100%;
+                  padding: 10px 0;
+
+                  .ant-select {
+                      width: 100%
+                  }
+
+                  textarea {
+                      height: 60px;
+                  }
+              }
+
+              .ant-form-explain {
+                  margin-top: 5px;
+              }
+          }
+
+          .form-footer {
+              padding   : 10px 0;
+              text-align: center;
+              .ant-btn{
+                  margin-right: 10px;
+              }
+          }
+
+          .mk-form-item.label100 {
+              .ant-form-item-label {
+                  flex : 0 0 100px;
+                  width: 100px;
+              }
+          }
+
+          .mk-form-item.label110 {
+              .ant-form-item-label {
+                  flex : 0 0 110px;
+                  width: 110px;
+              }
+          }
+
+          .mk-form-item.label120 {
+              .ant-form-item-label {
+                  flex : 0 0 120px;
+                  width: 120px;
+              }
+          }
+
+          .mk-form-item.label130 {
+              .ant-form-item-label {
+                  flex : 0 0 130px;
+                  width: 130px;
+              }
+          }
+
+          .mk-form-item.label140 {
+              .ant-form-item-label {
+                  flex : 0 0 140px;
+                  width: 140px;
+              }
+          }
+
+          .mk-form-item.label150 {
+              .ant-form-item-label {
+                  flex : 0 0 150px;
+                  width: 150px;
+              }
+          }
+
+          .mk-form-item.label160 {
+              .ant-form-item-label {
+                  flex : 0 0 160px;
+                  width: 160px;
+              }
+          }
+
+          .mk-form-item.label170 {
+              .ant-form-item-label {
+                  flex : 0 0 170px;
+                  width: 170px;
+              }
+          }
+
+          .mk-form-item.label180 {
+              .ant-form-item-label {
+                  flex : 0 0 180px;
+                  width: 180px;
+              }
+          }
+      }
+  }
+
+  .footer {}
+}
+
+.admin-openapi-page-modal .ant-modal-body {
+  max-height: 650px;
+  overflow  : auto;
+}
+
+.mk-datagrid .fixedDataTableLayout_main {
+  border: 1px solid #d9d9d9 !important;
+}
+
+/* 图标 */
+.operate_icon {
+  font-size   : 24px;
+  color       : #5caae3;
+  cursor      : pointer;
+  margin-right: 4px;
+}
+
+.edfx-deptPers {
+  width         : 100%;
+  height        : 100%;
+  padding       : 10px;
+  flex-direction: row;
+
+  &-left {
+      width       : 200px;
+      flex        : 0 0 200px;
+      margin-right: 6px;
+
+      .mk-btn {
+          width    : 30px;
+          padding  : 0px;
+          font-size: 18px;
+      }
+
+      .ant-card-head {
+          border-radius  : 0px;
+          border         : 1px solid #d9d9d9;
+          //border-bottom: none;
+      }
+
+      .ant-card-body {
+          border    : 1px solid #d9d9d9;
+          border-top: none;
+          overflow-y: auto;
+
+          .ant-tree li .ant-tree-node-content-wrapper:hover {
+              background: @item-hover-bg;
+          }
+
+          .ant-tree li .ant-tree-node-selected.ant-tree-node-content-wrapper {
+              background-color: @primary-1;
+              color           : @primary-color;
+          }
+      }
+  }
+
+  &-content {
+      display         : flex;
+      flex            : auto;
+      overflow        : hidden;
+      background-color: #e9ecf2;
+      border-radius   : 0px;
+
+      .cellName:hover {
+          color: @link-color;
+      }
+
+      .mk-datagrid .public_fixedDataTable_main {
+          border-left: none;
+      }
+
+      .mk-datagrid .public_fixedDataTable_header .public_fixedDataTableCell_main {
+          background: #e4e4e4 !important;
+          color     : #333333;
+      }
+
+      .mk-datagrid .fixedDataTableLayout_rowsContainer .fixedDataTableRowLayout_rowWrapper .public_fixedDataTable_header {
+          background: #e4e4e4 !important;
+      }
+
+      .public_fixedDataTable_scrollbarSpacer {
+          top: 0px;
+      }
+
+      &-header {
+          display: flex;
+
+          &-more {
+              position     : relative;
+              right        : 10px;
+              border-radius: 0 4px 4px 0;
+              border-left  : 1px solid #eee;
+          }
+
+          .btn {
+              height     : 30px;
+              margin-left: 8px;
+              outline    : none;
+          }
+
+          .btnMarginRight {
+              margin-right: 4px;
+          }
+
+          .iconBtn {
+              height     : 30px;
+              width      : 30px;
+              padding    : 0;
+              margin-left: 8px;
+              outline    : none;
+              color      : #00B38A;
+
+              &:hover,
+              &:active {
+                  border-color: #00B38A;
+                  ;
+              }
+
+              &:focus {
+                  border-color: #d9d9d9;
+              }
+          }
+      }
+
+      .ant-card-head {
+          border-radius: 0px;
+          border       : 1px solid #d9d9d9;
+          border-bottom: none;
+      }
+
+      &-content {
+          border          : 1px solid #d9d9d9;
+          border-top      : none;
+          background-color: #ffffff;
+      }
+
+      &-footer {
+          flex-direction  : column-reverse;
+          background-color: #E9ECF2;
+          height          : 40px;
+          flex            : 0 0 40px !important;
+          align-items     : flex-end;
+          padding-top     : 10px;
+      }
+  }
+
+  .ant-card-body {
+      padding       : 0px !important;
+      flex          : 1;
+      display       : flex;
+      flex-direction: column;
+  }
+
+  .mk-card {
+      display       : flex;
+      flex-direction: column;
+
+      .ant-card-head {
+          padding: 0 10px;
+          flex   : 0 0 50px;
+      }
+
+  }
+
+  &-personModal {
+      .ant-modal-body {
+          /* height: 398px */
+      }
+
+      .ant-modal-content {
+          min-width: 720px;
+      }
+  }
+
+  &-deptModal {
+      .ant-modal-body {
+          height: 134px
+      }
+  }
+
+  &-tree {
+      .ant-tree-node-content-wrapper:hover {
+          background-color: @primary-1;
+          color           : @primary-color;
+      }
+
+      .ant-tree-title {
+          font-size: 12px;
+      }
+  }
+
+  // 树左贴近
+  &-treeNode {
+      padding: 0 0 0 24px !important;
+  }
+
+  .ant-tree li span.ant-tree-switcher,
+  .ant-tree li span.ant-tree-iconEle {
+      display: inline
+  }
+
+  .ant-tree li span.ant-tree-switcher.ant-tree-switcher_open:after {
+      font-size: 15px;
+      color    : #999999;
+  }
+
+  .ant-tree li span.ant-tree-switcher.ant-tree-switcher_close:after {
+      font-size: 15px;
+      color    : #999999;
+  }
+
+  //滚动条上部
+  .public_fixedDataTable_scrollbarSpacer {
+      top       : 0px;
+      background: #eaeaea;
+  }
+
+  a:hover {
+      text-decoration: underline;
+  }
+
+  //.edfx-deptPersNoBorder {
+  //    .ant-card-bordered {
+  //        border: none
+  //    }
+  //}
+}
+
+.edfx-deptPersNoBorder {
+  .ant-card-bordered {
+      border: none
+  }
+}
+
+.dictionary-manage {
+  flex-direction: row;
+}
+
+/* 样式缺少3 */
+.ttk-table-app-simplelist {
+  .header-filter {
+      margin-bottom: 10px;
+      margin-left  : 5px;
+  }
+
+}
+
+/* 解决弹窗 提示语出现后 导致纵向滚动条的问题 */
+.mk-app-tree-table-detail {
+  padding-bottom: 10px;
+}
+
+/* 隐藏弹窗ok按钮，因弹窗组件不支持单独隐藏 */
+.modal-modify-noOkBtn {
+  .ant-modal-footer {
+      .ant-btn-primary {
+          display: none;
+      }
+  }
+}
+
+/* 菜单图标垂直居中 */
+.leftNavMenu {
+  .iconfont {
+      vertical-align: middle !important;
+      margin-top    : -4px;
+      display       : inline-block;
+  }
+}
+
+/* 修正只读样式的灰色 */
+.mk-app-tree-table-detail {
+
+  .ant-checkbox-disabled+span,
+  .ant-radio-disabled+span,
+  .ant-select-disabled,
+  .ant-select-disabled,
+  textarea[disabled],
+  input[disabled] {
+      color: #666 !important;
+  }
+}
+
+
+/* 表格通用样式 */
+.mk-layout {
+
+  // 右上角过滤样式
+  .filters-wrap {
+      height          : 40px;
+      border          : 1px solid #d9d9d9 !important;
+      border-bottom   : 0;
+      background-color: #eaeaea;
+      text-align      : right;
+
+      .ant-input {
+          width : 300px;
+          margin: 4px;
+      }
+  }
+}
+
+/* 气泡卡片 */
+.ant-popover-inner-content {
+  .popover-inner {
+      padding         : 10px 20px;
+      background-color: #f8f8f8;
+  }
+}

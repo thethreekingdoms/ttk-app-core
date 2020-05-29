@@ -117,7 +117,7 @@ class action {
 
 
     forceUpdateMeta = (appName, meta) => {
-        setTimeout(() => {
+        this.metaAction.setTimeout(() => {
             this.metaAction.setMetaForce(appName, meta)
             const apps = this.metaAction.getAppInstances()
             const keys = Object.keys(apps)
@@ -131,7 +131,7 @@ class action {
     }
 
     forceUpdateState = (appName, state) => {
-        setTimeout(() => {
+        this.metaAction.setTimeout(() => {
             const apps = this.metaAction.getAppInstances()
             const keys = Object.keys(apps)
             keys.forEach(k => {

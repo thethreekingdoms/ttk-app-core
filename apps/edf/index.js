@@ -48,6 +48,7 @@ import ttk_edf_app_simple_portal from './ttk-edf-app-simple-portal'
 import ttk_edf_app_voucher from './ttk-edf-app-voucher'
 import ttk_edf_app_voucher_detail_setting from './ttk-edf-app-voucher/apps/ttk-edf-app-voucher-detail-setting'
 import ttk_edf_app_voucher_setting from './ttk-edf-app-voucher/apps/ttk-edf-app-voucher-setting'
+import ttk_edf_app_tax72_theme from './ttk-edf-app-tax72-theme'
 
 const obj = {
     [ttk_edf_app_card_account.name]: ttk_edf_app_card_account,
@@ -100,6 +101,7 @@ const obj = {
     [ttk_edf_app_voucher.name]: ttk_edf_app_voucher,
     [ttk_edf_app_voucher_detail_setting.name]: ttk_edf_app_voucher_detail_setting,
     [ttk_edf_app_voucher_setting.name]: ttk_edf_app_voucher_setting,
+    [ttk_edf_app_tax72_theme.name]: ttk_edf_app_tax72_theme,
 }
 
 window.publicModule && window.publicModule.callback(obj, "edf");

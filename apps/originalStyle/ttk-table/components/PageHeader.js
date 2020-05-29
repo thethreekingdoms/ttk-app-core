@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useActions, useCommit } from 'edf-app-loader'
-import { DateRangeMonthPicker, Layout, Radio, Row, Col } from 'edf-component'
+import { DateRangeMonthPicker, Layout, Radio, Row, Col, Form } from 'edf-component'
 import moment from 'moment'
 
 export const SearchHeader = React.memo(Header)
@@ -37,24 +37,29 @@ const Content = (props) => {
     commit([props, 'showState'], false)
   }
   return (
-    <Row className="header" gutter={[0, 0]}>
-      <Col span={5} >
-        <DateRangeMonthPicker
-          format="YYYY-MM"
-          allowClear={false}
-          startEnableDate="2019-01"
-          value={[moment(), moment()]}
-          onChange={handleChange}
-        />
-      </Col>
-      <Col span={7}>
-        <label>支付类型: </label>
-        <Radio.Group options={receiveOrPay} onChange={onReceiveOrPay} />
-      </Col>
-      <Col span={12}>
-        <label>收据状态: </label>
-        <Radio.Group options={voucherStatus} onChange={onVoucherStatus} />
-      </Col>
-    </Row>
+    <Form
+      layout="vertical"
+      className="ttk-search-container"
+    >
+      <Row className="header" gutter={[0, 0]}>
+        <Col span={5} >
+          <DateRangeMonthPicker
+            format="YYYY-MM"
+            allowClear={false}
+            startEnableDate="2019-01"
+            value={[moment(), moment()]}
+            onChange={handleChange}
+          />
+        </Col>
+        <Col span={7}>
+          <label>支付类型: </label>
+          <Radio.Group options={receiveOrPay} onChange={onReceiveOrPay} />
+        </Col>
+        <Col span={12}>
+          <label>收据状态: </label>
+          <Radio.Group options={voucherStatus} onChange={onVoucherStatus} />
+        </Col>
+      </Row>
+    </Form>
   )
 }
