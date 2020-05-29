@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "ttk-app-core",
   "version": "3.4.0",
   "description": "enterprise develop framework",
   "main": "index.js",
@@ -145,5 +145,13 @@
     "webpack-manifest-plugin": "2.0.2",
     "webpack-merge": "4.1.4",
     "webpack-parallel-uglify-plugin": "1.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thethreekingdoms/ttk-app-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thethreekingdoms/ttk-app-core/issues"
+  },
+  "homepage": "https://github.com/thethreekingdoms/ttk-app-core#readme"
 }
