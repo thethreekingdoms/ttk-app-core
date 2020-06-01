@@ -68,7 +68,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-  ttk-app-core的诞生离不开 [ziaochina](https://github.com/ziaochina/) 开源项目以及其他开源软件，再次感谢为ttk-app-core开源项目付出的组织及个人。
- 
-
 
