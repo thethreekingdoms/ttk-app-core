@@ -122,7 +122,7 @@
     "eslint-plugin-react": "7.5.1",
     "eslint-tinker": "0.4.0",
     "etool-build": "1.0.6",
-    "express": "4.16.3",
+    "express": "4.17.3",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "4.2.0",
     "happypack": "5.0.0",
